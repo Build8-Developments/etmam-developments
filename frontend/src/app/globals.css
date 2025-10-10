@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Color Palette */
+  --green-100: #DAEDD5;
+  --green-200: #8BD6B0;
+  --green-300: #BCDBB4;
+  --green-400: #79B669;
+  --primary: #90C054;
+  --green-600: #155A03;
+  --green-700: #104502;
+  --green-800: #0B2E02;
 }
 
 @theme inline {
@@ -10,6 +20,16 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Custom Colors */
+  --color-green-100: #DAEDD5;
+  --color-green-200: #8BD6B0;
+  --color-green-300: #BCDBB4;
+  --color-green-400: #79B669;
+  --color-primary: #90C054;
+  --color-green-600: #155A03;
+  --color-green-700: #104502;
+  --color-green-800: #0B2E02;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +42,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-almarai), Arial, Helvetica, sans-serif;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
 }
