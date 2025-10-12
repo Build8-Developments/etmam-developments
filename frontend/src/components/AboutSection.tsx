@@ -13,7 +13,7 @@ interface AboutProps {
     alternativeText: string;
   };
   secondaryImage?: {
-    url: string;
+    url: string; 
     alternativeText: string;
   };
   statNumber?: string;

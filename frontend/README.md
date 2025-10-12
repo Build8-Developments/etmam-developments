@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Etmam Frontend
 
-## Getting Started
+منصة خدمات تجارية وإدارية - الواجهة الأمامية
 
-First, run the development server:
+## المميزات
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- ✅ Next.js 15 مع App Router
+- ✅ TypeScript كامل
+- ✅ دعم اللغة العربية والإنجليزية
+- ✅ تصميم متجاوب (Responsive)
+- ✅ تحسين الأداء
+- ✅ كود منظم وقابل للصيانة
+
+## البنية المنظمة
+
+```
+frontend/
+├── public/images/          # صور منظمة في مجلدات فرعية
+├── src/
+│   ├── components/         # مكونات React
+│   ├── types/             # TypeScript types
+│   ├── constants/         # ترجمات وثوابت
+│   ├── utils/             # دوال مساعدة
+│   ├── hooks/             # Custom React hooks
+│   └── contexts/          # React contexts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## التشغيل السريع
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# تثبيت التبعيات
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# تشغيل في وضع التطوير
+npm run dev
 
-## Learn More
+# بناء المشروع
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## الملفات المهمة
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `DEVELOPER-GUIDE.md` - دليل شامل للمطورين
+- `src/constants/index.ts` - جميع الترجمات والثوابت
+- `src/types/index.ts` - TypeScript interfaces
+- `src/hooks/index.ts` - Custom React hooks
+- `src/utils/index.ts` - دوال مساعدة
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## المكونات الرئيسية
 
-## Deploy on Vercel
+- `Header` - شريط التنقل مع دعم اللغات
+- `HeroSection` - القسم الرئيسي
+- `CTASection` - قسم الدعوة للعمل
+- `AboutSection` - قسم من نحن
+- `ServicesSection` - قسم الخدمات
+- `Footer` - التذييل
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## دعم اللغات
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- العربية (RTL)
+- الإنجليزية (LTR)
+- تبديل سلس بين اللغات
+- حفظ اختيار اللغة في localStorage
+
+## الأداء
+
+- تحسين الصور مع Next.js Image
+- Lazy loading للمكونات
+- Debounce و Throttle للعمليات
+- تحسين bundle size
+
+---
+
+للمزيد من التفاصيل، راجع [دليل المطور](DEVELOPER-GUIDE.md) 📚

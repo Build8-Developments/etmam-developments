@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Almarai } from "next/font/google";
+import { Geist, Geist_Mono, Almarai, Outfit } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -19,6 +19,12 @@ const almarai = Almarai({
   weight: ["300", "400", "700", "800"],
 });
 
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Etmam - إتمام | خدماتك التجارية والإدارية",
   description: "من تأسيس الشركات إلى استخراج الرخص وإدارة أعمالك - Your Commercial and Administrative Services",
@@ -33,7 +39,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${almarai.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${almarai.variable} ${outfit.variable} antialiased`}
       >
         <LanguageProvider>
           {children}

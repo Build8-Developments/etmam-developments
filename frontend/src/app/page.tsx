@@ -1,10 +1,18 @@
 'use client';
 
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
+import { 
+  Header, 
+  Footer,
+  HeroSection,
+  AboutSection,
+  CTASection,
+  StatisticsSection,
+  PartnersSection,
+  ServicesSection,
+  ServicesCarouselSection,
+  HowItWorksSection,
+  BlogSection
+} from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
 // Uncomment when you want to fetch from Strapi
 // import { useEffect, useState } from "react";
@@ -81,6 +89,20 @@ export default function Home() {
         // bannerText={howItWorksData?.bannerText}
         // steps={howItWorksData?.steps}
       />
+      <StatisticsSection
+        // title={statisticsData?.title}
+        // stats={statisticsData?.stats}
+        // backgroundImage={statisticsData?.backgroundImage?.data?.attributes}
+      />
+      <ServicesCarouselSection
+        // title={carouselData?.title}
+        // description={carouselData?.description}
+        // services={carouselData?.services}
+      />
+      <BlogSection />
+      <CTASection />
+      <PartnersSection />
+      <Footer />
     </div>
   );
 }
