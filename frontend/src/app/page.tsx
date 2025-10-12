@@ -3,6 +3,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 // Uncomment when you want to fetch from Strapi
 // import { useEffect, useState } from "react";
@@ -43,7 +45,7 @@ export default function Home() {
   // }, [language]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Header 
         // logo={headerData?.logo?.data?.attributes}
         // navigationItems={headerData?.navigationItems}
@@ -65,6 +67,19 @@ export default function Home() {
         // image={aboutData?.image?.data?.attributes}
         // stats={aboutData?.stats}
         // ctaButton={aboutData?.ctaButton}
+      />
+      <ServicesSection
+        // title={servicesData?.title}
+        // description={servicesData?.description}
+        // services={servicesData?.services}
+        // ctaButton={servicesData?.ctaButton}
+      />
+      <HowItWorksSection
+        // title={howItWorksData?.title}
+        // description={howItWorksData?.description}
+        // personImage={howItWorksData?.personImage?.data?.attributes}
+        // bannerText={howItWorksData?.bannerText}
+        // steps={howItWorksData?.steps}
       />
     </div>
   );
