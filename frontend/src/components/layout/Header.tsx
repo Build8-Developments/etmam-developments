@@ -17,7 +17,7 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
     { label: getTranslation('navigation', 'about', language), href: '/about' },
     { label: getTranslation('navigation', 'legal', language), href: '/legal-services' },
     { label: getTranslation('navigation', 'consulting', language), href: '/consulting' },
-    { label: getTranslation('navigation', 'team', language), href: '/team' },
+    { label: getTranslation('navigation', 'offers', language), href: '/offers' },
     { label: getTranslation('navigation', 'blog', language), href: '/blog' },
     { label: getTranslation('navigation', 'packages', language), href: '/packages' },
   ];

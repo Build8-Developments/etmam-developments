@@ -8,7 +8,7 @@ export const TRANSLATIONS = {
     about: { ar: 'من نحن', en: 'About' },
     legal: { ar: 'خدمات قانونية', en: 'Legal Services' },
     consulting: { ar: 'خدمات استشارية', en: 'Consulting' },
-    team: { ar: 'فريق العمل', en: 'Team' },
+    offers: { ar: 'العروض', en: 'Offers' },
     blog: { ar: 'المدونة', en: 'Blog' },
     packages: { ar: 'الباقات', en: 'Packages' },
     contact: { ar: 'تواصل معنا', en: 'Contact Us' },

@@ -1,5 +1,12 @@
 {
   "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/blog/page": "/blog",
+  "/consulting/page": "/consulting",
+  "/contact/page": "/contact",
   "/favicon.ico/route": "/favicon.ico",
-  "/page": "/"
+  "/legal-services/page": "/legal-services",
+  "/packages/page": "/packages",
+  "/page": "/",
+  "/team/page": "/team"
 }
