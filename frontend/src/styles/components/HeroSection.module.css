@@ -1,0 +1,156 @@
+/* Hero Section Styles */
+.hero-section {
+  @apply relative flex items-center overflow-hidden min-h-[540px] md:min-h-[620px] lg:min-h-[684px] pt-28 md:pt-32;
+}
+
+.hero-background {
+  @apply absolute inset-0 z-0;
+}
+
+.hero-background-image {
+  @apply object-cover;
+}
+
+.hero-gradient {
+  @apply absolute inset-0 z-[1];
+  background: linear-gradient(94.78deg, rgba(22, 97, 19, 0.59) 17.73%, rgba(0, 0, 0, 0.7) 113.39%);
+}
+
+.hero-content {
+  @apply w-full px-4 sm:px-6 relative z-[2];
+}
+
+.hero-grid {
+  @apply grid lg:grid-cols-2 gap-8 lg:gap-12 items-center;
+}
+
+.hero-image-column {
+  @apply relative order-2 lg:order-2;
+}
+
+.hero-mobile-visual {
+  @apply relative mx-auto w-full max-w-[360px] h-[340px] sm:max-w-[420px] sm:h-[400px] lg:hidden;
+}
+
+.hero-ellipse-mobile {
+  @apply object-contain;
+}
+
+.hero-person-container-mobile {
+  @apply absolute inset-0 flex items-end justify-center p-2;
+}
+
+.hero-person-image-mobile {
+  @apply relative w-[78%] h-[88%] rounded-[48px] overflow-hidden;
+}
+
+.hero-person-mobile {
+  @apply object-contain object-bottom;
+}
+
+.hero-small-card-mobile {
+  @apply absolute -left-2 top-1/2 -translate-y-1/2 w-[96px] h-[105px] rounded-xl overflow-hidden shadow-md bg-white;
+}
+
+.hero-desktop-visual {
+  @apply relative w-full max-w-[583px] h-[523.1768px] mx-auto hidden lg:block;
+}
+
+.hero-ellipse-stroke {
+  @apply absolute rounded-full;
+  width: 521.8856px;
+  height: 506.00177px;
+  top: 17.18px;
+  left: 61.11px;
+  opacity: 0.5;
+  border-radius: 14.17px;
+  border-width: 0.94px;
+  border-style: solid;
+  border-color: #A8A8A8;
+}
+
+.hero-ellipse-desktop {
+  @apply absolute;
+  width: 449.5132px;
+  height: 435.83203px;
+  top: 67.07px;
+  left: 82.02px;
+}
+
+.hero-person-desktop {
+  @apply absolute;
+  top: 0;
+  left: 170px;
+}
+
+.hero-person-image-desktop {
+  @apply relative w-[283px] h-[501px] rounded-[102px] overflow-hidden;
+}
+
+.hero-person-main {
+  @apply object-cover object-bottom;
+}
+
+.hero-icon-circle {
+  @apply absolute rounded-full bg-white shadow-md flex items-center justify-center;
+  width: 59.125px;
+  height: 61.8955078125px;
+  top: 226.34px;
+  left: 496.38px;
+}
+
+.hero-icon {
+  @apply object-contain;
+  width: 28px;
+  height: 28px;
+}
+
+.hero-small-card-desktop {
+  @apply absolute;
+  top: 197.28px;
+  left: 0;
+}
+
+.hero-small-card-content {
+  @apply w-[132.228px] h-[145.017px] rounded-2xl border border-white/80 overflow-hidden shadow-lg bg-white;
+}
+
+.hero-text-column {
+  @apply order-1 lg:order-1 text-white;
+}
+
+.hero-text-column.rtl {
+  @apply text-right;
+}
+
+.hero-text-column.ltr {
+  @apply text-left;
+}
+
+.hero-title {
+  @apply font-extrabold text-[34px] leading-[56px] md:text-[44px] md:leading-[64px] lg:text-[53px] lg:leading-[90px];
+}
+
+.hero-subtitle {
+  @apply font-extrabold text-[30px] leading-[48px] md:text-[40px] md:leading-[60px] lg:text-[53px] lg:leading-[75px];
+}
+
+.hero-heading {
+  @apply mb-2 text-primary font-extrabold text-[22px] leading-[36px] md:text-[28px] md:leading-[44px] lg:text-[32px] lg:leading-[48px];
+}
+
+.hero-description {
+  @apply mb-8 max-w-[563px] text-white/90 text-[16px] leading-7 md:text-[20px] md:leading-8 lg:text-[24px] lg:leading-10;
+}
+
+.hero-buttons {
+  @apply flex flex-wrap gap-3 sm:gap-4;
+}
+
+.hero-primary-button {
+  @apply bg-primary hover:bg-green-600 text-white font-semibold transition-colors shadow-lg hover:shadow-xl inline-flex items-center justify-center rounded-[37px] px-7 py-[13px] md:px-8 md:py-[14px] lg:px-9 lg:py-[15px];
+}
+
+.hero-secondary-button {
+  @apply bg-transparent text-white font-semibold transition-all inline-flex items-center justify-center rounded-[37px] border border-white px-7 py-[13px] md:px-8 md:py-[14px] lg:px-9 lg:py-[15px];
+}

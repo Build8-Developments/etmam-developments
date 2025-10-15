@@ -147,8 +147,9 @@ build
 /coverage
 
 # next.js
-/.next/
+.next/
 /out/
+./next/
 
 # production
 /build

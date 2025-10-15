@@ -1,0 +1,264 @@
+/* How It Works Section Styles */
+.howItWorksSection {
+  padding: 5rem 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.howItWorksContainer {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .howItWorksContainer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .howItWorksContainer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.headerTitle {
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-almarai);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.headerDescription {
+  color: #4b5563;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-almarai);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.mainContent {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .mainContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+.imageColumn {
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .imageColumn {
+    order: 2;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.greenFrame {
+  position: relative;
+  border-radius: 1.5rem;
+  width: 381px;
+  height: 389px;
+  background: radial-gradient(94.62% 124.56% at 40.95% -10.45%, #FFFFFF 44.28%, rgba(17, 97, 58, 0.17) 97.64%);
+  border: 2px solid #11613A;
+  border-radius: 24px;
+  box-shadow: 3.12px 9.37px 21.85px 0px rgba(0, 0, 0, 0.06);
+}
+
+.personImageContainer {
+  position: absolute;
+  top: -118px;
+  left: -159px;
+}
+
+.personImage {
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+.bannerContainer {
+  position: absolute;
+  background-color: #15803d;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  bottom: -20px;
+  right: 20px;
+  border-radius: 8px;
+}
+
+.bannerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.bannerIcon {
+  background-color: #22c55e;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.bannerIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: white;
+}
+
+.bannerText {
+  color: white;
+  font-weight: 600;
+  font-family: var(--font-almarai);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.stepsColumn {
+  order: 1;
+}
+
+@media (min-width: 1024px) {
+  .stepsColumn {
+    order: 1;
+  }
+}
+
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.stepItem.rtl {
+  flex-direction: row;
+  direction: rtl;
+}
+
+.stepItem.ltr {
+  flex-direction: row;
+  direction: ltr;
+}
+
+.stepNumberContainer {
+  flex-shrink: 0;
+}
+
+.stepNumberCircle {
+  background-color: #15803d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 56px;
+  height: 56px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: var(--font-almarai);
+}
+
+.stepNumberCircle.rtl {
+  direction: rtl;
+  text-align: center;
+}
+
+.stepNumberCircle.ltr {
+  direction: ltr;
+  text-align: center;
+}
+
+.connectingLine {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  opacity: 0.6;
+  width: 2px;
+  height: 48px;
+  background: linear-gradient(to bottom, #11613A, #11613A);
+  border-style: dashed;
+  border-width: 0 0 2px 0;
+  border-color: #11613A;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-weight: bold;
+  color: #15803d;
+  margin-bottom: 1rem;
+  font-family: var(--font-almarai);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.stepTitle.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.stepTitle.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.stepDescription {
+  color: #4b5563;
+  font-family: var(--font-almarai);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.stepDescription.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.stepDescription.ltr {
+  direction: ltr;
+  text-align: left;
+}

@@ -13,7 +13,7 @@ interface AboutProps {
     alternativeText: string;
   };
   secondaryImage?: {
-    url: string;
+    url: string; 
     alternativeText: string;
   };
   statNumber?: string;
@@ -70,8 +70,8 @@ export default function AboutSection({
   ];
 
   const defaultCTA = {
-    label: language === 'ar' ? 'عرض المزيد' : 'Show More',
-    href: '/about',
+    label: language === 'ar' ? 'اكتشف خدماتنا' : 'Discover Our Services',
+    href: '/services',
   };
 
   const displayFeatures = features || defaultFeatures;

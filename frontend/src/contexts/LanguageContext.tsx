@@ -1,52 +1,16 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-
-type Language = 'en' | 'ar';
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  isRTL: boolean;
-}
+import { createContext, useContext, ReactNode } from 'react';
+import { Language, LanguageContextType } from '@/types';
+import { useLanguage as useLanguageHook } from '@/hooks';
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Always start with 'ar' to match SSR; read localStorage after mount
-  const [language, setLanguageState] = useState<Language>('ar');
-
-  useEffect(() => {
-    // Set HTML dir attribute
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = language;
-  }, [language]);
-
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    if (typeof window !== 'undefined') {
-      window.localStorage.setItem('language', lang);
-    }
-  };
-
-  // After hydration, load any saved language and apply it
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem('language') as Language | null;
-      if (saved === 'en' || saved === 'ar') {
-        setLanguageState(saved);
-      }
-    } catch {}
-  }, []);
+  const languageContext = useLanguageHook();
 
   return (
-    <LanguageContext.Provider
-      value={{
-        language,
-        setLanguage,
-        isRTL: language === 'ar',
-      }}
-    >
+    <LanguageContext.Provider value={languageContext}>
       {children}
     </LanguageContext.Provider>
   );
