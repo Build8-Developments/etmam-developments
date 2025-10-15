@@ -147,9 +147,10 @@ build
 /coverage
 
 # next.js
-.next/
+.next
 /out/
-./next/
+/frontend/.next/
+/frontend/next/
 
 # production
 /build
