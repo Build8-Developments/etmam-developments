@@ -1,5 +1,5 @@
-import { useQuery } from '@apollo/client/react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useQuery } from "@apollo/client/react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   GET_HEADER_QUERY,
   GET_FOOTER_QUERY,
@@ -20,297 +20,367 @@ import {
   GET_CONTACT_INFO_QUERY,
   GET_FAQ_QUERY,
   GET_CONSULTATION_QUERY,
-  GET_SEO_QUERY
-} from '@/lib/queries';
+  GET_SEO_QUERY,
+} from "@/lib/queries";
+import type {
+  HeaderQueryResponse,
+  FooterQueryResponse,
+  HeroQueryResponse,
+  HomeAboutQueryResponse,
+  StatisticsQueryResponse,
+  PartnersQueryResponse,
+  CTAQueryResponse,
+  ServicesQueryResponse,
+  ServiceDetailQueryResponse,
+  HowItWorksQueryResponse,
+  AboutQueryResponse,
+  LeadershipQueryResponse,
+  SuccessFoundationQueryResponse,
+  WhyChooseQueryResponse,
+  BlogPostsQueryResponse,
+  BlogPostQueryResponse,
+  ContactInfoQueryResponse,
+  FAQQueryResponse,
+  ConsultationQueryResponse,
+  SEOQueryResponse,
+} from "@/types";
 
 // Layout Hooks
 export const useHeader = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_HEADER_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<HeaderQueryResponse>(
+    GET_HEADER_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.header?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 export const useFooter = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_FOOTER_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<FooterQueryResponse>(
+    GET_FOOTER_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.footer?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 // Home Page Hooks
 export const useHero = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_HERO_QUERY, {
+  const { data, loading, error } = useQuery<HeroQueryResponse>(GET_HERO_QUERY, {
     variables: { locale: language },
-    errorPolicy: 'all'
+    errorPolicy: "all",
   });
-  
+
   return {
     data: data?.hero?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 export const useHomeAbout = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_HOME_ABOUT_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<HomeAboutQueryResponse>(
+    GET_HOME_ABOUT_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.homeAbout?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 export const useStatistics = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_STATISTICS_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<StatisticsQueryResponse>(
+    GET_STATISTICS_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.statistics?.data?.attributes?.statistics,
     loading,
-    error
+    error,
   };
 };
 
 export const usePartners = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_PARTNERS_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<PartnersQueryResponse>(
+    GET_PARTNERS_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.partners?.data?.attributes?.partners,
     loading,
-    error
+    error,
   };
 };
 
 export const useCTA = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_CTA_QUERY, {
+  const { data, loading, error } = useQuery<CTAQueryResponse>(GET_CTA_QUERY, {
     variables: { locale: language },
-    errorPolicy: 'all'
+    errorPolicy: "all",
   });
-  
+
   return {
     data: data?.cta?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 // Services Hooks
 export const useServices = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_SERVICES_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<ServicesQueryResponse>(
+    GET_SERVICES_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.services?.data?.attributes?.services,
     loading,
-    error
+    error,
   };
 };
 
 export const useServiceDetail = (id: string) => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_SERVICE_DETAIL_QUERY, {
-    variables: { id, locale: language },
-    errorPolicy: 'all',
-    skip: !id
-  });
-  
+  const { data, loading, error } = useQuery<ServiceDetailQueryResponse>(
+    GET_SERVICE_DETAIL_QUERY,
+    {
+      variables: { id, locale: language },
+      errorPolicy: "all",
+      skip: !id,
+    }
+  );
+
   return {
     data: data?.service?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 export const useHowItWorks = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_HOW_IT_WORKS_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<HowItWorksQueryResponse>(
+    GET_HOW_IT_WORKS_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.howItWorks?.data?.attributes?.steps,
     loading,
-    error
+    error,
   };
 };
 
 // About Page Hooks
 export const useAbout = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_ABOUT_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<AboutQueryResponse>(
+    GET_ABOUT_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.about?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 export const useLeadership = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_LEADERSHIP_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<LeadershipQueryResponse>(
+    GET_LEADERSHIP_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.leadership?.data?.attributes?.members,
     loading,
-    error
+    error,
   };
 };
 
 export const useSuccessFoundation = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_SUCCESS_FOUNDATION_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<SuccessFoundationQueryResponse>(
+    GET_SUCCESS_FOUNDATION_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.successFoundation?.data?.attributes?.stories,
     loading,
-    error
+    error,
   };
 };
 
 export const useWhyChoose = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_WHY_CHOOSE_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<WhyChooseQueryResponse>(
+    GET_WHY_CHOOSE_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.whyChoose?.data?.attributes?.items,
     loading,
-    error
+    error,
   };
 };
 
 // Blog Hooks
 export const useBlogPosts = (limit?: number, start?: number) => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_BLOG_POSTS_QUERY, {
-    variables: { locale: language, limit, start },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<BlogPostsQueryResponse>(
+    GET_BLOG_POSTS_QUERY,
+    {
+      variables: { locale: language, limit, start },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.blogPosts?.data,
     meta: data?.blogPosts?.meta,
     loading,
-    error
+    error,
   };
 };
 
 export const useBlogPost = (slug: string) => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_BLOG_POST_QUERY, {
-    variables: { slug, locale: language },
-    errorPolicy: 'all',
-    skip: !slug
-  });
-  
+  const { data, loading, error } = useQuery<BlogPostQueryResponse>(
+    GET_BLOG_POST_QUERY,
+    {
+      variables: { slug, locale: language },
+      errorPolicy: "all",
+      skip: !slug,
+    }
+  );
+
   return {
     data: data?.blogPosts?.data?.[0]?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 // Contact Hooks
 export const useContactInfo = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_CONTACT_INFO_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<ContactInfoQueryResponse>(
+    GET_CONTACT_INFO_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.contactInfo?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 // FAQ Hooks
 export const useFAQ = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_FAQ_QUERY, {
+  const { data, loading, error } = useQuery<FAQQueryResponse>(GET_FAQ_QUERY, {
     variables: { locale: language },
-    errorPolicy: 'all'
+    errorPolicy: "all",
   });
-  
+
   return {
     data: data?.faqs?.data,
     loading,
-    error
+    error,
   };
 };
 
 // Consultation Hooks
 export const useConsultation = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_CONSULTATION_QUERY, {
-    variables: { locale: language },
-    errorPolicy: 'all'
-  });
-  
+  const { data, loading, error } = useQuery<ConsultationQueryResponse>(
+    GET_CONSULTATION_QUERY,
+    {
+      variables: { locale: language },
+      errorPolicy: "all",
+    }
+  );
+
   return {
     data: data?.consultation?.data?.attributes,
     loading,
-    error
+    error,
   };
 };
 
 // SEO Hooks
 export const useSEO = (page: string) => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_SEO_QUERY, {
+  const { data, loading, error } = useQuery<SEOQueryResponse>(GET_SEO_QUERY, {
     variables: { locale: language, page },
-    errorPolicy: 'all'
+    errorPolicy: "all",
   });
-  
+
   return {
     data: data?.seo?.data?.[0]?.attributes,
     loading,
-    error
+    error,
   };
 };

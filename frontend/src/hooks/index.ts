@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
-import { Language } from '@/types';
+import { useState, useEffect, useCallback } from "react";
+import { Language } from "@/types";
 
 // Export GraphQL hooks
-export * from './useGraphQL';
+export * from "./useGraphQL";
 
 /**
  * Custom hook for managing scroll position
@@ -15,10 +15,10 @@ export const useScrollPosition = () => {
       setScrollPosition(window.pageYOffset);
     };
 
-    window.addEventListener('scroll', updatePosition);
+    window.addEventListener("scroll", updatePosition);
     updatePosition();
 
-    return () => window.removeEventListener('scroll', updatePosition);
+    return () => window.removeEventListener("scroll", updatePosition);
   }, []);
 
   return scrollPosition;
@@ -29,8 +29,8 @@ export const useScrollPosition = () => {
  */
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
-    width: typeof window !== 'undefined' ? window.innerWidth : 0,
-    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+    width: typeof window !== "undefined" ? window.innerWidth : 0,
+    height: typeof window !== "undefined" ? window.innerHeight : 0,
   });
 
   useEffect(() => {
@@ -41,8 +41,8 @@ export const useWindowSize = () => {
       });
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return windowSize;
@@ -55,7 +55,7 @@ export const useMobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = useCallback(() => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   }, []);
 
   const close = useCallback(() => {
@@ -69,30 +69,30 @@ export const useMobileMenu = () => {
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
   // Close menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         close();
       }
     };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
+      document.addEventListener("keydown", handleEscape);
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [isOpen, close]);
 
@@ -108,13 +108,13 @@ export const useMobileMenu = () => {
  * Custom hook for managing language with localStorage persistence
  */
 export const useLanguage = () => {
-  const [language, setLanguageState] = useState<Language>('ar');
+  const [language, setLanguageState] = useState<Language>("ar");
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('language', lang);
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    if (typeof window !== "undefined") {
+      localStorage.setItem("language", lang);
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
       document.documentElement.lang = lang;
     }
   }, []);
@@ -122,10 +122,10 @@ export const useLanguage = () => {
   // Load saved language on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('language') as Language | null;
-      if (saved === 'en' || saved === 'ar') {
+      const saved = localStorage.getItem("language") as Language | null;
+      if (saved === "en" || saved === "ar") {
         setLanguageState(saved);
-        document.documentElement.dir = saved === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.dir = saved === "ar" ? "rtl" : "ltr";
         document.documentElement.lang = saved;
       }
     } catch {
@@ -136,7 +136,7 @@ export const useLanguage = () => {
   return {
     language,
     setLanguage,
-    isRTL: language === 'ar',
+    isRTL: language === "ar",
   };
 };
 
@@ -155,7 +155,7 @@ export const useIntersectionObserver = (
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
+        if (entry) setIsIntersecting(entry.isIntersecting);
       },
       {
         threshold: 0.1,
@@ -180,16 +180,19 @@ export const useForm = <T extends Record<string, any>>(initialValues: T) => {
   const [values, setValues] = useState<T>(initialValues);
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
 
-  const setValue = useCallback((name: keyof T, value: any) => {
-    setValues(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  }, [errors]);
+  const setValue = useCallback(
+    (name: keyof T, value: any) => {
+      setValues((prev) => ({ ...prev, [name]: value }));
+      // Clear error when user starts typing
+      if (errors[name]) {
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+      }
+    },
+    [errors]
+  );
 
   const setError = useCallback((name: keyof T, error: string) => {
-    setErrors(prev => ({ ...prev, [name]: error }));
+    setErrors((prev) => ({ ...prev, [name]: error }));
   }, []);
 
   const reset = useCallback(() => {
