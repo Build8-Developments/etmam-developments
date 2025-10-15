@@ -3,7 +3,10 @@
 import { 
   Header, 
   Footer,
-  CTASection
+  CTASection,
+  ConsultationSection,
+  FAQSection,
+  PartnersSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -239,8 +242,17 @@ export default function PackagesPage() {
         </div>
       </section>
 
+      {/* Consultation Section */}
+      <ConsultationSection />
+      
+      {/* FAQ Section */}
+      <FAQSection />
+      
       {/* CTA Section */}
       <CTASection />
+      
+      {/* Partners Section */}
+      <PartnersSection />
       
       <Footer />
     </div>

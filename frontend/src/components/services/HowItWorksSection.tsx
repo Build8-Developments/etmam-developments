@@ -49,22 +49,22 @@ export default function HowItWorksSection({
       number: 1,
       title: language === 'ar' ? 'اختر الخدمة' : 'Choose the Service',
       description: language === 'ar' 
-        ? 'تصفح باقة خدماتنا المتنوعة التي تشمل تأسيس الشركات، التراخيص، والإدارة. اختر الخدمة الأنسب لاحتياجاتك بثقة، مع شرح واضح لكل خدمة يساعدك في اتخاذ القرار الصحيح.'
-        : 'Browse our diverse range of services including company formation, licenses, and management. Choose the most suitable service for your needs with confidence, with a clear explanation for each service to help you make the right decision.',
+        ? 'تصفح خدماتنا المتنوعة من الخدمات القانونية والاستشارية. اختر الخدمة الأنسب لاحتياجاتك من صفحة الخدمات الرئيسية.'
+        : 'Browse our diverse range of legal and consulting services. Choose the most suitable service for your needs from our main services page.',
     },
     {
       number: 2,
       title: language === 'ar' ? 'قدم طلبك أونلاين' : 'Submit Your Request Online',
       description: language === 'ar'
-        ? 'املأ النموذج الإلكتروني المخصص بخطوات سهلة وبسيطة، وأرسل طلبك مباشرة عبر الموقع دون الحاجة لزيارة المكتب أو التعامل مع أوراق معقدة. فريقنا جاهز لمراجعة طلبك فور استلامه.'
-        : 'Fill out the dedicated electronic form with easy and simple steps, and send your request directly through the website without the need to visit the office or deal with complex paperwork. Our team is ready to review your request immediately upon receipt.',
+        ? 'املأ النموذج الإلكتروني المخصص بخطوات سهلة وبسيطة، وأرسل طلبك مباشرة عبر الموقع دون الحاجة لزيارة المكتب أو التعامل مع أوراق معقدة.'
+        : 'Fill out the dedicated electronic form with easy and simple steps, and send your request directly through the website without the need to visit the office or deal with complex paperwork.',
     },
     {
       number: 3,
       title: language === 'ar' ? 'إتمام التنفيذ' : 'Complete Execution',
       description: language === 'ar'
-        ? 'بعد استلام الطلب، يباشر فريقنا المختص بمتابعة وتنفيذ جميع الإجراءات بسرعة واحترافية. نحرص على إبقائك على اطلاع بكل مرحلة حتى استلام خدمتك مكتملة بالشكل الذي يلبي توقعاتك.'
-        : 'After receiving the request, our specialized team will promptly and professionally follow up and execute all procedures. We ensure to keep you informed at every stage until you receive your service fully completed in a way that meets your expectations.',
+        ? 'بعد استلام الطلب، يباشر فريقنا المختص بمتابعة وتنفيذ جميع الإجراءات بسرعة واحترافية. نحرص على إبقائك على اطلاع بكل مرحلة.'
+        : 'After receiving the request, our specialized team will promptly and professionally follow up and execute all procedures. We ensure to keep you informed at every stage.',
     },
   ];
 

@@ -13,15 +13,22 @@ export { default as PartnersSection } from './home/PartnersSection';
 export { default as ServicesSection } from './services/ServicesSection';
 export { default as ServicesCarouselSection } from './services/ServicesCarouselSection';
 export { default as HowItWorksSection } from './services/HowItWorksSection';
+export { ServiceCard } from './services/ServiceCard';
+export { default as ServiceDetailPage } from './services/ServiceDetailPage';
+export { ServicesGrid } from './services/ServicesGrid';
 
 // Blog Components
 export { default as BlogSection } from './blog/BlogSection';
 
-// Common Components (to be added)
+// Consultation Components
+export { ConsultationSection } from './ConsultationSection';
+export { FAQSection } from './FAQSection';
+
+// Common Components (to be added when needed)
 // export { default as Button } from './common/Button';
 // export { default as Card } from './common/Card';
 // export { default as Modal } from './common/Modal';
 
-// UI Components (to be added)
+// UI Components (to be added when needed)
 // export { default as LoadingSpinner } from './ui/LoadingSpinner';
 // export { default as Toast } from './ui/Toast';

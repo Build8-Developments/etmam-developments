@@ -4,7 +4,10 @@ import {
   Header, 
   Footer,
   AboutSection,
-  CTASection
+  CTASection,
+  ConsultationSection,
+  FAQSection,
+  PartnersSection
 } from '@/components';
 import { SuccessFoundationSection, LeadershipSection, WhyChooseSection } from '@/components/about';
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -148,8 +151,17 @@ export default function AboutPage() {
       {/* Statistics Section */}
      
       
+      {/* Consultation Section */}
+      <ConsultationSection />
+      
+      {/* FAQ Section */}
+      <FAQSection />
+      
       {/* CTA Section */}
       <CTASection />
+      
+      {/* Partners Section */}
+      <PartnersSection />
       
       <Footer />
     </div>

@@ -3,7 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "description": "Etmam - منصة خدمات تجارية وإدارية - الواجهة الأمامية",
-  "keywords": ["etmam", "business", "services", "arabic", "nextjs", "typescript"],
+  "keywords": [
+    "etmam",
+    "business",
+    "services",
+    "arabic",
+    "nextjs",
+    "typescript"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
@@ -30,6 +37,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
+    "sharp": "^0.34.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

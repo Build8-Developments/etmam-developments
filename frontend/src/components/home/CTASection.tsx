@@ -70,7 +70,7 @@ const CTASection: React.FC<CTASectionProps> = ({
 
               {/* Button */}
               <Link
-                href="/contact"
+                href="/services"
                 className={`inline-flex items-center justify-center bg-white text-green-700 font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ${isRTL ? 'mr-2 sm:mr-4 lg:mr-8 ml-8 sm:ml-12 lg:ml-16' : 'ml-2 sm:ml-4 lg:ml-8'}`}
                 style={{
                   width: 'clamp(120px, 25vw, 180px)',

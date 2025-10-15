@@ -1,11 +1,12 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/about/page": "app/about/page.js",
+  "/blog/[id]/page": "app/blog/[id]/page.js",
   "/blog/page": "app/blog/page.js",
   "/consulting/page": "app/consulting/page.js",
-  "/legal-services/page": "app/legal-services/page.js",
+  "/legalservices/page": "app/legalservices/page.js",
   "/offers/page": "app/offers/page.js",
   "/packages/page": "app/packages/page.js",
   "/page": "app/page.js",
-  "/team/page": "app/team/page.js"
+  "/services/page": "app/services/page.js"
 }

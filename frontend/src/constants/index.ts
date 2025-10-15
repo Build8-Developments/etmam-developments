@@ -6,6 +6,7 @@ export const TRANSLATIONS = {
   navigation: {
     home: { ar: 'الرئيسية', en: 'Home' },
     about: { ar: 'من نحن', en: 'About' },
+    services: { ar: 'الخدمات', en: 'Services' },
     legal: { ar: 'خدمات قانونية', en: 'Legal Services' },
     consulting: { ar: 'خدمات استشارية', en: 'Consulting' },
     offers: { ar: 'العروض', en: 'Offers' },

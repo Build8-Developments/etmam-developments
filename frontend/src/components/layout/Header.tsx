@@ -15,7 +15,7 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
   const defaultNavItems = [
     { label: getTranslation('navigation', 'home', language), href: '/' },
     { label: getTranslation('navigation', 'about', language), href: '/about' },
-    { label: getTranslation('navigation', 'legal', language), href: '/legal-services' },
+    { label: getTranslation('navigation', 'legal', language), href: '/legalservices' },
     { label: getTranslation('navigation', 'consulting', language), href: '/consulting' },
     { label: getTranslation('navigation', 'offers', language), href: '/offers' },
     { label: getTranslation('navigation', 'blog', language), href: '/blog' },

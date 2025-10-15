@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Language } from '@/types';
 
+// Export GraphQL hooks
+export * from './useGraphQL';
+
 /**
  * Custom hook for managing scroll position
  */
