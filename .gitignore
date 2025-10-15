@@ -149,7 +149,8 @@ build
 # next.js
 .next
 /out/
-./next/
+/frontend/.next/
+/frontend/next/
 
 # production
 /build
