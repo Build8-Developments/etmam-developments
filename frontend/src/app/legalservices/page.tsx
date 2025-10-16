@@ -11,79 +11,18 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { legalServicesPageContent, legalCompanies } from '@/mockData/pages';
 
 export default function LegalServicesPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
-
-  const companies = [
-    {
-      id: 'ministry-industry',
-      name: language === 'ar' ? 'وزارة الصناعة والثروة المعدنية' : 'Ministry of Industry and Mineral Resources',
-      description: language === 'ar' 
-        ? 'استكشف 11 خدمة تقدمها وزارة الصناعة والثروة المعدنية، نحن نقدم دعمًا شاملاً لجميع احتياجاتك'
-        : 'Explore 11 services offered by the Ministry of Industry and Mineral Resources, we provide comprehensive support for all your needs',
-      logo: '/images/logos/logo.png',
-      servicesCount: 11,
-      isHighlighted: true
-    },
-    {
-      id: 'ministry-commerce',
-      name: language === 'ar' ? 'وزارة التجارة' : 'Ministry of Commerce',
-      description: language === 'ar'
-        ? 'استكشف 10 خدمات تقدمها وزارة التجارة، نحن نقدم دعمًا شاملاً لجميع احتياجاتك التجارية'
-        : 'Explore 10 services offered by the Ministry of Commerce, we provide comprehensive support for all your commercial needs',
-      logo: '/images/logos/logo.png',
-      servicesCount: 10,
-      isHighlighted: false
-    },
-    {
-      id: 'ministry-finance',
-      name: language === 'ar' ? 'وزارة المالية' : 'Ministry of Finance',
-      description: language === 'ar'
-        ? 'استكشف 8 خدمات تقدمها وزارة المالية، نحن نقدم دعمًا شاملاً لجميع احتياجاتك المالية'
-        : 'Explore 8 services offered by the Ministry of Finance, we provide comprehensive support for all your financial needs',
-      logo: '/images/logos/logo.png',
-      servicesCount: 8,
-      isHighlighted: false
-    },
-    {
-      id: 'ministry-labor',
-      name: language === 'ar' ? 'وزارة الموارد البشرية والتنمية الاجتماعية' : 'Ministry of Human Resources and Social Development',
-      description: language === 'ar'
-        ? 'استكشف 12 خدمة تقدمها وزارة الموارد البشرية، نحن نقدم دعمًا شاملاً لجميع احتياجاتك الإدارية'
-        : 'Explore 12 services offered by the Ministry of Human Resources, we provide comprehensive support for all your administrative needs',
-      logo: '/images/logos/logo.png',
-      servicesCount: 12,
-      isHighlighted: false
-    },
-    {
-      id: 'ministry-health',
-      name: language === 'ar' ? 'وزارة الصحة' : 'Ministry of Health',
-      description: language === 'ar'
-        ? 'استكشف 9 خدمات تقدمها وزارة الصحة، نحن نقدم دعمًا شاملاً لجميع احتياجاتك الصحية'
-        : 'Explore 9 services offered by the Ministry of Health, we provide comprehensive support for all your health needs',
-      logo: '/images/logos/logo.png',
-      servicesCount: 9,
-      isHighlighted: false
-    },
-    {
-      id: 'ministry-education',
-      name: language === 'ar' ? 'وزارة التعليم' : 'Ministry of Education',
-      description: language === 'ar'
-        ? 'استكشف 7 خدمات تقدمها وزارة التعليم، نحن نقدم دعمًا شاملاً لجميع احتياجاتك التعليمية'
-        : 'Explore 7 services offered by the Ministry of Education, we provide comprehensive support for all your educational needs',
-      logo: '/images/logos/logo.png',
-      servicesCount: 7,
-      isHighlighted: false
-    }
-  ];
+  const content = legalServicesPageContent;
 
   // Filter companies based on search term
-  const filteredCompanies = companies.filter(company => {
+  const filteredCompanies = legalCompanies.filter(company => {
     const searchLower = searchTerm.toLowerCase();
-    return company.name.toLowerCase().includes(searchLower) || 
-           company.description.toLowerCase().includes(searchLower);
+    return company.name[language].toLowerCase().includes(searchLower) || 
+           company.description[language].toLowerCase().includes(searchLower);
   });
 
   return (
@@ -117,17 +56,14 @@ export default function LegalServicesPage() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                 style={{ fontFamily: 'var(--font-almarai)' }}
               >
-                {language === 'ar' ? 'الخدمات القانونية المتخصصة' : 'Specialized Legal Services'}
+                {content.hero.title[language]}
               </h1>
               
               <p 
                 className="text-lg md:text-xl mb-8 leading-relaxed opacity-90 max-w-4xl mx-auto"
                 style={{ fontFamily: 'var(--font-almarai)' }}
               >
-                {language === 'ar' 
-                  ? 'في إتمام، نوفر لك مجموعة شاملة من الخدمات القانونية، مصممة لتبسيط رحلتك وتحقيق أهدافك بكفاءة'
-                  : 'At Etmam, we provide you with a comprehensive set of legal services, designed to simplify your journey and achieve your goals efficiently'
-                }
+                {content.hero.description[language]}
               </p>
               
               {/* Search Bar */}
@@ -140,7 +76,7 @@ export default function LegalServicesPage() {
                   </div>
                   <input
                     type="text"
-                    placeholder={language === 'ar' ? 'ابحث عن الخدمات القانونية...' : 'Search for legal services...'}
+                    placeholder={content.hero.searchPlaceholder[language]}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'}`}
@@ -198,7 +134,7 @@ export default function LegalServicesPage() {
                 <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100 group-hover:bg-white/20">
                   <Image
                     src={company.logo}
-                    alt={company.name}
+                    alt={company.name[language]}
                     width={80}
                     height={80}
                     className="w-full h-full object-cover"
@@ -212,7 +148,7 @@ export default function LegalServicesPage() {
                   className="text-lg font-bold leading-tight text-gray-800 group-hover:text-white"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {company.name}
+                  {company.name[language]}
                 </h3>
               </div>
 
@@ -222,7 +158,7 @@ export default function LegalServicesPage() {
                   className="text-sm leading-relaxed text-gray-600 group-hover:text-white/90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {company.description}
+                  {company.description[language]}
                 </p>
               </div>
 
@@ -241,7 +177,7 @@ export default function LegalServicesPage() {
                     className="text-sm font-semibold"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'عرض التفاصيل' : 'View Details'}
+                    {content.companies.viewDetailsButton[language]}
                   </span>
                   <svg
                     className="w-4 h-4"
@@ -262,7 +198,7 @@ export default function LegalServicesPage() {
           {filteredCompanies.length === 0 && (
             <div className="text-center py-12">
               <div className="text-gray-500 text-lg" style={{ fontFamily: 'var(--font-almarai)' }}>
-                {language === 'ar' ? 'لم يتم العثور على خدمات مطابقة' : 'No matching services found'}
+                {content.companies.noResultsMessage[language]}
               </div>
             </div>
           )}

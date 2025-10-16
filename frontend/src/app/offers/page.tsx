@@ -9,10 +9,11 @@ import {
   PartnersSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { offers } from '@/mockData/pages';
+import { offers, offersPageContent } from '@/mockData/pages';
 
 export default function OffersPage() {
   const { language } = useLanguage();
+  const content = offersPageContent;
 
   return (
     <div className="min-h-screen bg-white">
@@ -48,17 +49,14 @@ export default function OffersPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' ? 'العروض الحصرية' : 'Exclusive Offers'}
+                  {content.hero.title[language]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
-                    ? 'استفد من عروضنا الحصرية وخصوماتنا المميزة على جميع خدماتنا التجارية والإدارية.'
-                    : 'Take advantage of our exclusive offers and special discounts on all our commercial and administrative services.'
-                  }
+                  {content.hero.description[language]}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -66,13 +64,13 @@ export default function OffersPage() {
                     className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'استفد من العرض' : 'Get the Offer'}
+                    {content.hero.buttons.primary[language]}
                   </button>
                   <button 
                     className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'عرض جميع العروض' : 'View All Offers'}
+                    {content.hero.buttons.secondary[language]}
                   </button>
                 </div>
               </div>
@@ -88,7 +86,7 @@ export default function OffersPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'أقصى خصم' : 'Maximum Discount'}
+                        {content.hero.stats.maxDiscount[language]}
                       </div>
                     </div>
                   </div>
@@ -100,7 +98,7 @@ export default function OffersPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'عروض حصرية' : 'Exclusive Offers'}
+                        {content.hero.stats.exclusiveOffers[language]}
                       </div>
                     </div>
                   </div>
@@ -112,7 +110,7 @@ export default function OffersPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'يوم متبقي' : 'Days Left'}
+                        {content.hero.stats.daysLeft[language]}
                       </div>
                     </div>
                   </div>
@@ -124,7 +122,7 @@ export default function OffersPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'ضمان الجودة' : 'Quality Guarantee'}
+                        {content.hero.stats.qualityGuarantee[language]}
                       </div>
                     </div>
                   </div>
@@ -143,16 +141,13 @@ export default function OffersPage() {
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
               style={{ fontFamily: 'var(--font-almarai)' }}
             >
-              {language === 'ar' ? 'العروض المتاحة الآن' : 'Available Offers Now'}
+              {content.offers.sectionTitle[language]}
             </h2>
             <p 
               className="text-lg text-gray-600 max-w-2xl mx-auto"
               style={{ fontFamily: 'var(--font-almarai)' }}
             >
-              {language === 'ar' 
-                ? 'اختر العرض المناسب لك واستفد من أفضل الأسعار والخدمات'
-                : 'Choose the offer that suits you and benefit from the best prices and services'
-              }
+              {content.offers.sectionDescription[language]}
             </p>
           </div>
 

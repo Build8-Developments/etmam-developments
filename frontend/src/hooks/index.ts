@@ -12,3 +12,6 @@ export { useMobileMenu } from './navigation';
 
 // GraphQL hooks
 export * from './graphql';
+
+// Lazy loading hooks
+export * from './lazy-loading';
