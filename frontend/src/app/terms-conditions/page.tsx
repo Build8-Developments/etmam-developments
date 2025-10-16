@@ -5,122 +5,11 @@ import {
   Footer
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { termsAndConditionsContent } from '@/mockData/pages';
 
 export default function TermsConditionsPage() {
   const { language } = useLanguage();
-
-  const content = {
-    ar: {
-      title: 'الشروط والأحكام',
-      lastUpdated: 'آخر تحديث: ديسمبر 2024',
-      sections: [
-        {
-          title: 'قبول الشروط',
-          content: 'باستخدام خدمات إتمام، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي جزء من هذه الشروط، فيجب عليك عدم استخدام خدماتنا.'
-        },
-        {
-          title: 'وصف الخدمات',
-          content: 'إتمام تقدم خدمات تجارية وإدارية تشمل:\n\n• تأسيس الشركات\n• استخراج التراخيص\n• الاستشارات القانونية والاستشارية\n• خدمات إدارية أخرى\n\nنحتفظ بالحق في تعديل أو إيقاف أي خدمة في أي وقت.'
-        },
-        {
-          title: 'استخدام الخدمات',
-          content: 'عند استخدام خدماتنا، يجب عليك:\n\n• تقديم معلومات صحيحة ودقيقة\n• الالتزام بجميع القوانين واللوائح\n• عدم استخدام الخدمات لأغراض غير قانونية\n• احترام حقوق الملكية الفكرية\n• عدم التدخل في عمل الخدمات'
-        },
-        {
-          title: 'المدفوعات والرسوم',
-          content: '• جميع الأسعار بالريال السعودي\n• المدفوعات مطلوبة مقدماً\n• لا توجد استردادات بعد بدء الخدمة\n• قد تكون هناك رسوم إضافية للخدمات الإضافية\n• نحتفظ بالحق في تغيير الأسعار مع إشعار مسبق'
-        },
-        {
-          title: 'المسؤولية والضمانات',
-          content: '• نقدم خدماتنا بأفضل جودة ممكنة\n• لا نضمن النتائج المحددة\n• مسؤوليتنا محدودة بقيمة الخدمة المدفوعة\n• لا نتحمل المسؤولية عن الأضرار غير المباشرة\n• العميل مسؤول عن دقة المعلومات المقدمة'
-        },
-        {
-          title: 'الملكية الفكرية',
-          content: '• جميع المحتويات محمية بحقوق الطبع والنشر\n• لا يجوز نسخ أو توزيع المحتوى دون إذن\n• العلامات التجارية مملوكة لإتمام\n• المحتوى المقدم من العملاء يبقى ملكيتهم'
-        },
-        {
-          title: 'الخصوصية',
-          content: 'نحترم خصوصيتك ونلتزم بحماية معلوماتك الشخصية وفقاً لسياسة الخصوصية الخاصة بنا.'
-        },
-        {
-          title: 'إيقاف الخدمة',
-          content: 'نحتفظ بالحق في إيقاف أو تعليق خدماتك في الحالات التالية:\n\n• انتهاك هذه الشروط\n• عدم دفع الرسوم\n• استخدام غير قانوني\n• إساءة استخدام الخدمات'
-        },
-        {
-          title: 'القوة القاهرة',
-          content: 'لن نتحمل المسؤولية عن أي تأخير أو فشل في الأداء بسبب ظروف خارجة عن سيطرتنا، بما في ذلك الكوارث الطبيعية والحروب والإضرابات.'
-        },
-        {
-          title: 'القانون الحاكم',
-          content: 'هذه الشروط تحكمها قوانين المملكة العربية السعودية. أي نزاعات تخضع لاختصاص محاكم الرياض.'
-        },
-        {
-          title: 'التعديلات',
-          content: 'نحتفظ بالحق في تعديل هذه الشروط في أي وقت. التعديلات ستصبح فعالة فور نشرها على موقعنا.'
-        },
-        {
-          title: 'التواصل معنا',
-          content: 'إذا كان لديك أي أسئلة حول هذه الشروط، يرجى التواصل معنا عبر:\n\nالبريد الإلكتروني: legal@etmam.com\nالهاتف: +966 11 123 4567\nالعنوان: الرياض، المملكة العربية السعودية'
-        }
-      ]
-    },
-    en: {
-      title: 'Terms and Conditions',
-      lastUpdated: 'Last Updated: December 2024',
-      sections: [
-        {
-          title: '1. Acceptance of Terms',
-          content: 'By using Etmam services, you agree to be bound by these terms and conditions. If you do not agree to any part of these terms, you must not use our services.'
-        },
-        {
-          title: '2. Description of Services',
-          content: 'Etmam provides commercial and administrative services including:\n\n• Company formation\n• License extraction\n• Legal and consulting services\n• Other administrative services\n\nWe reserve the right to modify or discontinue any service at any time.'
-        },
-        {
-          title: '3. Use of Services',
-          content: 'When using our services, you must:\n\n• Provide accurate and truthful information\n• Comply with all laws and regulations\n• Not use services for illegal purposes\n• Respect intellectual property rights\n• Not interfere with service operations'
-        },
-        {
-          title: '4. Payments and Fees',
-          content: '• All prices are in Saudi Riyals\n• Payments are required in advance\n• No refunds after service commencement\n• Additional fees may apply for extra services\n• We reserve the right to change prices with prior notice'
-        },
-        {
-          title: '5. Liability and Warranties',
-          content: '• We provide our services with the best possible quality\n• We do not guarantee specific results\n• Our liability is limited to the value of the paid service\n• We are not liable for indirect damages\n• Client is responsible for accuracy of provided information'
-        },
-        {
-          title: '6. Intellectual Property',
-          content: '• All content is protected by copyright\n• Content may not be copied or distributed without permission\n• Trademarks are owned by Etmam\n• Content provided by clients remains their property'
-        },
-        {
-          title: '7. Privacy',
-          content: 'We respect your privacy and are committed to protecting your personal information in accordance with our privacy policy.'
-        },
-        {
-          title: '8. Service Suspension',
-          content: 'We reserve the right to suspend or terminate your services in the following cases:\n\n• Violation of these terms\n• Non-payment of fees\n• Illegal use\n• Misuse of services'
-        },
-        {
-          title: '9. Force Majeure',
-          content: 'We will not be liable for any delay or failure in performance due to circumstances beyond our control, including natural disasters, wars, and strikes.'
-        },
-        {
-          title: '10. Governing Law',
-          content: 'These terms are governed by the laws of the Kingdom of Saudi Arabia. Any disputes are subject to the jurisdiction of Riyadh courts.'
-        },
-        {
-          title: '11. Modifications',
-          content: 'We reserve the right to modify these terms at any time. Modifications will become effective immediately upon posting on our website.'
-        },
-        {
-          title: '12. Contact Us',
-          content: 'If you have any questions about these terms, please contact us at:\n\nEmail: legal@etmam.com\nPhone: +966 11 123 4567\nAddress: Riyadh, Saudi Arabia'
-        }
-      ]
-    }
-  };
-
-  const currentContent = content[language];
+  const currentContent = termsAndConditionsContent;
 
   return (
     <div className="min-h-screen bg-white">
@@ -156,7 +45,7 @@ export default function TermsConditionsPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {currentContent.title}
+                  {currentContent.title[language]}
                 </h1>
                 
                 <p 
@@ -292,7 +181,7 @@ export default function TermsConditionsPage() {
                           textAlign: language === 'ar' ? 'right' : 'left'
                         }}
                       >
-                        {section.title}
+                        {section.title[language]}
                       </h3>
                       
                       <div 
@@ -304,7 +193,7 @@ export default function TermsConditionsPage() {
                           lineHeight: '1.7'
                         }}
                       >
-                        {section.content}
+                        {section.content[language]}
                       </div>
                     </div>
                   </div>

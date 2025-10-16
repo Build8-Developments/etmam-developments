@@ -1,11 +1,14 @@
-// Common types used across the application
+// ========================================
+// CORE TYPES
+// ========================================
+export type Language = 'ar' | 'en';
 
-export type Language = "ar" | "en";
-
-export interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  isRTL: boolean;
+// ========================================
+// COMMON TYPES
+// ========================================
+export interface ImageAsset {
+  url: string;
+  alternativeText: string;
 }
 
 export interface NavigationItem {
@@ -18,12 +21,18 @@ export interface Button {
   href: string;
 }
 
-export interface ImageAsset {
-  url: string;
-  alternativeText: string;
+// ========================================
+// CONTEXT TYPES
+// ========================================
+export interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  isRTL: boolean;
 }
 
-// Layout Types
+// ========================================
+// LAYOUT TYPES
+// ========================================
 export interface HeaderProps {
   logo?: ImageAsset;
   navigationItems?: NavigationItem[];
@@ -47,6 +56,10 @@ export interface FooterProps {
   }[];
   copyright: string;
 }
+
+// ========================================
+// PAGE-SPECIFIC TYPES
+// ========================================
 
 // Home Page Types
 export interface HeroProps {
@@ -76,7 +89,7 @@ export interface Statistic {
   id: string;
   value: string;
   label: string;
-  icon?: string;
+  icon?: ImageAsset;
 }
 
 export interface Partner {
@@ -183,7 +196,7 @@ export interface ContactInfo {
   title: string;
   description: string;
   contactMethods: {
-    type: "phone" | "email" | "address" | "whatsapp";
+    type: 'phone' | 'email' | 'address' | 'whatsapp';
     label: string;
     value: string;
     icon: string;
@@ -207,11 +220,15 @@ export interface FAQItem {
   category?: string;
 }
 
+// ========================================
+// API TYPES
+// ========================================
+
 // GraphQL Response Types
 export interface GraphQLResponse<T> {
   data: T;
   loading: boolean;
-  error?: any;
+  error?: Error | null;
 }
 
 // Strapi Types
@@ -229,189 +246,5 @@ export interface StrapiResponse<T> {
 
 export interface StrapiEntity {
   id: string;
-  attributes: any;
-}
-
-// GraphQL Query Response Types
-export interface HeaderQueryResponse {
-  header: {
-    data: {
-      attributes: HeaderProps;
-    };
-  };
-}
-
-export interface FooterQueryResponse {
-  footer: {
-    data: {
-      attributes: FooterProps;
-    };
-  };
-}
-
-export interface HeroQueryResponse {
-  hero: {
-    data: {
-      attributes: HeroProps;
-    };
-  };
-}
-
-export interface HomeAboutQueryResponse {
-  homeAbout: {
-    data: {
-      attributes: AboutSectionProps;
-    };
-  };
-}
-
-export interface StatisticsQueryResponse {
-  statistics: {
-    data: {
-      attributes: {
-        statistics: Statistic[];
-      };
-    };
-  };
-}
-
-export interface PartnersQueryResponse {
-  partners: {
-    data: {
-      attributes: {
-        partners: Partner[];
-      };
-    };
-  };
-}
-
-export interface CTAQueryResponse {
-  cta: {
-    data: {
-      attributes: CTASectionProps;
-    };
-  };
-}
-
-export interface ServicesQueryResponse {
-  services: {
-    data: {
-      attributes: {
-        services: ServiceItem[];
-      };
-    };
-  };
-}
-
-export interface ServiceDetailQueryResponse {
-  service: {
-    data: {
-      attributes: ServiceDetail;
-    };
-  };
-}
-
-export interface HowItWorksQueryResponse {
-  howItWorks: {
-    data: {
-      attributes: {
-        steps: Step[];
-      };
-    };
-  };
-}
-
-export interface AboutQueryResponse {
-  about: {
-    data: {
-      attributes: AboutSectionProps;
-    };
-  };
-}
-
-export interface LeadershipQueryResponse {
-  leadership: {
-    data: {
-      attributes: {
-        members: LeadershipMember[];
-      };
-    };
-  };
-}
-
-export interface SuccessFoundationQueryResponse {
-  successFoundation: {
-    data: {
-      attributes: {
-        stories: SuccessStory[];
-      };
-    };
-  };
-}
-
-export interface WhyChooseQueryResponse {
-  whyChoose: {
-    data: {
-      attributes: {
-        items: WhyChooseItem[];
-      };
-    };
-  };
-}
-
-export interface BlogPostsQueryResponse {
-  blogPosts: {
-    data: BlogPost[];
-    meta: {
-      pagination?: {
-        page: number;
-        pageSize: number;
-        pageCount: number;
-        total: number;
-      };
-    };
-  };
-}
-
-export interface BlogPostQueryResponse {
-  blogPosts: {
-    data: Array<{
-      attributes: BlogPost;
-    }>;
-  };
-}
-
-export interface ContactInfoQueryResponse {
-  contactInfo: {
-    data: {
-      attributes: ContactInfo;
-    };
-  };
-}
-
-export interface FAQQueryResponse {
-  faqs: {
-    data: FAQItem[];
-  };
-}
-
-export interface ConsultationQueryResponse {
-  consultation: {
-    data: {
-      attributes: any;
-    };
-  };
-}
-
-export interface SEOQueryResponse {
-  seo: {
-    data: Array<{
-      attributes: {
-        title: string;
-        description: string;
-        keywords?: string[];
-        ogImage?: ImageAsset;
-      };
-    }>;
-  };
+  attributes: Record<string, unknown>;
 }

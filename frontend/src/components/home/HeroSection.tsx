@@ -58,7 +58,6 @@ export default function HeroSection({
           <div className="relative order-2 lg:order-2">
             {/* Mobile/Tablet simplified visual */}
             <div className="relative mx-auto w-full max-w-[360px] h-[340px] sm:max-w-[420px] sm:h-[400px] lg:hidden">
-              {/* Ellipse image background for mobile/tablet */}
               <Image src={IMAGE_PATHS.icons.ellipse} alt="Ellipse" fill className="object-contain" priority />
               <div className="absolute inset-0 flex items-end justify-center p-2">
                 <div className="relative w-[78%] h-[88%] rounded-[48px] overflow-hidden">
@@ -94,7 +93,7 @@ export default function HeroSection({
                 }}
               />
 
-              {/* Ellipse image background for desktop */}
+              {/* Ellipse image background */}
               <div
                 className="absolute"
                 style={{

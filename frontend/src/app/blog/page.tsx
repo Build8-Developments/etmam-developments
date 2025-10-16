@@ -10,82 +10,17 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { blogPosts, blogCategories } from '@/mockData/blog';
 
 export default function BlogPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Mock data for blog posts
-  const blogPosts = [
-    {
-      id: 'national-day-95',
-      title: language === 'ar' ? 'عزنا بطبعنا - اليوم الوطني السعودي 95' : 'Our Pride by Nature - Saudi National Day 95',
-      excerpt: language === 'ar' ? 'وهي تبدو غير منطقية أو مركبة من كلمات عشوائية. يقدم هذا المقال نظرة عامة حول الموضوع ويشرح أهم النقاط بطريقة مختصرة وواضحة.' : 'It seems illogical or composed of random words. This article provides an overview of the topic and explains the most important points in a concise and clear way.',
-      content: language === 'ar' ? 'محتوى كامل للمقال حول اليوم الوطني السعودي والتقاليد والثقافة السعودية...' : 'Full article content about Saudi National Day and Saudi traditions and culture...',
-      image: '/blog3.jpg',
-      category: 'culture',
-      author: language === 'ar' ? 'فاطمة السيد' : 'Fatima Al-Sayed',
-      date: '2025-04-25',
-      readTime: language === 'ar' ? '10 دقائق' : '10 minutes',
-      comments: 0,
-      featured: true
-    },
-    {
-      id: 'business-growth',
-      title: language === 'ar' ? 'زيادة الأعمال - دليل شامل' : 'Business Growth - Complete Guide',
-      excerpt: language === 'ar' ? 'نصائح عملية لتنمية الأعمال وزيادة الإيرادات في السوق السعودي' : 'Practical tips for business growth and revenue increase in the Saudi market',
-      content: language === 'ar' ? 'محتوى كامل حول استراتيجيات نمو الأعمال...' : 'Full content about business growth strategies...',
-      image: '/blog3.jpg',
-      category: 'business',
-      author: language === 'ar' ? 'أحمد محمد' : 'Ahmed Mohammed',
-      date: '2025-04-20',
-      readTime: language === 'ar' ? '8 دقائق' : '8 minutes',
-      comments: 5,
-      featured: false
-    },
-    {
-      id: 'legal-updates',
-      title: language === 'ar' ? 'التحديثات القانونية الجديدة 2025' : 'New Legal Updates 2025',
-      excerpt: language === 'ar' ? 'أهم التحديثات القانونية التي يجب على رجال الأعمال معرفتها' : 'Most important legal updates that business owners should know',
-      content: language === 'ar' ? 'محتوى كامل حول التحديثات القانونية...' : 'Full content about legal updates...',
-      image: '/blog3.jpg',
-      category: 'legal',
-      author: language === 'ar' ? 'سارة أحمد' : 'Sara Ahmed',
-      date: '2025-04-18',
-      readTime: language === 'ar' ? '12 دقائق' : '12 minutes',
-      comments: 3,
-      featured: false
-    },
-    {
-      id: 'consulting-tips',
-      title: language === 'ar' ? 'نصائح للاستشارات الناجحة' : 'Tips for Successful Consulting',
-      excerpt: language === 'ar' ? 'كيفية تقديم استشارات فعالة وتحقيق نتائج ملموسة' : 'How to provide effective consulting and achieve tangible results',
-      content: language === 'ar' ? 'محتوى كامل حول نصائح الاستشارات...' : 'Full content about consulting tips...',
-      image: '/blog3.jpg',
-      category: 'consulting',
-      author: language === 'ar' ? 'محمد العلي' : 'Mohammed Al-Ali',
-      date: '2025-04-15',
-      readTime: language === 'ar' ? '6 دقائق' : '6 minutes',
-      comments: 7,
-      featured: false
-    }
-  ];
-
-  // Categories
-  const categories = [
-    { id: 'all', name: language === 'ar' ? 'جميع الفئات' : 'All Categories' },
-    { id: 'business', name: language === 'ar' ? 'ريادة الأعمال' : 'Entrepreneurship' },
-    { id: 'legal', name: language === 'ar' ? 'القانونية' : 'Legal' },
-    { id: 'consulting', name: language === 'ar' ? 'الاستشارية' : 'Consulting' },
-    { id: 'culture', name: language === 'ar' ? 'الثقافة' : 'Culture' },
-    { id: 'technology', name: language === 'ar' ? 'التكنولوجيا' : 'Technology' }
-  ];
-
-  // Filter posts based on search and category
+  // Filter posts based on search term and category
   const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = post.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.excerpt[language].toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -193,7 +128,7 @@ export default function BlogPage() {
                     <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 xl:h-96 mx-auto mt-2">
                       <Image
                         src={post.image}
-                        alt={post.title}
+                        alt={post.title[language]}
                         fill
                         className="object-cover rounded-3xl"
                       />
@@ -221,7 +156,7 @@ export default function BlogPage() {
                           textAlign: language === 'ar' ? 'right' : 'left'
                         }}
                       >
-                        {post.title}
+                        {post.title[language]}
                       </h2>
 
                       {/* Excerpt */}
@@ -233,7 +168,7 @@ export default function BlogPage() {
                             textAlign: language === 'ar' ? 'right' : 'left'
                           }}
                         >
-                          {post.excerpt}
+                          {post.excerpt[language]}
                         </p>
                         <p 
                           className="text-gray-700 leading-relaxed text-sm sm:text-base mb-3" 
@@ -288,7 +223,7 @@ export default function BlogPage() {
                                 color: 'rgba(102, 102, 102, 1)'
                               }}
                             >
-                              {language === 'ar' ? 'بواسطة' : 'By'} {post.author}
+                              {language === 'ar' ? 'بواسطة' : 'By'} {post.author[language]}
                             </span>
                           </div>
                           <div className="flex items-center gap-1 sm:gap-2">
@@ -303,7 +238,7 @@ export default function BlogPage() {
                                 color: 'rgba(102, 102, 102, 1)'
                               }}
                             >
-                              {post.readTime} {language === 'ar' ? 'قراءة' : 'read'}
+                              {post.readTime[language]} {language === 'ar' ? 'قراءة' : 'read'}
                             </span>
                           </div>
                         </div>
@@ -350,7 +285,7 @@ export default function BlogPage() {
                      {language === 'ar' ? 'فئات' : 'Categories'}
                    </h3>
                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
-                     {categories.slice(1).map((category) => (
+                     {blogCategories.slice(1).map((category) => (
                        <button
                          key={category.id}
                          onClick={() => setSelectedCategory(category.id)}
@@ -394,7 +329,7 @@ export default function BlogPage() {
                              textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
                            }}
                          >
-                           {category.name}
+                            {category.name[language]}
                          </div>
                          
                          {/* Selected indicator */}
@@ -418,7 +353,7 @@ export default function BlogPage() {
                           <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-md">
                             <Image
                               src={post.image}
-                              alt={post.title}
+                              alt={post.title[language]}
                               width={64}
                               height={64}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -426,7 +361,7 @@ export default function BlogPage() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <h4 className="font-semibold text-gray-800 group-hover:text-green-600 transition-colors line-clamp-2 mb-1 text-sm sm:text-base" style={{ fontFamily: 'var(--font-almarai)' }}>
-                              {post.title}
+                              {post.title[language]}
                             </h4>
                             <p className="text-xs sm:text-sm text-gray-500" style={{ fontFamily: 'var(--font-almarai)' }}>
                               {post.date}

@@ -67,7 +67,7 @@ const BlogSection: React.FC = () => {
       id: 3,
       title: DICT.post3Title[language],
       description: DICT.description[language],
-      image: "/blog1.jpg",
+      image: "/blog3.jpg",
       date: DICT.date[language],
       location: DICT.location[language],
       overlays: [],

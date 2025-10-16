@@ -1,27 +1,19 @@
-import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
-import { onError } from "@apollo/client/link/error";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ApolloClient, InMemoryCache, HttpLink, from } from '@apollo/client';
+import { onError } from '@apollo/client/link/error';
 
 const httpLink = new HttpLink({
-  uri:
-    process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL ||
-    "http://localhost:1337/graphql",
+  uri: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL || 'http://localhost:1337/graphql',
 });
 
-const errorLink = onError((errorResponse) => {
-  // Type assertion to work around Apollo Client v4 type issues
-  const response = errorResponse as any;
-
-  if (response.graphQLErrors) {
-    response.graphQLErrors.forEach((error: any) => {
+const errorLink = onError(({ graphQLErrors, networkError }: any) => {
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }: any) =>
       console.log(
-        `[GraphQL error]: Message: ${error.message}, Location: ${error.locations}, Path: ${error.path}`
-      );
-    });
-  }
-
-  if (response.networkError) {
-    console.log(`[Network error]: ${response.networkError}`);
-  }
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      )
+    );
+  if (networkError) console.log(`[Network error]: ${networkError}`);
 });
 
 const createApolloClient = () => {
@@ -30,13 +22,14 @@ const createApolloClient = () => {
     cache: new InMemoryCache(),
     defaultOptions: {
       watchQuery: {
-        errorPolicy: "all",
+        errorPolicy: 'all',
       },
       query: {
-        errorPolicy: "all",
+        errorPolicy: 'all',
       },
     },
   });
 };
 
 export default createApolloClient;
+

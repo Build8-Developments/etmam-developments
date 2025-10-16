@@ -1,6 +1,28 @@
-// Layout Components
+// ========================================
+// COMMON COMPONENTS (Reusable)
+// ========================================
+export * from './common';
+
+// ========================================
+// UI COMPONENTS (Basic UI Elements)
+// ========================================
+export { LoadingSpinner, Modal, Toast } from './ui';
+
+// ========================================
+// LAYOUT COMPONENTS
+// ========================================
 export { default as Header } from './layout/Header';
 export { default as Footer } from './layout/Footer';
+
+// ========================================
+// SECTION COMPONENTS (Large Components)
+// ========================================
+export { FAQSection } from './sections/FAQSection';
+export { ConsultationSection } from './sections/ConsultationSection';
+
+// ========================================
+// PAGE-SPECIFIC COMPONENTS
+// ========================================
 
 // Home Page Components
 export { default as HeroSection } from './home/HeroSection';
@@ -17,18 +39,15 @@ export { ServiceCard } from './services/ServiceCard';
 export { default as ServiceDetailPage } from './services/ServiceDetailPage';
 export { ServicesGrid } from './services/ServicesGrid';
 
+// About Page Components
+export { default as LeadershipSection } from './about/LeadershipSection';
+export { default as SuccessFoundationSection } from './about/SuccessFoundationSection';
+export { default as WhyChooseSection } from './about/WhyChooseSection';
+
 // Blog Components
 export { default as BlogSection } from './blog/BlogSection';
 
-// Consultation Components
-export { ConsultationSection } from './ConsultationSection';
-export { FAQSection } from './FAQSection';
-
-// Common Components (to be added when needed)
-// export { default as Button } from './common/Button';
-// export { default as Card } from './common/Card';
-// export { default as Modal } from './common/Modal';
-
-// UI Components (to be added when needed)
-// export { default as LoadingSpinner } from './ui/LoadingSpinner';
-// export { default as Toast } from './ui/Toast';
+// ========================================
+// PROVIDERS
+// ========================================
+export { default as ApolloWrapper } from './providers/ApolloWrapper';

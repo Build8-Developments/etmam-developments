@@ -4,26 +4,22 @@ export const statisticsMockData: Statistic[] = [
   {
     id: '1',
     value: '500+',
-    label: 'عميل راضي',
-    icon: 'clients'
+    label: 'عميل راضي'
   },
   {
     id: '2',
     value: '1000+',
-    label: 'مشروع مكتمل',
-    icon: 'projects'
+    label: 'مشروع مكتمل'
   },
   {
     id: '3',
     value: '10+',
-    label: 'سنوات خبرة',
-    icon: 'experience'
+    label: 'سنوات خبرة'
   },
   {
     id: '4',
     value: '24/7',
-    label: 'دعم فني',
-    icon: 'support'
+    label: 'دعم فني'
   }
 ];
 
@@ -31,25 +27,21 @@ export const statisticsMockDataEn: Statistic[] = [
   {
     id: '1',
     value: '500+',
-    label: 'Satisfied Clients',
-    icon: 'clients'
+    label: 'Satisfied Clients'
   },
   {
     id: '2',
     value: '1000+',
-    label: 'Completed Projects',
-    icon: 'projects'
+    label: 'Completed Projects'
   },
   {
     id: '3',
     value: '10+',
-    label: 'Years Experience',
-    icon: 'experience'
+    label: 'Years Experience'
   },
   {
     id: '4',
     value: '24/7',
-    label: 'Technical Support',
-    icon: 'support'
+    label: 'Technical Support'
   }
 ];
