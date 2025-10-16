@@ -69,7 +69,7 @@ export default function ServicesSection({
     const path = iconPaths[iconType as keyof typeof iconPaths] || iconPaths.marketing;
 
     return (
-      <svg width={iconSize} height={iconSize} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width={iconSize} height={iconSize} viewBox="0 0 24 24" fill="none">
         <path d={path} fill={iconColor}/>
       </svg>
     );

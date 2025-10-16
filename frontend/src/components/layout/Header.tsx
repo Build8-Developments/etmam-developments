@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useMobileMenu } from '@/hooks';
 import { getTranslation, IMAGE_PATHS } from '@/constants';
 import { HeaderProps } from '@/types';
+import { Button } from '../common';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -83,7 +84,7 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
             ))}
           </nav>
 
-          {/* Right Section - Language Switcher & Contact Button */}
+          {/* Right Section */}
           <div className="flex items-center gap-3">
             {/* Language Switcher */}
             <button
@@ -95,12 +96,13 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
             </button>
 
             {/* Contact Button */}
-            <Link
+            <Button
+              label={contactLabel}
               href={contactButton?.href || '/contact'}
-              className="hidden md:inline-flex px-9 py-[15px] bg-primary hover:bg-green-600 text-white rounded-[37px] font-semibold transition-colors whitespace-nowrap"
-            >
-              {contactLabel}
-            </Link>
+              variant="primary"
+              size="md"
+              className="hidden md:inline-flex px-9 py-[15px] rounded-[37px] whitespace-nowrap"
+            />
 
             {/* Mobile Menu Button */}
             <button
@@ -159,4 +161,3 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
     </header>
   );
 }
-

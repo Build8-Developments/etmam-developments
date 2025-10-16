@@ -52,68 +52,32 @@ export default function LeadershipSection() {
           
           {/* Statistics */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div 
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                  fontWeight: 700,
-                }}
-              >
-                200+
+            {[
+              { value: '200+', label: language === 'ar' ? 'شركة ناشئة تم دعمها' : 'Startup company supported' },
+              { value: '50+', label: language === 'ar' ? 'رخصة تجارية منجزة' : 'Business license completed' },
+              { value: '200+', label: language === 'ar' ? 'خدمة إدارية مكتملة' : 'Completed administrative service' }
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div 
+                  className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2"
+                  style={{ 
+                    fontFamily: 'var(--font-almarai)',
+                    fontWeight: 700,
+                  }}
+                >
+                  {stat.value}
+                </div>
+                <p 
+                  className="text-sm sm:text-base lg:text-lg"
+                  style={{ 
+                    fontFamily: 'var(--font-almarai)',
+                    fontWeight: 400,
+                  }}
+                >
+                  {stat.label}
+                </p>
               </div>
-              <p 
-                className="text-sm sm:text-base lg:text-lg"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                  fontWeight: 400,
-                }}
-              >
-                {language === 'ar' ? 'شركة ناشئة تم دعمها' : 'Startup company supported'}
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div 
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                  fontWeight: 700,
-                }}
-              >
-                50+
-              </div>
-              <p 
-                className="text-sm sm:text-base lg:text-lg"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                  fontWeight: 400,
-                }}
-              >
-                {language === 'ar' ? 'رخصة تجارية منجزة' : 'Business license completed'}
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div 
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                  fontWeight: 700,
-                }}
-              >
-                200+
-              </div>
-              <p 
-                className="text-sm sm:text-base lg:text-lg"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                  fontWeight: 400,
-                }}
-              >
-                {language === 'ar' ? 'خدمة إدارية مكتملة' : 'Completed administrative service'}
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>

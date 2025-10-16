@@ -9,76 +9,10 @@ import {
   PartnersSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
-import Image from 'next/image';
+import { offers } from '@/mockData/pages';
 
 export default function OffersPage() {
   const { language } = useLanguage();
-
-  const offers = [
-    {
-      id: 1,
-      title: { ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة', en: 'Establish a Human Resources Management Company with full currency' },
-      subtitle: { ar: 'يوم بدينا', en: 'The day we started' },
-      description: { ar: 'نفتخر بجذورنا', en: 'We are proud of our roots' },
-      offerText: { ar: 'الحد الأدنى ساري حتى 30 سبتمبر', en: 'Minimum valid until September 30' },
-      backgroundImage: '/offer1.jpg',
-      type: 'heritage',
-      number: '93'
-    },
-    {
-      id: 2,
-      title: { ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة', en: 'Establish a Human Resources Management Company with full currency' },
-      subtitle: { ar: 'صناعة فاخرة', en: 'Luxury Industry' },
-      description: { ar: 'بألوان تليق كل بكل مناسباتك!', en: 'With colors suitable for all your occasions!' },
-      offerText: { ar: 'الحد الأدنى ساري حتى 30 سبتمبر', en: 'Minimum valid until September 30' },
-      backgroundImage: '/offer2.jpg',
-      type: 'luxury',
-      warranty: { ar: 'ضمان سنتين', en: 'Two-year warranty' },
-      number: '269'
-    },
-    {
-      id: 3,
-      title: { ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة', en: 'Establish a Human Resources Management Company with full currency' },
-      subtitle: { ar: 'يوم بدينا', en: 'The day we started' },
-      description: { ar: 'نفتخر بجذورنا', en: 'We are proud of our roots' },
-      offerText: { ar: 'الحد الأدنى ساري حتى 30 سبتمبر', en: 'Minimum valid until September 30' },
-      backgroundImage: '/offer.jpg',
-      type: 'heritage',
-      number: '93'
-    },
-    {
-      id: 4,
-      title: { ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة', en: 'Establish a Human Resources Management Company with full currency' },
-      subtitle: { ar: 'صناعة فاخرة', en: 'Luxury Industry' },
-      description: { ar: 'بألوان تليق كل بكل مناسباتك!', en: 'With colors suitable for all your occasions!' },
-      offerText: { ar: 'الحد الأدنى ساري حتى 30 سبتمبر', en: 'Minimum valid until September 30' },
-      backgroundImage: '/offer1.jpg',
-      type: 'luxury',
-      warranty: { ar: 'ضمان سنتين', en: 'Two-year warranty' },
-      number: '269'
-    },
-    {
-      id: 5,
-      title: { ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة', en: 'Establish a Human Resources Management Company with full currency' },
-      subtitle: { ar: 'يوم بدينا', en: 'The day we started' },
-      description: { ar: 'نفتخر بجذورنا', en: 'We are proud of our roots' },
-      offerText: { ar: 'الحد الأدنى ساري حتى 30 سبتمبر', en: 'Minimum valid until September 30' },
-      backgroundImage: '/offer2.jpg',
-      type: 'heritage',
-      number: '93'
-    },
-    {
-      id: 6,
-      title: { ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة', en: 'Establish a Human Resources Management Company with full currency' },
-      subtitle: { ar: 'صناعة فاخرة', en: 'Luxury Industry' },
-      description: { ar: 'بألوان تليق كل بكل مناسباتك!', en: 'With colors suitable for all your occasions!' },
-      offerText: { ar: 'الحد الأدنى ساري حتى 30 سبتمبر', en: 'Minimum valid until September 30' },
-      backgroundImage: '/offer.jpg',
-      type: 'luxury',
-      warranty: { ar: 'ضمان سنتين', en: 'Two-year warranty' },
-      number: '269'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -223,7 +157,7 @@ export default function OffersPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {offers.map((offer, index) => (
+            {offers.map((offer) => (
               <div 
                 key={offer.id} 
                 className="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow mx-auto w-full"

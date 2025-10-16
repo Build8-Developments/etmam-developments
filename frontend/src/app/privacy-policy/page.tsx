@@ -5,106 +5,11 @@ import {
   Footer
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { privacyPolicyContent } from '@/mockData/pages';
 
 export default function PrivacyPolicyPage() {
   const { language } = useLanguage();
-
-  const content = {
-    ar: {
-      title: 'سياسة الخصوصية',
-      lastUpdated: 'آخر تحديث: ديسمبر 2024',
-      sections: [
-        {
-          title: 'مقدمة',
-          content: 'نحن في إتمام نحترم خصوصيتك ونلتزم بحماية معلوماتك الشخصية. تشرح هذه السياسة كيفية جمع واستخدام وحماية معلوماتك عند استخدام خدماتنا.'
-        },
-        {
-          title: 'المعلومات التي نجمعها',
-          content: 'نجمع المعلومات التالية:\n\n• المعلومات الشخصية: الاسم، البريد الإلكتروني، رقم الهاتف، العنوان\n• معلومات الدفع: تفاصيل البطاقة الائتمانية (مشفرة)\n• معلومات الاستخدام: كيفية استخدامك لموقعنا وخدماتنا\n• ملفات تعريف الارتباط: لتحسين تجربتك على الموقع'
-        },
-        {
-          title: 'كيفية استخدام معلوماتك',
-          content: 'نستخدم معلوماتك لـ:\n\n• تقديم خدماتنا لك\n• معالجة طلباتك والمدفوعات\n• التواصل معك حول خدماتنا\n• تحسين موقعنا وخدماتنا\n• الامتثال للقوانين واللوائح'
-        },
-        {
-          title: 'مشاركة المعلومات',
-          content: 'نحن لا نبيع أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك فقط في الحالات التالية:\n\n• مع مقدمي الخدمات الموثوقين\n• عند الحاجة القانونية\n• لحماية حقوقنا أو حقوق الآخرين\n• مع موافقتك الصريحة'
-        },
-        {
-          title: 'حماية المعلومات',
-          content: 'نحن نستخدم تدابير أمنية متقدمة لحماية معلوماتك:\n\n• تشفير SSL/TLS\n• خوادم آمنة\n• وصول محدود للمعلومات\n• مراجعة أمنية منتظمة'
-        },
-        {
-          title: 'ملفات تعريف الارتباط',
-          content: 'نستخدم ملفات تعريف الارتباط لتحسين تجربتك. يمكنك إدارة إعدادات ملفات تعريف الارتباط من خلال متصفحك.'
-        },
-        {
-          title: 'حقوقك',
-          content: 'لديك الحق في:\n\n• الوصول إلى معلوماتك الشخصية\n• تصحيح المعلومات غير الصحيحة\n• حذف معلوماتك\n• تقييد معالجة معلوماتك\n• نقل بياناتك\n• الاعتراض على معالجة معلوماتك'
-        },
-        {
-          title: 'الاحتفاظ بالبيانات',
-          content: 'نحتفظ بمعلوماتك الشخصية طالما كانت ضرورية لتقديم خدماتنا أو كما هو مطلوب قانونياً.'
-        },
-        {
-          title: 'التغييرات على السياسة',
-          content: 'قد نحدث هذه السياسة من وقت لآخر. سنقوم بإشعارك بأي تغييرات مهمة عبر البريد الإلكتروني أو عبر موقعنا.'
-        },
-        {
-          title: 'التواصل معنا',
-          content: 'إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى التواصل معنا عبر:\n\nالبريد الإلكتروني: privacy@etmam.com\nالهاتف: +966 11 123 4567\nالعنوان: الرياض، المملكة العربية السعودية'
-        }
-      ]
-    },
-    en: {
-      title: 'Privacy Policy',
-      lastUpdated: 'Last Updated: December 2024',
-      sections: [
-        {
-          title: '1. Introduction',
-          content: 'At Etmam, we respect your privacy and are committed to protecting your personal information. This policy explains how we collect, use, and protect your information when you use our services.'
-        },
-        {
-          title: '2. Information We Collect',
-          content: 'We collect the following information:\n\n• Personal Information: Name, email, phone number, address\n• Payment Information: Credit card details (encrypted)\n• Usage Information: How you use our website and services\n• Cookies: To improve your experience on our site'
-        },
-        {
-          title: '3. How We Use Your Information',
-          content: 'We use your information to:\n\n• Provide our services to you\n• Process your orders and payments\n• Communicate with you about our services\n• Improve our website and services\n• Comply with laws and regulations'
-        },
-        {
-          title: '4. Information Sharing',
-          content: 'We do not sell or rent your personal information to third parties. We may only share your information in the following cases:\n\n• With trusted service providers\n• When legally required\n• To protect our rights or the rights of others\n• With your explicit consent'
-        },
-        {
-          title: '5. Information Protection',
-          content: 'We use advanced security measures to protect your information:\n\n• SSL/TLS encryption\n• Secure servers\n• Limited access to information\n• Regular security reviews'
-        },
-        {
-          title: '6. Cookies',
-          content: 'We use cookies to improve your experience. You can manage your cookie settings through your browser.'
-        },
-        {
-          title: '7. Your Rights',
-          content: 'You have the right to:\n\n• Access your personal information\n• Correct inaccurate information\n• Delete your information\n• Restrict processing of your information\n• Transfer your data\n• Object to processing of your information'
-        },
-        {
-          title: '8. Data Retention',
-          content: 'We retain your personal information for as long as necessary to provide our services or as required by law.'
-        },
-        {
-          title: '9. Policy Changes',
-          content: 'We may update this policy from time to time. We will notify you of any significant changes via email or through our website.'
-        },
-        {
-          title: '10. Contact Us',
-          content: 'If you have any questions about this privacy policy, please contact us at:\n\nEmail: privacy@etmam.com\nPhone: +966 11 123 4567\nAddress: Riyadh, Saudi Arabia'
-        }
-      ]
-    }
-  };
-
-  const currentContent = content[language];
+  const currentContent = privacyPolicyContent;
 
   return (
     <div className="min-h-screen bg-white">

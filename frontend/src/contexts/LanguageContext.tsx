@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, ReactNode } from 'react';
-import { Language, LanguageContextType } from '@/types';
+import { LanguageContextType } from '@/types';
 import { useLanguage as useLanguageHook } from '@/hooks';
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -23,4 +23,3 @@ export function useLanguage() {
   }
   return context;
 }
-

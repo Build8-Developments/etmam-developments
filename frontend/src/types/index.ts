@@ -1,11 +1,14 @@
-// Common types used across the application
-
+// ========================================
+// CORE TYPES
+// ========================================
 export type Language = 'ar' | 'en';
 
-export interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  isRTL: boolean;
+// ========================================
+// COMMON TYPES
+// ========================================
+export interface ImageAsset {
+  url: string;
+  alternativeText: string;
 }
 
 export interface NavigationItem {
@@ -18,12 +21,18 @@ export interface Button {
   href: string;
 }
 
-export interface ImageAsset {
-  url: string;
-  alternativeText: string;
+// ========================================
+// CONTEXT TYPES
+// ========================================
+export interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  isRTL: boolean;
 }
 
-// Layout Types
+// ========================================
+// LAYOUT TYPES
+// ========================================
 export interface HeaderProps {
   logo?: ImageAsset;
   navigationItems?: NavigationItem[];
@@ -47,6 +56,10 @@ export interface FooterProps {
   }[];
   copyright: string;
 }
+
+// ========================================
+// PAGE-SPECIFIC TYPES
+// ========================================
 
 // Home Page Types
 export interface HeroProps {
@@ -207,11 +220,15 @@ export interface FAQItem {
   category?: string;
 }
 
+// ========================================
+// API TYPES
+// ========================================
+
 // GraphQL Response Types
 export interface GraphQLResponse<T> {
   data: T;
   loading: boolean;
-  error?: any;
+  error?: Error | null;
 }
 
 // Strapi Types
@@ -229,5 +246,5 @@ export interface StrapiResponse<T> {
 
 export interface StrapiEntity {
   id: string;
-  attributes: any;
+  attributes: Record<string, unknown>;
 }

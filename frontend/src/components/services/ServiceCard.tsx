@@ -2,7 +2,6 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface Service {
   id: string;

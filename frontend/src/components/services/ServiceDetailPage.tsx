@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ServiceStep {
   title: string;
@@ -345,10 +346,12 @@ const ServiceDetailPage = ({
                   top: '27.25px'
                 }}
               >
-                <img 
+                <Image 
                   src="/serv.jpg" 
                   alt={language === 'ar' ? 'اجتماع عمل' : 'Business Meeting'}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="528px"
                 />
               </div>
 

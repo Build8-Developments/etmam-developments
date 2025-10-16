@@ -1,8 +1,19 @@
-// Mock data exports for all sections
-export * from './home';
-export * from './services';
-export * from './about';
-export * from './blog';
-export * from './contact';
-export * from './layout';
+// ========================================
+// PAGE-SPECIFIC MOCK DATA
+// ========================================
+export * from './pages';
+
+// ========================================
+// COMPONENT-SPECIFIC MOCK DATA
+// ========================================
+export * from './components';
+
+// ========================================
+// COMMON MOCK DATA
+// ========================================
 export * from './common';
+
+// ========================================
+// MOCK DATA UTILITIES
+// ========================================
+export * from './utils';

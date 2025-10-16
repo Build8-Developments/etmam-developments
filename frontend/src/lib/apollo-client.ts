@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ApolloClient, InMemoryCache, HttpLink, from } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 
@@ -5,9 +6,9 @@ const httpLink = new HttpLink({
   uri: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL || 'http://localhost:1337/graphql',
 });
 
-const errorLink = onError(({ graphQLErrors, networkError }) => {
+const errorLink = onError(({ graphQLErrors, networkError }: any) => {
   if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) =>
+    graphQLErrors.forEach(({ message, locations, path }: any) =>
       console.log(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
       )

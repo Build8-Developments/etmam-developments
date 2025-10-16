@@ -1,6 +1,5 @@
 'use client';
 
-import { useLanguage } from "@/contexts/LanguageContext";
 import { ServiceCard } from './ServiceCard';
 
 interface Service {
@@ -27,7 +26,6 @@ export const ServicesGrid = ({
   description, 
   showDetails = true 
 }: ServicesGridProps) => {
-  const { language } = useLanguage();
 
   return (
     <section className="py-16 lg:py-24">

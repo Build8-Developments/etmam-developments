@@ -55,69 +55,12 @@ const BlogSection: React.FC = () => {
       id: 3,
       title: DICT.post3Title[language],
       description: DICT.description[language],
-      image: "/blog1.jpg",
+      image: "/blog3.jpg",
       date: DICT.date[language],
       location: DICT.location[language],
       overlays: []
     }
   ];
-
-  const getOverlayPosition = (position: string) => {
-    switch (position) {
-      case 'top-right':
-        return { top: '20px', right: '20px' };
-      case 'top-left':
-        return { top: '20px', left: '20px' };
-      case 'middle-right':
-        return { top: '50%', right: '20px', transform: 'translateY(-50%)' };
-      case 'bottom-center':
-        return { bottom: '20px', left: '50%', transform: 'translateX(-50%)' };
-      default:
-        return { top: '20px', right: '20px' };
-    }
-  };
-
-  const renderOverlay = (overlay: BlogPost['overlays'][0], index: number) => {
-    const position = getOverlayPosition(overlay.position);
-    
-    if (overlay.type === 'speech') {
-      return (
-        <div
-          key={index}
-          className="absolute bg-white rounded-lg px-3 py-2 shadow-lg"
-          style={{
-            ...position,
-            border: '2px dashed #10b981',
-            fontSize: '14px',
-            fontWeight: '600',
-            color: '#059669',
-            zIndex: 10,
-            maxWidth: '120px',
-            textAlign: 'center',
-          }}
-        >
-          {overlay.text}
-        </div>
-      );
-    } else {
-      return (
-        <div
-          key={index}
-          className="absolute bg-green-100 rounded-lg px-4 py-2 shadow-lg"
-          style={{
-            ...position,
-            fontSize: '16px',
-            fontWeight: '700',
-            color: '#059669',
-            zIndex: 10,
-            textAlign: 'center',
-          }}
-        >
-          {overlay.text}
-        </div>
-      );
-    }
-  };
 
   return (
     <section 

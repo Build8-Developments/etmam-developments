@@ -24,6 +24,7 @@ export default function ConsultingServiceDetailPage() {
         : 'Start your project with confidence with company formation services and commercial register extraction quickly and easily',
       price: language === 'ar' ? 'يبدأ من 2000 ريال' : 'Starting from 2000 SAR',
       duration: language === 'ar' ? 'من 3 إلى 5 أيام عمل' : '3 to 5 business days',
+      icon: 'building',
       features: [
         language === 'ar' ? 'استشارة مجانية قبل البدء' : 'Free consultation before starting',
         language === 'ar' ? 'إعداد جميع المستندات المطلوبة' : 'Preparation of all required documents',
@@ -61,6 +62,7 @@ export default function ConsultingServiceDetailPage() {
         : 'Specialized consulting in business development and commercial performance improvement',
       price: language === 'ar' ? 'يبدأ من 1500 ريال' : 'Starting from 1500 SAR',
       duration: language === 'ar' ? 'من 2 إلى 4 أيام عمل' : '2 to 4 business days',
+      icon: 'consulting',
       features: [
         language === 'ar' ? 'تحليل شامل للأعمال' : 'Comprehensive business analysis',
         language === 'ar' ? 'توصيات استراتيجية' : 'Strategic recommendations',
@@ -98,6 +100,7 @@ export default function ConsultingServiceDetailPage() {
         : 'Specialized financial consulting for money management and financial performance improvement',
       price: language === 'ar' ? 'يبدأ من 1200 ريال' : 'Starting from 1200 SAR',
       duration: language === 'ar' ? 'من 1 إلى 3 أيام عمل' : '1 to 3 business days',
+      icon: 'finance',
       features: [
         language === 'ar' ? 'تحليل مالي شامل' : 'Comprehensive financial analysis',
         language === 'ar' ? 'تخطيط مالي استراتيجي' : 'Strategic financial planning',
@@ -135,6 +138,7 @@ export default function ConsultingServiceDetailPage() {
         : 'Specialized marketing consulting to enhance your market presence and increase sales',
       price: language === 'ar' ? 'يبدأ من 1800 ريال' : 'Starting from 1800 SAR',
       duration: language === 'ar' ? 'من 3 إلى 6 أيام عمل' : '3 to 6 business days',
+      icon: 'marketing',
       features: [
         language === 'ar' ? 'استراتيجية تسويقية شاملة' : 'Comprehensive marketing strategy',
         language === 'ar' ? 'تحليل السوق والمنافسين' : 'Market and competitor analysis',
@@ -172,6 +176,7 @@ export default function ConsultingServiceDetailPage() {
         : 'Specialized administrative consulting in human resources management and institutional performance development',
       price: language === 'ar' ? 'يبدأ من 1000 ريال' : 'Starting from 1000 SAR',
       duration: language === 'ar' ? 'من 2 إلى 4 أيام عمل' : '2 to 4 business days',
+      icon: 'hr',
       features: [
         language === 'ar' ? 'تطوير السياسات الإدارية' : 'Administrative policy development',
         language === 'ar' ? 'إدارة الموارد البشرية' : 'Human resources management',
@@ -209,6 +214,7 @@ export default function ConsultingServiceDetailPage() {
         : 'Specialized technical consulting in system development and digital process improvement',
       price: language === 'ar' ? 'يبدأ من 2500 ريال' : 'Starting from 2500 SAR',
       duration: language === 'ar' ? 'من 5 إلى 10 أيام عمل' : '5 to 10 business days',
+      icon: 'technical',
       features: [
         language === 'ar' ? 'تحليل الأنظمة الحالية' : 'Current system analysis',
         language === 'ar' ? 'تطوير الحلول التقنية' : 'Technical solution development',
@@ -241,7 +247,7 @@ export default function ConsultingServiceDetailPage() {
     }
   };
 
-  const service = serviceData[serviceId as string];
+  const service = serviceData[serviceId as keyof typeof serviceData];
 
   if (!service) {
     return (

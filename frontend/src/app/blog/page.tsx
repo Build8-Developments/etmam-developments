@@ -10,82 +10,17 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { blogPosts, blogCategories } from '@/mockData/blog';
 
 export default function BlogPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Mock data for blog posts
-  const blogPosts = [
-    {
-      id: 'national-day-95',
-      title: language === 'ar' ? 'عزنا بطبعنا - اليوم الوطني السعودي 95' : 'Our Pride by Nature - Saudi National Day 95',
-      excerpt: language === 'ar' ? 'وهي تبدو غير منطقية أو مركبة من كلمات عشوائية. يقدم هذا المقال نظرة عامة حول الموضوع ويشرح أهم النقاط بطريقة مختصرة وواضحة.' : 'It seems illogical or composed of random words. This article provides an overview of the topic and explains the most important points in a concise and clear way.',
-      content: language === 'ar' ? 'محتوى كامل للمقال حول اليوم الوطني السعودي والتقاليد والثقافة السعودية...' : 'Full article content about Saudi National Day and Saudi traditions and culture...',
-      image: '/blog3.jpg',
-      category: 'culture',
-      author: language === 'ar' ? 'فاطمة السيد' : 'Fatima Al-Sayed',
-      date: '2025-04-25',
-      readTime: language === 'ar' ? '10 دقائق' : '10 minutes',
-      comments: 0,
-      featured: true
-    },
-    {
-      id: 'business-growth',
-      title: language === 'ar' ? 'زيادة الأعمال - دليل شامل' : 'Business Growth - Complete Guide',
-      excerpt: language === 'ar' ? 'نصائح عملية لتنمية الأعمال وزيادة الإيرادات في السوق السعودي' : 'Practical tips for business growth and revenue increase in the Saudi market',
-      content: language === 'ar' ? 'محتوى كامل حول استراتيجيات نمو الأعمال...' : 'Full content about business growth strategies...',
-      image: '/blog3.jpg',
-      category: 'business',
-      author: language === 'ar' ? 'أحمد محمد' : 'Ahmed Mohammed',
-      date: '2025-04-20',
-      readTime: language === 'ar' ? '8 دقائق' : '8 minutes',
-      comments: 5,
-      featured: false
-    },
-    {
-      id: 'legal-updates',
-      title: language === 'ar' ? 'التحديثات القانونية الجديدة 2025' : 'New Legal Updates 2025',
-      excerpt: language === 'ar' ? 'أهم التحديثات القانونية التي يجب على رجال الأعمال معرفتها' : 'Most important legal updates that business owners should know',
-      content: language === 'ar' ? 'محتوى كامل حول التحديثات القانونية...' : 'Full content about legal updates...',
-      image: '/blog3.jpg',
-      category: 'legal',
-      author: language === 'ar' ? 'سارة أحمد' : 'Sara Ahmed',
-      date: '2025-04-18',
-      readTime: language === 'ar' ? '12 دقائق' : '12 minutes',
-      comments: 3,
-      featured: false
-    },
-    {
-      id: 'consulting-tips',
-      title: language === 'ar' ? 'نصائح للاستشارات الناجحة' : 'Tips for Successful Consulting',
-      excerpt: language === 'ar' ? 'كيفية تقديم استشارات فعالة وتحقيق نتائج ملموسة' : 'How to provide effective consulting and achieve tangible results',
-      content: language === 'ar' ? 'محتوى كامل حول نصائح الاستشارات...' : 'Full content about consulting tips...',
-      image: '/blog3.jpg',
-      category: 'consulting',
-      author: language === 'ar' ? 'محمد العلي' : 'Mohammed Al-Ali',
-      date: '2025-04-15',
-      readTime: language === 'ar' ? '6 دقائق' : '6 minutes',
-      comments: 7,
-      featured: false
-    }
-  ];
-
-  // Categories
-  const categories = [
-    { id: 'all', name: language === 'ar' ? 'جميع الفئات' : 'All Categories' },
-    { id: 'business', name: language === 'ar' ? 'ريادة الأعمال' : 'Entrepreneurship' },
-    { id: 'legal', name: language === 'ar' ? 'القانونية' : 'Legal' },
-    { id: 'consulting', name: language === 'ar' ? 'الاستشارية' : 'Consulting' },
-    { id: 'culture', name: language === 'ar' ? 'الثقافة' : 'Culture' },
-    { id: 'technology', name: language === 'ar' ? 'التكنولوجيا' : 'Technology' }
-  ];
-
-  // Filter posts based on search and category
+  // Filter posts based on search term and category
   const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = post.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.excerpt[language].toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -350,7 +285,7 @@ export default function BlogPage() {
                      {language === 'ar' ? 'فئات' : 'Categories'}
                    </h3>
                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
-                     {categories.slice(1).map((category) => (
+                     {blogCategories.slice(1).map((category) => (
                        <button
                          key={category.id}
                          onClick={() => setSelectedCategory(category.id)}
