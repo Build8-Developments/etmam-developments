@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {currentContent.title}
+                  {currentContent.title[language]}
                 </h1>
                 
                 <p 
@@ -181,7 +181,7 @@ export default function PrivacyPolicyPage() {
                           textAlign: language === 'ar' ? 'right' : 'left'
                         }}
                       >
-                        {section.title}
+                        {section.title[language]}
                       </h3>
                       
                       <div 
@@ -193,7 +193,7 @@ export default function PrivacyPolicyPage() {
                           lineHeight: '1.7'
                         }}
                       >
-                        {section.content}
+                        {section.content[language]}
                       </div>
                     </div>
                   </div>

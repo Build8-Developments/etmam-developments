@@ -128,7 +128,7 @@ export default function BlogPage() {
                     <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 xl:h-96 mx-auto mt-2">
                       <Image
                         src={post.image}
-                        alt={post.title}
+                        alt={post.title[language]}
                         fill
                         className="object-cover rounded-3xl"
                       />
@@ -156,7 +156,7 @@ export default function BlogPage() {
                           textAlign: language === 'ar' ? 'right' : 'left'
                         }}
                       >
-                        {post.title}
+                        {post.title[language]}
                       </h2>
 
                       {/* Excerpt */}
@@ -168,7 +168,7 @@ export default function BlogPage() {
                             textAlign: language === 'ar' ? 'right' : 'left'
                           }}
                         >
-                          {post.excerpt}
+                          {post.excerpt[language]}
                         </p>
                         <p 
                           className="text-gray-700 leading-relaxed text-sm sm:text-base mb-3" 
@@ -223,7 +223,7 @@ export default function BlogPage() {
                                 color: 'rgba(102, 102, 102, 1)'
                               }}
                             >
-                              {language === 'ar' ? 'بواسطة' : 'By'} {post.author}
+                              {language === 'ar' ? 'بواسطة' : 'By'} {post.author[language]}
                             </span>
                           </div>
                           <div className="flex items-center gap-1 sm:gap-2">
@@ -238,7 +238,7 @@ export default function BlogPage() {
                                 color: 'rgba(102, 102, 102, 1)'
                               }}
                             >
-                              {post.readTime} {language === 'ar' ? 'قراءة' : 'read'}
+                              {post.readTime[language]} {language === 'ar' ? 'قراءة' : 'read'}
                             </span>
                           </div>
                         </div>
@@ -329,7 +329,7 @@ export default function BlogPage() {
                              textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
                            }}
                          >
-                           {category.name}
+                            {category.name[language]}
                          </div>
                          
                          {/* Selected indicator */}
@@ -353,7 +353,7 @@ export default function BlogPage() {
                           <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-md">
                             <Image
                               src={post.image}
-                              alt={post.title}
+                              alt={post.title[language]}
                               width={64}
                               height={64}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -361,7 +361,7 @@ export default function BlogPage() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <h4 className="font-semibold text-gray-800 group-hover:text-green-600 transition-colors line-clamp-2 mb-1 text-sm sm:text-base" style={{ fontFamily: 'var(--font-almarai)' }}>
-                              {post.title}
+                              {post.title[language]}
                             </h4>
                             <p className="text-xs sm:text-sm text-gray-500" style={{ fontFamily: 'var(--font-almarai)' }}>
                               {post.date}

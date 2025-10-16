@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { use, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { blogPosts, blogCategories } from '@/mockData/blog';
 
 export default function BlogDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { language } = useLanguage();
@@ -17,87 +18,24 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
   // Unwrap params using React.use()
   const { id } = use(params);
 
-  // Mock data for blog posts
-  const blogPosts = [
-    {
-      id: 'national-day-95',
-      title: language === 'ar' ? 'عزنا بطبعنا - اليوم الوطني السعودي 95' : 'Our Pride by Nature - Saudi National Day 95',
-      excerpt: language === 'ar' ? 'وهي تبدو غير منطقية أو مركبة من كلمات عشوائية. يقدم هذا المقال نظرة عامة حول الموضوع ويشرح أهم النقاط بطريقة مختصرة وواضحة.' : 'It seems illogical or composed of random words. This article provides an overview of the topic and explains the most important points in a concise and clear way.',
-      content: language === 'ar' ? `
-        <div class="prose prose-lg max-w-none">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 mt-8">تحديد نوع الكيان القانوني</h2>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">أول خطوة في تأسيس شركة في المملكة العربية السعودية هي تحديد نوع الكيان القانوني المناسب لطبيعة نشاطك التجاري. يمكنك الاختيار من بين عدة خيارات مثل:</p>
-          <ul class="list-disc list-inside space-y-2 mb-8 text-gray-700">
-            <li>شركة ذات مسؤولية محدودة</li>
-            <li>شركة مساهمة</li>
-            <li>مؤسسة فردية</li>
-            <li>شركة تضامن</li>
-          </ul>
-
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 mt-8">حجز الاسم التجاري</h2>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">بعد تحديد نوع الكيان، يجب حجز الاسم التجاري من خلال وزارة التجارة. يجب أن يكون الاسم فريداً ولا يتعارض مع الأسماء المسجلة مسبقاً. هذه العملية مهمة جداً لأنها تحدد هوية شركتك في السوق.</p>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">يمكنك حجز الاسم التجاري إلكترونياً من خلال منصة "استثمر" أو زيارة فروع وزارة التجارة المنتشرة في جميع أنحاء المملكة. تأكد من أن الاسم يعكس طبيعة نشاطك التجاري ويسهل على العملاء تذكره.</p>
-
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 mt-8">استخراج السجل التجاري</h2>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">السجل التجاري هو الوثيقة الرسمية التي تثبت تسجيل شركتك لدى وزارة التجارة. يمكن استخراجه إلكترونياً أو من خلال زيارة فروع الوزارة. هذه الوثيقة مطلوبة لجميع المعاملات التجارية والمالية.</p>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">تأكد من تحديث بيانات السجل التجاري بشكل دوري، خاصة عند تغيير عنوان الشركة أو إضافة أنشطة تجارية جديدة. هذا يساعد في الحفاظ على صحة البيانات الرسمية لشركتك.</p>
-
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 mt-8">الحصول على التراخيص المطلوبة</h2>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">حسب طبيعة النشاط التجاري، قد تحتاج إلى تراخيص إضافية من الجهات الحكومية المختلفة مثل الهيئة العامة للاستثمار أو وزارة الصحة. هذه التراخيص ضرورية لضمان الامتثال للقوانين واللوائح المحلية.</p>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">تختلف متطلبات التراخيص حسب نوع النشاط التجاري. على سبيل المثال، المطاعم تحتاج ترخيص من وزارة الصحة، بينما الشركات التقنية قد تحتاج موافقة من الهيئة العامة للاتصالات وتقنية المعلومات.</p>
-
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 mt-8">فتح الحساب البنكي</h2>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">بعد الحصول على السجل التجاري، يمكنك فتح حساب بنكي للشركة. ستحتاج إلى تقديم السجل التجاري وبطاقة الهوية الوطنية للمالك أو المدراء المفوضين.</p>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">اختر البنك المناسب لاحتياجات شركتك. بعض البنوك تقدم خدمات خاصة للشركات الصغيرة والمتوسطة، بينما أخرى تركز على الشركات الكبيرة. قارن بين الخدمات والرسوم قبل اتخاذ القرار.</p>
-
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 mt-8">التأمين والامتثال الضريبي</h2>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">تأكد من الحصول على التأمين المناسب لشركتك، خاصة تأمين المسؤولية العامة. كما يجب التسجيل في الهيئة العامة للزكاة والدخل للامتثال للقوانين الضريبية.</p>
-          <p class="text-gray-700 leading-relaxed mb-6 text-lg">استعن بمحاسب قانوني لمساعدتك في إعداد التقارير المالية والضريبية. هذا سيوفر عليك الوقت والجهد ويضمن الامتثال للقوانين المحلية.</p>
-
-          <div class="bg-green-50 border-r-4 border-green-500 p-6 my-8">
-            <h3 class="text-xl font-bold text-green-800 mb-3">نصيحة مهمة</h3>
-            <p class="text-green-700">تأكد من تحديث جميع الوثائق والتراخيص بشكل دوري. القوانين واللوائح تتغير باستمرار، والامتثال لها يحمي شركتك من المشاكل القانونية.</p>
-          </div>
-        </div>
-      ` : 'Full article content about Saudi National Day and Saudi traditions and culture...',
-      image: '/blog3.jpg',
-      category: 'culture',
-      author: language === 'ar' ? 'فاطمة السيد' : 'Fatima Al-Sayed',
-      date: '2025-04-25',
-      readTime: language === 'ar' ? '10 دقائق' : '10 minutes',
-      comments: 0,
-      featured: true
-    },
-    {
-      id: 'business-growth',
-      title: language === 'ar' ? 'زيادة الأعمال - دليل شامل' : 'Business Growth - Complete Guide',
-      excerpt: language === 'ar' ? 'نصائح عملية لتنمية الأعمال وزيادة الإيرادات في السوق السعودي' : 'Practical tips for business growth and revenue increase in the Saudi market',
-      content: language === 'ar' ? 'محتوى كامل حول استراتيجيات نمو الأعمال...' : 'Full content about business growth strategies...',
-      image: '/blog3.jpg',
-      category: 'business',
-      author: language === 'ar' ? 'أحمد محمد' : 'Ahmed Mohammed',
-      date: '2025-04-20',
-      readTime: language === 'ar' ? '8 دقائق' : '8 minutes',
-      comments: 5,
-      featured: false
-    }
-  ];
-
-  // Categories
-  const categories = [
-    { id: 'all', name: language === 'ar' ? 'جميع الفئات' : 'All Categories' },
-    { id: 'business', name: language === 'ar' ? 'ريادة الأعمال' : 'Entrepreneurship' },
-    { id: 'legal', name: language === 'ar' ? 'القانونية' : 'Legal' },
-    { id: 'consulting', name: language === 'ar' ? 'الاستشارية' : 'Consulting' },
-    { id: 'culture', name: language === 'ar' ? 'الثقافة' : 'Culture' },
-    { id: 'technology', name: language === 'ar' ? 'التكنولوجيا' : 'Technology' }
-  ];
-
   // Find the current post
-  const currentPost = blogPosts.find(post => post.id === id) || blogPosts[0];
-  
+  const currentPost = blogPosts.find(post => post.id === id);
+
   if (!currentPost) {
-    return <div>Post not found</div>;
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <div className="container mx-auto px-4 py-20 text-center">
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">
+            {language === 'ar' ? 'المقال غير موجود' : 'Post Not Found'}
+          </h1>
+          <Link href="/blog" className="text-green-600 hover:text-green-700">
+            {language === 'ar' ? 'العودة إلى المدونة' : 'Back to Blog'}
+          </Link>
+        </div>
+        <Footer />
+      </div>
+    );
   }
 
   // Recent posts (last 3)
@@ -145,7 +83,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
                 style={{ fontFamily: 'var(--font-almarai)' }}
               >
-                {currentPost.title}
+                {currentPost.title[language]}
               </h1>
               
               {/* Subtitle/Description */}
@@ -153,7 +91,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                 className="text-xl md:text-2xl mb-12 leading-relaxed opacity-90 max-w-4xl mx-auto"
                 style={{ fontFamily: 'var(--font-almarai)' }}
               >
-                {currentPost.excerpt}
+                {currentPost.excerpt[language]}
               </p>
               
               {/* Post Meta in Hero */}
@@ -171,7 +109,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                   <span className="text-lg font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
-                    {language === 'ar' ? 'بواسطة' : 'By'} {currentPost.author}
+                    {language === 'ar' ? 'بواسطة' : 'By'} {currentPost.author[language]}
                   </span>
                 </div>
                 <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
@@ -179,7 +117,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-lg font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
-                    {currentPost.readTime} {language === 'ar' ? 'قراءة' : 'read'}
+                    {currentPost.readTime[language]} {language === 'ar' ? 'قراءة' : 'read'}
                   </span>
                 </div>
                 <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
@@ -215,7 +153,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                 <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 xl:h-96">
                   <Image
                     src={currentPost.image}
-                    alt={currentPost.title}
+                    alt={currentPost.title[language]}
                     fill
                     className="object-cover"
                   />
@@ -243,7 +181,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                       textAlign: language === 'ar' ? 'right' : 'left'
                     }}
                   >
-                    {currentPost.title}
+                    {currentPost.title[language]}
                   </h1>
 
                   {/* Article Excerpt */}
@@ -255,7 +193,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                         textAlign: language === 'ar' ? 'right' : 'left'
                       }}
                     >
-                      {currentPost.excerpt}
+                      {currentPost.excerpt[language]}
                     </p>
                   </div>
 
@@ -269,7 +207,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                       fontFamily: 'var(--font-almarai)',
                       textAlign: language === 'ar' ? 'right' : 'left'
                     }}
-                    dangerouslySetInnerHTML={{ __html: currentPost.content }}
+                    dangerouslySetInnerHTML={{ __html: currentPost.content[language] }}
                   />
                 </div>
               </article>
@@ -285,7 +223,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                      {language === 'ar' ? 'فئات' : 'Categories'}
                    </h3>
                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
-                     {categories.slice(1).map((category) => (
+                     {blogCategories.slice(1).map((category) => (
                        <button
                          key={category.id}
                          onClick={() => setSelectedCategory(category.id)}
@@ -329,7 +267,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                              textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
                            }}
                          >
-                           {category.name}
+                           {category.name[language]}
                          </div>
                          
                          {/* Selected indicator */}
@@ -353,7 +291,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                           <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-md">
                             <Image
                               src={post.image}
-                              alt={post.title}
+                              alt={post.title[language]}
                               width={64}
                               height={64}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -361,7 +299,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                           </div>
                           <div className="flex-1 min-w-0">
                             <h4 className="font-semibold text-gray-800 group-hover:text-green-600 transition-colors line-clamp-2 mb-1 text-sm sm:text-base" style={{ fontFamily: 'var(--font-almarai)' }}>
-                              {post.title}
+                              {post.title[language]}
                             </h4>
                             <p className="text-xs sm:text-sm text-gray-500" style={{ fontFamily: 'var(--font-almarai)' }}>
                               {post.date}

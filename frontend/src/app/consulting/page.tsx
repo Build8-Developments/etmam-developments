@@ -15,11 +15,20 @@ export default function ConsultingServicesPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter services based on search term
-  const filteredServices = consultingServices.filter(service => 
-    service.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
-    service.description[language].toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter services based on search term and transform to Service type
+  const filteredServices = consultingServices
+    .filter(service => 
+      service.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
+      service.description[language].toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .map(service => ({
+      id: service.id,
+      title: service.title[language],
+      description: service.description[language],
+      price: service.price[language],
+      duration: service.duration[language],
+      icon: service.icon
+    }));
 
   return (
     <div className="min-h-screen bg-white">
