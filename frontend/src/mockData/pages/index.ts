@@ -29,6 +29,14 @@ export * from './legalPages';
 export * from './packagesAndOffers';
 
 // ========================================
+// PAGE CONTENT MOCK DATA
+// ========================================
+export * from './packagesPage';
+export * from './offersPage';
+export * from './legalServicesPage';
+export * from './aboutPage';
+
+// ========================================
 // CONTACT PAGE MOCK DATA
 // ========================================
 export * from '../contact';

@@ -7,17 +7,21 @@ import {
   CTASection,
   ConsultationSection,
   FAQSection,
-  PartnersSection
+  PartnersSection,
+  ErrorBoundary
 } from '@/components';
 import { SuccessFoundationSection, LeadershipSection, WhyChooseSection } from '@/components/about';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { aboutPageContent } from '@/mockData/pages';
 
 export default function AboutPage() {
   const { language } = useLanguage();
+  const content = aboutPageContent;
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    <ErrorBoundary>
+      <div className="min-h-screen bg-white">
+        <Header />
       
       {/* Custom Hero Section */}
       <div className="relative overflow-hidden">
@@ -49,17 +53,14 @@ export default function AboutPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' ? 'من نحن في إتمام؟' : 'Who are we at Etmam?'}
+                  {content.hero.title[language]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
-                    ? 'نحن شريكك الموثوق لتأسيس الشركات وتقديم حلول إدارية متكاملة تتيح لك التركيز على نمو أعمالك.'
-                    : 'We are your trusted partner for company formation and providing integrated management solutions that allow you to focus on the growth of your business.'
-                  }
+                  {content.hero.description[language]}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -67,17 +68,17 @@ export default function AboutPage() {
                     className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'اكتشف المزيد' : 'Discover More'}
+                    {content.hero.buttons.primary[language]}
                   </button>
                   <button 
                     className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+                    {content.hero.buttons.secondary[language]}
                   </button>
                 </div>
               </div>
-              {/* Right Side - Visual Ele ments   */}
+              {/* Right Side - Visual Elements */}
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   {/* Data Visualization Cards */}
@@ -88,7 +89,7 @@ export default function AboutPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'شركة تم تأسيسها' : 'Companies Founded'}
+                        {content.hero.stats.companiesFounded[language]}
                       </div>
                     </div>
                   </div>
@@ -100,7 +101,7 @@ export default function AboutPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'سنة خبرة' : 'Years Experience'}
+                        {content.hero.stats.yearsExperience[language]}
                       </div>
                     </div>
                   </div>
@@ -112,7 +113,7 @@ export default function AboutPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'معدل الرضا' : 'Satisfaction Rate'}
+                        {content.hero.stats.satisfactionRate[language]}
                       </div>
                     </div>
                   </div>
@@ -124,7 +125,7 @@ export default function AboutPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'دعم فني' : 'Technical Support'}
+                        {content.hero.stats.technicalSupport[language]}
                       </div>
                     </div>
                   </div>
@@ -162,7 +163,8 @@ export default function AboutPage() {
       {/* Partners Section */}
       <PartnersSection />
       
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </ErrorBoundary>
   );
 }

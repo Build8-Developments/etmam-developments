@@ -9,10 +9,11 @@ import {
   PartnersSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { packages } from '@/mockData/pages';
+import { packages, packagesPageContent } from '@/mockData/pages';
 
 export default function PackagesPage() {
   const { language } = useLanguage();
+  const content = packagesPageContent;
 
   return (
     <div className="min-h-screen bg-white">
@@ -48,17 +49,14 @@ export default function PackagesPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' ? 'الباقات والخطط' : 'Packages & Plans'}
+                  {content.hero.title[language]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
-                    ? 'اختر الباقة المناسبة لاحتياجاتك التجارية والإدارية مع أفضل الأسعار والخدمات المتميزة.'
-                    : 'Choose the package that suits your business and administrative needs with the best prices and premium services.'
-                  }
+                  {content.hero.description[language]}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -66,13 +64,13 @@ export default function PackagesPage() {
                     className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'اختر باقة' : 'Choose Package'}
+                    {content.hero.buttons.primary[language]}
                   </button>
                   <button 
                     className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'مقارنة الباقات' : 'Compare Packages'}
+                    {content.hero.buttons.secondary[language]}
                   </button>
                 </div>
               </div>
@@ -88,7 +86,7 @@ export default function PackagesPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'باقات متاحة' : 'Available Packages'}
+                        {content.hero.stats.packagesCount[language]}
                       </div>
                     </div>
                   </div>
@@ -100,7 +98,7 @@ export default function PackagesPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'ريال بداية من' : 'SAR Starting From'}
+                        {content.hero.stats.startingPrice[language]}
                       </div>
                     </div>
                   </div>
@@ -112,7 +110,7 @@ export default function PackagesPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'ضمان الجودة' : 'Quality Guarantee'}
+                        {content.hero.stats.qualityGuarantee[language]}
                       </div>
                     </div>
                   </div>
@@ -124,7 +122,7 @@ export default function PackagesPage() {
                         className="text-sm text-white/80"
                         style={{ fontFamily: 'var(--font-almarai)' }}
                       >
-                        {language === 'ar' ? 'يوم ضمان' : 'Days Guarantee'}
+                        {content.hero.stats.warrantyDays[language]}
                       </div>
                     </div>
                   </div>
@@ -152,7 +150,7 @@ export default function PackagesPage() {
                       className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold"
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
-                      {language === 'ar' ? 'الأكثر شعبية' : 'Most Popular'}
+                      {content.packages.popularBadge[language]}
                     </span>
                   </div>
                 )}
@@ -196,7 +194,7 @@ export default function PackagesPage() {
                   }`}
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' ? 'اختر الباقة' : 'Choose Package'}
+                  {content.packages.chooseButton[language]}
                 </button>
               </div>
             ))}

@@ -3,6 +3,8 @@ export { Button } from './Button';
 export { Icon } from './Icon';
 export { Card } from './Card';
 export { Section } from './Section';
+export { ErrorBoundary, useErrorHandler } from './ErrorBoundary';
+export { LoadingSpinner, PageLoader, SkeletonLoader } from './LoadingSpinner';
 
 // Types exports
 export type { 
