@@ -77,8 +77,7 @@ export default function AboutPage() {
                   </button>
                 </div>
               </div>
-              
-              {/* Right Side - Visual Elements */}
+              {/* Right Side - Visual Ele ments   */}
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   {/* Data Visualization Cards */}
