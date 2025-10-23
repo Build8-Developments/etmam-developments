@@ -12,6 +12,7 @@ import {
 } from '@/components';
 import { SuccessFoundationSection, LeadershipSection, WhyChooseSection } from '@/components/about';
 import { useLanguage } from "@/contexts/LanguageContext";
+import Link from 'next/link';
 import { aboutPageContent } from '@/mockData/pages';
 
 export default function AboutPage() {
@@ -64,18 +65,20 @@ export default function AboutPage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
+                  <Link 
+                    href="/services"
                     className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
                     {content.hero.buttons.primary[language]}
-                  </button>
-                  <button 
+                  </Link>
+                  <Link 
+                    href="/contact"
                     className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
                     {content.hero.buttons.secondary[language]}
-                  </button>
+                  </Link>
                 </div>
               </div>
               {/* Right Side - Visual Elements */}

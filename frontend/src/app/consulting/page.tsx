@@ -14,21 +14,32 @@ import { consultingServices } from '@/mockData/services';
 export default function ConsultingServicesPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-  // Filter services based on search term and transform to Service type
-  const filteredServices = consultingServices
-    .filter(service => 
-      service.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
-      service.description[language].toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .map(service => ({
-      id: service.id,
-      title: service.title[language],
-      description: service.description[language],
-      price: service.price[language],
-      duration: service.duration[language],
-      icon: service.icon
-    }));
+  // Enhanced search with multiple criteria
+  const filteredServices = consultingServices.filter(service => {
+    if (!searchTerm.trim()) return true;
+    
+    const searchLower = searchTerm.toLowerCase();
+    const searchTerms = searchLower.split(' ').filter(term => term.length > 0);
+    
+    return searchTerms.every(term => 
+      service.title[language].toLowerCase().includes(term) ||
+      service.description[language].toLowerCase().includes(term) ||
+      service.price[language].toLowerCase().includes(term) ||
+      service.duration[language].toLowerCase().includes(term)
+    );
+  });
+
+  // Transform to Service type
+  const transformedServices = filteredServices.map(service => ({
+    id: service.id,
+    title: service.title[language],
+    description: service.description[language],
+    price: service.price[language],
+    duration: service.duration[language],
+    icon: service.icon
+  }));
 
   return (
     <div className="min-h-screen bg-white">
@@ -75,10 +86,11 @@ export default function ConsultingServicesPage() {
               </p>
 
               {/* Search Bar */}
+              {/* Enhanced Search Bar */}
               <div className="max-w-2xl mx-auto mb-8">
                 <div className="relative">
                   <div className={`absolute inset-y-0 flex items-center pointer-events-none ${language === 'ar' ? 'right-0 pr-4' : 'left-0 pl-4'}`}>
-                    <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                   </div>
@@ -87,7 +99,9 @@ export default function ConsultingServicesPage() {
                     placeholder={language === 'ar' ? 'ابحث عن الخدمة التي تحتاجها...' : 'Search for the service you need...'}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'}`}
+                    onFocus={() => setIsSearchFocused(true)}
+                    onBlur={() => setIsSearchFocused(false)}
+                    className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-300 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'} ${isSearchFocused ? 'bg-white/20 border-white/40' : ''}`}
                     style={{ fontFamily: 'var(--font-almarai)' }}
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                   />
@@ -102,6 +116,18 @@ export default function ConsultingServicesPage() {
                     </button>
                   )}
                 </div>
+                
+                {/* Search Results Info */}
+                {searchTerm && (
+                  <div className="mt-4 text-center">
+                    <p className="text-white/80 text-sm" style={{ fontFamily: 'var(--font-almarai)' }}>
+                      {language === 'ar' 
+                        ? `تم العثور على ${transformedServices.length} خدمة` 
+                        : `Found ${transformedServices.length} services`
+                      }
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -110,7 +136,7 @@ export default function ConsultingServicesPage() {
 
       {/* Services Grid */}
       <ServicesGrid
-        services={filteredServices}
+        services={transformedServices}
         baseHref="/consulting"
         title={language === 'ar' ? 'خدماتنا الاستشارية' : 'Our Consulting Services'}
         description={language === 'ar' 

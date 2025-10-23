@@ -30,6 +30,7 @@ export { default as AboutSection } from './home/AboutSection';
 export { default as CTASection } from './home/CTASection';
 export { default as StatisticsSection } from './home/StatisticsSection';
 export { default as PartnersSection } from './home/PartnersSection';
+export { default as ReviewsSection } from './home/ReviewsSection';
 
 // Services Components
 export { default as ServicesSection } from './services/ServicesSection';

@@ -55,11 +55,10 @@ export default function WhyChooseSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {/* Card 1 - Integrated Solutions */}
             <div 
-              className="bg-white rounded-[60px] p-8 text-center cursor-pointer group"
+              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
               style={{
-                width: '267px',
-                height: '305px',
-                margin: '0 auto',
+                minHeight: '280px',
+                height: 'auto',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
@@ -106,11 +105,10 @@ export default function WhyChooseSection() {
 
             {/* Card 2 - Continuous Support */}
             <div 
-              className="bg-white rounded-[60px] p-8 text-center cursor-pointer group"
+              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
               style={{
-                width: '267px',
-                height: '305px',
-                margin: '0 auto',
+                minHeight: '280px',
+                height: 'auto',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
@@ -157,11 +155,10 @@ export default function WhyChooseSection() {
 
             {/* Card 3 - Smooth Electronic Procedures */}
             <div 
-              className="bg-white rounded-[60px] p-8 text-center cursor-pointer group"
+              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
               style={{
-                width: '267px',
-                height: '305px',
-                margin: '0 auto',
+                minHeight: '280px',
+                height: 'auto',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
@@ -208,11 +205,10 @@ export default function WhyChooseSection() {
 
             {/* Card 4 - Reliable and Fast Services */}
             <div 
-              className="bg-white rounded-[60px] p-8 text-center cursor-pointer group"
+              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
               style={{
-                width: '267px',
-                height: '305px',
-                margin: '0 auto',
+                minHeight: '280px',
+                height: 'auto',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';

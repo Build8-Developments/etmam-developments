@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Almarai, Outfit } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ApolloWrapper from "@/components/providers/ApolloWrapper";
+import { WhatsAppFloat } from "@/components/common";
+import { WHATSAPP_CONFIG } from "@/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -66,6 +68,9 @@ export default function RootLayout({
         <ApolloWrapper>
           <LanguageProvider>
             {children}
+            <WhatsAppFloat 
+              phoneNumber={WHATSAPP_CONFIG.phoneNumber}
+            />
           </LanguageProvider>
         </ApolloWrapper>
       </body>

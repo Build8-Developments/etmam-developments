@@ -45,3 +45,8 @@ export * from '../contact';
 // LAYOUT MOCK DATA
 // ========================================
 export * from '../layout';
+
+// ========================================
+// SERVICES MOCK DATA
+// ========================================
+export * from '../services';

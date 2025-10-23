@@ -3,8 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { IMAGE_PATHS } from '@/constants';
 import Image from 'next/image';
-import { useState, useEffect, useCallback } from 'react';
-import styles from '@/styles/components/ServicesCarouselSection.module.css';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface ServiceCard {
   id: number;
@@ -27,6 +26,9 @@ export default function ServicesCarouselSection({
 }: ServicesCarouselProps) {
   const { language } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Default content
   const defaultTitle = language === 'ar' 
@@ -101,6 +103,30 @@ export default function ServicesCarouselSection({
     }
   };
 
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0]?.clientX || 0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0]?.clientX || 0);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -164,132 +190,121 @@ export default function ServicesCarouselSection({
   };
 
   return (
-    <section className={styles.servicesCarouselSection}>
-      <div className={styles.servicesCarouselContainer}>
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className={styles.headerSection}>
-          {/* Decorative bracket above title - positioned absolutely */}
-          <div className={styles.decorativeBracket} />
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}>
+            {title || defaultTitle}
+          </h2>
           
-          {/* Decorative waves - positioned absolutely at top right */}
-          <div className={styles.decorativeWavesRight}>
-            <Image
-              src={IMAGE_PATHS.icons.topRight}
-              alt="Decorative waves"
-              width={80}
-              height={40}
-              className="object-contain"
-            />
-          </div>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto mb-6" style={{ fontFamily: 'var(--font-almarai)' }}>
+            {description || defaultDescription}
+          </p>
 
-          {/* Second decorative waves - positioned absolutely at top left */}
-          <div className={styles.decorativeWavesLeft}>
-            <Image
-              src={IMAGE_PATHS.icons.topRight}
-              alt="Decorative waves"
-              width={80}
-              height={40}
-              className="object-contain"
-            />
-          </div>
-
-          <div className={styles.headerContent}>
-            <h2 className={styles.headerTitle}>
-              {title || defaultTitle}
-            </h2>
-            
-            <p className={styles.headerDescription}>
-              {description || defaultDescription}
+          {/* Green line below description */}
+          <div className="w-20 h-1 bg-green-600 mx-auto rounded"></div>
+          
+          {/* Mobile swipe hint */}
+          <div className="sm:hidden mt-4">
+            <p className="text-sm text-gray-500" style={{ fontFamily: 'var(--font-almarai)' }}>
+              {language === 'ar' ? 'اسحب للتمرير' : 'Swipe to navigate'}
             </p>
-
-            {/* Green line below description */}
-            <div className={styles.headerLine} />
           </div>
         </div>
 
         {/* Carousel Container */}
-        <div className={styles.carouselContainer}>
-          {/* Navigation Arrows */}
+        <div className="relative" style={{ touchAction: 'pan-y' }}>
+          {/* Navigation Arrows - Hidden on mobile */}
           <button
             onClick={prevSlide}
-            className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}
+            className="hidden sm:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:shadow-xl w-14 h-14 items-center justify-center"
             aria-label={language === 'ar' ? 'الشريحة السابقة' : 'Previous slide'}
             disabled={displayServices.length <= 1}
           >
-            <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+            <svg className="w-7 h-7 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
           <button
             onClick={nextSlide}
-            className={`${styles.navigationButton} ${styles.navigationButtonRight}`}
+            className="hidden sm:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:shadow-xl w-14 h-14 items-center justify-center"
             aria-label={language === 'ar' ? 'الشريحة التالية' : 'Next slide'}
             disabled={displayServices.length <= 1}
           >
-            <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            <svg className="w-7 h-7 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
-           {/* Service Card */}
-           <div className={styles.serviceCardContainer}>
-             <div className={styles.serviceCard}>
-               {/* Image Section */}
-               <div className={styles.imageSection}>
-                 <Image
-                   src={displayServices[currentSlide]?.image || ''}
-                   alt={displayServices[currentSlide]?.title || ''}
-                   fill
-                   className="object-cover"
-                   priority={currentSlide === 0}
-                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 885px"
-                 />
-                 
-                 {/* Icon Overlay - positioned at the border between image and text */}
-                 <div className={styles.iconOverlay}>
-                   <div className={styles.iconContent}>
-                     {getIconComponent(displayServices[currentSlide]?.icon || '')}
-                   </div>
-                 </div>
-               </div>
+          {/* Service Card */}
+          <div className="flex justify-center px-4 sm:px-16">
+            <div 
+              ref={carouselRef}
+              className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full touch-pan-y"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              style={{ touchAction: 'pan-y' }}
+            >
+              {/* Image Section */}
+              <div className="relative h-64">
+                <Image
+                  src={displayServices[currentSlide]?.image || ''}
+                  alt={displayServices[currentSlide]?.title || ''}
+                  fill
+                  className="object-cover"
+                  priority={currentSlide === 0}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 885px"
+                />
+                
+                {/* Icon Overlay */}
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-gray-100">
+                    {getIconComponent(displayServices[currentSlide]?.icon || '')}
+                  </div>
+                </div>
+              </div>
 
-               {/* Text Section */}
-               <div className={styles.textSection}>
-                 <h3 className={`${styles.serviceTitle} ${language === 'ar' ? styles.rtl : styles.ltr}`}>
-                   {displayServices[currentSlide]?.title || ''}
-                 </h3>
-                 
-                 <p className={`${styles.serviceDescription} ${language === 'ar' ? styles.rtl : styles.ltr}`}>
-                   {displayServices[currentSlide]?.description || ''}
-                 </p>
-               </div>
+              {/* Text Section */}
+              <div className="p-8 pt-12">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center" style={{ fontFamily: 'var(--font-almarai)' }}>
+                  {displayServices[currentSlide]?.title || ''}
+                </h3>
+                
+                <p className="text-gray-600 text-center leading-relaxed" style={{ fontFamily: 'var(--font-almarai)' }}>
+                  {displayServices[currentSlide]?.description || ''}
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Pagination Dots */}
-          <div className={styles.paginationContainer} role="tablist" aria-label={language === 'ar' ? 'شرائح الخدمات' : 'Service slides'}>
+          <div className="flex justify-center gap-4 mt-8" role="tablist" aria-label={language === 'ar' ? 'شرائح الخدمات' : 'Service slides'}>
             {displayServices.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`${styles.paginationDot} ${
+                className={`rounded-full transition-all touch-manipulation ${
                   index === currentSlide 
-                    ? styles.active 
-                    : styles.inactive
+                    ? 'bg-green-600 w-5 h-5 sm:w-6 sm:h-6' 
+                    : 'bg-gray-300 w-4 h-4 sm:w-5 sm:h-5 hover:bg-gray-400'
                 }`}
                 role="tab"
                 aria-selected={index === currentSlide}
                 aria-label={`${language === 'ar' ? 'شريحة' : 'Slide'} ${index + 1}`}
                 tabIndex={index === currentSlide ? 0 : -1}
+                style={{ 
+                  minWidth: '20px',
+                  minHeight: '20px',
+                  touchAction: 'manipulation'
+                }}
               />
             ))}
           </div>
         </div>
-
-        {/* Background decorative circle - positioned like in the image */}
-        <div className={styles.backgroundCircle} />
       </div>
     </section>
   );

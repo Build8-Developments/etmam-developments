@@ -101,125 +101,50 @@ export const ServiceCard = ({ service, href, showDetails = true }: ServiceCardPr
   };
 
   return (
-    <Link href={href} className="group block">
-      <div
-        className="bg-white rounded-[20px] border hover:bg-gradient-to-br hover:from-green-600 hover:to-green-700 hover:text-white overflow-hidden flex flex-col"
-        style={{
-          width: '365px',
-          minHeight: '338px',
-          maxHeight: '400px',
-          borderWidth: '1px',
-          borderColor: 'rgba(0, 0, 0, 0.08)',
-          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)',
-          opacity: 1,
-          margin: '0 auto'
-        }}
-      >
+    <Link href={href} className="block">
+      <div className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md p-6 h-full flex flex-col">
         {/* Service Icon */}
-        <div className="p-6 pb-2">
-          <div className="flex items-start gap-4 mb-4">
-            <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-green-200 group-hover:from-white/30 group-hover:to-white/20 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-white/20 flex-shrink-0">
-              {getIconComponent(service.icon)}
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3
-                className="text-base font-bold leading-tight text-gray-800 group-hover:text-white"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                  wordWrap: 'break-word',
-                  overflowWrap: 'break-word',
-                  hyphens: 'auto'
-                }}
-              >
-                {service.title}
-              </h3>
-            </div>
+        <div className="flex items-center justify-center mb-4">
+          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+            {getIconComponent(service.icon)}
           </div>
         </div>
 
+        {/* Service Title */}
+        <h3 className="text-lg font-bold text-gray-800 mb-3 text-center" style={{ fontFamily: 'var(--font-almarai)' }}>
+          {service.title}
+        </h3>
+
         {/* Service Description */}
-        <div className="px-6 pb-2 flex-1 min-h-0">
-          <p
-            className="text-sm leading-relaxed text-gray-600 group-hover:text-white/90"
-            style={{ 
-              fontFamily: 'var(--font-almarai)',
-              wordWrap: 'break-word',
-              overflowWrap: 'break-word',
-              hyphens: 'auto',
-              lineHeight: '1.5',
-              display: '-webkit-box',
-              WebkitLineClamp: 4,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden'
-            }}
-          >
-            {service.description}
-          </p>
-        </div>
+        <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-1" style={{ fontFamily: 'var(--font-almarai)' }}>
+          {service.description}
+        </p>
 
         {/* Service Details */}
         {showDetails && (
-          <div className="px-6 pb-2 flex-shrink-0">
-            <div className="space-y-2 mb-3">
-              <div className="flex items-center gap-3 text-sm text-gray-500 group-hover:text-white/80">
-                <div className="w-8 h-8 bg-green-50 group-hover:bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-green-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                </div>
-                <span 
-                  className="truncate"
-                  style={{ 
-                    fontFamily: 'var(--font-almarai)'
-                  }}
-                >
-                  {service.price}
-                </span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-gray-500 group-hover:text-white/80">
-                <div className="w-8 h-8 bg-blue-50 group-hover:bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-blue-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <span 
-                  className="truncate"
-                  style={{ 
-                    fontFamily: 'var(--font-almarai)'
-                  }}
-                >
-                  {service.duration}
-                </span>
-              </div>
+          <div className="space-y-2 mb-4">
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+              </svg>
+              <span style={{ fontFamily: 'var(--font-almarai)' }}>{service.price}</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span style={{ fontFamily: 'var(--font-almarai)' }}>{service.duration}</span>
             </div>
           </div>
         )}
 
         {/* CTA Button */}
-        <div className="px-6 pb-6 flex-shrink-0">
-          <div
-            className="inline-flex items-center justify-center rounded-[12px] px-6 py-3 gap-2 bg-gradient-to-r from-green-600 to-green-700 text-white group-hover:from-white group-hover:to-white group-hover:text-green-600 shadow-lg group-hover:shadow-xl"
-            style={{
-              width: '170px',
-              height: '48px',
-              fontFamily: 'var(--font-almarai)',
-              minWidth: 'fit-content'
-            }}
-          >
-            <span
-              className="text-sm font-bold whitespace-nowrap"
-              style={{ 
-                fontFamily: 'var(--font-almarai)'
-              }}
-            >
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center bg-green-600 text-white rounded-lg px-6 py-2 gap-2">
+            <span className="text-sm font-semibold" style={{ fontFamily: 'var(--font-almarai)' }}>
               {language === 'ar' ? 'عرض التفاصيل' : 'View Details'}
             </span>
-            <svg
-              className="w-4 h-4 flex-shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </div>

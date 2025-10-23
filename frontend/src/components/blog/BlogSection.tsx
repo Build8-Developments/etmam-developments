@@ -83,12 +83,13 @@ const BlogSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <h2
-            className="font-almarai text-gray-800 mb-4"
+            className="font-almarai mb-4"
             style={{
               fontSize: "clamp(24px, 5vw, 36px)",
               fontWeight: "700",
               lineHeight: "1.2",
               direction: language === "ar" ? "rtl" : "ltr",
+              color: "#11613A",
             }}
           >
             {DICT.sectionTitle[language]}

@@ -8,6 +8,7 @@ import {
   CTASection,
   StatisticsSection,
   PartnersSection,
+  ReviewsSection,
   ServicesSection,
   ServicesCarouselSection,
   HowItWorksSection,
@@ -26,6 +27,7 @@ export default function Home() {
       <HowItWorksSection />
       <StatisticsSection />
       <ServicesCarouselSection />
+      <ReviewsSection />
       <BlogSection />
       <FAQSection />
       <CTASection />

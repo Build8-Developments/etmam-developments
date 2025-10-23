@@ -6,6 +6,7 @@ import {
   PartnersSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function ContactPage() {
@@ -79,18 +80,20 @@ export default function ContactPage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
+                  <Link 
+                    href="/consulting"
                     className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
                     {language === 'ar' ? 'استشارة مجانية' : 'Free Consultation'}
-                  </button>
-                  <button 
+                  </Link>
+                  <a 
+                    href="tel:+012000000000"
                     className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
                     {language === 'ar' ? 'اتصل بنا' : 'Call Us'}
-                  </button>
+                  </a>
                 </div>
               </div>
               
@@ -400,8 +403,8 @@ export default function ContactPage() {
             {/* Right Side - Contact Form */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h2 
-                className="text-3xl font-bold text-gray-800 mb-6"
-                style={{ fontFamily: 'var(--font-almarai)' }}
+                className="text-3xl font-bold mb-6"
+                style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
               >
                 {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
               </h2>
@@ -429,7 +432,7 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                     placeholder={language === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                   />
@@ -447,7 +450,7 @@ export default function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                     placeholder={language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                   />
@@ -465,7 +468,7 @@ export default function ContactPage() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                     placeholder={language === 'ar' ? 'أدخل موضوع الرسالة' : 'Enter message subject'}
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                   />
@@ -483,7 +486,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-800"
                     placeholder={language === 'ar' ? 'اكتب الرسالة' : 'Write your message'}
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                   ></textarea>
@@ -507,8 +510,8 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 
-              className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
-              style={{ fontFamily: 'var(--font-almarai)' }}
+              className="text-3xl md:text-4xl font-bold mb-4"
+              style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
             >
               {language === 'ar' ? 'موقعنا على الخريطة' : 'Our Location on Map'}
             </h2>
