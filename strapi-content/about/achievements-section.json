@@ -1,0 +1,63 @@
+{
+  "contentType": "component",
+  "category": "sections",
+  "displayName": "Achievements Section",
+  "description": "Company achievements and statistics",
+  "icon": "trophy",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Section title (e.g., 'إنجازاتنا')",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500,
+      "description": "Section description",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "statistics": {
+      "type": "component",
+      "component": "content.stat-item",
+      "repeatable": true,
+      "required": true,
+      "min": 3,
+      "max": 8,
+      "description": "Achievement statistics (4-6 recommended)"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "description": "Background image (1920x600px, optional)"
+    },
+    "overlayColor": {
+      "type": "string",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "default": "#11613A",
+      "description": "Overlay color (hex)"
+    },
+    "overlayOpacity": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1,
+      "default": 0.9,
+      "description": "Overlay opacity (0-1)"
+    },
+    "enableCounterAnimation": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable counter animation on scroll"
+    }
+  }
+}

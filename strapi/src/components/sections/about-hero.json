@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_sections_about_heroes",
+  "info": {
+    "displayName": "about-hero"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "primaryButton": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false
+    },
+    "secondaryButton": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "stats": {
+      "type": "component",
+      "component": "content.about-hero-stats",
+      "repeatable": true,
+      "min": 2,
+      "max": 4
+    }
+  },
+  "config": {}
+}

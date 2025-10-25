@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_sections_about_us_components",
+  "info": {
+    "displayName": "about-us-component"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "trustDescription": {
+      "type": "text"
+    },
+    "visionDescription": {
+      "type": "text"
+    },
+    "primaryImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "secondaryImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "partnersCount": {
+      "type": "integer"
+    },
+    "partnersCountText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_services_sections",
+  "info": {
+    "displayName": "services-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "services": {
+      "type": "component",
+      "component": "content.content-service-card",
+      "repeatable": true,
+      "min": 3,
+      "max": 6
+    },
+    "ctaButton": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

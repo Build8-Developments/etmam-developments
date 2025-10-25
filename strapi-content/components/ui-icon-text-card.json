@@ -1,0 +1,38 @@
+{
+  "contentType": "component",
+  "componentCategory": "ui",
+  "displayName": "Icon Text Card",
+  "description": "Card with icon, title and description",
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "required": true,
+      "description": "Icon identifier (e.g., 'trust', 'mission', 'vision')"
+    },
+    "iconImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Custom icon image (alternative to icon name)"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Card title/heading"
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 500,
+      "description": "Card description text"
+    }
+  },
+  "notes": [
+    "Used in About Section features",
+    "Icons can be SVG files or icon names",
+    "Common icons: trust (shield), mission (target), vision (eye)",
+    "Icon size typically 48-72px"
+  ]
+}

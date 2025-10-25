@@ -1,0 +1,64 @@
+{
+  "contentType": "component",
+  "category": "sections",
+  "displayName": "Certifications Section",
+  "description": "Certifications and partners logos showcase",
+  "icon": "certificate",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Section title (e.g., 'شهاداتنا وشركاؤنا')",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "certificationsTitle": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Certifications subsection title (e.g., 'شهاداتنا')",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "certifications": {
+      "type": "component",
+      "component": "content.partner-logo",
+      "repeatable": true,
+      "description": "Certification logos (3-6 recommended)"
+    },
+    "partnersTitle": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Partners subsection title (e.g., 'شركاؤنا')",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "partners": {
+      "type": "component",
+      "component": "content.partner-logo",
+      "repeatable": true,
+      "description": "Partner logos (4-8 recommended)"
+    },
+    "logoStyle": {
+      "type": "enumeration",
+      "enum": ["color", "grayscale", "grayscale-hover"],
+      "default": "grayscale-hover",
+      "description": "Logo display style"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "default": "#FFFFFF",
+      "description": "Background color (hex)"
+    }
+  }
+}

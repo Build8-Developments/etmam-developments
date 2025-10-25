@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_statistics_sections",
+  "info": {
+    "displayName": "statistics-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "stats": {
+      "type": "component",
+      "component": "content.stat-item",
+      "repeatable": true,
+      "required": true,
+      "min": 4,
+      "max": 4
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

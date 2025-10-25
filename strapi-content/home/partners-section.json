@@ -1,0 +1,34 @@
+{
+  "contentType": "component",
+  "componentCategory": "sections",
+  "displayName": "Partners Section",
+  "description": "Partners/clients logo carousel section",
+  "attributes": {
+    "partners": {
+      "type": "component",
+      "component": "content.partner-logo",
+      "repeatable": true,
+      "required": true,
+      "min": 3,
+      "description": "Partner/client logos"
+    },
+    "animationSpeed": {
+      "type": "integer",
+      "required": false,
+      "default": 15,
+      "min": 5,
+      "max": 30,
+      "description": "Animation duration in seconds (default: 15s)"
+    }
+  },
+  "notes": [
+    "Infinite horizontal scrolling animation",
+    "Each logo in bordered box: 120x64px",
+    "Logos should be provided with transparent backgrounds",
+    "Animation is smooth and continuous",
+    "Typical partners: Payment providers, service partners, etc.",
+    "Section height: 64px plus padding",
+    "White background",
+    "Logos are duplicated for seamless loop"
+  ]
+}

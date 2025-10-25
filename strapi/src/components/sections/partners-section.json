@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_partners_sections",
+  "info": {
+    "displayName": "partners-section"
+  },
+  "options": {},
+  "attributes": {
+    "partners": {
+      "type": "component",
+      "component": "content.partner-logo",
+      "repeatable": true,
+      "min": 3
+    }
+  },
+  "config": {}
+}

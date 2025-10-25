@@ -1,0 +1,55 @@
+{
+  "contentType": "component",
+  "category": "sections",
+  "displayName": "About Hero Section",
+  "description": "Hero section specifically for About page",
+  "icon": "star",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Main title (e.g., 'من نحن')",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "heading": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Subtitle/heading",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "richtext",
+      "required": true,
+      "description": "Main description text (2-3 paragraphs)",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"],
+      "description": "Hero background image (1920x600px recommended)"
+    },
+    "overlayOpacity": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1,
+      "default": 0.7,
+      "description": "Opacity of gradient overlay (0-1)"
+    }
+  }
+}

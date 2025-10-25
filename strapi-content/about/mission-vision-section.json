@@ -1,0 +1,37 @@
+{
+  "contentType": "component",
+  "category": "sections",
+  "displayName": "Mission Vision Section",
+  "description": "Mission and vision cards section",
+  "icon": "bullseye",
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Section heading (e.g., 'رؤيتنا ورسالتنا')",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "missionCard": {
+      "type": "component",
+      "component": "ui.icon-text-card",
+      "required": true,
+      "description": "Mission statement card"
+    },
+    "visionCard": {
+      "type": "component",
+      "component": "ui.icon-text-card",
+      "required": true,
+      "description": "Vision statement card"
+    },
+    "showDivider": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show divider between cards"
+    }
+  }
+}

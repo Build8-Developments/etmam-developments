@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_successes",
+  "info": {
+    "displayName": "success"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "VisionMessage": {
+      "type": "component",
+      "component": "content.achievement-card",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

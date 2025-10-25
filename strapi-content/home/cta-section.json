@@ -1,0 +1,43 @@
+{
+  "contentType": "component",
+  "componentCategory": "sections",
+  "displayName": "CTA Section",
+  "description": "Call-to-action banner section with gradient background",
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true,
+      "maxLength": 300,
+      "description": "CTA text/message (e.g., 'ابدأ الآن واحصل على استشارة مجانية')"
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "description": "Button label (e.g., 'تواصل معنا')"
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": true,
+      "default": "/services",
+      "description": "Button destination URL"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"],
+      "description": "Background image for right side (35% width)"
+    }
+  },
+  "notes": [
+    "Two-part layout: 65% green gradient + 35% image",
+    "Green gradient: #11613A to #2A9A5B",
+    "Left side: white text on green with white button",
+    "Right side: image with overlay",
+    "Total height: clamp(300px, 40vh, 515px)",
+    "Max width: 1321px",
+    "Border radius on outer corners",
+    "Button has arrow icon that flips for RTL"
+  ]
+}

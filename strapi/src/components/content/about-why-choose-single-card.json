@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_about_why_choose_single_cards",
+  "info": {
+    "displayName": "about-why-choose-single-card"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

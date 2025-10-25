@@ -1,0 +1,49 @@
+{
+  "contentType": "component",
+  "category": "sections",
+  "displayName": "Team Section",
+  "description": "Team members showcase section",
+  "icon": "users",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Section title (e.g., 'فريقنا')",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500,
+      "description": "Section description",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "teamMembers": {
+      "type": "component",
+      "component": "content.team-member",
+      "repeatable": true,
+      "required": true,
+      "min": 1,
+      "description": "Team members (3-8 recommended)"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["grid-2", "grid-3", "grid-4"],
+      "default": "grid-3",
+      "description": "Number of columns in grid"
+    },
+    "showSocialLinks": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display social media links"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_about_hero_stats",
+  "info": {
+    "displayName": "about-numbers-counter-stats"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_achievements",
+  "info": {
+    "displayName": "achievements"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "NumbersCounter": {
+      "type": "component",
+      "component": "content.about-hero-stats",
+      "repeatable": true,
+      "min": 2,
+      "max": 4
+    }
+  },
+  "config": {}
+}

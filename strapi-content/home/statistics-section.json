@@ -1,0 +1,38 @@
+{
+  "contentType": "component",
+  "componentCategory": "sections",
+  "displayName": "Statistics Section",
+  "description": "Statistics overlay section with background image",
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true,
+      "maxLength": 300,
+      "description": "Main title centered over background (e.g., 'ابدأ رحلة عملك نحو مستقبل أكثر استدامة وأمانا')"
+    },
+    "stats": {
+      "type": "component",
+      "component": "content.stat-item",
+      "repeatable": true,
+      "required": true,
+      "min": 4,
+      "max": 6,
+      "description": "Statistics items (number + label)"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"],
+      "description": "Background image (covers upper 2/3 of section)"
+    }
+  },
+  "notes": [
+    "Statistics box has gradient background (green gradient)",
+    "Background image covers top 2/3, white background on bottom 1/3",
+    "Stats box overlaps both sections",
+    "Grid layout: 2 columns on mobile, 4 columns on desktop",
+    "Stats are separated by vertical borders",
+    "Typical stats: +15 materials, +350k suppliers, +15k cities, +15 satisfaction rate"
+  ]
+}

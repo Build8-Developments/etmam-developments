@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sections_how_it_works_sections",
+  "info": {
+    "displayName": "how-it-works-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "personImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bannerText": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "component",
+      "component": "content.numbered-step",
+      "repeatable": true,
+      "min": 2,
+      "max": 3
+    }
+  },
+  "config": {}
+}

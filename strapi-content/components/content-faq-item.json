@@ -1,0 +1,39 @@
+{
+  "contentType": "component",
+  "componentCategory": "content",
+  "displayName": "FAQ Item",
+  "description": "FAQ question and answer pair",
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300,
+      "description": "FAQ question"
+    },
+    "answer": {
+      "type": "text",
+      "required": true,
+      "maxLength": 1000,
+      "description": "FAQ answer (supports rich text)"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["general", "services", "payment", "support", "technical"],
+      "default": "general",
+      "description": "FAQ category for filtering"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "required": false,
+      "description": "Sort order for display"
+    }
+  },
+  "notes": [
+    "Used in FAQ Section",
+    "Accordion style (expandable/collapsible)",
+    "Icon changes: + when collapsed, - when expanded",
+    "Multiple FAQs can be open at once",
+    "Split into 2 columns on desktop",
+    "Common categories: duration, attendance, fees, documents, tracking"
+  ]
+}

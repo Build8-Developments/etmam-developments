@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_contact_us_cards",
+  "info": {
+    "displayName": "contact-us-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

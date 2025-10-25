@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_content_achievement_cards",
+  "info": {
+    "displayName": "achievement-card"
+  },
+  "options": {},
+  "attributes": {
+    "VisionTitle": {
+      "type": "string"
+    },
+    "VisionDescription": {
+      "type": "text"
+    },
+    "VisionImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MessageTitle": {
+      "type": "string"
+    },
+    "MessageDescription": {
+      "type": "text"
+    },
+    "MessageImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

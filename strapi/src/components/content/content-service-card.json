@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_content_content_service_cards",
+  "info": {
+    "displayName": "service-card"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "serviceLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

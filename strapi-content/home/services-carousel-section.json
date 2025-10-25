@@ -1,0 +1,38 @@
+{
+  "contentType": "component",
+  "componentCategory": "sections",
+  "displayName": "Services Carousel Section",
+  "description": "Carousel/slider section showcasing services with images",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Section title (e.g., 'ماذا نقدم في إتمام ؟')"
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 500,
+      "description": "Section description"
+    },
+    "services": {
+      "type": "component",
+      "component": "content.service-slide",
+      "repeatable": true,
+      "required": true,
+      "min": 3,
+      "max": 10,
+      "description": "Service slides with images and details"
+    }
+  },
+  "notes": [
+    "Each slide contains: image, icon, title, description",
+    "Carousel supports keyboard navigation (arrow keys)",
+    "Has navigation dots at bottom",
+    "Has decorative bracket and wave patterns",
+    "Icons: document, building, license, consulting, accounting",
+    "Images should be high quality, minimum 800x600px",
+    "Auto-play is typically disabled for accessibility"
+  ]
+}

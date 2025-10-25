@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_faq_sections",
+  "info": {
+    "displayName": "faq-section"
+  },
+  "options": {},
+  "attributes": {
+    "string": {
+      "type": "string"
+    },
+    "faqs": {
+      "type": "component",
+      "component": "content.faq-item",
+      "repeatable": true,
+      "min": 4,
+      "max": 12
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_why_choose_us_sections",
+  "info": {
+    "displayName": "why-choose-us-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "content": {
+      "type": "component",
+      "component": "content.about-why-choose-single-card",
+      "repeatable": true,
+      "min": 3,
+      "max": 4
+    }
+  },
+  "config": {}
+}

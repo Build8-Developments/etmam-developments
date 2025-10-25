@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_partner_logos",
+  "info": {
+    "displayName": "partner-logo"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "website": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

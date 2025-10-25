@@ -1,0 +1,29 @@
+{
+  "contentType": "component",
+  "componentCategory": "content",
+  "displayName": "Stat Item",
+  "description": "Statistics item with number and label",
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20,
+      "description": "Statistic number (e.g., '+680', '15k', '99%')"
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Statistic label/description"
+    }
+  },
+  "notes": [
+    "Used in Statistics Section",
+    "Displayed in gradient green box",
+    "Grid layout: 2 columns mobile, 4 desktop",
+    "Separated by vertical borders",
+    "Numbers should be large font (60px)",
+    "Labels should be descriptive (18px)",
+    "Common stats: partnerships, users, cities, satisfaction rate"
+  ]
+}

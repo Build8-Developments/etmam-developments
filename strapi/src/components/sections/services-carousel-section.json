@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_services_carousel_sections",
+  "info": {
+    "displayName": "services-carousel-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "services": {
+      "type": "component",
+      "component": "content.service-slide",
+      "repeatable": true,
+      "min": 3
+    }
+  },
+  "config": {}
+}
