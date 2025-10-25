@@ -10,17 +10,30 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { blogPosts, blogCategories } from '@/mockData/blog';
 
 export default function BlogPage() {
   const { language } = useLanguage();
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-  // Filter posts based on search term and category
+  // Enhanced search with multiple criteria
   const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt[language].toLowerCase().includes(searchTerm.toLowerCase());
+    if (!searchTerm.trim() && selectedCategory === 'all') return true;
+    
+    const searchLower = searchTerm.toLowerCase();
+    const searchTerms = searchLower.split(' ').filter(term => term.length > 0);
+    
+    const matchesSearch = !searchTerm.trim() || searchTerms.every(term => 
+      post.title[language].toLowerCase().includes(term) ||
+      post.excerpt[language].toLowerCase().includes(term) ||
+      post.content?.[language]?.toLowerCase().includes(term) ||
+      (post.tags && post.tags[language] && post.tags[language].some((tag: string) => tag.toLowerCase().includes(term)))
+    );
+    
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -72,39 +85,53 @@ export default function BlogPage() {
                   }
                 </p>
                 
-              {/* Search Bar */}
+              {/* Enhanced Search Bar */}
               <div className="max-w-2xl mx-auto mb-8">
                 <div className="relative">
                   <div className={`absolute inset-y-0 flex items-center pointer-events-none ${language === 'ar' ? 'right-0 pr-4' : 'left-0 pl-4'}`}>
-                    <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                   </div>
                   <input
                     type="text"
-                    placeholder={language === 'ar' ? 'البحث هنا...' : 'Search here...'}
+                    placeholder={language === 'ar' ? 'البحث في المقالات...' : 'Search articles...'}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'}`}
+                    onFocus={() => setIsSearchFocused(true)}
+                    onBlur={() => setIsSearchFocused(false)}
+                    className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-300 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'} ${isSearchFocused ? 'bg-white/20 border-white/40' : ''}`}
                     style={{ fontFamily: 'var(--font-almarai)' }}
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                   />
                   {searchTerm && (
-                  <button 
+                    <button 
                       onClick={() => setSearchTerm('')}
                       className={`absolute inset-y-0 flex items-center text-white/70 hover:text-white transition-colors ${language === 'ar' ? 'left-0 pl-4' : 'right-0 pr-4'}`}
-                  >
+                    >
                       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
-                  </button>
+                    </button>
                   )}
                 </div>
-                </div>
-              </div>
-                      </div>
-                    </div>
+                
+                {/* Search Results Info */}
+                {searchTerm && (
+                  <div className="mt-4 text-center">
+                    <p className="text-white/80 text-sm" style={{ fontFamily: 'var(--font-almarai)' }}>
+                      {language === 'ar' 
+                        ? `تم العثور على ${filteredPosts.length} مقال` 
+                        : `Found ${filteredPosts.length} articles`
+                      }
+                    </p>
                   </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
                   
       {/* Main Content */}
       <div className="py-16 lg:py-20">
@@ -116,13 +143,15 @@ export default function BlogPage() {
 
               {/* Blog Posts Grid */}
               <div className="space-y-8">
-                {filteredPosts.map((post) => (
-                  <Link key={post.id} href={`/blog/${post.id}`} className="block">
+                {filteredPosts.length > 0 ? (
+                  filteredPosts.map((post) => (
                     <article 
+                      key={post.id}
                       className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer w-full max-w-4xl mx-auto"
                       style={{
                         minHeight: '400px'
                       }}
+                      onClick={() => router.push(`/blog/${post.id}`)}
                     >
                     {/* Post Image */}
                     <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 xl:h-96 mx-auto mt-2">
@@ -182,7 +211,13 @@ export default function BlogPage() {
                         
                         {/* Read More Button - Inline with text */}
                         <div className="flex justify-end mb-3">
-                          <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-semibold">
+                          <button 
+                            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-semibold"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              router.push(`/blog/${post.id}`);
+                            }}
+                          >
                             {language === 'ar' ? 'اقرأ المزيد' : 'Read More'}
                           </button>
                         </div>
@@ -261,18 +296,36 @@ export default function BlogPage() {
 
                     </div>
                     </article>
-                  </Link>
-                ))}
-              </div>
-
-              {/* No Results */}
-              {filteredPosts.length === 0 && (
-                <div className="text-center py-12">
-                  <div className="text-gray-500 text-lg" style={{ fontFamily: 'var(--font-almarai)' }}>
-                    {language === 'ar' ? 'لم يتم العثور على مقالات' : 'No articles found'}
-                      </div>
+                  ))
+                ) : (
+                  <div className="text-center py-12">
+                    <div className="max-w-md mx-auto">
+                      <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      <h3 className="text-lg font-semibold text-gray-600 mb-2" style={{ fontFamily: 'var(--font-almarai)' }}>
+                        {language === 'ar' ? 'لم يتم العثور على مقالات' : 'No articles found'}
+                      </h3>
+                      <p className="text-gray-500 mb-4" style={{ fontFamily: 'var(--font-almarai)' }}>
+                        {language === 'ar' 
+                          ? 'جرب البحث بكلمات مختلفة أو اختر فئة أخرى'
+                          : 'Try searching with different keywords or select another category'
+                        }
+                      </p>
+                      <button
+                        onClick={() => {
+                          setSearchTerm('');
+                          setSelectedCategory('all');
+                        }}
+                        className="text-green-600 hover:text-green-700 font-medium"
+                        style={{ fontFamily: 'var(--font-almarai)' }}
+                      >
+                        {language === 'ar' ? 'مسح الفلاتر' : 'Clear filters'}
+                      </button>
                     </div>
-              )}
+                  </div>
+                )}
+              </div>
                   </div>
                   
             {/* Sidebar */}

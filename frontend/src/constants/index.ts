@@ -22,3 +22,8 @@ export * from './validation';
 // BREAKPOINTS
 // ========================================
 export * from './breakpoints';
+
+// ========================================
+// WHATSAPP CONFIGURATION
+// ========================================
+export * from './whatsapp';

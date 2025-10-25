@@ -37,6 +37,18 @@ export const TRANSLATIONS = {
     buttonText: { ar: 'ابدأ الآن', en: 'Start Now' },
   },
 
+  // Reviews Section
+  reviews: {
+    title: { 
+      ar: 'آراء عملائنا', 
+      en: 'What Our Clients Say' 
+    },
+    subtitle: { 
+      ar: 'اكتشف تجارب عملائنا المميزة مع خدمات إتمام', 
+      en: 'Discover our clients\' exceptional experiences with Etmam services' 
+    },
+  },
+
   // Common buttons
   buttons: {
     readMore: { ar: 'اقرأ المزيد', en: 'Read More' },

@@ -19,50 +19,49 @@ const CTASection: React.FC<CTASectionProps> = ({
 
   return (
     <section 
-      className="py-4 sm:py-8 lg:py-12"
+      className="py-8 sm:py-12 lg:py-16"
       dir={isRTL ? 'rtl' : 'ltr'}
     >
-      <div className="container mx-auto px-2 sm:px-4 lg:px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
           <div 
-            className="relative w-full flex"
+            className="relative w-full flex shadow-2xl"
             style={{
               width: '100%',
-              height: 'clamp(300px, 40vh, 515px)',
-              borderRadius: 'clamp(10px, 2vw, 20px)',
-              maxWidth: '1321px',
+              height: 'clamp(350px, 45vh, 600px)',
+              borderRadius: 'clamp(16px, 2.5vw, 24px)',
+              maxWidth: '1400px',
               overflow: 'hidden',
             }}
           >
             {/* Left Section - Green Background */}
             <div 
-              className={`h-full flex flex-col justify-center ${isRTL ? 'items-start pl-2 sm:pl-4 lg:pl-8' : 'items-start pl-2 sm:pl-4 lg:pl-8'}`}
+              className={`h-full flex flex-col justify-center ${isRTL ? 'items-start' : 'items-start'}`}
               style={{
-                width: isRTL ? 'calc(100% - clamp(35%, 35vw, 471px))' : 'clamp(65%, 65vw, 850px)',
+                width: isRTL ? 'calc(100% - clamp(40%, 40vw, 500px))' : 'clamp(60%, 60vw, 900px)',
                 height: '100%',
                 background: 'linear-gradient(263.5deg, #11613A 49.84%, rgba(42, 154, 91, 0.98) 94.9%)',
-                borderTopLeftRadius: isRTL ? '0px' : 'clamp(10px, 2vw, 20px)',
-                borderBottomLeftRadius: isRTL ? '0px' : 'clamp(10px, 2vw, 20px)',
-                borderTopRightRadius: isRTL ? 'clamp(10px, 2vw, 20px)' : '0px',
-                borderBottomRightRadius: isRTL ? 'clamp(10px, 2vw, 20px)' : '0px',
-                border: 'none',
-                marginRight: '0',
-                marginLeft: '0',
+                borderTopLeftRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                borderBottomLeftRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                borderTopRightRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
+                borderBottomRightRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
+                padding: isRTL ? 'clamp(20px, 4vw, 48px) clamp(12px, 3vw, 32px) clamp(20px, 4vw, 48px) clamp(20px, 5vw, 64px)' : 'clamp(20px, 4vw, 48px) clamp(20px, 5vw, 64px) clamp(20px, 4vw, 48px) clamp(12px, 3vw, 32px)',
                 zIndex: 2,
               }}
             >
               {/* Text Content */}
               <div 
-                className={`text-white mb-3 sm:mb-6 ${isRTL ? 'text-right pr-2 sm:pr-4 lg:pr-8 pl-8 sm:pl-12 lg:pl-16' : 'text-left pl-2 sm:pl-4 lg:pl-8'}`}
+                className={`text-white mb-6 sm:mb-8 lg:mb-10 ${isRTL ? 'text-right' : 'text-left'}`}
                 style={{
                   width: '100%',
                   fontFamily: 'var(--font-almarai)',
                   fontWeight: '700',
-                  fontSize: 'clamp(14px, 3vw, 40px)',
-                  lineHeight: 'clamp(20px, 4vw, 70px)',
-                  letterSpacing: '0%',
+                  fontSize: 'clamp(18px, 3.5vw, 48px)',
+                  lineHeight: 'clamp(28px, 4.5vw, 72px)',
+                  letterSpacing: '-0.02em',
                   color: 'rgba(255, 255, 255, 1)',
                   direction: isRTL ? 'rtl' : 'ltr',
+                  textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
                 }}
               >
                 {title || defaultTitle}
@@ -71,32 +70,32 @@ const CTASection: React.FC<CTASectionProps> = ({
               {/* Button */}
               <Link
                 href="/services"
-                className={`inline-flex items-center justify-center bg-white text-green-700 font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ${isRTL ? 'mr-2 sm:mr-4 lg:mr-8 ml-8 sm:ml-12 lg:ml-16' : 'ml-2 sm:ml-4 lg:ml-8'}`}
+                className={`inline-flex items-center justify-center bg-white text-green-700 font-semibold rounded-xl shadow-lg ${isRTL ? 'self-end' : 'self-start'}`}
                 style={{
-                  width: 'clamp(120px, 25vw, 180px)',
-                  height: 'clamp(35px, 8vw, 50px)',
+                  width: 'clamp(140px, 28vw, 200px)',
+                  height: 'clamp(44px, 9vw, 56px)',
                   fontFamily: 'var(--font-almarai)',
                   fontWeight: '600',
-                  fontSize: 'clamp(12px, 2.5vw, 18px)',
-                  marginTop: 'clamp(10px, 2vw, 30px)',
-                  padding: 'clamp(6px, 1.5vw, 12px)',
+                  fontSize: 'clamp(14px, 2.8vw, 20px)',
+                  padding: 'clamp(8px, 2vw, 16px)',
                   direction: isRTL ? 'rtl' : 'ltr',
+                  border: '2px solid rgba(17, 97, 58, 0.1)',
                 }}
               >
                 {buttonText || defaultButtonText}
                 <svg 
-                  className="w-3 h-3 sm:w-4 sm:h-4" 
+                  className="w-4 h-4 sm:w-5 sm:h-5" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
                   style={{ 
                     transform: isRTL ? 'scaleX(-1)' : 'none',
                     color: 'rgba(17, 97, 58, 1)',
-                    marginLeft: isRTL ? '0' : '6px',
-                    marginRight: isRTL ? '6px' : '0',
+                    marginLeft: isRTL ? '0' : '8px',
+                    marginRight: isRTL ? '8px' : '0',
                   }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                 </svg>
               </Link>
             </div>
@@ -105,16 +104,13 @@ const CTASection: React.FC<CTASectionProps> = ({
             <div 
               className="h-full relative"
               style={{
-                width: 'clamp(35%, 35vw, 471px)',
+                width: 'clamp(40%, 40vw, 500px)',
                 height: '100%',
-                background: 'linear-gradient(271.11deg, rgba(17, 97, 58, 0.22) -1.22%, rgba(17, 97, 58, 0.22) 99.15%)',
-                borderTopRightRadius: isRTL ? '0px' : 'clamp(10px, 2vw, 20px)',
-                borderBottomRightRadius: isRTL ? '0px' : 'clamp(10px, 2vw, 20px)',
-                borderTopLeftRadius: isRTL ? 'clamp(10px, 2vw, 20px)' : '0px',
-                borderBottomLeftRadius: isRTL ? 'clamp(10px, 2vw, 20px)' : '0px',
-                border: 'none',
-                marginLeft: '0',
-                marginRight: '0',
+                background: 'linear-gradient(271.11deg, rgba(17, 97, 58, 0.15) -1.22%, rgba(17, 97, 58, 0.25) 99.15%)',
+                borderTopRightRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                borderBottomRightRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                borderTopLeftRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
+                borderBottomLeftRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
                 zIndex: 1,
               }}
             >
@@ -126,11 +122,25 @@ const CTASection: React.FC<CTASectionProps> = ({
                   fill
                   className="object-cover"
                   style={{
-                    borderTopRightRadius: 'clamp(10px, 2vw, 20px)',
-                    borderBottomRightRadius: 'clamp(10px, 2vw, 20px)',
+                    borderTopRightRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                    borderBottomRightRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                    borderTopLeftRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
+                    borderBottomLeftRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
                   }}
                 />
               </div>
+              
+              {/* Overlay for better text contrast */}
+              <div 
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(17, 97, 58, 0.1) 0%, rgba(17, 97, 58, 0.3) 100%)',
+                  borderTopRightRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                  borderBottomRightRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',
+                  borderTopLeftRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
+                  borderBottomLeftRadius: isRTL ? 'clamp(16px, 2.5vw, 24px)' : '0px',
+                }}
+              />
             </div>
           </div>
         </div>

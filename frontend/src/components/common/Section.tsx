@@ -23,10 +23,11 @@ export function Section({
           <div className="text-center mb-12 lg:mb-16">
             {title && (
               <h2 
-                className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 relative inline-block"
+                className="text-4xl lg:text-5xl font-bold mb-4 relative inline-block"
                 style={{ 
                   fontFamily: 'var(--font-almarai)',
-                  textAlign: isRTL ? 'right' : 'left'
+                  textAlign: isRTL ? 'right' : 'left',
+                  color: '#11613A'
                 }}
               >
                 {title}

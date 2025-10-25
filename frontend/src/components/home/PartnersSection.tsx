@@ -11,13 +11,41 @@ const PartnersSection = () => {
     { name: 'Klarna', logo: '/Payment method icon1.png' },
     { name: 'Affirm', logo: '/Payment method icon2.png' },
     { name: 'Google Pay', logo: '/4.png' },
+    { name: 'PayPal', logo: '/Payment method icon.png' },
+    { name: 'Stripe', logo: '/Payment method icon1.png' },
+    { name: 'Square', logo: '/Payment method icon2.png' },
+    { name: 'Apple Pay', logo: '/4.png' },
   ];
+
+  // Duplicate partners array for seamless infinite scroll
+  const duplicatedPartners = [...partners, ...partners];
 
   return (
      <section 
        className="py-8 sm:py-12 lg:py-16 bg-white overflow-hidden"
        dir={language === 'ar' ? 'rtl' : 'ltr'}
      >
+      {/* Header Section */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <div className="text-center">
+          <h2 
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4"
+            style={{ fontFamily: 'var(--font-almarai)' }}
+          >
+            {language === 'ar' ? 'شركاؤنا في النجاح' : 'Our Success Partners'}
+          </h2>
+          <p 
+            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            style={{ fontFamily: 'var(--font-almarai)' }}
+          >
+            {language === 'ar' 
+              ? 'نفتخر بشراكتنا مع أفضل الشركات والمؤسسات الرائدة في مجال الخدمات المالية والتقنية'
+              : 'We are proud to partner with the best companies and leading institutions in the field of financial and technical services'
+            }
+          </p>
+        </div>
+      </div>
+
       <div className="w-full">
         <div 
           className="flex"
@@ -30,11 +58,11 @@ const PartnersSection = () => {
            <div 
              className="flex animate-scroll"
              style={{
-               animation: 'scroll 15s linear infinite',
+               animation: 'scroll 8s linear infinite',
              }}
            >
-            {/* Single set of logos */}
-            {partners.map((partner, index) => (
+            {/* Duplicated logos for seamless infinite scroll */}
+            {duplicatedPartners.map((partner, index) => (
               <div
                 key={index}
                 className="flex-shrink-0 flex items-center justify-center"
@@ -68,6 +96,14 @@ const PartnersSection = () => {
           100% {
             transform: translateX(-50%);
           }
+        }
+        
+        .animate-scroll {
+          animation: scroll 8s linear infinite;
+        }
+        
+        .animate-scroll:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>

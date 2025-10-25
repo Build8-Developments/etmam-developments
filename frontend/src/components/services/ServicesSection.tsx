@@ -76,136 +76,67 @@ export default function ServicesSection({
   };
 
   return (
-    <section 
-      className="relative overflow-hidden w-full"
-      style={{
-        width: '100%',
-        height: 'min(clamp(800px, 950px, 1100px), auto)',
-        minHeight: 'clamp(800px, 950px, 1100px)',
-        background: 'linear-gradient(223.26deg, rgba(19, 113, 67, 0.81) 24.24%, #9BE43F 138.37%)',
-        opacity: 1,
-        borderTopLeftRadius: 'clamp(20px, 40px, 120px)',
-        borderTopRightRadius: '0px',
-        borderBottomLeftRadius: '0px',
-        borderBottomRightRadius: '0px',
-        margin: 'clamp(30px, 60px, 80px) 0',
-        padding: '0',
-      }}
-    >
-      {/* Net pattern overlay - top */}
-      <div 
-        className="absolute top-0 left-0 w-full opacity-15"
-        style={{
-          height: 'clamp(80px, 120px, 160px)',
-          backgroundImage: 'url(/net.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-
-      {/* Net pattern overlay - bottom */}
-      <div 
-        className="absolute bottom-0 left-0 w-full opacity-15"
-        style={{
-          height: 'clamp(80px, 120px, 160px)',
-          backgroundImage: 'url(/net.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-
-      <div className="relative z-10 h-full flex flex-col" style={{ padding: 'clamp(20px, 40px, 80px) clamp(8px, 16px, 80px)' }}>
+    <section className="py-16 bg-gradient-to-br from-green-600 to-green-700">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 
-            className="text-white font-bold mb-4 sm:mb-6"
-            style={{
-              fontFamily: 'var(--font-almarai)',
-              fontSize: 'clamp(20px, 3.5vw, 48px)',
-              lineHeight: '1.2',
-              fontWeight: 700,
-              marginBottom: 'clamp(12px, 20px, 32px)',
-            }}
-          >
+        <div className="text-center mb-12">
+          <h2 className="text-white text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-almarai)' }}>
             {title || defaultTitle}
           </h2>
-          
-          <p 
-            className="text-white/90 max-w-4xl mx-auto"
-            style={{
-              fontFamily: 'var(--font-almarai)',
-              fontSize: 'clamp(14px, 2vw, 20px)',
-              lineHeight: '1.6',
-              fontWeight: 400,
-              padding: '0 clamp(8px, 16px, 32px)',
-            }}
-          >
+          <p className="text-white/90 text-lg max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-almarai)' }}>
             {description || defaultDescription}
           </p>
         </div>
 
-         {/* Services Grid */}
-         <div className="flex-1 flex items-center justify-center mb-8 sm:mb-12">
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl px-4">
-            {displayServices.map((service: ServiceCard, index: number) => (
-               <div
-                 key={service.id || index}
-                 className={`
-                   transition-all duration-300 hover:scale-105 cursor-pointer rounded-xl border-2 p-6 text-center
-                   ${service.isActive 
-                     ? 'bg-green-700 shadow-xl border-green-700 text-white' 
-                     : 'bg-white shadow-lg hover:shadow-xl border-gray-100 text-gray-800'
-                   }
-                 `}
-               >
-                 {/* Icon */}
-                 <div className="flex items-center justify-center mb-4">
-                   <div className="w-12 h-12 flex items-center justify-center">
-                     {getIconComponent(service.icon, service.isActive || false)}
-                   </div>
-                 </div>
-
-                 {/* Title */}
-                 <h3 
-                   className="font-bold mb-3 text-lg"
-                   style={{ fontFamily: 'var(--font-almarai)' }}
-                 >
-                   {service.title}
-                 </h3>
-
-                 {/* Description */}
-                 <p 
-                   className={`leading-relaxed text-sm ${
-                     service.isActive ? 'text-white/90' : 'text-gray-600'
-                   }`}
-                   style={{ fontFamily: 'var(--font-almarai)' }}
-                 >
-                   {service.description}
-                 </p>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {displayServices.map((service: ServiceCard, index: number) => (
+            <div
+              key={service.id || index}
+              className={`rounded-lg p-6 text-center ${
+                service.isActive 
+                  ? 'bg-white/20 text-white border border-white/30' 
+                  : 'bg-white text-gray-800 shadow-md'
+              }`}
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  {getIconComponent(service.icon, service.isActive || false)}
+                </div>
               </div>
-            ))}
-          </div>
+
+              {/* Title */}
+              <h3 className="font-bold mb-3 text-lg" style={{ fontFamily: 'var(--font-almarai)' }}>
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p 
+                className={`leading-relaxed text-sm ${
+                  service.isActive ? 'text-white/90' : 'text-gray-600'
+                }`}
+                style={{ fontFamily: 'var(--font-almarai)' }}
+              >
+                {service.description}
+              </p>
+            </div>
+          ))}
         </div>
 
-         {/* CTA Button */}
-         <div className="flex justify-center items-center mt-8">
-           <Link
-             href={displayCTA.href}
-             className="bg-green-700 hover:bg-green-800 text-white font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl rounded-lg transform hover:scale-105 px-8 py-4"
-             style={{
-               fontFamily: 'var(--font-almarai)',
-               fontSize: 'clamp(14px, 16px, 18px)',
-               fontWeight: 600,
-               textAlign: 'center',
-               textDecoration: 'none',
-               direction: language === 'ar' ? 'rtl' : 'ltr',
-             }}
-           >
-             {displayCTA.label}
-           </Link>
-         </div>
+        {/* CTA Button */}
+        <div className="text-center">
+          <Link
+            href={displayCTA.href}
+            className="inline-block bg-white text-green-600 font-semibold rounded-lg px-8 py-3 hover:bg-gray-50"
+            style={{
+              fontFamily: 'var(--font-almarai)',
+              textDecoration: 'none',
+            }}
+          >
+            {displayCTA.label}
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -140,14 +140,14 @@ export default function TermsConditionsPage() {
             {/* Introduction Card */}
             <div className="bg-white rounded-3xl shadow-xl p-8 mb-12 border border-gray-100">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
                 <h2 
-                  className="text-3xl font-bold text-gray-800 mb-4"
-                  style={{ fontFamily: 'var(--font-almarai)' }}
+                  className="text-3xl font-bold mb-4"
+                  style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
                 >
                   {language === 'ar' ? 'شروط استخدام خدمات إتمام' : 'Terms for Using Etmam Services'}
                 </h2>
@@ -169,16 +169,17 @@ export default function TermsConditionsPage() {
                 <div key={index} className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                        <span className="text-blue-600 font-bold text-lg">{index + 1}</span>
+                      <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                        <span className="text-green-600 font-bold text-lg">{index + 1}</span>
                       </div>
                     </div>
                     <div className="flex-1">
                       <h3 
-                        className="text-xl font-bold text-gray-800 mb-4"
+                        className="text-xl font-bold mb-4"
                         style={{ 
                           fontFamily: 'var(--font-almarai)',
-                          textAlign: language === 'ar' ? 'right' : 'left'
+                          textAlign: language === 'ar' ? 'right' : 'left',
+                          color: '#11613A'
                         }}
                       >
                         {section.title[language]}
@@ -202,7 +203,7 @@ export default function TermsConditionsPage() {
             </div>
 
             {/* Contact Section */}
-            <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 text-white">
+            <div className="mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-3xl p-8 text-white">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

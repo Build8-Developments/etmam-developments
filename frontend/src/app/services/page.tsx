@@ -253,8 +253,8 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 
-              className="text-3xl md:text-4xl font-bold text-gray-800 mb-6"
-              style={{ fontFamily: 'var(--font-almarai)' }}
+              className="text-3xl md:text-4xl font-bold mb-6"
+              style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
             >
               {language === 'ar' ? 'لماذا تختار إتمام؟' : 'Why Choose Etmam?'}
             </h2>
@@ -278,8 +278,8 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <h3 
-                  className="text-xl font-bold text-gray-800 mb-3"
-                  style={{ fontFamily: 'var(--font-almarai)' }}
+                  className="text-xl font-bold mb-3"
+                  style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
                 >
                   {feature.title}
                 </h3>

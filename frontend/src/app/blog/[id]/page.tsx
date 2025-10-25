@@ -45,10 +45,10 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section - Simplified */}
       <div className="relative overflow-hidden">
         <div 
-          className="relative py-24 lg:py-40 pt-28 md:pt-32 min-h-[700px] flex items-center"
+          className="relative py-16 lg:py-20 pt-28 md:pt-32 min-h-[400px] flex items-center"
           style={{
             background: 'linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)',
             backdropFilter: 'blur(4px)',
@@ -70,72 +70,36 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
           <div className="absolute inset-0 bg-black/20"></div>
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center text-white max-w-5xl mx-auto">
-              {/* Category Badge */}
-              <div className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-2 mb-8">
-                <span className="text-sm font-semibold" style={{ fontFamily: 'var(--font-almarai)' }}>
-                  {language === 'ar' ? 'ثقافة بلدنا' : 'Our Country Culture'}
-                </span>
+            <div className="text-center text-white max-w-4xl mx-auto">
+              {/* Author Info - Smaller and Elegant */}
+              <div className="mb-6">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <div className="w-6 h-6 rounded-full overflow-hidden bg-white/20">
+                    <Image
+                      src="/men1.png"
+                      alt={currentPost.author[language]}
+                      width={24}
+                      height={24}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
+                    {language === 'ar' ? 'بواسطة' : 'By'} {currentPost.author[language]}
+                  </span>
+                  <span className="text-xs text-white/60">•</span>
+                  <span className="text-xs text-white/80" style={{ fontFamily: 'var(--font-almarai)' }}>
+                    {currentPost.date}
+                  </span>
+                </div>
               </div>
               
               {/* Main Title */}
               <h1 
-                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
                 style={{ fontFamily: 'var(--font-almarai)' }}
               >
                 {currentPost.title[language]}
               </h1>
-              
-              {/* Subtitle/Description */}
-              <p 
-                className="text-xl md:text-2xl mb-12 leading-relaxed opacity-90 max-w-4xl mx-auto"
-                style={{ fontFamily: 'var(--font-almarai)' }}
-              >
-                {currentPost.excerpt[language]}
-              </p>
-              
-              {/* Post Meta in Hero */}
-              <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 mb-12">
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-lg font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
-                    {currentPost.date}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  <span className="text-lg font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
-                    {language === 'ar' ? 'بواسطة' : 'By'} {currentPost.author[language]}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-lg font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
-                    {currentPost.readTime[language]} {language === 'ar' ? 'قراءة' : 'read'}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                  <span className="text-lg font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
-                    {currentPost.comments} {language === 'ar' ? 'تعليق' : 'comments'}
-                  </span>
-                </div>
-              </div>
-              
-              {/* Scroll Indicator */}
-              <div className="animate-bounce">
-                <svg className="w-8 h-8 mx-auto text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
             </div>
           </div>
         </div>
@@ -202,13 +166,59 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
 
                   {/* Article Body */}
                   <div 
-                    className="prose prose-lg max-w-none"
+                    className="prose prose-lg max-w-none mb-8"
                     style={{ 
                       fontFamily: 'var(--font-almarai)',
                       textAlign: language === 'ar' ? 'right' : 'left'
                     }}
                     dangerouslySetInnerHTML={{ __html: currentPost.content[language] }}
                   />
+
+                  {/* Media Gallery */}
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4" style={{ fontFamily: 'var(--font-almarai)' }}>
+                      {language === 'ar' ? 'معرض الصور والفيديوهات' : 'Media Gallery'}
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Sample Images */}
+                      <div className="relative h-64 rounded-lg overflow-hidden">
+                        <Image
+                          src="/blog1.jpg"
+                          alt="Article Image 1"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="relative h-64 rounded-lg overflow-hidden">
+                        <Image
+                          src="/blog2.jpg"
+                          alt="Article Image 2"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      {/* Sample Video */}
+                      <div className="relative h-64 rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center">
+                        <div className="text-center">
+                          <svg className="w-16 h-16 text-gray-400 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                          <p className="text-gray-600" style={{ fontFamily: 'var(--font-almarai)' }}>
+                            {language === 'ar' ? 'فيديو توضيحي' : 'Explanatory Video'}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="relative h-64 rounded-lg overflow-hidden">
+                        <Image
+                          src="/blog3.jpg"
+                          alt="Article Image 3"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </article>
             </div>
@@ -216,6 +226,41 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
             {/* Sidebar */}
             <div className="lg:col-span-1 order-1 lg:order-2">
               <div className="space-y-8">
+                
+                {/* Author Bio Section */}
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <h3 className="text-lg font-bold text-gray-800 mb-4 text-center" style={{ fontFamily: 'var(--font-almarai)' }}>
+                    {language === 'ar' ? 'عن الكاتب' : 'About the Author'}
+                  </h3>
+                  <div className="text-center">
+                    <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-300 mx-auto mb-4">
+                      <Image
+                        src="/men1.png"
+                        alt={currentPost.author[language]}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-800 mb-2" style={{ fontFamily: 'var(--font-almarai)' }}>
+                      {currentPost.author[language]}
+                    </h4>
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed" style={{ fontFamily: 'var(--font-almarai)' }}>
+                      {language === 'ar' 
+                        ? 'كاتب ومحرر محتوى متخصص في مجال الأعمال والخدمات التجارية مع خبرة تزيد عن 10 سنوات في الكتابة والتأليف.'
+                        : 'Content writer and editor specialized in business and commercial services with over 10 years of experience in writing and authorship.'
+                      }
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      <a href="#" className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium text-center" style={{ fontFamily: 'var(--font-almarai)' }}>
+                        {language === 'ar' ? 'مقالات أخرى' : 'More Articles'}
+                      </a>
+                      <a href="#" className="border border-green-600 text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors text-sm font-medium text-center" style={{ fontFamily: 'var(--font-almarai)' }}>
+                        {language === 'ar' ? 'متابعة' : 'Follow'}
+                      </a>
+                    </div>
+                  </div>
+                </div>
                 
                  {/* Categories */}
                  <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6">
@@ -342,7 +387,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none text-gray-800"
                       placeholder={language === 'ar' ? 'أدخل اسمك الكامل' : 'Enter your full name'}
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     />
@@ -356,7 +401,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                     </label>
                     <input
                       type="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none text-gray-800"
                       placeholder={language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     />
@@ -373,7 +418,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ id: strin
                   </label>
                   <textarea
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none resize-none text-gray-800"
                     placeholder={language === 'ar' ? 'اكتب تعليقك هنا...' : 'Write your comment here...'}
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   />

@@ -51,7 +51,7 @@ export const ConsultationSection = () => {
                   name="companyName"
                   value={formData.companyName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                   placeholder={language === 'ar' ? 'أدخل اسم المنشأة' : 'Enter company name'}
                   dir={language === 'ar' ? 'rtl' : 'ltr'}
                 />
@@ -68,7 +68,7 @@ export const ConsultationSection = () => {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                   placeholder={language === 'ar' ? 'أدخل الاسم بالكامل' : 'Enter full name'}
                   dir={language === 'ar' ? 'rtl' : 'ltr'}
                 />
@@ -89,7 +89,7 @@ export const ConsultationSection = () => {
                   name="mobileNumber"
                   value={formData.mobileNumber}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                   placeholder={language === 'ar' ? 'أدخل رقم الجوال' : 'Enter mobile number'}
                   dir={language === 'ar' ? 'rtl' : 'ltr'}
                 />
@@ -106,7 +106,7 @@ export const ConsultationSection = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                   placeholder={language === 'ar' ? 'أدخل البريد الإلكتروني' : 'Enter email address'}
                   dir={language === 'ar' ? 'rtl' : 'ltr'}
                 />
@@ -126,7 +126,7 @@ export const ConsultationSection = () => {
                   name="preferredTime"
                   value={formData.preferredTime}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                   dir={language === 'ar' ? 'rtl' : 'ltr'}
                 >
                   <option value="">{language === 'ar' ? 'اختر الوقت المناسب' : 'Select preferred time'}</option>
@@ -146,7 +146,7 @@ export const ConsultationSection = () => {
                   name="preferredLanguage"
                   value={formData.preferredLanguage}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                   dir={language === 'ar' ? 'rtl' : 'ltr'}
                 >
                   <option value="">{language === 'ar' ? 'اختر اللغة' : 'Select language'}</option>
@@ -170,7 +170,7 @@ export const ConsultationSection = () => {
                   name="service"
                   value={formData.service}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
                   dir={language === 'ar' ? 'rtl' : 'ltr'}
                 >
                   <option value="">{language === 'ar' ? 'اختر الخدمة المطلوبة' : 'Select required service'}</option>
@@ -198,7 +198,7 @@ export const ConsultationSection = () => {
                 value={formData.note}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-800"
                 placeholder={language === 'ar' ? 'أضف أي ملاحظات إضافية...' : 'Add any additional notes...'}
                 dir={language === 'ar' ? 'rtl' : 'ltr'}
               />
@@ -218,8 +218,8 @@ export const ConsultationSection = () => {
         {/* Text Content */}
         <div className={`lg:order-1 text-center ${language === 'ar' ? 'lg:text-right' : 'lg:text-left'} lg:pl-8 bg-blue-50 p-6 rounded-lg`}>
           <h2 
-            className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8"
-            style={{ fontFamily: 'var(--font-almarai)' }}
+            className="text-3xl lg:text-4xl font-bold mb-8"
+            style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
           >
             {language === 'ar' ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation'}
           </h2>

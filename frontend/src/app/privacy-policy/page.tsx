@@ -146,8 +146,8 @@ export default function PrivacyPolicyPage() {
                   </svg>
                 </div>
                 <h2 
-                  className="text-3xl font-bold text-gray-800 mb-4"
-                  style={{ fontFamily: 'var(--font-almarai)' }}
+                  className="text-3xl font-bold mb-4"
+                  style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
                 >
                   {language === 'ar' ? 'التزامنا بحماية خصوصيتك' : 'Our Commitment to Your Privacy'}
                 </h2>
@@ -175,10 +175,11 @@ export default function PrivacyPolicyPage() {
                     </div>
                     <div className="flex-1">
                       <h3 
-                        className="text-xl font-bold text-gray-800 mb-4"
+                        className="text-xl font-bold mb-4"
                         style={{ 
                           fontFamily: 'var(--font-almarai)',
-                          textAlign: language === 'ar' ? 'right' : 'left'
+                          textAlign: language === 'ar' ? 'right' : 'left',
+                          color: '#11613A'
                         }}
                       >
                         {section.title[language]}

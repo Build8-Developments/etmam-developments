@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Section } from '../common';
 
 export const FAQSection = () => {
   const { language } = useLanguage();
@@ -67,101 +66,68 @@ export const FAQSection = () => {
     }
   ];
 
-  // Split FAQ data into two columns
-  const leftColumn = faqData.slice(0, Math.ceil(faqData.length / 2));
-  const rightColumn = faqData.slice(Math.ceil(faqData.length / 2));
 
   return (
-    <Section 
-      title={language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
-      className="bg-gray-50"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Left Column */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8">
-            {leftColumn.map((item, index) => (
-              <div key={index} className="border-b border-gray-200 last:border-b-0">
-                <button
-                  onClick={() => toggleItem(index)}
-                  className="w-full text-right py-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-                >
-                  <span 
-                    className="text-lg font-semibold text-green-600 flex-1"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {item.question[language]}
-                  </span>
-                  <div className="ml-4 flex-shrink-0">
-                    {openItems.includes(index) ? (
-                      <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                      </svg>
-                    ) : (
-                      <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                      </svg>
-                    )}
-                  </div>
-                </button>
-                {openItems.includes(index) && (
-                  <div className="pb-4">
-                    <p 
-                      className="text-gray-600 leading-relaxed"
-                      style={{ fontFamily: 'var(--font-almarai)' }}
-                    >
-                      {item.answer[language]}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+    <section className="py-16 bg-white">
+      <div className="max-w-5xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-6" style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}>
+            {language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+          </h2>
+        </div>
 
-          {/* Right Column */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8">
-            {rightColumn.map((item, index) => {
-              const actualIndex = index + Math.ceil(faqData.length / 2);
-              return (
-                <div key={actualIndex} className="border-b border-gray-200 last:border-b-0">
+        {/* FAQ Items */}
+        <div className="space-y-6">
+          {faqData.map((item, index) => (
+            <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-8">
+                {/* Question Side */}
+                <div className="flex-1">
                   <button
-                    onClick={() => toggleItem(actualIndex)}
-                    className="w-full text-right py-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                    onClick={() => toggleItem(index)}
+                    className="w-full text-right flex items-center justify-between group"
                   >
                     <span 
-                      className="text-lg font-semibold text-green-600 flex-1"
+                      className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
                       {item.question[language]}
                     </span>
-                    <div className="ml-4 flex-shrink-0">
-                      {openItems.includes(actualIndex) ? (
-                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                        </svg>
+                    <div className="ml-4">
+                      {openItems.includes(index) ? (
+                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                          </svg>
+                        </div>
                       ) : (
-                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
+                        <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                          <svg className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          </svg>
+                        </div>
                       )}
                     </div>
                   </button>
-                  {openItems.includes(actualIndex) && (
-                    <div className="pb-4">
-                      <p 
-                        className="text-gray-600 leading-relaxed"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {item.answer[language]}
-                      </p>
-                    </div>
+                </div>
+                
+                {/* Answer Side */}
+                <div className="flex-1">
+                  {openItems.includes(index) && (
+                    <p 
+                      className="text-gray-600 leading-relaxed text-right"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {item.answer[language]}
+                    </p>
                   )}
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </Section>
+    </section>
   );
 };

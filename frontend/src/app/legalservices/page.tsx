@@ -16,13 +16,20 @@ import { legalServicesPageContent, legalCompanies } from '@/mockData/pages';
 export default function LegalServicesPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
   const content = legalServicesPageContent;
 
-  // Filter companies based on search term
+  // Enhanced search with multiple criteria
   const filteredCompanies = legalCompanies.filter(company => {
+    if (!searchTerm.trim()) return true;
+    
     const searchLower = searchTerm.toLowerCase();
-    return company.name[language].toLowerCase().includes(searchLower) || 
-           company.description[language].toLowerCase().includes(searchLower);
+    const searchTerms = searchLower.split(' ').filter(term => term.length > 0);
+    
+    return searchTerms.every(term => 
+      company.name[language].toLowerCase().includes(term) || 
+      company.description[language].toLowerCase().includes(term)
+    );
   });
 
   return (
@@ -66,11 +73,11 @@ export default function LegalServicesPage() {
                 {content.hero.description[language]}
               </p>
               
-              {/* Search Bar */}
+              {/* Enhanced Search Bar */}
               <div className="max-w-2xl mx-auto mb-8">
                 <div className="relative">
                   <div className={`absolute inset-y-0 flex items-center pointer-events-none ${language === 'ar' ? 'right-0 pr-4' : 'left-0 pl-4'}`}>
-                    <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                   </div>
@@ -79,7 +86,9 @@ export default function LegalServicesPage() {
                     placeholder={content.hero.searchPlaceholder[language]}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'}`}
+                    onFocus={() => setIsSearchFocused(true)}
+                    onBlur={() => setIsSearchFocused(false)}
+                    className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-300 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'} ${isSearchFocused ? 'bg-white/20 border-white/40' : ''}`}
                     style={{ fontFamily: 'var(--font-almarai)' }}
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                   />
@@ -94,6 +103,18 @@ export default function LegalServicesPage() {
                     </button>
                   )}
                 </div>
+                
+                {/* Search Results Info */}
+                {searchTerm && (
+                  <div className="mt-4 text-center">
+                    <p className="text-white/80 text-sm" style={{ fontFamily: 'var(--font-almarai)' }}>
+                      {language === 'ar' 
+                        ? `تم العثور على ${filteredCompanies.length} نتيجة` 
+                        : `Found ${filteredCompanies.length} results`
+                      }
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -103,14 +124,15 @@ export default function LegalServicesPage() {
       {/* Companies Grid */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            style={{
-              maxWidth: '1147px',
-              margin: '0 auto'
-            }}
-          >
-        {filteredCompanies.map((company) => (
+          {filteredCompanies.length > 0 ? (
+            <div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              style={{
+                maxWidth: '1147px',
+                margin: '0 auto'
+              }}
+            >
+              {filteredCompanies.map((company) => (
           <Link
             key={company.id}
             href={`/legalservices/${company.id}`}
@@ -191,11 +213,9 @@ export default function LegalServicesPage() {
               </div>
             </div>
           </Link>
-        ))}
-          </div>
-          
-          {/* No Results */}
-          {filteredCompanies.length === 0 && (
+              ))}
+            </div>
+          ) : (
             <div className="text-center py-12">
               <div className="text-gray-500 text-lg" style={{ fontFamily: 'var(--font-almarai)' }}>
                 {content.companies.noResultsMessage[language]}

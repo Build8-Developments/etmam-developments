@@ -70,11 +70,11 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
               <Link
                 key={index}
                 href={item.href}
-                className="text-gray-800 hover:text-primary transition-colors whitespace-nowrap"
+                className="text-gray-800 hover:text-primary transition-colors whitespace-nowrap text-sm sm:text-base lg:text-lg"
                 style={{
                   fontFamily: 'var(--font-almarai)',
                   fontWeight: 600,
-                  fontSize: 20,
+                  fontSize: 'clamp(14px, 2.5vw, 20px)',
                   lineHeight: '100%',
                   letterSpacing: 0,
                 }}
@@ -101,20 +101,20 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
               href={contactButton?.href || '/contact'}
               variant="primary"
               size="md"
-              className="hidden md:inline-flex px-9 py-[15px] rounded-[37px] whitespace-nowrap"
+              className="hidden sm:inline-flex px-6 sm:px-9 py-2 sm:py-[15px] rounded-[37px] whitespace-nowrap text-sm sm:text-base"
             />
 
             {/* Mobile Menu Button */}
             <button
               onClick={toggle}
-              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+              className="lg:hidden w-12 h-12 flex flex-col items-center justify-center gap-1.5 rounded-xl hover:bg-gray-100 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
               aria-label={getTranslation('accessibility', 'menuToggle', language)}
               aria-expanded={isOpen}
               aria-controls="mobile-nav"
             >
-              <span className="w-6 h-0.5 bg-gray-700"></span>
-              <span className="w-6 h-0.5 bg-gray-700"></span>
-              <span className="w-6 h-0.5 bg-gray-700"></span>
+              <span className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
             </button>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
         {/* Page overlay when mobile menu open */}
         {isOpen && (
           <div
-            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[1px] lg:hidden"
+            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden transition-all duration-300"
             onClick={close}
           />
         )}
@@ -130,30 +130,57 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
         {/* Mobile menu */}
         <div
           id="mobile-nav"
-          className={`${isOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-2'} lg:hidden transition-all duration-200 relative z-[60]`}
+          className={`${isOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'} lg:hidden transition-all duration-300 ease-out relative z-[60]`}
         >
-          <div className="mt-2 rounded-2xl bg-white shadow-xl ring-1 ring-black/5 overflow-hidden">
+          <div className="mt-3 mx-4 rounded-3xl bg-white shadow-2xl ring-1 ring-black/10 overflow-hidden backdrop-blur-sm">
+            {/* Menu Header */}
+            <div className="px-6 py-4 border-b border-gray-100">
+              <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: 'var(--font-almarai)' }}>
+                {language === 'ar' ? 'القائمة' : 'Menu'}
+              </h3>
+            </div>
+            
+            {/* Navigation Items */}
             <div className="flex flex-col py-2">
               {navItems.map((item, idx) => (
                 <Link
                   key={idx}
                   href={item.href}
                   onClick={close}
-                  className="px-4 py-3 text-base font-semibold text-gray-800 hover:bg-green-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                  className="px-6 py-4 text-base font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-all duration-200 flex items-center group"
+                  style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {item.label}
+                  <span className="flex-1">{item.label}</span>
+                  <svg className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
               ))}
             </div>
-            <div className="flex items-center justify-between gap-3 px-4 pb-4">
-              <button
-                onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-                className="w-10 h-10 rounded-full bg-primary hover:bg-green-600 text-white flex items-center justify-center font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                aria-label={getTranslation('accessibility', 'languageSwitch', language)}
-              >
-                {language === 'ar' ? 'en' : 'ع'}
-              </button>
-              <div className="flex-1" />
+            
+            {/* Menu Footer */}
+            <div className="px-6 py-4 border-t border-gray-100 bg-gray-50/50">
+              <div className="flex items-center justify-between gap-4">
+                {/* Language Switcher */}
+                <button
+                  onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+                  className="flex items-center gap-3 px-4 py-2 rounded-xl bg-primary hover:bg-green-600 text-white font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                  aria-label={getTranslation('accessibility', 'languageSwitch', language)}
+                  style={{ fontFamily: 'var(--font-almarai)' }}
+                >
+                  <span className="text-lg">{language === 'ar' ? 'en' : 'ع'}</span>
+                  <span className="text-sm">{language === 'ar' ? 'English' : 'العربية'}</span>
+                </button>
+                
+                {/* Contact Button */}
+                <Button
+                  label={contactLabel}
+                  href={contactButton?.href || '/contact'}
+                  variant="primary"
+                  size="sm"
+                  className="px-4 py-2 rounded-xl text-sm font-semibold"
+                />
+              </div>
             </div>
           </div>
         </div>
