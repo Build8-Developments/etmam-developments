@@ -3,10 +3,24 @@
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const PartnersSection = () => {
+interface Partner {
+  name: string;
+  website?: string;
+  logo: {
+    url: string;
+    name: string;
+  };
+}
+
+interface PartnersSectionProps {
+  partners?: Partner[];
+}
+
+const PartnersSection = ({ partners }: PartnersSectionProps) => {
   const { language } = useLanguage();
 
-  const partners = [
+  // Default partners data
+  const defaultPartners = [
     { name: 'Paysafe', logo: '/Payment method icon.png' },
     { name: 'Klarna', logo: '/Payment method icon1.png' },
     { name: 'Affirm', logo: '/Payment method icon2.png' },
@@ -17,8 +31,16 @@ const PartnersSection = () => {
     { name: 'Apple Pay', logo: '/4.png' },
   ];
 
+  // Use Strapi data if available, otherwise use default data
+  const partnersData = partners && partners.length > 0 
+    ? partners.map(partner => ({
+        name: partner.name,
+        logo: partner.logo?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${partner.logo.url}` : '/Payment method icon.png'
+      }))
+    : defaultPartners;
+
   // Duplicate partners array for seamless infinite scroll
-  const duplicatedPartners = [...partners, ...partners];
+  const duplicatedPartners = [...partnersData, ...partnersData];
 
   return (
      <section 

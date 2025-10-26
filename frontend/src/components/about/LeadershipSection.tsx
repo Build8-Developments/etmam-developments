@@ -2,8 +2,38 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export default function LeadershipSection() {
+interface NumbersCounter {
+  label: string;
+  value: string;
+}
+
+interface LeadershipSectionProps {
+  title?: string;
+  subtitle?: string;
+  numbersCounter?: NumbersCounter[];
+}
+
+export default function LeadershipSection({ 
+  title, 
+  subtitle, 
+  numbersCounter 
+}: LeadershipSectionProps) {
   const { language } = useLanguage();
+
+  // Default statistics
+  const defaultStats = [
+    { value: '200+', label: language === 'ar' ? 'شركة ناشئة تم دعمها' : 'Startup company supported' },
+    { value: '50+', label: language === 'ar' ? 'رخصة تجارية منجزة' : 'Business license completed' },
+    { value: '200+', label: language === 'ar' ? 'خدمة إدارية مكتملة' : 'Completed administrative service' }
+  ];
+
+  // Use Strapi data if available, otherwise use default data
+  const statsData = numbersCounter && numbersCounter.length > 0 
+    ? numbersCounter.map(stat => ({
+        value: stat.value,
+        label: stat.label
+      }))
+    : defaultStats;
 
   return (
     <section 
@@ -32,7 +62,7 @@ export default function LeadershipSection() {
               letterSpacing: '-1%',
             }}
           >
-            {language === 'ar' ? 'ريادة الحلول التجارية والإدارية في المملكة' : 'Leadership in Commercial and Administrative Solutions in the Kingdom'}
+            {title || (language === 'ar' ? 'ريادة الحلول التجارية والإدارية في المملكة' : 'Leadership in Commercial and Administrative Solutions in the Kingdom')}
           </h2>
           
           <p 
@@ -44,19 +74,15 @@ export default function LeadershipSection() {
               letterSpacing: '0%',
             }}
           >
-            {language === 'ar' 
+            {subtitle || (language === 'ar' 
               ? 'نربط رواد الأعمال والشركات والجهات الحكومية لتبسيط الإجراءات، وتوفير الوقت، ودعم النجاح'
               : 'We connect entrepreneurs, companies, and government entities to simplify procedures, save time, and support success'
-            }
+            )}
           </p>
           
           {/* Statistics */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            {[
-              { value: '200+', label: language === 'ar' ? 'شركة ناشئة تم دعمها' : 'Startup company supported' },
-              { value: '50+', label: language === 'ar' ? 'رخصة تجارية منجزة' : 'Business license completed' },
-              { value: '200+', label: language === 'ar' ? 'خدمة إدارية مكتملة' : 'Completed administrative service' }
-            ].map((stat, index) => (
+            {statsData.map((stat, index) => (
               <div key={index} className="text-center">
                 <div 
                   className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2"

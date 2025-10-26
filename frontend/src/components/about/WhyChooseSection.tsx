@@ -1,9 +1,64 @@
 'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
-export default function WhyChooseSection() {
+interface ContentItem {
+  title: string;
+  description: string;
+  icon?: {
+    url: string;
+    name: string;
+  };
+}
+
+interface WhyChooseSectionProps {
+  title?: string;
+  subtitle?: string;
+  content?: ContentItem[];
+}
+
+export default function WhyChooseSection({ 
+  title, 
+  subtitle, 
+  content 
+}: WhyChooseSectionProps) {
   const { language } = useLanguage();
+
+  // Default content
+  const defaultContent = [
+    {
+      title: language === 'ar' ? 'حلول متكاملة' : 'Integrated Solutions',
+      description: language === 'ar' 
+        ? 'من تأسيس الشركات والتراخيص إلى إدارة الأعمال. كل خدماتك في مكان واحد.'
+        : 'From company formation and licensing to business management. All your services in one place.',
+      icon: null
+    },
+    {
+      title: language === 'ar' ? 'دعم متواصل' : 'Continuous Support',
+      description: language === 'ar' 
+        ? 'فريقنا جاهز لمساعدتك والإجابة على استفساراتك في أي وقت.'
+        : 'Our team is ready to assist you and answer your inquiries at any time.',
+      icon: null
+    },
+    {
+      title: language === 'ar' ? 'إجراءات إلكترونية سلسة' : 'Smooth Electronic Procedures',
+      description: language === 'ar' 
+        ? 'قدم طلبك وأكمل معاملاتك عبر الموقع بسهولة.'
+        : 'Submit your request and complete your transactions easily through the website.',
+      icon: null
+    },
+    {
+      title: language === 'ar' ? 'خدمات موثوقة وسريعة' : 'Reliable and Fast Services',
+      description: language === 'ar' 
+        ? 'تنفيذ احترافي يوفر وقتك وجهدك.'
+        : 'Professional execution that saves your time and effort.',
+      icon: null
+    }
+  ];
+
+  // Use Strapi data if available, otherwise use default data
+  const contentData = content && content.length > 0 ? content : defaultContent;
 
   return (
     <section className="py-16 lg:py-24 bg-white">
@@ -21,7 +76,7 @@ export default function WhyChooseSection() {
               color: 'rgba(17, 97, 58, 1)',
             }}
           >
-            {language === 'ar' ? 'لماذا تختار إتمام؟' : 'Why Choose Itmam?'}
+            {title || (language === 'ar' ? 'لماذا تختار إتمام؟' : 'Why Choose Itmam?')}
           </h2>
           
           {/* Subtitle */}
@@ -36,10 +91,10 @@ export default function WhyChooseSection() {
               color: 'rgba(0, 0, 0, 0.44)',
             }}
           >
-            {language === 'ar' 
+            {subtitle || (language === 'ar' 
               ? 'تبسيط الإجراءات الإدارية والتجارية بخطوات واضحة وسهلة'
               : 'Simplifying administrative and commercial procedures with clear and easy steps'
-            }
+            )}
           </p>
           
           {/* Decorative Line */}
@@ -53,205 +108,64 @@ export default function WhyChooseSection() {
           
           {/* Cards Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {/* Card 1 - Integrated Solutions */}
-            <div 
-              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
-              style={{
-                minHeight: '280px',
-                height: 'auto',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'white';
-              }}
-            >
-              {/* Icon */}
+            {contentData.map((item, index) => (
               <div 
-                className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center group-hover:bg-white"
+                key={index}
+                className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
                 style={{
-                  background: 'rgba(17, 97, 58, 1)',
+                  minHeight: '280px',
+                  height: 'auto',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'white';
                 }}
               >
-                <svg className="w-8 h-8 text-white group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+                {/* Icon */}
+                <div 
+                  className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center group-hover:bg-white"
+                  style={{
+                    background: 'rgba(17, 97, 58, 1)',
+                  }}
+                >
+                  {item.icon?.url ? (
+                    <Image 
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.icon.url}`}
+                      alt={item.icon.name || item.title}
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 text-white group-hover:text-white"
+                    />
+                  ) : (
+                    <svg className="w-8 h-8 text-white group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  )}
+                </div>
+                
+                {/* Title */}
+                <h3 
+                  className="text-lg font-semibold mb-4 text-gray-800 group-hover:text-white"
+                  style={{ 
+                    fontFamily: 'var(--font-almarai)',
+                  }}
+                >
+                  {item.title}
+                </h3>
+                
+                {/* Description */}
+                <p 
+                  className="text-sm text-gray-600 group-hover:text-white leading-relaxed"
+                  style={{ 
+                    fontFamily: 'var(--font-almarai)',
+                  }}
+                >
+                  {item.description}
+                </p>
               </div>
-              
-              {/* Title */}
-              <h3 
-                className="text-lg font-semibold mb-4 text-gray-800 group-hover:text-white"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' ? 'حلول متكاملة' : 'Integrated Solutions'}
-              </h3>
-              
-              {/* Description */}
-              <p 
-                className="text-sm text-gray-600 group-hover:text-white leading-relaxed"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' 
-                  ? 'من تأسيس الشركات والتراخيص إلى إدارة الأعمال. كل خدماتك في مكان واحد.'
-                  : 'From company formation and licensing to business management. All your services in one place.'
-                }
-              </p>
-            </div>
-
-            {/* Card 2 - Continuous Support */}
-            <div 
-              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
-              style={{
-                minHeight: '280px',
-                height: 'auto',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'white';
-              }}
-            >
-              {/* Icon */}
-              <div 
-                className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center group-hover:bg-white"
-                style={{
-                  background: 'rgba(17, 97, 58, 1)',
-                }}
-              >
-                <svg className="w-8 h-8 text-white group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-                </svg>
-              </div>
-              
-              {/* Title */}
-              <h3 
-                className="text-lg font-semibold mb-4 text-gray-800 group-hover:text-white"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' ? 'دعم متواصل' : 'Continuous Support'}
-              </h3>
-              
-              {/* Description */}
-              <p 
-                className="text-sm text-gray-600 group-hover:text-white leading-relaxed"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' 
-                  ? 'فريقنا جاهز لمساعدتك والإجابة على استفساراتك في أي وقت.'
-                  : 'Our team is ready to assist you and answer your inquiries at any time.'
-                }
-              </p>
-            </div>
-
-            {/* Card 3 - Smooth Electronic Procedures */}
-            <div 
-              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
-              style={{
-                minHeight: '280px',
-                height: 'auto',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'white';
-              }}
-            >
-              {/* Icon */}
-              <div 
-                className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center group-hover:bg-white"
-                style={{
-                  background: 'rgba(17, 97, 58, 1)',
-                }}
-              >
-                <svg className="w-8 h-8 text-white group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                </svg>
-              </div>
-              
-              {/* Title */}
-              <h3 
-                className="text-lg font-semibold mb-4 text-gray-800 group-hover:text-white"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' ? 'إجراءات إلكترونية سلسة' : 'Smooth Electronic Procedures'}
-              </h3>
-              
-              {/* Description */}
-              <p 
-                className="text-sm text-gray-600 group-hover:text-white leading-relaxed"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' 
-                  ? 'قدم طلبك وأكمل معاملاتك عبر الموقع بسهولة.'
-                  : 'Submit your request and complete your transactions easily through the website.'
-                }
-              </p>
-            </div>
-
-            {/* Card 4 - Reliable and Fast Services */}
-            <div 
-              className="bg-white rounded-[60px] p-6 sm:p-8 text-center cursor-pointer group w-full max-w-[267px] mx-auto"
-              style={{
-                minHeight: '280px',
-                height: 'auto',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(181.08deg, #1B8036 3.34%, #290505 219.68%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'white';
-              }}
-            >
-              {/* Icon */}
-              <div 
-                className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center group-hover:bg-white"
-                style={{
-                  background: 'rgba(17, 97, 58, 1)',
-                }}
-              >
-                <svg className="w-8 h-8 text-white group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2-7H3v2h16V4zm0 4H3v2h16V8zm0 4H3v2h16v-2z"/>
-                </svg>
-              </div>
-              
-              {/* Title */}
-              <h3 
-                className="text-lg font-semibold mb-4 text-gray-800 group-hover:text-white"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' ? 'خدمات موثوقة وسريعة' : 'Reliable and Fast Services'}
-              </h3>
-              
-              {/* Description */}
-              <p 
-                className="text-sm text-gray-600 group-hover:text-white leading-relaxed"
-                style={{ 
-                  fontFamily: 'var(--font-almarai)',
-                }}
-              >
-                {language === 'ar' 
-                  ? 'تنفيذ احترافي يوفر وقتك وجهدك.'
-                  : 'Professional execution that saves your time and effort.'
-                }
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -68,7 +68,7 @@ export async function fetchGraphQL<T = any>(
     fetchPolicy = "cache-first",
     endpoint = process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL ||
       "http://localhost:1337/graphql",
-    token,
+    token = process.env.STRAPI_API_TOKEN,
     revalidate,
     tags,
   } = options;

@@ -1,5 +1,3 @@
-'use client';
-
 import { 
   Header, 
   Footer,
@@ -11,13 +9,27 @@ import {
   ErrorBoundary
 } from '@/components';
 import { SuccessFoundationSection, LeadershipSection, WhyChooseSection } from '@/components/about';
-import { useLanguage } from "@/contexts/LanguageContext";
-import Link from 'next/link';
+import { GET_ABOUT_PAGE } from '@/lib/graphql/queries/pages/about';
+import { fetchWithLocale } from '@/lib/graphql/utils/fetchGraphQL';
+import { getLocale } from '@/lib/graphql/utils/locale';
 import { aboutPageContent } from '@/mockData/pages';
+import Link from 'next/link';
 
-export default function AboutPage() {
-  const { language } = useLanguage();
-  const content = aboutPageContent;
+export default async function AboutPage() {
+  // Get current locale
+  const locale = await getLocale();
+  
+  // Fetch data from Strapi with fallback to default content
+  const { data: strapiData } = await fetchWithLocale({
+    query: GET_ABOUT_PAGE,
+    locale,
+  });
+
+  // Extract data from Strapi response
+  const aboutData = strapiData?.about;
+  
+  // Use Strapi data if available, otherwise fallback to mock data
+  const content = aboutData || aboutPageContent;
 
   return (
     <ErrorBoundary>
@@ -37,7 +49,9 @@ export default function AboutPage() {
           <div 
             className="absolute inset-0"
             style={{
-              backgroundImage: 'url(/bgabout.png)',
+              backgroundImage: aboutData?.Hero?.backgroundImage?.url 
+                ? `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${aboutData.Hero.backgroundImage.url})`
+                : 'url(/bgabout.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
@@ -54,30 +68,30 @@ export default function AboutPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {content.hero.title[language]}
+                  {aboutData?.Hero?.title || content.hero.title[locale]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {content.hero.description[language]}
+                  {aboutData?.Hero?.subtitle || content.hero.description[locale]}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
-                    href="/services"
+                    href={aboutData?.Hero?.primaryButton?.href || "/services"}
                     className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {content.hero.buttons.primary[language]}
+                    {aboutData?.Hero?.primaryButton?.label || content.hero.buttons.primary[locale]}
                   </Link>
                   <Link 
-                    href="/contact"
+                    href={aboutData?.Hero?.secondaryButton?.href || "/contact"}
                     className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {content.hero.buttons.secondary[language]}
+                    {aboutData?.Hero?.secondaryButton?.label || content.hero.buttons.secondary[locale]}
                   </Link>
                 </div>
               </div>
@@ -85,53 +99,69 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   {/* Data Visualization Cards */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">500+</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {content.hero.stats.companiesFounded[language]}
+                  {aboutData?.Hero?.stats?.map((stat: any, index: number) => (
+                    <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                        <div 
+                          className="text-sm text-white/80"
+                          style={{ fontFamily: 'var(--font-almarai)' }}
+                        >
+                          {stat.label}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">15+</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {content.hero.stats.yearsExperience[language]}
+                  )) || (
+                    <>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">500+</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {content.hero.stats.companiesFounded[locale]}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">98%</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {content.hero.stats.satisfactionRate[language]}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">15+</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {content.hero.stats.yearsExperience[locale]}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {content.hero.stats.technicalSupport[language]}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">98%</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {content.hero.stats.satisfactionRate[locale]}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {content.hero.stats.technicalSupport[locale]}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -139,32 +169,63 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* About Section */}
-      <AboutSection />
+      {/* About Section with Strapi data */}
+      <AboutSection 
+        title={aboutData?.aboutUs?.title}
+        heading={aboutData?.aboutUs?.subtitle}
+        description={aboutData?.aboutUs?.description}
+        mainImage={aboutData?.aboutUs?.primaryImage}
+        secondaryImage={aboutData?.aboutUs?.secondaryImage}
+        statNumber={aboutData?.aboutUs?.partnersCount}
+        statLabel={aboutData?.aboutUs?.partnersCountText}
+        features={aboutData?.aboutUs?.content}
+        ctaButton={{
+          label: aboutData?.aboutUs?.ctaButton?.label || "عرض المزيد",
+          href: aboutData?.aboutUs?.ctaButton?.href || "/services"
+        }}
+      />
       
-      {/* Success Foundation Section */}
-      <SuccessFoundationSection />
+      {/* Success Foundation Section with Strapi data */}
+      <SuccessFoundationSection 
+        title={aboutData?.Success?.title}
+        subtitle={aboutData?.Success?.subtitle}
+        visionMessage={aboutData?.Success?.VisionMessage}
+      />
       
-      {/* Leadership Section */}
-      <LeadershipSection />
+      {/* Leadership Section with Strapi data */}
+      <LeadershipSection 
+        title={aboutData?.Achievements?.title}
+        subtitle={aboutData?.Achievements?.subtitle}
+        numbersCounter={aboutData?.Achievements?.NumbersCounter}
+      />
       
-      {/* Why Choose Section */}
-      <WhyChooseSection />
-      
-      {/* Statistics Section */}
-     
+      {/* Why Choose Section with Strapi data */}
+      <WhyChooseSection 
+        title={aboutData?.WhyChooseUs?.title}
+        subtitle={aboutData?.WhyChooseUs?.subtitle}
+        content={aboutData?.WhyChooseUs?.content}
+      />
       
       {/* Consultation Section */}
       <ConsultationSection />
       
-      {/* FAQ Section */}
-      <FAQSection />
+      {/* FAQ Section with Strapi data */}
+      <FAQSection 
+        title={aboutData?.Faq?.string}
+        faqs={aboutData?.Faq?.faqs}
+      />
       
-      {/* CTA Section */}
-      <CTASection />
+      {/* CTA Section with Strapi data */}
+      <CTASection 
+        title={aboutData?.CTA?.title}
+        buttonText={aboutData?.CTA?.buttonText}
+        backgroundImage={aboutData?.CTA?.backgroundImage}
+      />
       
-      {/* Partners Section */}
-      <PartnersSection />
+      {/* Partners Section with Strapi data */}
+      <PartnersSection 
+        partners={aboutData?.PartnersLogos?.partners}
+      />
       
         <Footer />
       </div>
