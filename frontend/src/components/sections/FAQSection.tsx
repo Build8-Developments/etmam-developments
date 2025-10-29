@@ -88,41 +88,97 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
 
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6" style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}>
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6" 
+            style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
+          >
             {title || (language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions')}
           </h2>
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-6">
+        <div className="space-y-3 sm:space-y-4 lg:space-y-6">
           {faqData.map((item, index) => (
-            <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-              <div className="flex items-start gap-8">
+            <div 
+              key={index} 
+              className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-smooth hover-lift"
+            >
+              {/* Mobile/Tablet Layout - Single Column */}
+              <div className="block lg:hidden">
+                <button
+                  onClick={() => toggleItem(index)}
+                  className="w-full flex items-center justify-between gap-3 sm:gap-4 group text-left"
+                  style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
+                >
+                  <span 
+                    className="flex-1 text-base sm:text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"
+                    style={{ fontFamily: 'var(--font-almarai)' }}
+                  >
+                    {item.question[language]}
+                  </span>
+                  <div className={`flex-shrink-0 ${language === 'ar' ? 'mr-auto' : 'ml-auto'}`}>
+                    {openItems.includes(index) ? (
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-full flex items-center justify-center transition-smooth">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                        </svg>
+                      </div>
+                    ) : (
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-smooth">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                </button>
+                
+                {/* Answer - Mobile/Tablet */}
+                {openItems.includes(index) && (
+                  <div 
+                    className={`mt-4 pt-4 border-t border-gray-200 animate-fade-in-up`}
+                    style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
+                  >
+                    <p 
+                      className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {item.answer[language]}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Desktop Layout - Two Columns */}
+              <div className="hidden lg:flex items-start gap-6 lg:gap-8">
                 {/* Question Side */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <button
                     onClick={() => toggleItem(index)}
-                    className="w-full text-right flex items-center justify-between group"
+                    className={`w-full flex items-center justify-between group transition-smooth ${
+                      language === 'ar' ? 'text-right' : 'text-left'
+                    }`}
+                    style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
                   >
                     <span 
-                      className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"
+                      className="flex-1 text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
                       {item.question[language]}
                     </span>
-                    <div className="ml-4">
+                    <div className={`flex-shrink-0 ${language === 'ar' ? 'ml-4' : 'mr-4'}`}>
                       {openItems.includes(index) ? (
-                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center transition-smooth hover-scale">
                           <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
                           </svg>
                         </div>
                       ) : (
-                        <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                        <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-smooth hover-scale">
                           <svg className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                           </svg>
@@ -133,14 +189,18 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
                 </div>
                 
                 {/* Answer Side */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   {openItems.includes(index) && (
-                    <p 
-                      className="text-gray-600 leading-relaxed text-right"
-                      style={{ fontFamily: 'var(--font-almarai)' }}
-                    >
-                      {item.answer[language]}
-                    </p>
+                    <div className="animate-fade-in-up">
+                      <p 
+                        className={`text-gray-600 leading-relaxed text-base ${
+                          language === 'ar' ? 'text-right' : 'text-left'
+                        }`}
+                        style={{ fontFamily: 'var(--font-almarai)' }}
+                      >
+                        {item.answer[language]}
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>

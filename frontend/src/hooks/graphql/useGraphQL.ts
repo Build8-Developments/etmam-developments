@@ -3,6 +3,7 @@
 
 import { useQuery } from '@apollo/client/react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useToast } from '@/contexts/ToastContext';
 import {
   GET_HEADER_QUERY,
   GET_FOOTER_QUERY,
@@ -25,6 +26,23 @@ import {
   GET_CONSULTATION_QUERY,
   GET_SEO_QUERY
 } from '@/lib/queries';
+import {
+  GET_SHORT_CONSULTING_SERVICES,
+  GET_CONSULTING_SERVICE_BY_DOCUMENTID
+} from '@/lib/graphql/queries/content/services/consulting';
+import {
+  GET_LEGAL_SERVICE_CATEGORIES,
+  GET_LEGAL_SERVICE_CATEGORY_SUBSERVICES,
+  GET_LEGAL_SERVICE_SUBSERVICE_DETAILS_BY_DOCUMENTID
+} from '@/lib/graphql/queries/content/services/legal';
+import {
+  GET_BLOG_POSTS,
+  GET_FEATURED_BLOG_POSTS,
+  GET_BLOG_POST_BY_SLUG,
+  GET_BLOG_POST_COMMENTS,
+  CREATE_BLOG_COMMENT
+} from '@/lib/graphql/queries/content/blog';
+import { useMutation } from '@apollo/client/react';
 
 // Layout Hooks
 export const useHeader = () => {
@@ -227,7 +245,51 @@ export const useWhyChoose = () => {
   };
 };
 
-// Blog Hooks
+// Blog Hooks (using new queries from blog.ts)
+export const useBlogPostsNew = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_BLOG_POSTS, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.blogs || [],
+    loading,
+    error
+  };
+};
+
+export const useFeaturedBlogPosts = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_FEATURED_BLOG_POSTS, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.blogs || [],
+    loading,
+    error
+  };
+};
+
+export const useBlogPostBySlug = (slug: string) => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_BLOG_POST_BY_SLUG, {
+    variables: { slug, locale: language },
+    errorPolicy: 'all',
+    skip: !slug
+  });
+  
+  return {
+    data: (data as any)?.blogs?.[0] || null,
+    loading,
+    error
+  };
+};
+
+// Legacy Blog Hooks (keeping for backward compatibility)
 export const useBlogPosts = (limit?: number, start?: number) => {
   const { language } = useLanguage();
   const { data, loading, error } = useQuery(GET_BLOG_POSTS_QUERY, {
@@ -315,5 +377,144 @@ export const useSEO = (page: string) => {
     data: (data as any)?.seo?.data?.[0]?.attributes,
     loading,
     error
+  };
+};
+
+// Consulting Services Hooks
+export const useConsultingServices = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_SHORT_CONSULTING_SERVICES, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.consultingServices || [],
+    loading,
+    error
+  };
+};
+
+export const useConsultingServiceDetail = (documentId: string) => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_CONSULTING_SERVICE_BY_DOCUMENTID, {
+    variables: { documentId, locale: language },
+    errorPolicy: 'all',
+    skip: !documentId
+  });
+  
+  return {
+    data: (data as any)?.consultingService,
+    loading,
+    error
+  };
+};
+
+// Legal Services Hooks
+export const useLegalServiceCategories = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_LEGAL_SERVICE_CATEGORIES, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.legalServiceCategories || [],
+    loading,
+    error
+  };
+};
+
+export const useLegalServiceSubservices = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_LEGAL_SERVICE_CATEGORY_SUBSERVICES, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.legalSubServices || [],
+    loading,
+    error
+  };
+};
+
+export const useLegalServiceSubserviceDetail = (documentId: string) => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_LEGAL_SERVICE_SUBSERVICE_DETAILS_BY_DOCUMENTID, {
+    variables: { documentId, locale: language },
+    errorPolicy: 'all',
+    skip: !documentId
+  });
+  
+  return {
+    data: (data as any)?.legalSubService,
+    loading,
+    error
+  };
+};
+
+// Blog Comments Hooks
+export const useBlogComments = (blogPostId: string) => {
+  const { data, loading, error } = useQuery(GET_BLOG_POST_COMMENTS, {
+    variables: { blogPostId },
+    errorPolicy: 'all',
+    skip: !blogPostId
+  });
+  
+  return {
+    data: (data as any)?.blogComments || [],
+    loading,
+    error
+  };
+};
+
+export const useCreateBlogComment = () => {
+  const { showToast } = useToast();
+  const { language } = useLanguage();
+  
+  const [createComment, { loading }] = useMutation(CREATE_BLOG_COMMENT, {
+    onCompleted: () => {
+      showToast(
+        language === 'ar' 
+          ? 'تم إرسال تعليقك بنجاح! سيتم مراجعته قبل النشر.'
+          : 'Your comment has been submitted successfully! It will be reviewed before publishing.',
+        'success',
+        5000
+      );
+    },
+    onError: (error: any) => {
+      const errorMessage = error?.message || '';
+      if (errorMessage.includes('Rate limit')) {
+        showToast(
+          language === 'ar' 
+            ? 'تم تجاوز الحد المسموح. يرجى المحاولة لاحقاً.'
+            : 'Rate limit exceeded. Please try again later.',
+          'warning',
+          5000
+        );
+      } else if (errorMessage.includes('Duplicate')) {
+        showToast(
+          language === 'ar' 
+            ? 'تم إرسال هذا التعليق من قبل. يرجى الانتظار قليلاً.'
+            : 'This comment was already submitted. Please wait a moment.',
+          'warning',
+          5000
+        );
+      } else {
+        showToast(
+          language === 'ar' 
+            ? 'حدث خطأ أثناء إرسال التعليق. يرجى المحاولة مرة أخرى.'
+            : 'An error occurred while submitting your comment. Please try again.',
+          'error',
+          6000
+        );
+      }
+    }
+  });
+  
+  return {
+    createComment,
+    loading
   };
 };

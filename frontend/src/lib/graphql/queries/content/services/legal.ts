@@ -19,8 +19,8 @@ export const GET_LEGAL_SERVICE_CATEGORIES = gql`
 
 // GET Legal Services Category Subservices
 export const GET_LEGAL_SERVICE_CATEGORY_SUBSERVICES = gql`
-  query LegalSubServices {
-    legalSubServices {
+  query LegalSubServices($locale: I18NLocaleCode) {
+    legalSubServices(locale: $locale) {
       button_label
       currency
       shortDescription
@@ -45,8 +45,8 @@ export const GET_LEGAL_SERVICE_CATEGORY_SUBSERVICES = gql`
 
 // GET Legal Services single subservice details
 export const GET_LEGAL_SERVICE_SUBSERVICE_DETAILS_BY_DOCUMENTID = gql`
-  query LegalSubServices($documentId: ID!) {
-    legalSubService(documentId: $documentId) {
+  query LegalSubServices($documentId: ID!, $locale: I18NLocaleCode) {
+    legalSubService(documentId: $documentId, locale: $locale) {
       currency
       description {
         id

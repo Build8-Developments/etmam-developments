@@ -2,7 +2,8 @@
 
 import { 
   Header, 
-  Footer
+  Footer,
+  ConsultationSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { privacyPolicyContent } from '@/mockData/pages';
@@ -275,6 +276,9 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
+
+      {/* Consultation Section */}
+      <ConsultationSection />
       
       <Footer />
     </div>

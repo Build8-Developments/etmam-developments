@@ -11,6 +11,7 @@ import {
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { setContext } from "@apollo/client/link/context";
+import { showToast } from '@/utils/toast';
 
 /**
  * Create enhanced Apollo Client with better error handling and caching
@@ -46,7 +47,11 @@ export function createEnhancedApolloClient(uri: string, token?: string) {
 
   // Error Link with enhanced error handling
   const errorLink = onError((errorHandlerOptions: any) => {
-    const { graphQLErrors, networkError } = errorHandlerOptions;
+    const { graphQLErrors, networkError, operation } = errorHandlerOptions;
+
+    // Only show toast for mutations, not queries (to avoid spam)
+    const isMutation = operation?.operationName?.toLowerCase().includes('mutation') || 
+                       operation?.query?.definitions?.some((def: any) => def.operation === 'mutation');
 
     if (graphQLErrors) {
       graphQLErrors.forEach((error: any) => {
@@ -58,9 +63,17 @@ export function createEnhancedApolloClient(uri: string, token?: string) {
         if (error.message.includes("UNAUTHENTICATED")) {
           // Handle authentication errors
           console.warn("User authentication required");
+          if (isMutation) {
+            showToast('يجب تسجيل الدخول أولاً.', 'warning', 5000);
+          }
         } else if (error.message.includes("FORBIDDEN")) {
           // Handle authorization errors
           console.warn("User not authorized for this operation");
+          if (isMutation) {
+            showToast('ليس لديك صلاحية لإجراء هذه العملية.', 'error', 6000);
+          }
+        } else if (isMutation) {
+          showToast(`حدث خطأ: ${error.message}`, 'error', 6000);
         }
       });
     }
@@ -69,8 +82,13 @@ export function createEnhancedApolloClient(uri: string, token?: string) {
       console.error(`[Network error]: ${networkError}`);
 
       // Handle network errors
-      if (networkError.message.includes("Failed to fetch")) {
+      if (networkError.message?.includes("Failed to fetch") || networkError.message?.includes('ECONNREFUSED')) {
         console.warn("Network connection issue detected");
+        if (isMutation) {
+          showToast('لا يمكن الاتصال بالخادم. يرجى التحقق من الاتصال والمحاولة مرة أخرى.', 'error', 6000);
+        }
+      } else if (isMutation) {
+        showToast('حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.', 'error', 6000);
       }
     }
   });

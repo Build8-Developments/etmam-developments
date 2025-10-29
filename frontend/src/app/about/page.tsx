@@ -8,6 +8,7 @@ import {
   PartnersSection,
   ErrorBoundary
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { SuccessFoundationSection, LeadershipSection, WhyChooseSection } from '@/components/about';
 import { GET_ABOUT_PAGE } from '@/lib/graphql/queries/pages/about';
 import { fetchWithLocale } from '@/lib/graphql/utils/fetchGraphQL';
@@ -37,7 +38,8 @@ export default async function AboutPage() {
         <Header />
       
       {/* Custom Hero Section */}
-      <div className="relative overflow-hidden">
+      <AnimatedSection animation="fadeIn" delay={0}>
+        <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
           style={{
@@ -168,9 +170,11 @@ export default async function AboutPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* About Section with Strapi data */}
-      <AboutSection 
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <AboutSection 
         title={aboutData?.aboutUs?.title}
         heading={aboutData?.aboutUs?.subtitle}
         description={aboutData?.aboutUs?.description}
@@ -184,48 +188,63 @@ export default async function AboutPage() {
           href: aboutData?.aboutUs?.ctaButton?.href || "/services"
         }}
       />
+      </AnimatedSection>
       
       {/* Success Foundation Section with Strapi data */}
-      <SuccessFoundationSection 
+      <AnimatedSection animation="fadeInLeft" delay={150}>
+        <SuccessFoundationSection 
         title={aboutData?.Success?.title}
         subtitle={aboutData?.Success?.subtitle}
         visionMessage={aboutData?.Success?.VisionMessage}
       />
+      </AnimatedSection>
       
       {/* Leadership Section with Strapi data */}
-      <LeadershipSection 
+      <AnimatedSection animation="scaleIn" delay={200}>
+        <LeadershipSection 
         title={aboutData?.Achievements?.title}
         subtitle={aboutData?.Achievements?.subtitle}
         numbersCounter={aboutData?.Achievements?.NumbersCounter}
       />
+      </AnimatedSection>
       
       {/* Why Choose Section with Strapi data */}
-      <WhyChooseSection 
+      <AnimatedSection animation="fadeInRight" delay={150}>
+        <WhyChooseSection 
         title={aboutData?.WhyChooseUs?.title}
         subtitle={aboutData?.WhyChooseUs?.subtitle}
         content={aboutData?.WhyChooseUs?.content}
       />
+      </AnimatedSection>
       
       {/* Consultation Section */}
-      <ConsultationSection />
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
       
       {/* FAQ Section with Strapi data */}
-      <FAQSection 
+      <AnimatedSection animation="slideInUp" delay={150}>
+        <FAQSection 
         title={aboutData?.Faq?.string}
         faqs={aboutData?.Faq?.faqs}
       />
+      </AnimatedSection>
       
       {/* CTA Section with Strapi data */}
-      <CTASection 
+      <AnimatedSection animation="scaleIn" delay={100}>
+        <CTASection 
         title={aboutData?.CTA?.title}
         buttonText={aboutData?.CTA?.buttonText}
         backgroundImage={aboutData?.CTA?.backgroundImage}
       />
+      </AnimatedSection>
       
       {/* Partners Section with Strapi data */}
-      <PartnersSection 
+      <AnimatedSection animation="fadeIn" delay={150}>
+        <PartnersSection 
         partners={aboutData?.PartnersLogos?.partners}
       />
+      </AnimatedSection>
       
         <Footer />
       </div>

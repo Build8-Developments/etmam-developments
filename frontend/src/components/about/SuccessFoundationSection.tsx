@@ -85,7 +85,7 @@ export default function SuccessFoundationSection({
             >
               {/* Gradient overlay */}
               <div 
-                className="w-full h-full"
+                className="w-full h-full pointer-events-none"
                 style={{
                   background: 'linear-gradient(193.07deg, rgba(217, 217, 217, 0.26) 9.42%, rgba(16, 92, 36, 0.38) 69.8%)',
                 }}
@@ -220,7 +220,7 @@ export default function SuccessFoundationSection({
             >
               {/* Gradient overlay */}
               <div 
-                className="w-full h-full"
+                className="w-full h-full pointer-events-none"
                 style={{
                   background: 'linear-gradient(193.07deg, rgba(217, 217, 217, 0.26) 9.42%, rgba(16, 92, 36, 0.38) 69.8%)',
                 }}

@@ -70,7 +70,7 @@ const CTASection: React.FC<CTASectionProps> = ({
               {/* Button */}
               <Link
                 href="/services"
-                className={`inline-flex items-center justify-center bg-white text-green-700 font-semibold rounded-xl shadow-lg ${isRTL ? 'self-end' : 'self-start'}`}
+                className={`inline-flex items-center justify-center bg-white text-green-700 font-semibold rounded-xl shadow-lg transition-smooth hover-lift hover-glow transform ${isRTL ? 'self-end' : 'self-start'}`}
                 style={{
                   width: 'clamp(140px, 28vw, 200px)',
                   height: 'clamp(44px, 9vw, 56px)',
@@ -132,7 +132,7 @@ const CTASection: React.FC<CTASectionProps> = ({
               
               {/* Overlay for better text contrast */}
               <div 
-                className="absolute inset-0"
+                className="absolute inset-0 pointer-events-none"
                 style={{
                   background: 'linear-gradient(135deg, rgba(17, 97, 58, 0.1) 0%, rgba(17, 97, 58, 0.3) 100%)',
                   borderTopRightRadius: isRTL ? '0px' : 'clamp(16px, 2.5vw, 24px)',

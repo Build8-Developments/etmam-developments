@@ -4,14 +4,17 @@ import {
   Header, 
   Footer,
   CTASection,
-  PartnersSection
+  PartnersSection,
+  ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { blogPosts, blogCategories } from '@/mockData/blog';
+import { blogPosts as mockBlogPosts, blogCategories } from '@/mockData/blog';
+import { useBlogPostsNew, useFeaturedBlogPosts } from '@/hooks/graphql/useGraphQL';
 
 export default function BlogPage() {
   const { language } = useLanguage();
@@ -19,9 +22,39 @@ export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  
+  // Get GraphQL data
+  const { data: blogPostsData } = useBlogPostsNew();
+  const { data: featuredPostsData } = useFeaturedBlogPosts();
+
+  // Transform GraphQL data to mock format or use mock data
+  const blogPostsToUse = useMemo(() => {
+    if (blogPostsData && blogPostsData.length > 0) {
+      return blogPostsData.map((post: any) => {
+        const publishedDate = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString(language === 'ar' ? 'ar-SA' : 'en-US') : '';
+        
+        return {
+          id: post.slug || post.documentId || '',
+          title: { ar: post.title || '', en: post.title || '' },
+          excerpt: { ar: post.summary || '', en: post.summary || '' },
+          content: { ar: post.content || '', en: post.content || '' },
+          image: post.banner?.url || '/blog1.jpg',
+          author: { ar: post.blog_author?.name || '', en: post.blog_author?.name || '' },
+          date: publishedDate,
+          category: post.blog_category?.name || 'all',
+          featured: post.featured_post || false,
+          comments: post.blog_comments?.filter((c: any) => c.approved).length || 0,
+          readTime: { ar: '5 دقائق', en: '5 min' },
+          tags: { ar: [], en: [] }
+        };
+      });
+    }
+    return mockBlogPosts;
+  }, [blogPostsData, language]);
 
   // Enhanced search with multiple criteria
-  const filteredPosts = blogPosts.filter(post => {
+  const filteredPosts = useMemo(() => {
+    return blogPostsToUse.filter((post: any) => {
     if (!searchTerm.trim() && selectedCategory === 'all') return true;
     
     const searchLower = searchTerm.toLowerCase();
@@ -36,17 +69,30 @@ export default function BlogPage() {
     
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
-  });
+    });
+  }, [blogPostsToUse, searchTerm, selectedCategory, language]);
 
   // Recent posts (last 3)
-  const recentPosts = blogPosts.slice(0, 3);
+  const recentPosts = useMemo(() => {
+    // Use featured posts from GraphQL if available, otherwise use first 3 posts
+    if (featuredPostsData && featuredPostsData.length > 0) {
+      return featuredPostsData.slice(0, 3).map((post: any) => ({
+        id: post.slug || '',
+        title: { ar: post.title || '', en: post.title || '' },
+        image: post.banner?.url || '/blog1.jpg',
+        date: post.publishedAt ? new Date(post.publishedAt).toLocaleDateString(language === 'ar' ? 'ar-SA' : 'en-US') : ''
+      }));
+    }
+    return blogPostsToUse.slice(0, 3);
+  }, [featuredPostsData, blogPostsToUse, language]);
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       {/* Custom Hero Section */}
-      <div className="relative overflow-hidden">
+      <AnimatedSection animation="fadeIn" delay={0}>
+        <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[500px]"
           style={{
@@ -132,9 +178,11 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
                   
       {/* Main Content */}
-      <div className="py-16 lg:py-20">
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <div className="py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             
@@ -144,7 +192,7 @@ export default function BlogPage() {
               {/* Blog Posts Grid */}
               <div className="space-y-8">
                 {filteredPosts.length > 0 ? (
-                  filteredPosts.map((post) => (
+                  filteredPosts.map((post: any) => (
                     <article 
                       key={post.id}
                       className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer w-full max-w-4xl mx-auto"
@@ -400,7 +448,7 @@ export default function BlogPage() {
                     {language === 'ar' ? 'مؤخراً' : 'Recently'}
                   </h3>
                   <div className="space-y-3 sm:space-y-4">
-                    {recentPosts.map((post) => (
+                    {recentPosts.map((post: any) => (
                       <Link key={post.id} href={`/blog/${post.id}`} className="block group">
                         <div className="flex gap-3 sm:gap-4 p-2 rounded-lg hover:bg-gray-50 transition-colors">
                           <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-md">
@@ -432,12 +480,22 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
       
+      {/* Consultation Section */}
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
+
       {/* CTA Section */}
-      <CTASection />
+      <AnimatedSection animation="scaleIn" delay={100}>
+        <CTASection />
+      </AnimatedSection>
       
       {/* Partners Section */}
-      <PartnersSection />
+      <AnimatedSection animation="fadeIn" delay={150}>
+        <PartnersSection />
+      </AnimatedSection>
       
       <Footer />
     </div>

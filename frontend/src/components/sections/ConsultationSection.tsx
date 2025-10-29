@@ -1,11 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Section } from '../common';
+import { useToast } from "@/contexts/ToastContext";
+import { CONTACT_SUBMISSION } from '@/lib/graphql/queries/content/contact_submit';
+import createApolloClient from '@/lib/apollo-client';
 
-export const ConsultationSection = () => {
+interface ConsultationSectionProps {
+  compact?: boolean; // If true, removes outer Section wrapper and grid layout
+}
+
+export const ConsultationSection = ({ compact = false }: ConsultationSectionProps = {}) => {
   const { language } = useLanguage();
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({
     companyName: '',
     fullName: '',
@@ -16,6 +23,9 @@ export const ConsultationSection = () => {
     service: '',
     note: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const apolloClient = useMemo(() => createApolloClient(), []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -25,53 +35,183 @@ export const ConsultationSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert(language === 'ar' ? 'تم إرسال طلبك بنجاح! سنتواصل معك قريباً.' : 'Your request has been submitted successfully! We will contact you soon.');
+    
+    // Basic validation
+    if (!formData.fullName || !formData.email || !formData.mobileNumber) {
+      showToast(
+        language === 'ar' 
+          ? 'يرجى ملء جميع الحقول المطلوبة (الاسم، البريد الإلكتروني، رقم الجوال)'
+          : 'Please fill in all required fields (Name, Email, Mobile Number)',
+        'warning',
+        4000
+      );
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const result = await apolloClient.mutate({
+        mutation: CONTACT_SUBMISSION,
+        variables: {
+          data: {
+            companyName: formData.companyName || null,
+            fullName: formData.fullName,
+            email: formData.email,
+            phoneNumber: formData.mobileNumber,
+            preferredContactTime: formData.preferredTime || null,
+            language: formData.preferredLanguage || language,
+            service: formData.service || null,
+            note: formData.note || null,
+          }
+        }
+      });
+
+      console.log('Form submitted successfully:', result);
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      
+      // Reset form
+      setFormData({
+        companyName: '',
+        fullName: '',
+        mobileNumber: '',
+        email: '',
+        preferredTime: '',
+        preferredLanguage: '',
+        service: '',
+        note: ''
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 5000);
+    } catch (error: any) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      
+      // Check if it's a network error (Strapi not running)
+      const isNetworkError = error?.networkError || error?.message?.includes('NetworkError') || error?.message?.includes('fetch') || error?.message?.includes('ECONNREFUSED');
+      const errorMessage = isNetworkError 
+        ? (language === 'ar' 
+          ? 'لا يمكن الاتصال بالخادم. يرجى التأكد من تشغيل Strapi والمحاولة مرة أخرى.'
+          : 'Cannot connect to server. Please ensure Strapi is running and try again.')
+        : (language === 'ar' 
+          ? 'حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.'
+          : 'An error occurred while submitting your request. Please try again.');
+      
+      // Show error message
+      showToast(errorMessage, 'error', 6000);
+    }
   };
 
-  return (
-    <Section className="bg-gray-50">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Contact Form */}
-        <div className="lg:order-2 lg:pr-8">
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
+  const formContent = (
+    <form 
+      onSubmit={handleSubmit} 
+      className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8"
+      style={{ 
+        pointerEvents: 'auto',
+        touchAction: 'manipulation',
+        position: 'relative',
+        zIndex: 50,
+        WebkitTouchCallout: 'default',
+        WebkitUserSelect: 'text',
+        userSelect: 'text'
+      } as React.CSSProperties}
+    >
             {/* Row 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
+            <div 
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
+              style={{ pointerEvents: 'auto', position: 'relative', zIndex: 50 }}
+            >
+              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 101 }}>
                 <label 
                   className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)' }}
+                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
                 >
                   {language === 'ar' ? 'اسم المنشأة' : 'Company Name'}
                 </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                  placeholder={language === 'ar' ? 'أدخل اسم المنشأة' : 'Enter company name'}
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                />
+                 <input
+                   type="text"
+                   name="companyName"
+                   value={formData.companyName}
+                   onChange={handleInputChange}
+                   onTouchStart={(e) => {
+                     e.stopPropagation();
+                     (e.target as HTMLInputElement).focus();
+                   }}
+                   onFocus={(e) => {
+                     e.stopPropagation();
+                     (e.target as HTMLInputElement).focus();
+                   }}
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     (e.target as HTMLInputElement).focus();
+                   }}
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+                   style={{ 
+                     touchAction: 'manipulation', 
+                     pointerEvents: 'auto',
+                     position: 'relative',
+                     zIndex: 101,
+                     WebkitAppearance: 'none',
+                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
+                     userSelect: 'text',
+                     WebkitUserSelect: 'text',
+                     MozUserSelect: 'text',
+                     msUserSelect: 'text',
+                     isolation: 'isolate'
+                   } as React.CSSProperties}
+                   placeholder={language === 'ar' ? 'أدخل اسم المنشأة' : 'Enter company name'}
+                   dir={language === 'ar' ? 'rtl' : 'ltr'}
+                   autoComplete="organization"
+                 />
               </div>
-              <div>
+              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 101 }}>
                 <label 
                   className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)' }}
+                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
                 >
                   {language === 'ar' ? 'الاسم بالكامل' : 'Full Name'}
                 </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                  placeholder={language === 'ar' ? 'أدخل الاسم بالكامل' : 'Enter full name'}
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                />
+                 <input
+                   type="text"
+                   name="fullName"
+                   value={formData.fullName}
+                   onChange={handleInputChange}
+                   onTouchStart={(e) => {
+                     e.stopPropagation();
+                     (e.target as HTMLInputElement).focus();
+                   }}
+                   onFocus={(e) => {
+                     e.stopPropagation();
+                     (e.target as HTMLInputElement).focus();
+                   }}
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     (e.target as HTMLInputElement).focus();
+                   }}
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+                   style={{ 
+                     touchAction: 'manipulation', 
+                     pointerEvents: 'auto',
+                     position: 'relative',
+                     zIndex: 101,
+                     WebkitAppearance: 'none',
+                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
+                     userSelect: 'text',
+                     WebkitUserSelect: 'text',
+                     MozUserSelect: 'text',
+                     msUserSelect: 'text',
+                     isolation: 'isolate'
+                   } as React.CSSProperties}
+                   placeholder={language === 'ar' ? 'أدخل الاسم بالكامل' : 'Enter full name'}
+                   dir={language === 'ar' ? 'rtl' : 'ltr'}
+                   autoComplete="name"
+                 />
               </div>
             </div>
 
@@ -84,15 +224,31 @@ export const ConsultationSection = () => {
                 >
                   {language === 'ar' ? 'رقم الجوال' : 'Mobile Number'}
                 </label>
-                <input
-                  type="tel"
-                  name="mobileNumber"
-                  value={formData.mobileNumber}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                  placeholder={language === 'ar' ? 'أدخل رقم الجوال' : 'Enter mobile number'}
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                />
+                 <input
+                   type="tel"
+                   name="mobileNumber"
+                   value={formData.mobileNumber}
+                   onChange={handleInputChange}
+                   onFocus={(e) => (e.target as HTMLInputElement).focus()}
+                   onClick={(e) => (e.target as HTMLInputElement).focus()}
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+                   style={{ 
+                     touchAction: 'manipulation', 
+                     pointerEvents: 'auto',
+                     position: 'relative',
+                     zIndex: 100,
+                     WebkitAppearance: 'none',
+                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
+                     userSelect: 'text',
+                     WebkitUserSelect: 'text',
+                     MozUserSelect: 'text',
+                     msUserSelect: 'text'
+                   } as React.CSSProperties}
+                   placeholder={language === 'ar' ? 'أدخل رقم الجوال' : 'Enter mobile number'}
+                   dir={language === 'ar' ? 'rtl' : 'ltr'}
+                   autoComplete="tel"
+                   inputMode="tel"
+                 />
               </div>
               <div>
                 <label 
@@ -101,15 +257,31 @@ export const ConsultationSection = () => {
                 >
                   {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
                 </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                  placeholder={language === 'ar' ? 'أدخل البريد الإلكتروني' : 'Enter email address'}
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                />
+                 <input
+                   type="email"
+                   name="email"
+                   value={formData.email}
+                   onChange={handleInputChange}
+                   onFocus={(e) => (e.target as HTMLInputElement).focus()}
+                   onClick={(e) => (e.target as HTMLInputElement).focus()}
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+                   style={{ 
+                     touchAction: 'manipulation', 
+                     pointerEvents: 'auto',
+                     position: 'relative',
+                     zIndex: 100,
+                     WebkitAppearance: 'none',
+                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
+                     userSelect: 'text',
+                     WebkitUserSelect: 'text',
+                     MozUserSelect: 'text',
+                     msUserSelect: 'text'
+                   } as React.CSSProperties}
+                   placeholder={language === 'ar' ? 'أدخل البريد الإلكتروني' : 'Enter email address'}
+                   dir={language === 'ar' ? 'rtl' : 'ltr'}
+                   autoComplete="email"
+                   inputMode="email"
+                 />
               </div>
             </div>
 
@@ -122,13 +294,22 @@ export const ConsultationSection = () => {
                 >
                   {language === 'ar' ? 'أوقات التواصل المفضلة' : 'Preferred Contact Times'}
                 </label>
-                <select
-                  name="preferredTime"
-                  value={formData.preferredTime}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                >
+                 <select
+                   name="preferredTime"
+                   value={formData.preferredTime}
+                   onChange={handleInputChange}
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+                   style={{ 
+                     touchAction: 'manipulation', 
+                     WebkitTouchCallout: 'none',
+                     pointerEvents: 'auto',
+                     position: 'relative',
+                     zIndex: 50,
+                     WebkitAppearance: 'none',
+                     WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+                   }}
+                   dir={language === 'ar' ? 'rtl' : 'ltr'}
+                 >
                   <option value="">{language === 'ar' ? 'اختر الوقت المناسب' : 'Select preferred time'}</option>
                   <option value="morning">{language === 'ar' ? 'صباحاً (9 ص - 12 م)' : 'Morning (9 AM - 12 PM)'}</option>
                   <option value="afternoon">{language === 'ar' ? 'بعد الظهر (12 م - 5 م)' : 'Afternoon (12 PM - 5 PM)'}</option>
@@ -142,13 +323,22 @@ export const ConsultationSection = () => {
                 >
                   {language === 'ar' ? 'لغة التواصل' : 'Preferred Language'}
                 </label>
-                <select
-                  name="preferredLanguage"
-                  value={formData.preferredLanguage}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                >
+                 <select
+                   name="preferredLanguage"
+                   value={formData.preferredLanguage}
+                   onChange={handleInputChange}
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+                   style={{ 
+                     touchAction: 'manipulation', 
+                     WebkitTouchCallout: 'none',
+                     pointerEvents: 'auto',
+                     position: 'relative',
+                     zIndex: 50,
+                     WebkitAppearance: 'none',
+                     WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+                   }}
+                   dir={language === 'ar' ? 'rtl' : 'ltr'}
+                 >
                   <option value="">{language === 'ar' ? 'اختر اللغة' : 'Select language'}</option>
                   <option value="arabic">{language === 'ar' ? 'العربية' : 'Arabic'}</option>
                   <option value="english">{language === 'ar' ? 'الإنجليزية' : 'English'}</option>
@@ -166,21 +356,30 @@ export const ConsultationSection = () => {
                 >
                   {language === 'ar' ? 'اختر الخدمة' : 'Choose Service'}
                 </label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                >
+                 <select
+                   name="service"
+                   value={formData.service}
+                   onChange={handleInputChange}
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+                   style={{ 
+                     touchAction: 'manipulation', 
+                     WebkitTouchCallout: 'none',
+                     pointerEvents: 'auto',
+                     position: 'relative',
+                     zIndex: 50,
+                     WebkitAppearance: 'none',
+                     WebkitTapHighlightColor: 'rgba(0,0,0,0)'
+                   }}
+                   dir={language === 'ar' ? 'rtl' : 'ltr'}
+                 >
                   <option value="">{language === 'ar' ? 'اختر الخدمة المطلوبة' : 'Select required service'}</option>
-                  <option value="company-formation">{language === 'ar' ? 'تأسيس الشركات' : 'Company Formation'}</option>
-                  <option value="legal-services">{language === 'ar' ? 'الخدمات القانونية' : 'Legal Services'}</option>
-                  <option value="business-consulting">{language === 'ar' ? 'الاستشارات التجارية' : 'Business Consulting'}</option>
-                  <option value="financial-consulting">{language === 'ar' ? 'الاستشارات المالية' : 'Financial Consulting'}</option>
-                  <option value="marketing-consulting">{language === 'ar' ? 'الاستشارات التسويقية' : 'Marketing Consulting'}</option>
-                  <option value="hr-consulting">{language === 'ar' ? 'الاستشارات الإدارية' : 'HR Consulting'}</option>
-                  <option value="technical-consulting">{language === 'ar' ? 'الاستشارات التقنية' : 'Technical Consulting'}</option>
+                  <option value="company_formation">{language === 'ar' ? 'تأسيس الشركات' : 'Company Formation'}</option>
+                  <option value="legal_services">{language === 'ar' ? 'الخدمات القانونية' : 'Legal Services'}</option>
+                  <option value="business_consulting">{language === 'ar' ? 'الاستشارات التجارية' : 'Business Consulting'}</option>
+                  <option value="financial_consulting">{language === 'ar' ? 'الاستشارات المالية' : 'Financial Consulting'}</option>
+                  <option value="marketing_consulting">{language === 'ar' ? 'الاستشارات التسويقية' : 'Marketing Consulting'}</option>
+                  <option value="hr_consulting">{language === 'ar' ? 'الاستشارات الإدارية' : 'HR Consulting'}</option>
+                  <option value="technical_consulting">{language === 'ar' ? 'الاستشارات التقنية' : 'Technical Consulting'}</option>
                 </select>
               </div>
             </div>
@@ -197,44 +396,114 @@ export const ConsultationSection = () => {
                 name="note"
                 value={formData.note}
                 onChange={handleInputChange}
+                onFocus={(e) => (e.target as HTMLTextAreaElement).focus()}
+                onClick={(e) => (e.target as HTMLTextAreaElement).focus()}
                 rows={4}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-800"
+                style={{ 
+                  touchAction: 'manipulation', 
+                  pointerEvents: 'auto',
+                  position: 'relative',
+                  zIndex: 100,
+                  WebkitAppearance: 'none',
+                  WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
+                  userSelect: 'text',
+                  WebkitUserSelect: 'text',
+                  MozUserSelect: 'text',
+                  msUserSelect: 'text'
+                } as React.CSSProperties}
                 placeholder={language === 'ar' ? 'أضف أي ملاحظات إضافية...' : 'Add any additional notes...'}
                 dir={language === 'ar' ? 'rtl' : 'ltr'}
               />
             </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+            {/* Submit Button / Success Message */}
+            {isSuccess ? (
+              <div className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-6 rounded-xl font-bold text-lg text-center shadow-lg">
+                <div style={{ fontFamily: 'var(--font-almarai)' }}>
+                  {language === 'ar' ? 'تم الإرسال بنجاح!' : 'Sent Successfully!'}
+                </div>
+              </div>
+            ) : (
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
+                  isSubmitting 
+                    ? 'opacity-50 cursor-not-allowed' 
+                    : 'hover:from-green-700 hover:to-green-800'
+                }`}
+                style={{ fontFamily: 'var(--font-almarai)' }}
+              >
+                {isSubmitting 
+                  ? (language === 'ar' ? 'جاري الإرسال...' : 'Sending...')
+                  : (language === 'ar' ? 'إرسال الرسالة' : 'Send Message')
+                }
+              </button>
+            )}
+          </form>
+  );
+
+  if (compact) {
+    return formContent;
+  }
+
+  return (
+    <section 
+      className="bg-gray-50 py-16 lg:py-24"
+      style={{ 
+        position: 'relative', 
+        zIndex: 10,
+        pointerEvents: 'auto',
+        touchAction: 'manipulation'
+      }}
+      dir={language === 'ar' ? 'rtl' : 'ltr'}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          style={{ 
+            position: 'relative', 
+            zIndex: 10,
+            pointerEvents: 'auto'
+          }}
+        >
+          {/* Contact Form */}
+          <div 
+            className="lg:order-2 lg:pr-8"
+            style={{ 
+              position: 'relative', 
+              zIndex: 50,
+              pointerEvents: 'auto'
+            }}
+          >
+            {formContent}
+          </div>
+          
+          {/* Text Content */}
+          <div 
+            className={`lg:order-1 text-center ${language === 'ar' ? 'lg:text-right' : 'lg:text-left'} lg:pl-8 bg-blue-50 p-6 rounded-lg`}
+            style={{ pointerEvents: 'auto' }}
+          >
+            <h2 
+              className="text-3xl lg:text-4xl font-bold mb-8"
+              style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
+            >
+              {language === 'ar' ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation'}
+            </h2>
+            
+            <p 
+              className="text-lg leading-relaxed text-gray-600 max-w-2xl mx-auto lg:mx-0"
               style={{ fontFamily: 'var(--font-almarai)' }}
             >
-              {language === 'ar' ? 'إرسال الرسالة' : 'Send Message'}
-            </button>
-          </form>
-        </div>
-
-        {/* Text Content */}
-        <div className={`lg:order-1 text-center ${language === 'ar' ? 'lg:text-right' : 'lg:text-left'} lg:pl-8 bg-blue-50 p-6 rounded-lg`}>
-          <h2 
-            className="text-3xl lg:text-4xl font-bold mb-8"
-            style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
-          >
-            {language === 'ar' ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation'}
-          </h2>
-          
-          <p 
-            className="text-lg leading-relaxed text-gray-600 max-w-2xl mx-auto lg:mx-0"
-            style={{ fontFamily: 'var(--font-almarai)' }}
-          >
-            {language === 'ar' 
-              ? 'عبئ النموذج الآن، ودع فريق إتمام، بخبرته في تأسيس الشركات والخدمات الإدارية، يحدد لك الحل الأنسب لاحتياجات نشاطك، ويضع خطة تنفيذية متكاملة لإنجاز جميع الإجراءات الحكومية ومتابعتها خطوة بخطوة، حتى تبدأ أعمالك بسرعة وبأقل جهد ممكن.'
-              : 'Fill out the form now, and let the Etmam team, with its expertise in company formation and administrative services, determine the most suitable solution for your business needs, and develop a comprehensive implementation plan to complete all government procedures and follow up step by step, so that your business starts quickly and with the least possible effort.'
-            }
-          </p>
+              {language === 'ar' 
+                ? 'عبئ النموذج الآن، ودع فريق إتمام، بخبرته في تأسيس الشركات والخدمات الإدارية، يحدد لك الحل الأنسب لاحتياجات نشاطك، ويضع خطة تنفيذية متكاملة لإنجاز جميع الإجراءات الحكومية ومتابعتها خطوة بخطوة، حتى تبدأ أعمالك بسرعة وبأقل جهد ممكن.'
+                : 'Fill out the form now, and let the Etmam team, with its expertise in company formation and administrative services, determine the most suitable solution for your business needs, and develop a comprehensive implementation plan to complete all government procedures and follow up step by step, so that your business starts quickly and with the least possible effort.'
+              }
+            </p>
+          </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 };

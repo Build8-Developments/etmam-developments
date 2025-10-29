@@ -93,27 +93,32 @@ export default function ServicesSection({
           {displayServices.map((service: ServiceCard, index: number) => (
             <div
               key={service.id || index}
-              className={`rounded-lg p-6 text-center ${
+              className={`rounded-xl p-6 text-center transition-smooth hover-lift hover-glow animate-scale-in ${
                 service.isActive 
-                  ? 'bg-white/20 text-white border border-white/30' 
-                  : 'bg-white text-gray-800 shadow-md'
-              }`}
+                  ? 'bg-white/20 text-white border-2 border-white/40 animate-glow-pulse' 
+                  : 'bg-white text-gray-800 shadow-lg hover:shadow-xl border border-gray-100'
+              } transform`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
               <div className="flex items-center justify-center mb-4">
-                <div className="w-12 h-12 flex items-center justify-center">
-                  {getIconComponent(service.icon, service.isActive || false)}
+                <div className={`w-14 h-14 flex items-center justify-center rounded-full transition-smooth hover-scale ${
+                  service.isActive ? 'bg-white/10' : 'bg-green-50'
+                }`}>
+                  <div className="animate-float">
+                    {getIconComponent(service.icon, service.isActive || false)}
+                  </div>
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="font-bold mb-3 text-lg" style={{ fontFamily: 'var(--font-almarai)' }}>
+              <h3 className="font-bold mb-3 text-lg transition-slow" style={{ fontFamily: 'var(--font-almarai)' }}>
                 {service.title}
               </h3>
 
               {/* Description */}
               <p 
-                className={`leading-relaxed text-sm ${
+                className={`leading-relaxed text-sm transition-slow ${
                   service.isActive ? 'text-white/90' : 'text-gray-600'
                 }`}
                 style={{ fontFamily: 'var(--font-almarai)' }}
@@ -128,7 +133,7 @@ export default function ServicesSection({
         <div className="text-center">
           <Link
             href={displayCTA.href}
-            className="inline-block bg-white text-green-600 font-semibold rounded-lg px-8 py-3 hover:bg-gray-50"
+            className="inline-block bg-white text-green-600 font-semibold rounded-xl px-8 py-3 hover:bg-gray-50 transition-smooth hover-lift shadow-lg hover:shadow-xl transform"
             style={{
               fontFamily: 'var(--font-almarai)',
               textDecoration: 'none',

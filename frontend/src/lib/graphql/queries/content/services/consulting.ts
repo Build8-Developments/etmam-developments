@@ -2,8 +2,8 @@ import { gql } from "@apollo/client";
 
 // GET Consulting Services
 export const GET_SHORT_CONSULTING_SERVICES = gql`
-  query ConsultingServices {
-    consultingServices {
+  query ConsultingServices($locale: I18NLocaleCode) {
+    consultingServices(locale: $locale) {
       button_label
       currency
       finishPeriodMax
@@ -17,14 +17,15 @@ export const GET_SHORT_CONSULTING_SERVICES = gql`
       shortDescription
       slug
       startFromPrice
+      documentId
     }
   }
 `;
 
 // GET one Consulting Service details
 export const GET_CONSULTING_SERVICE_BY_DOCUMENTID = gql`
-  query ConsultingServices($documentId: ID!) {
-    consultingService(documentId: $documentId) {
+  query ConsultingServices($documentId: ID!, $locale: I18NLocaleCode) {
+    consultingService(documentId: $documentId, locale: $locale) {
       currency
       description {
         title
@@ -59,6 +60,8 @@ export const GET_CONSULTING_SERVICE_BY_DOCUMENTID = gql`
         }
         icon_color_code
       }
+      slug
+      documentId
     }
   }
 `;

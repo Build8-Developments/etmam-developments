@@ -6,9 +6,9 @@ import { GET_ABOUT_PAGE } from "@/lib/graphql/queries/pages/about";
 export const revalidate = 3600; // Revalidate every 1 hour (3600 seconds)
 
 interface PageProps {
-  searchParams: {
+  searchParams: Promise<{
     locale?: string;
-  };
+  }>;
 }
 
 // Recursive component to render any data structure
@@ -90,7 +90,8 @@ function SectionCard({
 }
 
 export default async function DebugAboutPage({ searchParams }: PageProps) {
-  const locale = searchParams.locale || "ar";
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale || "ar";
 
   // Fetch data using the centralized utility
   const result = await fetchWithLocale({

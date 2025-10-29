@@ -11,8 +11,10 @@ import {
   ServicesCarouselSection,
   HowItWorksSection,
   BlogSection,
-  FAQSection
+  FAQSection,
+  ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { GET_HOME_PAGE } from '@/lib/graphql/queries/pages/home';
 import { fetchWithLocale } from '@/lib/graphql/utils/fetchGraphQL';
 import { getLocale } from '@/lib/graphql/utils/locale';
@@ -22,61 +24,13 @@ export default async function Home() {
   const locale = await getLocale();
   
   // Fetch data from Strapi with fallback to default content
-  const { data: strapiData, success, error } = await fetchWithLocale({
+  const { data: strapiData } = await fetchWithLocale({
     query: GET_HOME_PAGE,
     locale,
   });
 
-  // Debug logging
-  console.log('🔍 Debug Info:');
-  console.log('Locale:', locale);
-  console.log('Success:', success);
-  console.log('Error:', error);
-  console.log('Strapi Data:', strapiData);
-  console.log('Home Data:', strapiData?.home);
-  console.log('API Token:', process.env.STRAPI_API_TOKEN ? 'Present' : 'Missing');
-  
-  // Try different locales
-  const { data: strapiDataEn } = await fetchWithLocale({
-    query: GET_HOME_PAGE,
-    locale: 'en',
-  });
-  
-  console.log('🔍 English Data:', strapiDataEn?.home);
-  
-  // Try without locale
-  const { data: strapiDataNoLocale } = await fetchWithLocale({
-    query: GET_HOME_PAGE,
-    locale: '',
-  });
-  
-  // Test direct GraphQL query
-  try {
-    const directResponse = await fetch('http://localhost:1337/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: `
-          query {
-            home {
-              Hero {
-                title
-                subtitle
-                description
-              }
-            }
-          }
-        `
-      })
-    });
-    
-    const directData = await directResponse.json();
-    console.log('🔍 Direct GraphQL Response:', directData);
-  } catch (err) {
-    console.log('🔍 Direct GraphQL Error:', err);
-  }
+  // Note: GraphQL queries are integrated but will use mock data fallback if Strapi is not available
+  // The fetchWithLocale utility handles errors gracefully, so the page will still render with default content
 
   // Extract data from Strapi response
   const homeData = strapiData?.home;
@@ -97,72 +51,97 @@ export default async function Home() {
       />
       
       {/* About Section with Strapi data */}
-      <AboutSection 
-        title={homeData?.About?.title}
-        heading={homeData?.About?.heading}
-        description={homeData?.About?.description}
-        mainImage={homeData?.About?.mainImage}
-        secondaryImage={homeData?.About?.secondaryImage}
-        statNumber={homeData?.About?.statNumber}
-        statLabel={homeData?.About?.statLabel}
-        features={homeData?.About?.features}
-        ctaButton={homeData?.About?.ctaButton}
-      />
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <AboutSection 
+          title={homeData?.About?.title}
+          heading={homeData?.About?.heading}
+          description={homeData?.About?.description}
+          mainImage={homeData?.About?.mainImage}
+          secondaryImage={homeData?.About?.secondaryImage}
+          statNumber={homeData?.About?.statNumber}
+          statLabel={homeData?.About?.statLabel}
+          features={homeData?.About?.features}
+          ctaButton={homeData?.About?.ctaButton}
+        />
+      </AnimatedSection>
       
       {/* Services Section with Strapi data */}
-      <ServicesSection 
-        title={homeData?.Services?.title}
-        description={homeData?.Services?.description}
-        services={homeData?.Services?.services}
-        ctaButton={homeData?.Services?.ctaButton}
-      />
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ServicesSection 
+          title={homeData?.Services?.title}
+          description={homeData?.Services?.description}
+          services={homeData?.Services?.services}
+          ctaButton={homeData?.Services?.ctaButton}
+        />
+      </AnimatedSection>
       
       {/* How It Works Section with Strapi data */}
-      <HowItWorksSection 
-        title={homeData?.HowItWorks?.title}
-        description={homeData?.HowItWorks?.description}
-        bannerText={homeData?.HowItWorks?.bannerText}
-        personImage={homeData?.HowItWorks?.personImage}
-        steps={homeData?.HowItWorks?.steps}
-      />
+      <AnimatedSection animation="fadeInLeft" delay={100}>
+        <HowItWorksSection 
+          title={homeData?.HowItWorks?.title}
+          description={homeData?.HowItWorks?.description}
+          bannerText={homeData?.HowItWorks?.bannerText}
+          personImage={homeData?.HowItWorks?.personImage}
+          steps={homeData?.HowItWorks?.steps}
+        />
+      </AnimatedSection>
       
       {/* Statistics Section with Strapi data */}
-      <StatisticsSection 
-        title={homeData?.Statistics?.title}
-        backgroundImage={homeData?.Statistics?.backgroundImage}
-        stats={homeData?.Statistics?.stats}
-      />
+      <AnimatedSection animation="scaleIn" delay={150}>
+        <StatisticsSection 
+          title={homeData?.Statistics?.title}
+          backgroundImage={homeData?.Statistics?.backgroundImage}
+          stats={homeData?.Statistics?.stats}
+        />
+      </AnimatedSection>
       
       {/* Services Carousel Section with Strapi data */}
-      <ServicesCarouselSection 
-        title={homeData?.ServicesCarousel?.title}
-        description={homeData?.ServicesCarousel?.description}
-        services={homeData?.ServicesCarousel?.services}
-      />
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ServicesCarouselSection 
+          title={homeData?.ServicesCarousel?.title}
+          description={homeData?.ServicesCarousel?.description}
+          services={homeData?.ServicesCarousel?.services}
+        />
+      </AnimatedSection>
       
       {/* Reviews Section - keeping default for now */}
-      <ReviewsSection />
+      <AnimatedSection animation="fadeInRight" delay={100}>
+        <ReviewsSection />
+      </AnimatedSection>
       
       {/* Blog Section - keeping default for now */}
-      <BlogSection />
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <BlogSection />
+      </AnimatedSection>
       
       {/* FAQ Section with Strapi data */}
-      <FAQSection 
-        title={homeData?.Faq?.string}
-        faqs={homeData?.Faq?.faqs}
-      />
+      <AnimatedSection animation="slideInUp" delay={150}>
+        <FAQSection 
+          title={homeData?.Faq?.string}
+          faqs={homeData?.Faq?.faqs}
+        />
+      </AnimatedSection>
+
+      {/* Consultation Section */}
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
       
       {/* CTA Section with Strapi data */}
-      <CTASection 
-        title={homeData?.CTA?.title}
-        buttonText={homeData?.CTA?.buttonText}
-        backgroundImage={homeData?.CTA?.backgroundImage}
-      />
+      <AnimatedSection animation="scaleIn" delay={100}>
+        <CTASection 
+          title={homeData?.CTA?.title}
+          buttonText={homeData?.CTA?.buttonText}
+          backgroundImage={homeData?.CTA?.backgroundImage}
+        />
+      </AnimatedSection>
       
       {/* Partners Section with Strapi data */}
-      <PartnersSection 
-        partners={homeData?.PartnersLogos?.partners}
-      />
+      <AnimatedSection animation="fadeIn" delay={150}>
+        <PartnersSection 
+          partners={homeData?.PartnersLogos?.partners}
+        />
+      </AnimatedSection>
       
       <Footer />
     </div>

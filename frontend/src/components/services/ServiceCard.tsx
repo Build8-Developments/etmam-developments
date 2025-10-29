@@ -102,11 +102,13 @@ export const ServiceCard = ({ service, href, showDetails = true }: ServiceCardPr
 
   return (
     <Link href={href} className="block">
-      <div className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md p-6 h-full flex flex-col">
+      <div className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-xl transition-smooth hover-lift p-6 h-full flex flex-col transform">
         {/* Service Icon */}
         <div className="flex items-center justify-center mb-4">
-          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-            {getIconComponent(service.icon)}
+          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center transition-smooth hover-scale hover-brightness group">
+            <div className="group-hover:animate-bounce-subtle">
+              {getIconComponent(service.icon)}
+            </div>
           </div>
         </div>
 
@@ -140,7 +142,7 @@ export const ServiceCard = ({ service, href, showDetails = true }: ServiceCardPr
 
         {/* CTA Button */}
         <div className="text-center">
-          <div className="inline-flex items-center justify-center bg-green-600 text-white rounded-lg px-6 py-2 gap-2">
+          <div className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white rounded-lg px-6 py-2 gap-2 transition-smooth hover-scale">
             <span className="text-sm font-semibold" style={{ fontFamily: 'var(--font-almarai)' }}>
               {language === 'ar' ? 'عرض التفاصيل' : 'View Details'}
             </span>

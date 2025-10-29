@@ -101,7 +101,11 @@ export async function fetchGraphQL<T = any>(
       success: true,
     };
   } catch (err: any) {
-    console.error("GraphQL Error:", err);
+    // Only log errors in development or when explicitly needed
+    // Suppress connection refused errors when Strapi is not running (using mock data fallback)
+    if (process.env.NODE_ENV === 'development' && !err.message?.includes('ECONNREFUSED')) {
+      console.warn("GraphQL Error:", err.message || "An unknown error occurred");
+    }
 
     return {
       data: null,

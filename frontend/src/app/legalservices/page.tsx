@@ -5,39 +5,66 @@ import {
   Footer,
   CTASection,
   FAQSection,
-  PartnersSection
+  PartnersSection,
+  ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { legalServicesPageContent, legalCompanies } from '@/mockData/pages';
+import { useLegalServiceCategories } from '@/hooks/graphql/useGraphQL';
 
 export default function LegalServicesPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const content = legalServicesPageContent;
+  const { data: legalCategories } = useLegalServiceCategories();
+
+  // Transform GraphQL categories to companies format or use mock data
+  const companiesToUse = useMemo(() => {
+    // If GraphQL data is available and has items, use it
+    if (legalCategories && legalCategories.length > 0) {
+      return legalCategories.map((category: any) => ({
+        id: category.slug || category.documentId,
+        name: { ar: category.name || '', en: category.name || '' },
+        description: { 
+          ar: category.description || '', 
+          en: category.description || '' 
+        },
+        logo: category.icon?.url || '/images/logos/logo.png',
+        servicesCount: 0, // Would need to count from subservices
+        isHighlighted: false
+      }));
+    }
+    // Fall back to mock data
+    return legalCompanies;
+  }, [legalCategories]);
 
   // Enhanced search with multiple criteria
-  const filteredCompanies = legalCompanies.filter(company => {
+  const filteredCompanies = useMemo(() => {
+    return companiesToUse.filter((company: any) => {
     if (!searchTerm.trim()) return true;
     
     const searchLower = searchTerm.toLowerCase();
     const searchTerms = searchLower.split(' ').filter(term => term.length > 0);
     
-    return searchTerms.every(term => 
-      company.name[language].toLowerCase().includes(term) || 
-      company.description[language].toLowerCase().includes(term)
-    );
-  });
+      return searchTerms.every(term => 
+        company.name[language].toLowerCase().includes(term) || 
+        company.description[language].toLowerCase().includes(term)
+      );
+    });
+  }, [companiesToUse, searchTerm, language]);
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <AnimatedSection animation="fadeIn" delay={0}>
+        <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[500px]"
           style={{
@@ -120,9 +147,11 @@ export default function LegalServicesPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Companies Grid */}
-      <section className="py-16 lg:py-24">
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {filteredCompanies.length > 0 ? (
             <div 
@@ -132,7 +161,7 @@ export default function LegalServicesPage() {
                 margin: '0 auto'
               }}
             >
-              {filteredCompanies.map((company) => (
+              {filteredCompanies.map((company: any) => (
           <Link
             key={company.id}
             href={`/legalservices/${company.id}`}
@@ -224,15 +253,27 @@ export default function LegalServicesPage() {
           )}
         </div>
       </section>
+      </AnimatedSection>
 
       {/* FAQ Section */}
-      <FAQSection />
+      <AnimatedSection animation="slideInUp" delay={150}>
+        <FAQSection />
+      </AnimatedSection>
+
+      {/* Consultation Section */}
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
       
       {/* CTA Section */}
-      <CTASection />
+      <AnimatedSection animation="scaleIn" delay={100}>
+        <CTASection />
+      </AnimatedSection>
       
       {/* Partners Section */}
-      <PartnersSection />
+      <AnimatedSection animation="fadeIn" delay={150}>
+        <PartnersSection />
+      </AnimatedSection>
       
       <Footer />
     </div>

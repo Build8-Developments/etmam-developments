@@ -8,6 +8,7 @@ import {
   FAQSection,
   PartnersSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from 'next/link';
 import { offers, offersPageContent } from '@/mockData/pages';
@@ -21,7 +22,8 @@ export default function OffersPage() {
       <Header />
       
       {/* Custom Hero Section */}
-      <div className="relative overflow-hidden">
+      <AnimatedSection animation="fadeIn" delay={0}>
+        <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
           style={{
@@ -135,8 +137,10 @@ export default function OffersPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Offers Section */}
+      <AnimatedSection animation="fadeInUp" delay={100}>
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -220,18 +224,27 @@ export default function OffersPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Consultation Section */}
-      <ConsultationSection />
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
       
       {/* FAQ Section */}
-      <FAQSection />
+      <AnimatedSection animation="slideInUp" delay={150}>
+        <FAQSection />
+      </AnimatedSection>
       
       {/* CTA Section */}
-      <CTASection />
+      <AnimatedSection animation="scaleIn" delay={100}>
+        <CTASection />
+      </AnimatedSection>
       
       {/* Partners Section */}
-      <PartnersSection />
+      <AnimatedSection animation="fadeIn" delay={150}>
+        <PartnersSection />
+      </AnimatedSection>
       
       <Footer />
     </div>

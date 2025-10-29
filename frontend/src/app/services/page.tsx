@@ -5,8 +5,10 @@ import {
   Footer,
   CTASection,
   FAQSection,
-  PartnersSection
+  PartnersSection,
+  ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from 'next/link';
 
@@ -115,7 +117,8 @@ export default function ServicesPage() {
       <Header />
       
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <AnimatedSection animation="fadeIn" delay={0}>
+        <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[500px]"
           style={{
@@ -157,8 +160,11 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Service Categories */}
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <div>
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -294,15 +300,28 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+        </div>
+      </AnimatedSection>
 
       {/* FAQ Section */}
-      <FAQSection />
-      
+      <AnimatedSection animation="slideInUp" delay={150}>
+        <FAQSection />
+      </AnimatedSection>
+
+      {/* Consultation Section */}
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
+
       {/* CTA Section */}
-      <CTASection />
-      
+      <AnimatedSection animation="scaleIn" delay={100}>
+        <CTASection />
+      </AnimatedSection>
+
       {/* Partners Section */}
-      <PartnersSection />
+      <AnimatedSection animation="fadeIn" delay={150}>
+        <PartnersSection />
+      </AnimatedSection>
       
       <Footer />
     </div>

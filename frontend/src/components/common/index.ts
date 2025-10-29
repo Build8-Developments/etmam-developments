@@ -6,6 +6,8 @@ export { Section } from './Section';
 export { ErrorBoundary, useErrorHandler } from './ErrorBoundary';
 export { LoadingSpinner, PageLoader, SkeletonLoader } from './LoadingSpinner';
 export { default as WhatsAppFloat } from './WhatsAppFloat';
+export { AnimatedSection } from './AnimatedSection';
+export { StaggerChildren } from './StaggerChildren';
 
 // Types exports
 export type { 

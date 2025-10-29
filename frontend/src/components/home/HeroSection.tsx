@@ -46,7 +46,7 @@ export default function HeroSection({
       
       {/* Gradient overlay */}
       <div
-        className="absolute inset-0 z-[1]"
+        className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background: 'linear-gradient(94.78deg, rgba(22, 97, 19, 0.59) 17.73%, rgba(0, 0, 0, 0.7) 113.39%)',
         }}
@@ -142,17 +142,17 @@ export default function HeroSection({
           </div>
 
           {/* Right Column - Content */}
-          <div className={`order-1 lg:order-1 text-white ${isRTL ? 'text-right' : 'text-left'}`}>
-            <h1 className="font-extrabold text-[34px] leading-[56px] md:text-[44px] md:leading-[64px] lg:text-[53px] lg:leading-[90px]">
+          <div className={`order-1 lg:order-1 text-white ${isRTL ? 'text-right' : 'text-left'} animate-fade-in`}>
+            <h1 className="font-extrabold text-[34px] leading-[56px] md:text-[44px] md:leading-[64px] lg:text-[53px] lg:leading-[90px] transition-slow">
               {title || defaultTitle}
             </h1>
-            <h2 className="font-extrabold text-[30px] leading-[48px] md:text-[40px] md:leading-[60px] lg:text-[53px] lg:leading-[75px]">
+            <h2 className="font-extrabold text-[30px] leading-[48px] md:text-[40px] md:leading-[60px] lg:text-[53px] lg:leading-[75px] transition-slow animate-delay-100">
               {subtitle || defaultSubtitle}
             </h2>
-            <p className="mb-2 text-primary font-extrabold text-[22px] leading-[36px] md:text-[28px] md:leading-[44px] lg:text-[32px] lg:leading-[48px]">
+            <p className="mb-2 text-primary font-extrabold text-[22px] leading-[36px] md:text-[28px] md:leading-[44px] lg:text-[32px] lg:leading-[48px] transition-slow animate-delay-200">
               {defaultHeading}
             </p>
-            <p className="mb-8 max-w-[563px] text-white/90 text-[16px] leading-7 md:text-[20px] md:leading-8 lg:text-[24px] lg:leading-10">
+            <p className="mb-8 max-w-[563px] text-white/90 text-[16px] leading-7 md:text-[20px] md:leading-8 lg:text-[24px] lg:leading-10 transition-slow animate-delay-300">
               {description || defaultDescription}
             </p>
 
@@ -160,13 +160,13 @@ export default function HeroSection({
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <Link
                 href={primaryButton?.href || defaultPrimaryBtn.href}
-                className="bg-primary hover:bg-green-600 text-white font-semibold transition-colors shadow-lg hover:shadow-xl inline-flex items-center justify-center rounded-[37px] px-7 py-[13px] md:px-8 md:py-[14px] lg:px-9 lg:py-[15px]"
+                className="bg-primary hover:bg-green-600 text-white font-semibold transition-smooth hover-lift shadow-lg hover:shadow-xl inline-flex items-center justify-center rounded-[37px] px-7 py-[13px] md:px-8 md:py-[14px] lg:px-9 lg:py-[15px] transform"
               >
                 {primaryButton?.label || defaultPrimaryBtn.label}
               </Link>
               <Link
                 href={secondaryButton?.href || defaultSecondaryBtn.href}
-                className="bg-transparent text-white font-semibold transition-all inline-flex items-center justify-center rounded-[37px] border border-white px-7 py-[13px] md:px-8 md:py-[14px] lg:px-9 lg:py-[15px]"
+                className="bg-transparent hover:bg-white/10 text-white font-semibold transition-smooth hover-scale inline-flex items-center justify-center rounded-[37px] border-2 border-white hover:border-white/80 px-7 py-[13px] md:px-8 md:py-[14px] lg:px-9 lg:py-[15px] transform"
               >
                 {secondaryButton?.label || defaultSecondaryBtn.label}
               </Link>

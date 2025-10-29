@@ -60,6 +60,49 @@ export const GET_FEATURED_BLOG_POSTS = gql`
   }
 `;
 
+export const GET_BLOG_POST_BY_SLUG = gql`
+  query BlogPostBySlug($slug: String!, $locale: I18NLocaleCode) {
+    blogs(
+      locale: $locale
+      filters: { slug: { eq: $slug } }
+      pagination: { limit: 1 }
+    ) {
+      banner {
+        url
+        name
+      }
+      content
+      featured_post
+      publishedAt
+      slug
+      summary
+      title
+      updatedAt
+      documentId
+      blog_author {
+        bio
+        name
+        profileImage {
+          url
+          name
+        }
+      }
+      blog_category {
+        colorCode
+        name
+      }
+      blog_comments {
+        approved
+        comment
+        createdAt
+        publishedAt
+        name
+        email
+      }
+    }
+  }
+`;
+
 export const GET_BLOG_POST_COMMENTS = gql`
   query BlogComments($blogPostId: ID!) {
     blogComments(

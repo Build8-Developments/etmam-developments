@@ -4,20 +4,80 @@ import {
   Header, 
   Footer,
   CTASection,
-  ServiceDetailPage as ServiceDetailComponent
+  ServiceDetailPage as ServiceDetailComponent,
+  ConsultationSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/contexts/ToastContext";
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useMemo } from 'react';
+import { useLegalServiceSubservices, useLegalServiceSubserviceDetail } from '@/hooks/graphql/useGraphQL';
 
 export default function ServiceDetailPage() {
   const { language } = useLanguage();
+  const { showToast } = useToast();
   const params = useParams();
   const { companyId, serviceId } = params;
 
-  // Mock data - في التطبيق الحقيقي، ستأتي هذه البيانات من API
-  const serviceData = {
-    'ministry-industry': {
+  // Get all subservices to find the one by slug
+  const { data: allSubservices } = useLegalServiceSubservices();
+  
+  // Find the subservice by slug
+  const serviceBySlug = useMemo(() => {
+    if (!allSubservices || !serviceId) return null;
+    return allSubservices.find((service: any) => service.slug === serviceId);
+  }, [allSubservices, serviceId]);
+
+  // Get service details using documentId
+  const { data: serviceData } = useLegalServiceSubserviceDetail(
+    serviceBySlug?.documentId || ''
+  );
+
+  // Transform GraphQL data or use mock data as fallback
+  const transformedService = useMemo(() => {
+    // Try to use GraphQL data first
+    if (serviceData && serviceBySlug) {
+      const periodText = language === 'ar'
+        ? `من ${serviceData.finishPeriodMin} إلى ${serviceData.finishPeriodMax} أيام عمل`
+        : `${serviceData.finishPeriodMin} to ${serviceData.finishPeriodMax} business days`;
+
+      const priceText = language === 'ar'
+        ? `يبدأ من ${serviceData.startFromPrice} ${serviceData.currency}`
+        : `Starting from ${serviceData.startFromPrice} ${serviceData.currency}`;
+
+      // Extract features from description array if available
+      const features = serviceData.description?.map((desc: any) => desc.title) || [];
+
+      // Extract requirements
+      const requirements = serviceData.requirements?.map((req: any) => req.requirement) || [];
+
+      // Transform steps
+      const steps = serviceData.steps?.map((step: any) => ({
+        title: step.title,
+        description: step.description,
+        icon: step.icon?.name || 'default'
+      })) || [];
+
+      // Get company name from the category
+      const companyName = serviceBySlug.legal_service_category?.name || '';
+
+      return {
+        title: serviceData.name || '',
+        description: serviceData.shortDescription || '',
+        price: priceText,
+        duration: periodText,
+        icon: serviceData.icon?.name || 'document',
+        companyName,
+        features,
+        requirements,
+        steps
+      };
+    }
+
+    // Fall back to mock data
+    const serviceDataMock: any = {
+      'ministry-industry': {
       'company-formation': {
         title: language === 'ar' ? 'تأسيس الشركات' : 'Company Formation',
         description: language === 'ar' 
@@ -419,15 +479,19 @@ export default function ServiceDetailPage() {
         ]
       }
     }
-  };
+    };
 
-  const getServiceData = (): { title: string; description: string; price: string; duration: string; icon: string; companyName: string; features: string[]; requirements: string[]; steps: { title: string; description: string; icon: string; }[]; } | null => {
-    const companyServices = serviceData[companyId as keyof typeof serviceData];
+    const companyServices = serviceDataMock[companyId as keyof typeof serviceDataMock];
     if (!companyServices) return null;
-    return companyServices[serviceId as keyof typeof companyServices] || null;
-  };
 
-  const service = getServiceData();
+    const mockService = companyServices[serviceId as keyof typeof companyServices];
+    if (!mockService) return null;
+
+    return mockService;
+  }, [serviceData, serviceBySlug, companyId, serviceId, language]);
+
+  // Only show error if service not found in either GraphQL or mock data
+  const service = transformedService;
 
   if (!service) {
     return (
@@ -447,8 +511,15 @@ export default function ServiceDetailPage() {
   }
 
   const handleRequestService = () => {
-    // يمكن إضافة منطق طلب الخدمة هنا
-    console.log('Request service:', service.title);
+    if (service) {
+      showToast(
+        language === 'ar' 
+          ? `تم طلب خدمة: ${service.title}`
+          : `Service requested: ${service.title}`,
+        'success',
+        4000
+      );
+    }
   };
 
   return (
@@ -460,6 +531,9 @@ export default function ServiceDetailPage() {
         backHref={`/legalservices/${companyId}`}
         onRequestService={handleRequestService}
       />
+
+      {/* Consultation Section */}
+      <ConsultationSection />
 
       {/* CTA Section */}
       <CTASection />

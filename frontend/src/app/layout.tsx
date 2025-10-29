@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Almarai, Outfit } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ToastProvider } from "@/contexts/ToastContext";
 import ApolloWrapper from "@/components/providers/ApolloWrapper";
 import { WhatsAppFloat } from "@/components/common";
 import { WHATSAPP_CONFIG } from "@/constants";
@@ -67,10 +68,12 @@ export default function RootLayout({
       >
         <ApolloWrapper>
           <LanguageProvider>
-            {children}
-            <WhatsAppFloat 
-              phoneNumber={WHATSAPP_CONFIG.phoneNumber}
-            />
+            <ToastProvider>
+              {children}
+              <WhatsAppFloat 
+                phoneNumber={WHATSAPP_CONFIG.phoneNumber}
+              />
+            </ToastProvider>
           </LanguageProvider>
         </ApolloWrapper>
       </body>

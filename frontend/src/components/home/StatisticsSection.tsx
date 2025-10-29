@@ -59,7 +59,7 @@ export default function StatisticsSection({
           className="object-cover" 
         />
         {/* Green overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-green-600/30 to-green-800/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-green-600/30 to-green-800/50 pointer-events-none"></div>
       </div>
 
       {/* Content */}
@@ -101,18 +101,19 @@ export default function StatisticsSection({
               {displayStats.map((stat, index) => (
                 <div 
                   key={index} 
-                  className={`relative flex flex-col justify-center items-center text-center px-1 sm:px-2 md:px-4 ${
+                  className={`relative flex flex-col justify-center items-center text-center px-1 sm:px-2 md:px-4 transition-smooth hover-scale animate-fade-in-up ${
                     index < displayStats.length - 1 
                       ? (isRTL 
                           ? (index % 2 === 1 ? 'border-l border-l-white/30' : 'sm:border-l sm:border-l-white/30')
                           : (index % 2 === 1 ? 'border-r border-r-white/30' : 'sm:border-r sm:border-r-white/30')
                         ) 
                       : ''
-                  }`}
+                  } stagger-${index + 1}`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Number */}
                   <div 
-                    className="text-white font-bold mb-1 sm:mb-2"
+                    className="text-white font-bold mb-1 sm:mb-2 animate-pulse-slow"
                     style={{
                       fontFamily: 'Cairo',
                       fontWeight: 600,

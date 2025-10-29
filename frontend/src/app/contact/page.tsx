@@ -3,41 +3,23 @@
 import { 
   Header, 
   Footer,
-  PartnersSection
+  PartnersSection,
+  ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function ContactPage() {
   const { language } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       {/* Custom Hero Section */}
-      <div className="relative overflow-hidden">
+      <AnimatedSection animation="fadeIn" delay={0}>
+        <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
           style={{
@@ -154,9 +136,11 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Contact Section */}
-      <section className="py-16 lg:py-24 relative bg-gray-50">
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <section className="py-16 lg:py-24 relative bg-gray-50">
         {/* Background Decorations */}
         <div className="absolute top-0 right-0 w-32 h-32 lg:w-48 lg:h-48">
           <div className="w-full h-full flex flex-col gap-2">
@@ -400,113 +384,18 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right Side - Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h2 
-                className="text-3xl font-bold mb-6"
-                style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
-              >
-                {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
-              </h2>
-              
-              <p 
-                className="text-gray-600 mb-8 leading-relaxed"
-                style={{ fontFamily: 'var(--font-almarai)' }}
-              >
-                {language === 'ar' 
-                  ? 'عبئ النموذج أدناه وسيتواصل معك فريقنا في أقرب وقت ممكن سواء كان لديك استفسار حول الخدمات أو التراخيص أو الباقات نحن هنا لمساعدتك.'
-                  : 'Fill out the form below and our team will contact you as soon as possible, whether you have an inquiry about services, licenses, or packages, we are here to help you.'
-                }
-              </p>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label 
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'الاسم' : 'Name'}
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                    placeholder={language === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
-                    dir={language === 'ar' ? 'rtl' : 'ltr'}
-                  />
-                </div>
-
-                <div>
-                  <label 
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                    placeholder={language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
-                    dir={language === 'ar' ? 'rtl' : 'ltr'}
-                  />
-                </div>
-
-                <div>
-                  <label 
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'الموضوع' : 'Subject'}
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                    placeholder={language === 'ar' ? 'أدخل موضوع الرسالة' : 'Enter message subject'}
-                    dir={language === 'ar' ? 'rtl' : 'ltr'}
-                  />
-                </div>
-
-                <div>
-                  <label 
-                    className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'الرسالة' : 'Message'}
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-800"
-                    placeholder={language === 'ar' ? 'اكتب الرسالة' : 'Write your message'}
-                    dir={language === 'ar' ? 'rtl' : 'ltr'}
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-colors"
-                  style={{ fontFamily: 'var(--font-almarai)' }}
-                >
-                  {language === 'ar' ? 'إرسال' : 'Send'}
-                </button>
-              </form>
+            {/* Right Side - Consultation Form Section */}
+            <div>
+              <ConsultationSection compact={true} />
             </div>
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Map Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <AnimatedSection animation="scaleIn" delay={150}>
+        <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 
@@ -597,9 +486,12 @@ export default function ContactPage() {
 
         </div>
       </section>
+      </AnimatedSection>
       
       {/* Partners Section */}
-      <PartnersSection />
+      <AnimatedSection animation="fadeIn" delay={200}>
+        <PartnersSection />
+      </AnimatedSection>
       
       <Footer />
     </div>

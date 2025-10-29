@@ -13,7 +13,7 @@ export function Card({
   children 
 }: CardProps) {
   const cardContent = (
-    <div className={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ${className}`}>
+    <div className={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-smooth hover-lift ${className}`}>
       {image && (
         <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
           <Image

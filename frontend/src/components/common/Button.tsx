@@ -23,12 +23,12 @@ export function Button({
 }: ButtonComponentProps) {
   const { language } = useLanguage();
   
-  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 transform';
   
   const variantClasses = {
-    primary: 'bg-primary hover:bg-green-600 text-white shadow-lg hover:shadow-xl',
-    secondary: 'bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl',
-    outline: 'bg-transparent text-white border border-white hover:bg-white hover:text-gray-800'
+    primary: 'bg-primary hover:bg-green-600 text-white shadow-lg hover:shadow-xl hover-lift',
+    secondary: 'bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl hover-lift',
+    outline: 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-800 hover-scale'
   };
   
   const sizeClasses = {

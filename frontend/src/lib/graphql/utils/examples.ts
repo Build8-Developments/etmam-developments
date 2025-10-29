@@ -6,7 +6,6 @@
 import {
   fetchWithLocale,
   fetchMultiple,
-  fetchGraphQL,
   GET_HOME_PAGE,
 } from "@/lib/graphql";
 
@@ -75,8 +74,8 @@ export async function Example4_LayoutQueries(locale: string) {
   const [headerResult, footerResult] = results;
 
   return {
-    header: headerResult.success ? headerResult.data : null,
-    footer: footerResult.success ? footerResult.data : null,
+    header: headerResult?.success ? headerResult.data : null,
+    footer: footerResult?.success ? footerResult.data : null,
   };
 }
 

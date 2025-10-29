@@ -4,19 +4,71 @@ import {
   Header, 
   Footer,
   CTASection,
-  ServicesGrid
+  ServicesGrid,
+  ConsultationSection
 } from '@/components';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { useMemo } from 'react';
+import { useLegalServiceCategories, useLegalServiceSubservices } from '@/hooks/graphql/useGraphQL';
 
 export default function CompanyServicesPage() {
   const { language } = useLanguage();
   const params = useParams();
   const { companyId } = params;
+  
+  // Get GraphQL data
+  const { data: legalCategories } = useLegalServiceCategories();
+  const { data: legalSubservices } = useLegalServiceSubservices();
 
-  // Mock data - في التطبيق الحقيقي، ستأتي هذه البيانات من API
-  const companyData = {
+  // Find category by slug (companyId)
+  const categoryData = useMemo(() => {
+    if (!legalCategories || legalCategories.length === 0) return null;
+    return legalCategories.find((cat: any) => cat.slug === companyId);
+  }, [legalCategories, companyId]);
+
+  // Filter subservices by category
+  const categorySubservices = useMemo(() => {
+    if (!legalSubservices || legalSubservices.length === 0) return [];
+    return legalSubservices.filter((sub: any) => 
+      sub.legal_service_category?.slug === companyId
+    );
+  }, [legalSubservices, companyId]);
+
+  // Transform GraphQL data or use mock data
+  const company = useMemo(() => {
+    // If we have GraphQL data, use it
+    if (categoryData && categorySubservices.length > 0) {
+      const services = categorySubservices.map((sub: any) => {
+        const periodText = language === 'ar'
+          ? `من ${sub.finishPeriodMin} إلى ${sub.finishPeriodMax} أيام عمل`
+          : `${sub.finishPeriodMin} to ${sub.finishPeriodMax} business days`;
+        
+        const priceText = language === 'ar'
+          ? `يبدأ من ${sub.startFromPrice} ${sub.currency}`
+          : `Starting from ${sub.startFromPrice} ${sub.currency}`;
+
+        return {
+          id: sub.slug || sub.documentId,
+          title: sub.name || '',
+          description: sub.shortDescription || '',
+          price: priceText,
+          duration: periodText,
+          icon: sub.icon?.name || 'document'
+        };
+      });
+
+      return {
+        name: categoryData.name || '',
+        description: categoryData.description || '',
+        logo: categoryData.icon?.url || '/images/logos/logo.png',
+        services
+      };
+    }
+
+    // Fall back to mock data
+    const companyData: any = {
     'ministry-industry': {
       name: language === 'ar' ? 'وزارة الصناعة والثروة المعدنية' : 'Ministry of Industry and Mineral Resources',
       description: language === 'ar' 
@@ -641,9 +693,18 @@ export default function CompanyServicesPage() {
         }
       ]
     }
-  };
+    };
 
-  const company = companyData[companyId as keyof typeof companyData];
+    const mockCompany = companyData[companyId as keyof typeof companyData];
+    if (!mockCompany) return null;
+
+    return {
+      name: language === 'ar' ? mockCompany.name : mockCompany.name,
+      description: mockCompany.description,
+      logo: mockCompany.logo,
+      services: mockCompany.services
+    };
+  }, [categoryData, categorySubservices, companyId, language]);
 
   if (!company) {
     return (
@@ -713,6 +774,9 @@ export default function CompanyServicesPage() {
         services={company.services}
         baseHref={`/legalservices/${companyId}`}
       />
+
+      {/* Consultation Section */}
+      <ConsultationSection />
 
       {/* CTA Section */}
       <CTASection />

@@ -5,48 +5,106 @@ import {
   Footer,
   CTASection,
   ServicesGrid,
-  PartnersSection
+  PartnersSection,
+  ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState } from 'react';
-import { consultingServices } from '@/mockData/services';
+import { useState, useMemo } from 'react';
+import { useConsultingServices } from '@/hooks/graphql/useGraphQL';
+import { consultingServices as mockConsultingServices } from '@/mockData/services';
 
 export default function ConsultingServicesPage() {
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const { data: consultingServices } = useConsultingServices();
 
-  // Enhanced search with multiple criteria
-  const filteredServices = consultingServices.filter(service => {
-    if (!searchTerm.trim()) return true;
-    
-    const searchLower = searchTerm.toLowerCase();
-    const searchTerms = searchLower.split(' ').filter(term => term.length > 0);
-    
-    return searchTerms.every(term => 
-      service.title[language].toLowerCase().includes(term) ||
-      service.description[language].toLowerCase().includes(term) ||
-      service.price[language].toLowerCase().includes(term) ||
-      service.duration[language].toLowerCase().includes(term)
-    );
-  });
+  // Transform GraphQL data to Service type and filter by search
+  // Falls back to mock data if GraphQL data is not available
+  const transformedServices = useMemo(() => {
+    // Use GraphQL data if available, otherwise fall back to mock data
+    const servicesToUse = (consultingServices && consultingServices.length > 0) 
+      ? consultingServices 
+      : mockConsultingServices;
 
-  // Transform to Service type
-  const transformedServices = filteredServices.map(service => ({
-    id: service.id,
-    title: service.title[language],
-    description: service.description[language],
-    price: service.price[language],
-    duration: service.duration[language],
-    icon: service.icon
-  }));
+    // If using mock data, transform it differently
+    if (servicesToUse === mockConsultingServices) {
+      let services = mockConsultingServices.map((service) => ({
+        id: service.id,
+        title: service.title[language],
+        description: service.description[language],
+        price: service.price[language],
+        duration: service.duration[language],
+        icon: service.icon
+      }));
+
+      // Apply search filter for mock data
+      if (searchTerm.trim()) {
+        const searchLower = searchTerm.toLowerCase();
+        const searchTerms = searchLower.split(' ').filter(term => term.length > 0);
+        
+        services = services.filter((service: any) =>
+          searchTerms.every(term =>
+            service.title.toLowerCase().includes(term) ||
+            service.description.toLowerCase().includes(term) ||
+            service.price.toLowerCase().includes(term) ||
+            service.duration.toLowerCase().includes(term)
+          )
+        );
+      }
+
+      return services;
+    }
+
+    // Transform GraphQL data to expected format
+    let services = consultingServices.map((service: any) => {
+      const periodText = language === 'ar' 
+        ? `من ${service.finishPeriodMin} إلى ${service.finishPeriodMax} أيام عمل`
+        : `${service.finishPeriodMin} to ${service.finishPeriodMax} business days`;
+      
+      const priceText = language === 'ar'
+        ? `يبدأ من ${service.startFromPrice} ${service.currency}`
+        : `Starting from ${service.startFromPrice} ${service.currency}`;
+
+      return {
+        id: service.slug || service.documentId || '',
+        title: service.name || '',
+        description: service.shortDescription || '',
+        price: priceText,
+        duration: periodText,
+        icon: service.icon?.name || 'consulting'
+      };
+    });
+
+    // Apply search filter
+    if (searchTerm.trim()) {
+      const searchLower = searchTerm.toLowerCase();
+      const searchTerms = searchLower.split(' ').filter(term => term.length > 0);
+      
+      services = services.filter((service: any) =>
+        searchTerms.every(term =>
+          service.title.toLowerCase().includes(term) ||
+          service.description.toLowerCase().includes(term) ||
+          service.price.toLowerCase().includes(term) ||
+          service.duration.toLowerCase().includes(term)
+        )
+      );
+    }
+
+    return services;
+  }, [consultingServices, searchTerm, language]);
+
+  // Note: We use mock data as fallback, so we don't show loading/error states
+  // GraphQL queries are integrated but mock data is used until Strapi content is ready
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <AnimatedSection animation="fadeIn" delay={0}>
+        <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[500px]"
           style={{
@@ -133,9 +191,11 @@ export default function ConsultingServicesPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Services Grid */}
-      <ServicesGrid
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <ServicesGrid
         services={transformedServices}
         baseHref="/consulting"
         title={language === 'ar' ? 'خدماتنا الاستشارية' : 'Our Consulting Services'}
@@ -144,12 +204,22 @@ export default function ConsultingServicesPage() {
           : 'Choose the appropriate consulting service and get the specialized support you need'
         }
       />
+      </AnimatedSection>
+
+      {/* Consultation Section */}
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
 
       {/* CTA Section */}
-      <CTASection />
+      <AnimatedSection animation="scaleIn" delay={100}>
+        <CTASection />
+      </AnimatedSection>
       
       {/* Partners Section */}
-      <PartnersSection />
+      <AnimatedSection animation="fadeIn" delay={150}>
+        <PartnersSection />
+      </AnimatedSection>
       
       <Footer />
     </div>
