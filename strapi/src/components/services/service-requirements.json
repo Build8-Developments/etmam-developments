@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_services_service_requirements",
+  "info": {
+    "displayName": "service_requirements"
+  },
+  "options": {},
+  "attributes": {
+    "service_requirement": {
+      "type": "component",
+      "component": "services.single-service-requirement",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

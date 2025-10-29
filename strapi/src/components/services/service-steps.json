@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_services_service_steps",
+  "info": {
+    "displayName": "service_steps"
+  },
+  "options": {},
+  "attributes": {
+    "service_step": {
+      "type": "component",
+      "component": "services.single-service-step",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

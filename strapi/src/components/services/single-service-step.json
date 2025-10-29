@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_services_single_service_steps",
+  "info": {
+    "displayName": "single_service_step"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "icon_color_code": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

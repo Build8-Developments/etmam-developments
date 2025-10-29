@@ -65,6 +65,16 @@
       "component": "sections.services-carousel-section",
       "repeatable": false
     },
+    "Blog": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.blog-section",
+      "repeatable": false
+    },
     "Faq": {
       "type": "component",
       "pluginOptions": {

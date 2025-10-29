@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_services_single_service_requirements",
+  "info": {
+    "displayName": "single_service_requirement"
+  },
+  "options": {},
+  "attributes": {
+    "requirement": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

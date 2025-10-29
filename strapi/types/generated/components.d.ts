@@ -194,6 +194,30 @@ export interface SectionsAchievements extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsBlogSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_blog_sections';
+  info: {
+    description: 'Latest blog posts section for homepage';
+    displayName: 'blog-section';
+  };
+  attributes: {
+    ctaButton: Schema.Attribute.Component<'ui.button', false>;
+    description: Schema.Attribute.Text;
+    numberOfPosts: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 6;
+          min: 3;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<3>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Latest from Our Blog'>;
+  };
+}
+
 export interface SectionsContactUsCard extends Struct.ComponentSchema {
   collectionName: 'components_sections_contact_us_cards';
   info: {
@@ -395,6 +419,83 @@ export interface SectionsWhyChooseUsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ServicesServiceDescription extends Struct.ComponentSchema {
+  collectionName: 'components_services_service_descriptions';
+  info: {
+    displayName: 'service_description';
+  };
+  attributes: {
+    service_description: Schema.Attribute.Component<
+      'services.single-service-description',
+      true
+    >;
+  };
+}
+
+export interface ServicesServiceRequirements extends Struct.ComponentSchema {
+  collectionName: 'components_services_service_requirements';
+  info: {
+    displayName: 'service_requirements';
+  };
+  attributes: {
+    service_requirement: Schema.Attribute.Component<
+      'services.single-service-requirement',
+      true
+    >;
+  };
+}
+
+export interface ServicesServiceSteps extends Struct.ComponentSchema {
+  collectionName: 'components_services_service_steps';
+  info: {
+    displayName: 'service_steps';
+  };
+  attributes: {
+    service_step: Schema.Attribute.Component<
+      'services.single-service-step',
+      true
+    >;
+  };
+}
+
+export interface ServicesSingleServiceDescription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_services_single_service_descriptions';
+  info: {
+    displayName: 'single_service_description';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon_color_code: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ServicesSingleServiceRequirement
+  extends Struct.ComponentSchema {
+  collectionName: 'components_services_single_service_requirements';
+  info: {
+    displayName: 'single_service_requirement';
+  };
+  attributes: {
+    requirement: Schema.Attribute.String;
+  };
+}
+
+export interface ServicesSingleServiceStep extends Struct.ComponentSchema {
+  collectionName: 'components_services_single_service_steps';
+  info: {
+    displayName: 'single_service_step';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon_color_code: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -440,6 +541,14 @@ export interface UiIconTextCard extends Struct.ComponentSchema {
   };
 }
 
+export interface UiServiceButton extends Struct.ComponentSchema {
+  collectionName: 'components_ui_service_buttons';
+  info: {
+    displayName: 'service_button';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -455,6 +564,7 @@ declare module '@strapi/strapi' {
       'sections.about-hero': SectionsAboutHero;
       'sections.about-us-component': SectionsAboutUsComponent;
       'sections.achievements': SectionsAchievements;
+      'sections.blog-section': SectionsBlogSection;
       'sections.contact-us-card': SectionsContactUsCard;
       'sections.cta-section': SectionsCtaSection;
       'sections.faq-section': SectionsFaqSection;
@@ -466,9 +576,16 @@ declare module '@strapi/strapi' {
       'sections.statistics-section': SectionsStatisticsSection;
       'sections.success': SectionsSuccess;
       'sections.why-choose-us-section': SectionsWhyChooseUsSection;
+      'services.service-description': ServicesServiceDescription;
+      'services.service-requirements': ServicesServiceRequirements;
+      'services.service-steps': ServicesServiceSteps;
+      'services.single-service-description': ServicesSingleServiceDescription;
+      'services.single-service-requirement': ServicesSingleServiceRequirement;
+      'services.single-service-step': ServicesSingleServiceStep;
       'shared.seo': SharedSeo;
       'ui.button': UiButton;
       'ui.icon-text-card': UiIconTextCard;
+      'ui.service-button': UiServiceButton;
     }
   }
 }

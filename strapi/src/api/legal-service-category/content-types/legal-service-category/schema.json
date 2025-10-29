@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "legal_service_categories",
+  "info": {
+    "singularName": "legal-service-category",
+    "pluralName": "legal-service-categories",
+    "displayName": "Legal Service Category",
+    "description": "Main categories for legal services (e.g., Ministries)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "legal_sub_services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::legal-sub-service.legal-sub-service",
+      "mappedBy": "legal_service_category"
+    },
+    "button_label": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_blog_sections",
+  "info": {
+    "displayName": "blog-section",
+    "description": "Latest blog posts section for homepage"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Latest from Our Blog"
+    },
+    "description": {
+      "type": "text"
+    },
+    "numberOfPosts": {
+      "type": "integer",
+      "default": 3,
+      "min": 3,
+      "max": 6
+    },
+    "ctaButton": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false
+    }
+  }
+}

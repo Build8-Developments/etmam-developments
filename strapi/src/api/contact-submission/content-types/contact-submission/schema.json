@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_submissions",
+  "info": {
+    "singularName": "contact-submission",
+    "pluralName": "contact-submissions",
+    "displayName": "Contact Submission",
+    "description": "Contact form submissions from website visitors"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyName": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "preferredContactTime": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "morning",
+        "midday",
+        "evening"
+      ]
+    },
+    "language": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "arabic",
+        "english"
+      ]
+    },
+    "service": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "company_formation",
+        "legal_services",
+        "business_consulting",
+        "financial_consulting",
+        "marketing_consulting",
+        "hr_consulting",
+        "technical_consulting"
+      ]
+    },
+    "note": {
+      "type": "text"
+    },
+    "submission_status": {
+      "type": "enumeration",
+      "default": "new",
+      "enum": [
+        "new",
+        "in_progress",
+        "contacted",
+        "resolved",
+        "spam"
+      ]
+    },
+    "ipAddress": {
+      "type": "string",
+      "private": true
+    },
+    "userAgent": {
+      "type": "string",
+      "private": true
+    },
+    "adminNotes": {
+      "type": "text"
+    }
+  }
+}
