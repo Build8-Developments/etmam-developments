@@ -2,7 +2,32 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export default function SuccessFoundationSection() {
+interface VisionMessage {
+  VisionTitle?: string;
+  VisionDescription?: string;
+  VisionImage?: {
+    url: string;
+    name: string;
+  };
+  MessageTitle?: string;
+  MessageDescription?: string;
+  MessageImage?: {
+    url: string;
+    name: string;
+  };
+}
+
+interface SuccessFoundationSectionProps {
+  title?: string;
+  subtitle?: string;
+  visionMessage?: VisionMessage;
+}
+
+export default function SuccessFoundationSection({ 
+  title, 
+  subtitle, 
+  visionMessage 
+}: SuccessFoundationSectionProps) {
   const { language } = useLanguage();
 
   return (
@@ -21,7 +46,7 @@ export default function SuccessFoundationSection() {
               letterSpacing: '-1%',
             }}
           >
-            {language === 'ar' ? 'أساس نجاحنا' : 'Our Foundation for Success'}
+            {title || (language === 'ar' ? 'أساس نجاحنا' : 'Our Foundation for Success')}
           </h2>
           
           <p 
@@ -35,10 +60,10 @@ export default function SuccessFoundationSection() {
               textAlign: 'center',
             }}
           >
-            {language === 'ar' 
+            {subtitle || (language === 'ar' 
               ? 'نؤمن أن النجاح يبدأ برؤية واضحة ورسالة ثابتة تقود خطواتنا نحو خدمة عملائنا بأفضل صورة.'
               : 'We believe that success begins with a clear vision and a steadfast mission that guides our steps towards serving our customers in the best possible way.'
-            }
+            )}
           </p>
         </div>
 
@@ -50,7 +75,9 @@ export default function SuccessFoundationSection() {
             <div 
               className="w-full h-[360px] rounded-[22px] overflow-hidden"
               style={{
-                backgroundImage: 'url(/aboutsec.jpg)',
+                backgroundImage: visionMessage?.VisionImage?.url 
+                  ? `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${visionMessage.VisionImage.url})`
+                  : 'url(/aboutsec.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
@@ -96,10 +123,10 @@ export default function SuccessFoundationSection() {
                 letterSpacing: '0%',
               }}
             >
-              {language === 'ar' 
+              {visionMessage?.VisionTitle || (language === 'ar' 
                 ? 'نحو ريادة الخدمات الإدارية والتجارية في المملكة'
                 : 'Towards leadership in administrative and commercial services in the Kingdom'
-              }
+              )}
             </h4>
             
             {/* Vision Description */}
@@ -113,10 +140,10 @@ export default function SuccessFoundationSection() {
                 letterSpacing: '0%',
               }}
             >
-              {language === 'ar' 
+              {visionMessage?.VisionDescription || (language === 'ar' 
                 ? 'في إتمام نطمح لأن نكون الخيار الأول والأكثر ثقة لرواد الأعمال والشركات في المملكة. رؤيتنا تتمحور حول تقديم حلول مبتكرة وشاملة تسهّل رحلة تأسيس وإدارة الأعمال، وتواكب تطلعات رؤية السعودية 2030 نحو اقتصاد مزدهر قائم على التميز والكفاءة. نؤمن أن نجاح عملائنا هو الأساس الذي يُلهمنا للاستمرار في تطوير خدماتنا وتحقيق الريادة.'
                 : 'At Itmam, we aspire to be the first choice and most trusted for entrepreneurs and companies in the Kingdom. Our vision revolves around providing innovative and comprehensive solutions that facilitate the journey of establishing and managing businesses, and keeping pace with the aspirations of Saudi Vision 2030 towards a prosperous economy based on excellence and efficiency. We believe that the success of our clients is the foundation that inspires us to continue developing our services and achieving leadership.'
-              }
+              )}
             </p>
           </div>
         </div>
@@ -154,10 +181,10 @@ export default function SuccessFoundationSection() {
                 letterSpacing: '0%',
               }}
             >
-              {language === 'ar' 
+              {visionMessage?.MessageTitle || (language === 'ar' 
                 ? 'خدمات موثوقة تسهل طريق نجاحك'
                 : 'Reliable services that ease your path to success'
-              }
+              )}
             </h4>
             
             {/* Mission Description */}
@@ -171,10 +198,10 @@ export default function SuccessFoundationSection() {
                 letterSpacing: '0%',
               }}
             >
-              {language === 'ar' 
+              {visionMessage?.MessageDescription || (language === 'ar' 
                 ? 'رسالتنا في إتمام هي تبسيط وتعزيز كل ما يتعلق بالإجراءات الإدارية والتجارية، من تأسيس الشركات واستخراج التراخيص، إلى تقديم حلول احترافية لإدارة الأعمال. نحن نضع العميل في قلب أولوياتنا، ونعمل بروح الفريق لتقديم خدمات سريعة وموثوقة تساهم في نمو واستقرار أعمال شركائنا، وتدعم رحلتهم نحو تحقيق النجاح بأقل جهد وأعلى كفاءة.'
                 : 'Our mission at Itmam is to simplify and enhance everything related to administrative and commercial procedures, from company formation and license extraction, to providing professional solutions for business management. We place the client at the heart of our priorities, and we work with a team spirit to provide fast and reliable services that contribute to the growth and stability of our partners\' businesses, supporting their journey towards achieving success with less effort and higher efficiency.'
-              }
+              )}
             </p>
           </div>
           
@@ -183,7 +210,9 @@ export default function SuccessFoundationSection() {
             <div 
               className="w-full h-[360px] rounded-[22px] overflow-hidden"
               style={{
-                backgroundImage: 'url(/aboutsec1.jpg)',
+                backgroundImage: visionMessage?.MessageImage?.url 
+                  ? `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${visionMessage.MessageImage.url})`
+                  : 'url(/aboutsec1.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',

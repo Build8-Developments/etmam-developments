@@ -3,7 +3,18 @@
 import { useState } from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
 
-export const FAQSection = () => {
+interface FAQItem {
+  question: string;
+  answer: string;
+  order?: number;
+}
+
+interface FAQSectionProps {
+  title?: string;
+  faqs?: FAQItem[];
+}
+
+export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
   const { language } = useLanguage();
   const [openItems, setOpenItems] = useState<number[]>([]);
 
@@ -15,7 +26,8 @@ export const FAQSection = () => {
     );
   };
 
-  const faqData = [
+  // Default FAQ data
+  const defaultFaqData = [
     {
       question: { ar: "كم يستغرق إنجاز الخدمة؟", en: "How long does it take to complete the service?" },
       answer: { ar: "عادة من 3 إلى 5 أيام عمل، وقد يختلف الوقت حسب اكتمال المستندات", en: "Usually 3 to 5 business days, and the time may vary depending on the completion of documents" }
@@ -66,6 +78,14 @@ export const FAQSection = () => {
     }
   ];
 
+  // Use Strapi data if available, otherwise use default data
+  const faqData = faqs && faqs.length > 0 
+    ? faqs.map(faq => ({
+        question: { ar: faq.question, en: faq.question },
+        answer: { ar: faq.answer, en: faq.answer }
+      }))
+    : defaultFaqData;
+
 
   return (
     <section className="py-16 bg-white">
@@ -73,7 +93,7 @@ export const FAQSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-6" style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}>
-            {language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+            {title || (language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions')}
           </h2>
         </div>
 
