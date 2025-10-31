@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_contact_info_cards",
+  "info": {
+    "displayName": "contact-info-card"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "data": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

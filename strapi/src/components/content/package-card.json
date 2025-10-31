@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_package_cards",
+  "info": {
+    "displayName": "package-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer",
+      "min": 1
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "feature": {
+      "type": "component",
+      "component": "packages.package-feature",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -43,6 +43,30 @@ export interface ContentAchievementCard extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentAvailableOfferCard extends Struct.ComponentSchema {
+  collectionName: 'components_content_available_offer_cards';
+  info: {
+    displayName: 'available-offer-card';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContentContactInfoCard extends Struct.ComponentSchema {
+  collectionName: 'components_content_contact_info_cards';
+  info: {
+    displayName: 'contact-info-card';
+  };
+  attributes: {
+    data: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface ContentContentServiceCard extends Struct.ComponentSchema {
   collectionName: 'components_content_content_service_cards';
   info: {
@@ -79,6 +103,25 @@ export interface ContentNumberedStep extends Struct.ComponentSchema {
       Schema.Attribute.SetMinMax<
         {
           max: 3;
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContentPackageCard extends Struct.ComponentSchema {
+  collectionName: 'components_content_package_cards';
+  info: {
+    displayName: 'package-card';
+  };
+  attributes: {
+    feature: Schema.Attribute.Component<'packages.package-feature', true>;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    price: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
           min: 1;
         },
         number
@@ -126,10 +169,20 @@ export interface ContentStatItem extends Struct.ComponentSchema {
   };
 }
 
+export interface PackagesPackageFeature extends Struct.ComponentSchema {
+  collectionName: 'components_packages_package_features';
+  info: {
+    displayName: 'package-feature';
+  };
+  attributes: {
+    feature: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsAboutHero extends Struct.ComponentSchema {
   collectionName: 'components_sections_about_heroes';
   info: {
-    displayName: 'about-hero';
+    displayName: 'pages-hero';
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<
@@ -555,12 +608,16 @@ declare module '@strapi/strapi' {
       'content.about-hero-stats': ContentAboutHeroStats;
       'content.about-why-choose-single-card': ContentAboutWhyChooseSingleCard;
       'content.achievement-card': ContentAchievementCard;
+      'content.available-offer-card': ContentAvailableOfferCard;
+      'content.contact-info-card': ContentContactInfoCard;
       'content.content-service-card': ContentContentServiceCard;
       'content.faq-item': ContentFaqItem;
       'content.numbered-step': ContentNumberedStep;
+      'content.package-card': ContentPackageCard;
       'content.partner-logo': ContentPartnerLogo;
       'content.service-slide': ContentServiceSlide;
       'content.stat-item': ContentStatItem;
+      'packages.package-feature': PackagesPackageFeature;
       'sections.about-hero': SectionsAboutHero;
       'sections.about-us-component': SectionsAboutUsComponent;
       'sections.achievements': SectionsAchievements;

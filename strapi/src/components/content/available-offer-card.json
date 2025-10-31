@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_available_offer_cards",
+  "info": {
+    "displayName": "available-offer-card"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
