@@ -158,6 +158,18 @@ export interface ContentServiceSlide extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentSitePolicyCard extends Struct.ComponentSchema {
+  collectionName: 'components_content_site_policy_cards';
+  info: {
+    displayName: 'site_policy_card';
+  };
+  attributes: {
+    contents: Schema.Attribute.Blocks;
+    order: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ContentStatItem extends Struct.ComponentSchema {
   collectionName: 'components_content_stat_items';
   info: {
@@ -616,6 +628,7 @@ declare module '@strapi/strapi' {
       'content.package-card': ContentPackageCard;
       'content.partner-logo': ContentPartnerLogo;
       'content.service-slide': ContentServiceSlide;
+      'content.site-policy-card': ContentSitePolicyCard;
       'content.stat-item': ContentStatItem;
       'packages.package-feature': PackagesPackageFeature;
       'sections.about-hero': SectionsAboutHero;

@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "privacy_policy_pages",
+  "info": {
+    "singularName": "privacy-policy-page",
+    "pluralName": "privacy-policy-pages",
+    "displayName": "Privacy Policy Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.about-hero",
+      "repeatable": false
+    },
+    "privacy_policy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::privacy-policy.privacy-policy"
+    }
+  }
+}

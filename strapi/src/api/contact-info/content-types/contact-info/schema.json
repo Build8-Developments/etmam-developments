@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_infos",
+  "info": {
+    "singularName": "contact-info",
+    "pluralName": "contact-infos",
+    "displayName": "contact_info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "whatsapp_number": {
+      "type": "string"
+    },
+    "location_link": {
+      "type": "string"
+    },
+    "facebook_link": {
+      "type": "string"
+    },
+    "instagram_link": {
+      "type": "string"
+    },
+    "twitter_link": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "terms_and_conditions_pages",
+  "info": {
+    "singularName": "terms-and-conditions-page",
+    "pluralName": "terms-and-conditions-pages",
+    "displayName": "Terms & Conditions Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "component": "sections.about-hero",
+      "repeatable": false
+    },
+    "privacy_policy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::privacy-policy.privacy-policy"
+    }
+  }
+}

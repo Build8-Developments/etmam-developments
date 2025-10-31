@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_site_policy_cards",
+  "info": {
+    "displayName": "site_policy_card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "contents": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
