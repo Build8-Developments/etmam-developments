@@ -86,13 +86,27 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
-            {/* Language Switcher */}
+            {/* Language Switcher with Flags */}
             <button
               onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-              className="w-10 h-10 rounded-full bg-primary hover:bg-green-600 text-white flex items-center justify-center font-medium transition-colors"
+              className="relative group flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-gray-200 hover:border-green-500 hover:bg-green-50 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/20"
               aria-label={getTranslation('accessibility', 'languageSwitch', language)}
             >
-              {language === 'ar' ? 'en' : 'ع'}
+              {language === 'ar' ? (
+                <>
+                  <span className="text-2xl" role="img" aria-label="English">🇬🇧</span>
+                  <span className="hidden sm:inline text-sm font-semibold text-gray-700 group-hover:text-green-600 transition-colors" style={{ fontFamily: 'var(--font-almarai)' }}>
+                    English
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="text-2xl" role="img" aria-label="العربية">🇸🇦</span>
+                  <span className="hidden sm:inline text-sm font-semibold text-gray-700 group-hover:text-green-600 transition-colors" style={{ fontFamily: 'var(--font-almarai)' }}>
+                    العربية
+                  </span>
+                </>
+              )}
             </button>
 
             {/* Contact Button */}
@@ -161,15 +175,24 @@ export default function Header({ logo, navigationItems, contactButton }: HeaderP
             {/* Menu Footer */}
             <div className="px-6 py-4 border-t border-gray-100 bg-gray-50/50">
               <div className="flex items-center justify-between gap-4">
-                {/* Language Switcher */}
+                {/* Language Switcher with Flags */}
                 <button
                   onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-                  className="flex items-center gap-3 px-4 py-2 rounded-xl bg-primary hover:bg-green-600 text-white font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                  className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-green-500 hover:bg-green-50 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-500/20"
                   aria-label={getTranslation('accessibility', 'languageSwitch', language)}
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  <span className="text-lg">{language === 'ar' ? 'en' : 'ع'}</span>
-                  <span className="text-sm">{language === 'ar' ? 'English' : 'العربية'}</span>
+                  {language === 'ar' ? (
+                    <>
+                      <span className="text-2xl" role="img" aria-label="English">🇬🇧</span>
+                      <span className="text-sm font-semibold text-gray-700 hover:text-green-600 transition-colors">English</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-2xl" role="img" aria-label="العربية">🇸🇦</span>
+                      <span className="text-sm font-semibold text-gray-700 hover:text-green-600 transition-colors">العربية</span>
+                    </>
+                  )}
                 </button>
                 
                 {/* Contact Button */}

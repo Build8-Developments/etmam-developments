@@ -1,10 +1,8 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useToast } from "@/contexts/ToastContext";
-import { CONTACT_SUBMISSION } from '@/lib/graphql/queries/content/contact_submit';
-import createApolloClient from '@/lib/apollo-client';
+import { useCreateContactSubmission } from '@/hooks/graphql';
 
 interface ConsultationSectionProps {
   compact?: boolean; // If true, removes outer Section wrapper and grid layout
@@ -12,7 +10,7 @@ interface ConsultationSectionProps {
 
 export const ConsultationSection = ({ compact = false }: ConsultationSectionProps = {}) => {
   const { language } = useLanguage();
-  const { showToast } = useToast();
+  const { createSubmission, loading: isSubmitting } = useCreateContactSubmission();
   const [formData, setFormData] = useState({
     companyName: '',
     fullName: '',
@@ -23,9 +21,7 @@ export const ConsultationSection = ({ compact = false }: ConsultationSectionProp
     service: '',
     note: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const apolloClient = useMemo(() => createApolloClient(), []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -40,21 +36,11 @@ export const ConsultationSection = ({ compact = false }: ConsultationSectionProp
     
     // Basic validation
     if (!formData.fullName || !formData.email || !formData.mobileNumber) {
-      showToast(
-        language === 'ar' 
-          ? 'يرجى ملء جميع الحقول المطلوبة (الاسم، البريد الإلكتروني، رقم الجوال)'
-          : 'Please fill in all required fields (Name, Email, Mobile Number)',
-        'warning',
-        4000
-      );
       return;
     }
 
-    setIsSubmitting(true);
-
     try {
-      const result = await apolloClient.mutate({
-        mutation: CONTACT_SUBMISSION,
+      const result = await createSubmission({
         variables: {
           data: {
             companyName: formData.companyName || null,
@@ -70,7 +56,6 @@ export const ConsultationSection = ({ compact = false }: ConsultationSectionProp
       });
 
       console.log('Form submitted successfully:', result);
-      setIsSubmitting(false);
       setIsSuccess(true);
       
       // Reset form
@@ -91,20 +76,7 @@ export const ConsultationSection = ({ compact = false }: ConsultationSectionProp
       }, 5000);
     } catch (error: any) {
       console.error('Error submitting form:', error);
-      setIsSubmitting(false);
-      
-      // Check if it's a network error (Strapi not running)
-      const isNetworkError = error?.networkError || error?.message?.includes('NetworkError') || error?.message?.includes('fetch') || error?.message?.includes('ECONNREFUSED');
-      const errorMessage = isNetworkError 
-        ? (language === 'ar' 
-          ? 'لا يمكن الاتصال بالخادم. يرجى التأكد من تشغيل Strapi والمحاولة مرة أخرى.'
-          : 'Cannot connect to server. Please ensure Strapi is running and try again.')
-        : (language === 'ar' 
-          ? 'حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.'
-          : 'An error occurred while submitting your request. Please try again.');
-      
-      // Show error message
-      showToast(errorMessage, 'error', 6000);
+      // Error handling is done in the hook's onError callback
     }
   };
 

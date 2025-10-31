@@ -10,12 +10,16 @@ import {
 } from '@/components';
 import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useServicesPage } from '@/hooks/graphql';
 import Link from 'next/link';
+import { useMemo } from 'react';
 
 export default function ServicesPage() {
   const { language } = useLanguage();
+  const { data: servicesPageData } = useServicesPage();
 
-  const serviceCategories = [
+  // Default service categories with fallback
+  const defaultServiceCategories = [
     {
       id: 'legal',
       title: language === 'ar' ? 'الخدمات القانونية' : 'Legal Services',
@@ -42,7 +46,24 @@ export default function ServicesPage() {
     }
   ];
 
-  const features = [
+  const serviceCategories = useMemo(() => {
+    if (servicesPageData?.serviceCategories && servicesPageData.serviceCategories.length > 0) {
+      return servicesPageData.serviceCategories.map((cat: any) => ({
+        id: cat.id || '',
+        title: cat.title || '',
+        description: cat.description || '',
+        icon: cat.icon?.name || 'consulting',
+        href: cat.href || '/services',
+        servicesCount: cat.servicesCount || 0,
+        isHighlighted: cat.isHighlighted || false,
+        color: cat.color || 'from-green-500 to-green-600'
+      }));
+    }
+    return defaultServiceCategories;
+  }, [servicesPageData, language]);
+
+  // Default features with fallback
+  const defaultFeatures = [
     {
       icon: 'shield',
       title: language === 'ar' ? 'موثوقية عالية' : 'High Reliability',
@@ -64,6 +85,13 @@ export default function ServicesPage() {
       description: language === 'ar' ? 'نقدم أفضل الأسعار في السوق' : 'We offer the best prices in the market'
     }
   ];
+
+  const features = useMemo(() => {
+    if (servicesPageData?.features && servicesPageData.features.length > 0) {
+      return servicesPageData.features;
+    }
+    return defaultFeatures;
+  }, [servicesPageData, language]);
 
   const getIconComponent = (iconType: string, size: number = 24) => {
     switch (iconType) {
@@ -130,7 +158,9 @@ export default function ServicesPage() {
           <div 
             className="absolute inset-0"
             style={{
-              backgroundImage: 'url(/bgabout.png)',
+              backgroundImage: servicesPageData?.Hero?.backgroundImage?.url 
+                ? `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${servicesPageData.Hero.backgroundImage.url})`
+                : 'url(/bgabout.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
@@ -144,16 +174,16 @@ export default function ServicesPage() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                 style={{ fontFamily: 'var(--font-almarai)' }}
               >
-                {language === 'ar' ? 'خدماتنا الشاملة' : 'Our Comprehensive Services'}
+                {servicesPageData?.Hero?.title || (language === 'ar' ? 'خدماتنا الشاملة' : 'Our Comprehensive Services')}
               </h1>
               
               <p 
                 className="text-lg md:text-xl mb-8 leading-relaxed opacity-90 max-w-4xl mx-auto"
                 style={{ fontFamily: 'var(--font-almarai)' }}
               >
-                {language === 'ar' 
+                {servicesPageData?.Hero?.subtitle || (language === 'ar' 
                   ? 'في إتمام، نوفر لك مجموعة شاملة من الخدمات التجارية والإدارية، مصممة لتبسيط رحلتك وتحقيق أهدافك بكفاءة'
-                  : 'At Etmam, we provide you with a comprehensive set of commercial and administrative services, designed to simplify your journey and achieve your goals efficiently'
+                  : 'At Etmam, we provide you with a comprehensive set of commercial and administrative services, designed to simplify your journey and achieve your goals efficiently')
                 }
               </p>
             </div>
@@ -305,7 +335,10 @@ export default function ServicesPage() {
 
       {/* FAQ Section */}
       <AnimatedSection animation="slideInUp" delay={150}>
-        <FAQSection />
+        <FAQSection 
+          title={servicesPageData?.Faq?.string}
+          faqs={servicesPageData?.Faq?.faqs}
+        />
       </AnimatedSection>
 
       {/* Consultation Section */}
@@ -315,12 +348,19 @@ export default function ServicesPage() {
 
       {/* CTA Section */}
       <AnimatedSection animation="scaleIn" delay={100}>
-        <CTASection />
+        <CTASection 
+          title={servicesPageData?.cta?.title}
+          buttonText={servicesPageData?.cta?.buttonText}
+          buttonLink={servicesPageData?.cta?.buttonLink}
+          backgroundImage={servicesPageData?.cta?.backgroundImage}
+        />
       </AnimatedSection>
 
       {/* Partners Section */}
       <AnimatedSection animation="fadeIn" delay={150}>
-        <PartnersSection />
+        <PartnersSection 
+          partners={servicesPageData?.partners?.partners}
+        />
       </AnimatedSection>
       
       <Footer />

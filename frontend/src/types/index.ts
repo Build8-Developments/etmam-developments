@@ -102,6 +102,7 @@ export interface Partner {
 export interface CTASectionProps {
   title?: string;
   buttonText?: string;
+  buttonLink?: string;
   backgroundImage?: ImageAsset;
 }
 

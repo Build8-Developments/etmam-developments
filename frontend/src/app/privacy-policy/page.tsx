@@ -5,11 +5,15 @@ import {
   Footer,
   ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { usePrivacyPolicyPage } from '@/hooks/graphql';
 import { privacyPolicyContent } from '@/mockData/pages';
+import Link from 'next/link';
 
 export default function PrivacyPolicyPage() {
   const { language } = useLanguage();
+  const { data: privacyPolicyPageData } = usePrivacyPolicyPage();
   const currentContent = privacyPolicyContent;
 
   return (
@@ -17,6 +21,7 @@ export default function PrivacyPolicyPage() {
       <Header />
       
       {/* Hero Section */}
+      <AnimatedSection animation="fadeIn" delay={0}>
       <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
@@ -46,32 +51,38 @@ export default function PrivacyPolicyPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {currentContent.title[language]}
+                  {privacyPolicyPageData?.Hero?.title || currentContent.title[language]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
+                  {privacyPolicyPageData?.Hero?.subtitle || (language === 'ar' 
                     ? 'نحن ملتزمون بحماية خصوصيتك وضمان أمان معلوماتك الشخصية. تعرف على كيفية جمعنا واستخدامنا وحمايتنا لبياناتك.'
-                    : 'We are committed to protecting your privacy and ensuring the security of your personal information. Learn how we collect, use, and protect your data.'
+                    : 'We are committed to protecting your privacy and ensuring the security of your personal information. Learn how we collect, use, and protect your data.')
                   }
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
-                    className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'اقرأ السياسة' : 'Read Policy'}
-                  </button>
-                  <button 
-                    className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
-                  </button>
+                  {privacyPolicyPageData?.Hero?.primaryButton && (
+                    <Link
+                      href={privacyPolicyPageData.Hero.primaryButton.href || "#"}
+                      className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {privacyPolicyPageData.Hero.primaryButton.label || (language === 'ar' ? 'اقرأ السياسة' : 'Read Policy')}
+                    </Link>
+                  )}
+                  {privacyPolicyPageData?.Hero?.secondaryButton && (
+                    <Link
+                      href={privacyPolicyPageData.Hero.secondaryButton.href || "/contact"}
+                      className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {privacyPolicyPageData.Hero.secondaryButton.label || (language === 'ar' ? 'تواصل معنا' : 'Contact Us')}
+                    </Link>
+                  )}
                 </div>
               </div>
               
@@ -79,61 +90,79 @@ export default function PrivacyPolicyPage() {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   {/* Privacy Stats Cards */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">100%</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'تشفير البيانات' : 'Data Encryption'}
+                  {privacyPolicyPageData?.Hero?.stats?.map((stat: any, index: number) => (
+                    <div key={stat.id || index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                        <div 
+                          className="text-sm text-white/80"
+                          style={{ fontFamily: 'var(--font-almarai)' }}
+                        >
+                          {stat.label}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'مراقبة أمنية' : 'Security Monitoring'}
+                  )) || (
+                    <>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">100%</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'تشفير البيانات' : 'Data Encryption'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">0</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'تسريب بيانات' : 'Data Breaches'}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'مراقبة أمنية' : 'Security Monitoring'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">GDPR</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'متوافق' : 'Compliant'}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">0</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'تسريب بيانات' : 'Data Breaches'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">GDPR</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'متوافق' : 'Compliant'}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Content Section */}
+      <AnimatedSection animation="fadeInUp" delay={100}>
       <div className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
@@ -150,15 +179,15 @@ export default function PrivacyPolicyPage() {
                   className="text-3xl font-bold mb-4"
                   style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
                 >
-                  {language === 'ar' ? 'التزامنا بحماية خصوصيتك' : 'Our Commitment to Your Privacy'}
+                  {privacyPolicyPageData?.privacy_policy?.title || (language === 'ar' ? 'التزامنا بحماية خصوصيتك' : 'Our Commitment to Your Privacy')}
                 </h2>
                 <p 
                   className="text-lg text-gray-600 max-w-3xl mx-auto"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
+                  {privacyPolicyPageData?.privacy_policy?.subtitle || (language === 'ar' 
                     ? 'نحن في إتمام نؤمن بأن خصوصيتك هي حق أساسي. هذه السياسة توضح بالتفصيل كيف نتعامل مع معلوماتك الشخصية ونحميها.'
-                    : 'At Etmam, we believe your privacy is a fundamental right. This policy details how we handle and protect your personal information.'
+                    : 'At Etmam, we believe your privacy is a fundamental right. This policy details how we handle and protect your personal information.')
                   }
                 </p>
               </div>
@@ -166,7 +195,9 @@ export default function PrivacyPolicyPage() {
 
             {/* Sections Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {currentContent.sections.map((section, index) => (
+              {(privacyPolicyPageData?.privacy_policy?.content && privacyPolicyPageData.privacy_policy.content.length > 0
+                ? privacyPolicyPageData.privacy_policy.content
+                : currentContent.sections).map((section: any, index: number) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
@@ -183,7 +214,7 @@ export default function PrivacyPolicyPage() {
                           color: '#11613A'
                         }}
                       >
-                        {section.title[language]}
+                        {section.title || section.title?.[language]}
                       </h3>
                       
                       <div 
@@ -195,7 +226,7 @@ export default function PrivacyPolicyPage() {
                           lineHeight: '1.7'
                         }}
                       >
-                        {section.content[language]}
+                        {section.contents || section.content?.[language]}
                       </div>
                     </div>
                   </div>
@@ -276,9 +307,12 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Consultation Section */}
-      <ConsultationSection />
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
       
       <Footer />
     </div>

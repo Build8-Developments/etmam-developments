@@ -109,7 +109,7 @@ export default async function Home() {
         <ReviewsSection />
       </AnimatedSection>
       
-      {/* Blog Section - keeping default for now */}
+      {/* Blog Section with Strapi data */}
       <AnimatedSection animation="fadeInUp" delay={200}>
         <BlogSection />
       </AnimatedSection>

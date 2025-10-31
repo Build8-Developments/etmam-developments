@@ -8,10 +8,13 @@ import {
 } from '@/components';
 import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useContactPage, useContactsInfo } from '@/hooks/graphql';
 import Link from 'next/link';
 
 export default function ContactPage() {
   const { language } = useLanguage();
+  const { data: contactPageData } = useContactPage();
+  const { data: contactInfoData } = useContactsInfo();
 
   return (
     <div className="min-h-screen bg-white">
@@ -48,34 +51,38 @@ export default function ContactPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+                  {contactPageData?.Hero?.title || (language === 'ar' ? 'تواصل معنا' : 'Contact Us')}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
+                  {contactPageData?.Hero?.subtitle || (language === 'ar' 
                     ? 'نحن هنا لمساعدتك في جميع احتياجاتك التجارية والإدارية. تواصل معنا اليوم واحصل على استشارة مجانية.'
-                    : 'We are here to help you with all your business and administrative needs. Contact us today and get a free consultation.'
+                    : 'We are here to help you with all your business and administrative needs. Contact us today and get a free consultation.')
                   }
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link 
-                    href="/consulting"
-                    className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'استشارة مجانية' : 'Free Consultation'}
-                  </Link>
-                  <a 
-                    href="tel:+012000000000"
-                    className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'اتصل بنا' : 'Call Us'}
-                  </a>
+                  {contactPageData?.Hero?.primaryButton && (
+                    <Link 
+                      href={contactPageData.Hero.primaryButton.href || "/consulting"}
+                      className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {contactPageData.Hero.primaryButton.label || (language === 'ar' ? 'استشارة مجانية' : 'Free Consultation')}
+                    </Link>
+                  )}
+                  {contactPageData?.Hero?.secondaryButton && (
+                    <Link 
+                      href={contactPageData.Hero.secondaryButton.href || "tel:+012000000000"}
+                      className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {contactPageData.Hero.secondaryButton.label || (language === 'ar' ? 'اتصل بنا' : 'Call Us')}
+                    </Link>
+                  )}
                 </div>
               </div>
               
@@ -83,53 +90,69 @@ export default function ContactPage() {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   {/* Contact Stats Cards */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'دعم متواصل' : 'Continuous Support'}
+                  {contactPageData?.Hero?.stats?.map((stat: any, index: number) => (
+                    <div key={stat.id || index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                        <div 
+                          className="text-sm text-white/80"
+                          style={{ fontFamily: 'var(--font-almarai)' }}
+                        >
+                          {stat.label}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">1h</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'استجابة سريعة' : 'Quick Response'}
+                  )) || (
+                    <>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'دعم متواصل' : 'Continuous Support'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">100%</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'استشارة مجانية' : 'Free Consultation'}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">1h</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'استجابة سريعة' : 'Quick Response'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">5</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'قنوات تواصل' : 'Contact Channels'}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">100%</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'استشارة مجانية' : 'Free Consultation'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">5</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'قنوات تواصل' : 'Contact Channels'}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -208,13 +231,13 @@ export default function ContactPage() {
                     className="text-lg font-bold mb-3"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'رقم الجوال' : 'Mobile Number'}
+                    {contactPageData?.Contact_Info_Cards?.[0]?.label || (language === 'ar' ? 'رقم الجوال' : 'Mobile Number')}
                   </h3>
                   <p 
                     className="text-base"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    +012000000000
+                    {contactInfoData?.phone_number || contactPageData?.Contact_Info_Cards?.[0]?.data || '+012000000000'}
                   </p>
                 </div>
 
@@ -269,13 +292,13 @@ export default function ContactPage() {
                     className="text-lg font-bold text-green-600 mb-3"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'واتساب' : 'WhatsApp'}
+                    {contactPageData?.Contact_Info_Cards?.[1]?.label || (language === 'ar' ? 'واتساب' : 'WhatsApp')}
                   </h3>
                   <p 
                     className="text-base text-green-600"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    +012000000000
+                    {contactInfoData?.whatsapp_number || contactPageData?.Contact_Info_Cards?.[1]?.data || '+012000000000'}
                   </p>
                 </div>
 
@@ -330,13 +353,13 @@ export default function ContactPage() {
                     className="text-lg font-bold text-green-600 mb-3"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
+                    {contactPageData?.Contact_Info_Cards?.[2]?.label || (language === 'ar' ? 'البريد الإلكتروني' : 'Email')}
                   </h3>
                   <p 
                     className="text-base text-green-600"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    Etmam@gmail.com
+                    {contactInfoData?.email || contactPageData?.Contact_Info_Cards?.[2]?.data || 'Etmam@gmail.com'}
                   </p>
                 </div>
 
@@ -372,14 +395,17 @@ export default function ContactPage() {
                     className="text-lg font-bold mb-3"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'الموقع' : 'Location'}
+                    {contactPageData?.Contact_Info_Cards?.[3]?.label || (language === 'ar' ? 'الموقع' : 'Location')}
                   </h3>
-                  <p 
-                    className="text-base"
+                  <a
+                    href={contactInfoData?.location_link || contactPageData?.location_link || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base hover:underline"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
-                    {language === 'ar' ? 'السعودية، الرياض' : 'Saudi Arabia, Riyadh'}
-                  </p>
+                    {contactPageData?.Contact_Info_Cards?.[3]?.data || (language === 'ar' ? 'السعودية، الرياض' : 'Saudi Arabia, Riyadh')}
+                  </a>
                 </div>
               </div>
             </div>

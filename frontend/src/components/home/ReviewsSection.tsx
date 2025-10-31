@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useReviews } from '@/hooks/graphql';
 import { getTranslation, IMAGE_PATHS } from '@/constants';
 
 interface Review {
-  id: number;
+  id: string | number;
   name: string;
   position: string;
   company: string;
@@ -25,13 +26,15 @@ interface ReviewsSectionProps {
 const ReviewsSection: React.FC<ReviewsSectionProps> = ({
   title,
   subtitle,
-  reviews
+  reviews: propReviews
 }) => {
   const { language, isRTL } = useLanguage();
+  const { data: strapiReviews } = useReviews();
 
   const defaultTitle = getTranslation('reviews', 'title', language);
   const defaultSubtitle = getTranslation('reviews', 'subtitle', language);
 
+  // Default reviews for fallback
   const defaultReviews: Review[] = [
     {
       id: 1,
@@ -101,7 +104,38 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
     }
   ];
 
-  const displayReviews = reviews || defaultReviews;
+  // Transform Strapi reviews or use provided reviews or default
+  const displayReviews = useMemo(() => {
+    // If reviews prop is provided, use it
+    if (propReviews && propReviews.length > 0) {
+      return propReviews;
+    }
+
+    // If Strapi reviews exist, transform them
+    if (strapiReviews && strapiReviews.length > 0) {
+      return strapiReviews.map((review: any) => {
+        const reviewDate = review.date 
+          ? new Date(review.date).toLocaleDateString(language === 'ar' ? 'ar-SA' : 'en-US')
+          : undefined;
+
+        return {
+          id: review.documentId || review.id || '',
+          name: review.name || '',
+          position: review.position || '',
+          company: review.company || '',
+          rating: review.rating || 5,
+          comment: review.comment || '',
+          date: reviewDate,
+          avatar: review.avatar?.url 
+            ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${review.avatar.url}`
+            : IMAGE_PATHS.people.main
+        };
+      });
+    }
+
+    // Fallback to default reviews
+    return defaultReviews;
+  }, [strapiReviews, propReviews, language]);
 
   return (
     <section 
@@ -140,7 +174,7 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayReviews.map((review, index) => (
             <div
-              key={review.id}
+              key={review.id || index}
               className="bg-gray-50 rounded-xl p-6 transition-smooth hover-lift hover-glow shadow-md hover:shadow-xl border border-gray-200 transform"
               style={{
                 animationDelay: `${index * 0.1}s`,

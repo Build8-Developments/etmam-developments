@@ -1,41 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useFeaturedBlogPosts } from "@/hooks/graphql";
 
 interface BlogPost {
-  id: number;
+  id: string;
   title: string;
   description: string;
   image: string;
   date: string;
   location: string;
-  overlays: {
-    type: "speech" | "box";
-    text: string;
-    position: "top-right" | "top-left" | "middle-right" | "bottom-center";
-  }[];
+  slug?: string;
 }
 
 const BlogSection: React.FC = () => {
   const { language } = useLanguage();
+  const { data: featuredPosts } = useFeaturedBlogPosts();
 
   // Dictionary for Arabic and English content
   const DICT = {
     sectionTitle: { ar: "المدونة", en: "Blog" },
-    post1Title: {
-      ar: "3 حيل بسيطة تجذب عملائك",
-      en: "3 Simple Tricks to Attract Your Customers",
-    },
-    post2Title: {
-      ar: "لماذا المحتوى يجذب جمهورك؟",
-      en: "Why Does Content Attract Your Audience?",
-    },
-    post3Title: {
-      ar: "3 حيل بسيطة تجذب عملائك",
-      en: "3 Simple Tricks to Attract Your Customers",
-    },
     description: {
       ar: "وهي تبدو غير منطقية أو مركبة من كلمات عشوائية.",
       en: "And it seems illogical or composed of random words.",
@@ -44,35 +31,60 @@ const BlogSection: React.FC = () => {
     location: { ar: "سوهاج • 25 أبريل, 2025", en: "Sohag • April 25, 2025" },
   } as const;
 
-  const blogPosts: BlogPost[] = [
-    {
-      id: 1,
-      title: DICT.post1Title[language],
-      description: DICT.description[language],
-      image: "/blog1.jpg",
-      date: DICT.date[language],
-      location: DICT.location[language],
-      overlays: [],
-    },
-    {
-      id: 2,
-      title: DICT.post2Title[language],
-      description: DICT.description[language],
-      image: "/blog2.jpg",
-      date: DICT.date[language],
-      location: DICT.location[language],
-      overlays: [],
-    },
-    {
-      id: 3,
-      title: DICT.post3Title[language],
-      description: DICT.description[language],
-      image: "/blog3.jpg",
-      date: DICT.date[language],
-      location: DICT.location[language],
-      overlays: [],
-    },
-  ];
+  // Transform Strapi data or use mock data
+  const blogPosts: BlogPost[] = useMemo(() => {
+    if (featuredPosts && featuredPosts.length > 0) {
+      return featuredPosts.slice(0, 3).map((post: any) => {
+        const publishedDate = post.publishedAt 
+          ? new Date(post.publishedAt).toLocaleDateString(language === 'ar' ? 'ar-SA' : 'en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })
+          : DICT.date[language];
+        
+        return {
+          id: post.slug || post.documentId || '',
+          title: post.title || '',
+          description: post.summary || post.description || DICT.description[language],
+          image: post.banner?.url 
+            ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${post.banner.url}`
+            : "/blog1.jpg",
+          date: publishedDate,
+          location: publishedDate,
+          slug: post.slug
+        };
+      });
+    }
+
+    // Fallback to mock data
+    return [
+      {
+        id: "1",
+        title: language === 'ar' ? "3 حيل بسيطة تجذب عملائك" : "3 Simple Tricks to Attract Your Customers",
+        description: DICT.description[language],
+        image: "/blog1.jpg",
+        date: DICT.date[language],
+        location: DICT.location[language],
+      },
+      {
+        id: "2",
+        title: language === 'ar' ? "لماذا المحتوى يجذب جمهورك؟" : "Why Does Content Attract Your Audience?",
+        description: DICT.description[language],
+        image: "/blog2.jpg",
+        date: DICT.date[language],
+        location: DICT.location[language],
+      },
+      {
+        id: "3",
+        title: language === 'ar' ? "3 حيل بسيطة تجذب عملائك" : "3 Simple Tricks to Attract Your Customers",
+        description: DICT.description[language],
+        image: "/blog3.jpg",
+        date: DICT.date[language],
+        location: DICT.location[language],
+      },
+    ];
+  }, [featuredPosts, language]);
 
   return (
     <section
@@ -104,9 +116,10 @@ const BlogSection: React.FC = () => {
           }}
         >
           {blogPosts.map((post) => (
-            <article
+            <Link
               key={post.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-full"
+              href={`/blog/${post.slug || post.id}`}
+              className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-full"
               style={{
                 width: "min(398px, 100%)",
                 height: "clamp(400px, 50vw, 541px)",
@@ -247,7 +260,7 @@ const BlogSection: React.FC = () => {
                   {post.description}
                 </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

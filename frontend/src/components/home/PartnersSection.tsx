@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useHomePage } from '@/hooks/graphql';
 
 interface Partner {
   name: string;
@@ -16,8 +17,19 @@ interface PartnersSectionProps {
   partners?: Partner[];
 }
 
-const PartnersSection = ({ partners }: PartnersSectionProps) => {
+const PartnersSection = ({ partners: propPartners }: PartnersSectionProps) => {
   const { language } = useLanguage();
+  const { data: homeData } = useHomePage();
+
+  // Helper function to get string value from Strapi i18n field
+  const getLocalizedValue = (value: any): string => {
+    if (!value) return '';
+    if (typeof value === 'string') return value;
+    if (typeof value === 'object' && value !== null) {
+      return value[language] || value.ar || value.en || '';
+    }
+    return String(value);
+  };
 
   // Default partners data
   const defaultPartners = [
@@ -31,10 +43,12 @@ const PartnersSection = ({ partners }: PartnersSectionProps) => {
     { name: 'Apple Pay', logo: '/4.png' },
   ];
 
-  // Use Strapi data if available, otherwise use default data
+  // Use props first, then home page data, then default data
+  const partners = propPartners || homeData?.PartnersLogos?.partners;
+  
   const partnersData = partners && partners.length > 0 
     ? partners.map(partner => ({
-        name: partner.name,
+        name: getLocalizedValue(partner.name),
         logo: partner.logo?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${partner.logo.url}` : '/Payment method icon.png'
       }))
     : defaultPartners;

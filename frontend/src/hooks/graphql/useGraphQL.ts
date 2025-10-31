@@ -42,6 +42,17 @@ import {
   GET_BLOG_POST_COMMENTS,
   CREATE_BLOG_COMMENT
 } from '@/lib/graphql/queries/content/blog';
+import { GET_HOME_PAGE } from '@/lib/graphql/queries/pages/home';
+import { GET_ABOUT_PAGE } from '@/lib/graphql/queries/pages/about';
+import { GET_CONTACT_PAGE } from '@/lib/graphql/queries/pages/contact';
+import { GET_OFFERS_PAGE } from '@/lib/graphql/queries/pages/offers';
+import { GET_PRIVACY_POLICY } from '@/lib/graphql/queries/pages/privacy-policy';
+import { GET_TERMS_CONDITIONS } from '@/lib/graphql/queries/pages/terms-conditions';
+import { GET_PACKAGES_PAGE } from '@/lib/graphql/queries/pages/packages';
+import { GET_SERVICES_PAGE } from '@/lib/graphql/queries/pages/services';
+import { GET_CONTACTS_INFO } from '@/lib/graphql/queries/content/contact_info';
+import { CONTACT_SUBMISSION } from '@/lib/graphql/queries/content/contact_submit';
+import { GET_REVIEWS, GET_FEATURED_REVIEWS } from '@/lib/graphql/queries/content/reviews';
 import { useMutation } from '@apollo/client/react';
 
 // Layout Hooks
@@ -516,5 +527,205 @@ export const useCreateBlogComment = () => {
   return {
     createComment,
     loading
+  };
+};
+
+// Page Queries Hooks
+export const useHomePage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_HOME_PAGE, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.home || null,
+    loading,
+    error
+  };
+};
+
+export const useAboutPage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_ABOUT_PAGE, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.about || null,
+    loading,
+    error
+  };
+};
+
+export const useContactPage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_CONTACT_PAGE, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.contact || null,
+    loading,
+    error
+  };
+};
+
+export const useOffersPage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_OFFERS_PAGE, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.offer || null,
+    loading,
+    error
+  };
+};
+
+export const usePrivacyPolicyPage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_PRIVACY_POLICY, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.privacyPolicyPage || null,
+    loading,
+    error
+  };
+};
+
+export const useTermsConditionsPage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_TERMS_CONDITIONS, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.termsAndConditionsPage || null,
+    loading,
+    error
+  };
+};
+
+export const usePackagesPage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_PACKAGES_PAGE, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.package || null,
+    loading,
+    error
+  };
+};
+
+export const useServicesPage = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_SERVICES_PAGE, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.service || null,
+    loading,
+    error
+  };
+};
+
+// Contact Info Hook
+export const useContactsInfo = () => {
+  const { data, loading, error } = useQuery(GET_CONTACTS_INFO, {
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.contactInfos?.[0] || null,
+    loading,
+    error
+  };
+};
+
+// Contact Submission Hook
+export const useCreateContactSubmission = () => {
+  const { showToast } = useToast();
+  const { language } = useLanguage();
+  
+  const [createSubmission, { loading }] = useMutation(CONTACT_SUBMISSION, {
+    onCompleted: () => {
+      showToast(
+        language === 'ar' 
+          ? 'تم إرسال استشارتك بنجاح! سنتواصل معك قريباً.'
+          : 'Your consultation has been submitted successfully! We will contact you soon.',
+        'success',
+        5000
+      );
+    },
+    onError: (error: any) => {
+      const errorMessage = error?.message || '';
+      const isNetworkError = error?.networkError || errorMessage.includes('NetworkError') || errorMessage.includes('fetch') || errorMessage.includes('ECONNREFUSED');
+      
+      if (isNetworkError) {
+        showToast(
+          language === 'ar' 
+            ? 'لا يمكن الاتصال بالخادم. يرجى التأكد من تشغيل Strapi والمحاولة مرة أخرى.'
+            : 'Cannot connect to server. Please ensure Strapi is running and try again.',
+          'error',
+          6000
+        );
+      } else {
+        showToast(
+          language === 'ar' 
+            ? 'حدث خطأ أثناء إرسال الاستشارة. يرجى المحاولة مرة أخرى.'
+            : 'An error occurred while submitting your consultation. Please try again.',
+          'error',
+          6000
+        );
+      }
+    }
+  });
+  
+  return {
+    createSubmission,
+    loading
+  };
+};
+
+// Reviews Hooks
+export const useReviews = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_REVIEWS, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.reviews || [],
+    loading,
+    error
+  };
+};
+
+export const useFeaturedReviews = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_FEATURED_REVIEWS, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.reviews || [],
+    loading,
+    error
   };
 };

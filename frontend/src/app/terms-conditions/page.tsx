@@ -5,11 +5,15 @@ import {
   Footer,
   ConsultationSection
 } from '@/components';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTermsConditionsPage } from '@/hooks/graphql';
 import { termsAndConditionsContent } from '@/mockData/pages';
+import Link from 'next/link';
 
 export default function TermsConditionsPage() {
   const { language } = useLanguage();
+  const { data: termsConditionsPageData } = useTermsConditionsPage();
   const currentContent = termsAndConditionsContent;
 
   return (
@@ -17,6 +21,7 @@ export default function TermsConditionsPage() {
       <Header />
       
       {/* Hero Section */}
+      <AnimatedSection animation="fadeIn" delay={0}>
       <div className="relative overflow-hidden">
         <div 
           className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
@@ -46,32 +51,38 @@ export default function TermsConditionsPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {currentContent.title[language]}
+                  {termsConditionsPageData?.Hero?.title || currentContent.title[language]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
+                  {termsConditionsPageData?.Hero?.subtitle || (language === 'ar' 
                     ? 'الشروط والأحكام التي تحكم استخدام خدمات إتمام. تعرف على حقوقك ومسؤولياتك عند استخدام خدماتنا.'
-                    : 'Terms and conditions governing the use of Etmam services. Learn about your rights and responsibilities when using our services.'
+                    : 'Terms and conditions governing the use of Etmam services. Learn about your rights and responsibilities when using our services.')
                   }
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
-                    className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'اقرأ الشروط' : 'Read Terms'}
-                  </button>
-                  <button 
-                    className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {language === 'ar' ? 'استشارة قانونية' : 'Legal Consultation'}
-                  </button>
+                  {termsConditionsPageData?.Hero?.primaryButton && (
+                    <Link
+                      href={termsConditionsPageData.Hero.primaryButton.href || "#"}
+                      className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {termsConditionsPageData.Hero.primaryButton.label || (language === 'ar' ? 'اقرأ الشروط' : 'Read Terms')}
+                    </Link>
+                  )}
+                  {termsConditionsPageData?.Hero?.secondaryButton && (
+                    <Link
+                      href={termsConditionsPageData.Hero.secondaryButton.href || "/contact"}
+                      className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {termsConditionsPageData.Hero.secondaryButton.label || (language === 'ar' ? 'استشارة قانونية' : 'Legal Consultation')}
+                    </Link>
+                  )}
                 </div>
               </div>
               
@@ -79,61 +90,79 @@ export default function TermsConditionsPage() {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   {/* Legal Stats Cards */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">15+</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'سنة خبرة قانونية' : 'Years Legal Experience'}
+                  {termsConditionsPageData?.Hero?.stats?.map((stat: any, index: number) => (
+                    <div key={stat.id || index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                        <div 
+                          className="text-sm text-white/80"
+                          style={{ fontFamily: 'var(--font-almarai)' }}
+                        >
+                          {stat.label}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">100%</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'متوافق مع القانون' : 'Law Compliant'}
+                  )) || (
+                    <>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">15+</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'سنة خبرة قانونية' : 'Years Legal Experience'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'دعم قانوني' : 'Legal Support'}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">100%</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'متوافق مع القانون' : 'Law Compliant'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white mb-2">500+</div>
-                      <div 
-                        className="text-sm text-white/80"
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {language === 'ar' ? 'عقد محقق' : 'Contracts Executed'}
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'دعم قانوني' : 'Legal Support'}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-white mb-2">500+</div>
+                          <div 
+                            className="text-sm text-white/80"
+                            style={{ fontFamily: 'var(--font-almarai)' }}
+                          >
+                            {language === 'ar' ? 'عقد محقق' : 'Contracts Executed'}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Content Section */}
+      <AnimatedSection animation="fadeInUp" delay={100}>
       <div className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
@@ -150,15 +179,15 @@ export default function TermsConditionsPage() {
                   className="text-3xl font-bold mb-4"
                   style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
                 >
-                  {language === 'ar' ? 'شروط استخدام خدمات إتمام' : 'Terms for Using Etmam Services'}
+                  {termsConditionsPageData?.privacy_policy?.title || (language === 'ar' ? 'شروط استخدام خدمات إتمام' : 'Terms for Using Etmam Services')}
                 </h2>
                 <p 
                   className="text-lg text-gray-600 max-w-3xl mx-auto"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {language === 'ar' 
+                  {termsConditionsPageData?.privacy_policy?.subtitle || (language === 'ar' 
                     ? 'هذه الشروط والأحكام تحدد حقوقك ومسؤولياتك عند استخدام خدمات إتمام. ننصحك بقراءتها بعناية قبل استخدام خدماتنا.'
-                    : 'These terms and conditions define your rights and responsibilities when using Etmam services. We recommend reading them carefully before using our services.'
+                    : 'These terms and conditions define your rights and responsibilities when using Etmam services. We recommend reading them carefully before using our services.')
                   }
                 </p>
               </div>
@@ -166,7 +195,9 @@ export default function TermsConditionsPage() {
 
             {/* Sections Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {currentContent.sections.map((section, index) => (
+              {(termsConditionsPageData?.privacy_policy?.content && termsConditionsPageData.privacy_policy.content.length > 0
+                ? termsConditionsPageData.privacy_policy.content
+                : currentContent.sections).map((section: any, index: number) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
@@ -183,7 +214,7 @@ export default function TermsConditionsPage() {
                           color: '#11613A'
                         }}
                       >
-                        {section.title[language]}
+                        {section.title || section.title?.[language]}
                       </h3>
                       
                       <div 
@@ -195,7 +226,7 @@ export default function TermsConditionsPage() {
                           lineHeight: '1.7'
                         }}
                       >
-                        {section.content[language]}
+                        {section.contents || section.content?.[language]}
                       </div>
                     </div>
                   </div>
@@ -276,9 +307,12 @@ export default function TermsConditionsPage() {
           </div>
         </div>
       </div>
+      </AnimatedSection>
 
       {/* Consultation Section */}
-      <ConsultationSection />
+      <AnimatedSection animation="fadeInUp" delay={200}>
+        <ConsultationSection />
+      </AnimatedSection>
       
       <Footer />
     </div>

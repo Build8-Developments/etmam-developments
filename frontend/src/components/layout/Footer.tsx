@@ -3,15 +3,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useContactsInfo } from '@/hooks/graphql';
 
 const Footer = () => {
   const { language } = useLanguage();
+  const { data: contactInfoData } = useContactsInfo();
 
   const DICT = {
     contactUs: { ar: 'تواصل معنا', en: 'Contact Us' },
-    email: { ar: 'Etmamm@gmail.com', en: 'Etmamm@gmail.com' },
-    phone1: { ar: '(00) 0000-0000', en: '(00) 0000-0000' },
-    phone2: { ar: '(00) 00000-0000', en: '(00) 00000-0000' },
+    email: { ar: contactInfoData?.email || 'Etmamm@gmail.com', en: contactInfoData?.email || 'Etmamm@gmail.com' },
+    phone1: { ar: contactInfoData?.phone_number || '(00) 0000-0000', en: contactInfoData?.phone_number || '(00) 0000-0000' },
+    phone2: { ar: contactInfoData?.whatsapp_number || '(00) 00000-0000', en: contactInfoData?.whatsapp_number || '(00) 00000-0000' },
     consultingServices: { ar: 'ابرز الخدمات الاستشارية', en: 'Key Consulting Services' },
     legalServices: { ar: 'ابرز الخدمات القانونية', en: 'Key Legal Services' },
     quickLinks: { ar: 'روابط سريعه', en: 'Quick Links' },
@@ -80,31 +82,42 @@ const Footer = () => {
                 {DICT.contactUs[language]}
               </h3>
               <div className="space-y-4">
-                <div className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group">
+                <a 
+                  href={`mailto:${contactInfoData?.email || 'Etmamm@gmail.com'}`}
+                  className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group"
+                >
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
                   </div>
-                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{DICT.email[language]}</span>
-                </div>
-                <div className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group">
+                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfoData?.email || DICT.email[language]}</span>
+                </a>
+                <a 
+                  href={`tel:${contactInfoData?.phone_number || '(00) 0000-0000'}`}
+                  className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group"
+                >
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
                   </div>
-                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{DICT.phone1[language]}</span>
-                </div>
-                <div className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group">
+                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfoData?.phone_number || DICT.phone1[language]}</span>
+                </a>
+                <a 
+                  href={`https://wa.me/${contactInfoData?.whatsapp_number?.replace(/[^0-9]/g, '') || '00000000000'}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group"
+                >
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
                     </svg>
                   </div>
-                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{DICT.phone2[language]}</span>
-                </div>
+                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfoData?.whatsapp_number || DICT.phone2[language]}</span>
+                </a>
               </div>
             </div>
 
@@ -248,29 +261,40 @@ const Footer = () => {
 
             {/* Social Media Icons */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-5">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105">
-                <span className="text-white font-bold text-lg sm:text-xl">f</span>
-              </div>
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </div>
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                </svg>
-              </div>
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                </svg>
-              </div>
+              {contactInfoData?.facebook_link && (
+                <a 
+                  href={contactInfoData.facebook_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105"
+                >
+                  <span className="text-white font-bold text-lg sm:text-xl">f</span>
+                </a>
+              )}
+              {contactInfoData?.twitter_link && (
+                <a 
+                  href={contactInfoData.twitter_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105"
+                >
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                  </svg>
+                </a>
+              )}
+              {contactInfoData?.instagram_link && (
+                <a 
+                  href={contactInfoData.instagram_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105"
+                >
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                  </svg>
+                </a>
+              )}
             </div>
 
              {/* Legal Links */}

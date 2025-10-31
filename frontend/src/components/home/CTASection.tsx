@@ -4,18 +4,34 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useHomePage } from '@/hooks/graphql';
 import { getTranslation, IMAGE_PATHS } from '@/constants';
 import { CTASectionProps } from '@/types';
 
 const CTASection: React.FC<CTASectionProps> = ({ 
   title, 
   buttonText, 
+  buttonLink,
   backgroundImage 
 }) => {
   const { language, isRTL } = useLanguage();
+  const { data: homeData } = useHomePage();
 
-  const defaultTitle = getTranslation('cta', 'title', language);
-  const defaultButtonText = getTranslation('cta', 'buttonText', language);
+  // Helper function to get string value from Strapi i18n field (can be string or {ar, en} object)
+  const getLocalizedValue = (value: any): string => {
+    if (!value) return '';
+    if (typeof value === 'string') return value;
+    if (typeof value === 'object' && value !== null) {
+      return value[language] || value.ar || value.en || '';
+    }
+    return String(value);
+  };
+
+  // Use props first, then home page data, then default
+  const displayTitle = title || getLocalizedValue(homeData?.CTA?.title) || getTranslation('cta', 'title', language);
+  const displayButtonText = buttonText || getLocalizedValue(homeData?.CTA?.buttonText) || getTranslation('cta', 'buttonText', language);
+  const displayButtonLink = buttonLink || (typeof homeData?.CTA?.buttonLink === 'string' ? homeData.CTA.buttonLink : homeData?.CTA?.buttonLink?.[language]) || '/contact';
+  const displayBackgroundImage = backgroundImage || homeData?.CTA?.backgroundImage;
 
   return (
     <section 
@@ -64,12 +80,12 @@ const CTASection: React.FC<CTASectionProps> = ({
                   textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
                 }}
               >
-                {title || defaultTitle}
+                {displayTitle}
               </div>
 
               {/* Button */}
               <Link
-                href="/services"
+                href={displayButtonLink}
                 className={`inline-flex items-center justify-center bg-white text-green-700 font-semibold rounded-xl shadow-lg transition-smooth hover-lift hover-glow transform ${isRTL ? 'self-end' : 'self-start'}`}
                 style={{
                   width: 'clamp(140px, 28vw, 200px)',
@@ -82,7 +98,7 @@ const CTASection: React.FC<CTASectionProps> = ({
                   border: '2px solid rgba(17, 97, 58, 0.1)',
                 }}
               >
-                {buttonText || defaultButtonText}
+                {displayButtonText}
                 <svg 
                   className="w-4 h-4 sm:w-5 sm:h-5" 
                   fill="none" 
@@ -117,8 +133,8 @@ const CTASection: React.FC<CTASectionProps> = ({
               {/* Background Image */}
               <div className="absolute inset-0">
                 <Image
-                  src={backgroundImage ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${backgroundImage.url}` : IMAGE_PATHS.backgrounds.cta}
-                  alt={backgroundImage?.alternativeText || 'Background'}
+                  src={displayBackgroundImage?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${displayBackgroundImage.url}` : IMAGE_PATHS.backgrounds.cta}
+                  alt={displayBackgroundImage?.name || 'Background'}
                   fill
                   className="object-cover"
                   style={{

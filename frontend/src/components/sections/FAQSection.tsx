@@ -78,12 +78,29 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
     }
   ];
 
+  // Helper function to get localized value
+  const getLocalizedValue = (value: any): { ar: string; en: string } => {
+    if (!value) return { ar: '', en: '' };
+    if (typeof value === 'string') return { ar: value, en: value };
+    if (typeof value === 'object' && value !== null) {
+      return {
+        ar: value.ar || value[language] || '',
+        en: value.en || value[language] || ''
+      };
+    }
+    return { ar: String(value), en: String(value) };
+  };
+
   // Use Strapi data if available, otherwise use default data
   const faqData = faqs && faqs.length > 0 
-    ? faqs.map(faq => ({
-        question: { ar: faq.question, en: faq.question },
-        answer: { ar: faq.answer, en: faq.answer }
-      }))
+    ? faqs.map(faq => {
+        const question = getLocalizedValue(faq.question);
+        const answer = getLocalizedValue(faq.answer);
+        return {
+          question,
+          answer
+        };
+      })
     : defaultFaqData;
 
 
