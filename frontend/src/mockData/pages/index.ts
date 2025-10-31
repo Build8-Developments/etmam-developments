@@ -50,3 +50,8 @@ export * from '../layout';
 // SERVICES MOCK DATA
 // ========================================
 export * from '../services';
+
+// ========================================
+// OFFER DETAILS MOCK DATA
+// ========================================
+export * from '../offers/offerDetails';

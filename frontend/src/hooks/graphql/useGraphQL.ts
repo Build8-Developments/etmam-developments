@@ -6,7 +6,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useToast } from '@/contexts/ToastContext';
 import {
   GET_HEADER_QUERY,
-  GET_FOOTER_QUERY,
   GET_HERO_QUERY,
   GET_HOME_ABOUT_QUERY,
   GET_STATISTICS_QUERY,
@@ -52,7 +51,9 @@ import { GET_PACKAGES_PAGE } from '@/lib/graphql/queries/pages/packages';
 import { GET_SERVICES_PAGE } from '@/lib/graphql/queries/pages/services';
 import { GET_CONTACTS_INFO } from '@/lib/graphql/queries/content/contact_info';
 import { CONTACT_SUBMISSION } from '@/lib/graphql/queries/content/contact_submit';
+import { GET_FOOTER } from '@/lib/graphql/queries/content/footer';
 import { GET_REVIEWS, GET_FEATURED_REVIEWS } from '@/lib/graphql/queries/content/reviews';
+import { GET_OFFER_DETAILS, GET_OFFER_DETAIL_BY_SLUG } from '@/lib/graphql/queries/content/offer-detail';
 import { useMutation } from '@apollo/client/react';
 
 // Layout Hooks
@@ -72,13 +73,13 @@ export const useHeader = () => {
 
 export const useFooter = () => {
   const { language } = useLanguage();
-  const { data, loading, error } = useQuery(GET_FOOTER_QUERY, {
+  const { data, loading, error } = useQuery(GET_FOOTER, {
     variables: { locale: language },
     errorPolicy: 'all'
   });
   
   return {
-    data: (data as any)?.footer?.data?.attributes,
+    data: (data as any)?.footer || null,
     loading,
     error
   };
@@ -725,6 +726,36 @@ export const useFeaturedReviews = () => {
   
   return {
     data: (data as any)?.reviews || [],
+    loading,
+    error
+  };
+};
+
+// Offer Details Hooks
+export const useOfferDetails = () => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_OFFER_DETAILS, {
+    variables: { locale: language },
+    errorPolicy: 'all'
+  });
+  
+  return {
+    data: (data as any)?.offerDetails || [],
+    loading,
+    error
+  };
+};
+
+export const useOfferDetailBySlug = (slug: string) => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_OFFER_DETAIL_BY_SLUG, {
+    variables: { slug, locale: language },
+    errorPolicy: 'all',
+    skip: !slug
+  });
+  
+  return {
+    data: (data as any)?.offerDetails?.[0] || null,
     loading,
     error
   };

@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import { 
   Header, 
   Footer,
@@ -10,13 +11,14 @@ import {
 } from '@/components';
 import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useOffersPage } from '@/hooks/graphql';
+import { useOffersPage, useOfferDetails } from '@/hooks/graphql';
 import Link from 'next/link';
 import { offers, offersPageContent } from '@/mockData/pages';
 
 export default function OffersPage() {
   const { language } = useLanguage();
   const { data: offersPageData } = useOffersPage();
+  const { data: offerDetails } = useOfferDetails();
   const content = offersPageContent;
 
   // Helper function to get string value from Strapi i18n field
@@ -28,6 +30,28 @@ export default function OffersPage() {
     }
     return String(value);
   };
+
+  // Merge offers from page data and offer details
+  const allOffers = useMemo(() => {
+    const pageOffers = offersPageData?.Available_Offers || [];
+    const details = offerDetails || [];
+    
+    // If we have offer details, use them; otherwise use page offers
+    if (details.length > 0) {
+      return details.map((detail: any) => ({
+        id: detail.documentId,
+        slug: detail.slug,
+        title: detail.title,
+        subtitle: detail.subtitle,
+        image: detail.image,
+        discount: detail.discount,
+        originalPrice: detail.originalPrice,
+        discountedPrice: detail.discountedPrice
+      }));
+    }
+    
+    return pageOffers.length > 0 ? pageOffers : offers;
+  }, [offersPageData, offerDetails]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -191,12 +215,18 @@ export default function OffersPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {(offersPageData?.Available_Offers && offersPageData.Available_Offers.length > 0 
-              ? offersPageData.Available_Offers 
-              : offers).map((offer: any, index: number) => (
-              <div 
-                key={offer.id || index} 
-                className="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow mx-auto w-full"
+            {allOffers.map((offer: any, index: number) => {
+              // Get offer slug for detail page link - prioritize slug from offer details or mock data
+              const offerSlug = offer.slug || 
+                (offer.documentId ? `offer-${offer.documentId}` : null) || 
+                (offer.id ? `offer-${offer.id}` : null) || 
+                `offer-${index + 1}`;
+              
+              return (
+              <Link
+                key={offer.id || offer.documentId || index}
+                href={`/offers/${offerSlug}`}
+                className="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow mx-auto w-full block"
                 style={{
                   height: '592px',
                   maxWidth: '569px'
@@ -253,8 +283,9 @@ export default function OffersPage() {
                   </div>
                 </div>
                 
-              </div>
-            ))}
+              </Link>
+              );
+            })}
           </div>
         </div>
       </section>

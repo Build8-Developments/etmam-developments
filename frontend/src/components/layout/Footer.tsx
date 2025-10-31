@@ -3,11 +3,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useContactsInfo } from '@/hooks/graphql';
+import { useContactsInfo, useFooter } from '@/hooks/graphql';
 
 const Footer = () => {
   const { language } = useLanguage();
   const { data: contactInfoData } = useContactsInfo();
+  const { data: footerData } = useFooter();
+
+  // Helper function to get localized value
+  const getLocalizedValue = (value: any): string => {
+    if (!value) return '';
+    if (typeof value === 'string') return value;
+    if (typeof value === 'object' && value !== null) {
+      return value[language] || value.ar || value.en || '';
+    }
+    return String(value);
+  };
 
   const DICT = {
     contactUs: { ar: 'تواصل معنا', en: 'Contact Us' },
@@ -24,29 +35,64 @@ const Footer = () => {
     blog: { ar: 'المدونة', en: 'Blog' },
     packages: { ar: 'الباقات', en: 'Packages' },
     contact: { ar: 'تواصل معنا', en: 'Contact Us' },
-    slogan: { ar: 'إتمام... وجهتك الأولى لإنجاز أعمالك بثقة وسهولة.', en: 'Etmam... Your first destination to accomplish your business with confidence and ease.' },
+    slogan: { ar: getLocalizedValue(footerData?.slogan) || 'إتمام... وجهتك الأولى لإنجاز أعمالك بثقة وسهولة.', en: getLocalizedValue(footerData?.slogan) || 'Etmam... Your first destination to accomplish your business with confidence and ease.' },
     privacyPolicy: { ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
     termsConditions: { ar: 'الشروط والاحكام', en: 'Terms and Conditions' },
   } as const;
 
-  // Real services data
-  const consultingServices = [
-    { ar: 'تأسيس الشركات', en: 'Company Formation' },
-    { ar: 'الاستشارات التجارية', en: 'Business Consulting' },
-    { ar: 'الاستشارات المالية', en: 'Financial Consulting' },
-    { ar: 'الاستشارات التسويقية', en: 'Marketing Consulting' },
-    { ar: 'الاستشارات الإدارية', en: 'HR Consulting' },
-    { ar: 'الاستشارات التقنية', en: 'Technical Consulting' }
+  // Default services data
+  const defaultConsultingServices = [
+    { ar: 'تأسيس الشركات', en: 'Company Formation', href: '/consulting' },
+    { ar: 'الاستشارات التجارية', en: 'Business Consulting', href: '/consulting' },
+    { ar: 'الاستشارات المالية', en: 'Financial Consulting', href: '/consulting' },
+    { ar: 'الاستشارات التسويقية', en: 'Marketing Consulting', href: '/consulting' },
+    { ar: 'الاستشارات الإدارية', en: 'HR Consulting', href: '/consulting' },
+    { ar: 'الاستشارات التقنية', en: 'Technical Consulting', href: '/consulting' }
   ];
 
-  const legalServices = [
-    { ar: 'وزارة الصناعة والثروة المعدنية', en: 'Ministry of Industry and Mineral Resources' },
-    { ar: 'وزارة التجارة', en: 'Ministry of Commerce' },
-    { ar: 'وزارة المالية', en: 'Ministry of Finance' },
-    { ar: 'وزارة الموارد البشرية', en: 'Ministry of Human Resources' },
-    { ar: 'وزارة الصحة', en: 'Ministry of Health' },
-    { ar: 'وزارة التعليم', en: 'Ministry of Education' }
+  const defaultLegalServices = [
+    { ar: 'وزارة الصناعة والثروة المعدنية', en: 'Ministry of Industry and Mineral Resources', href: '/legalservices' },
+    { ar: 'وزارة التجارة', en: 'Ministry of Commerce', href: '/legalservices' },
+    { ar: 'وزارة المالية', en: 'Ministry of Finance', href: '/legalservices' },
+    { ar: 'وزارة الموارد البشرية', en: 'Ministry of Human Resources', href: '/legalservices' },
+    { ar: 'وزارة الصحة', en: 'Ministry of Health', href: '/legalservices' },
+    { ar: 'وزارة التعليم', en: 'Ministry of Education', href: '/legalservices' }
   ];
+
+  // Use Strapi data if available, otherwise use defaults
+  const consultingServices = footerData?.consultingServices && footerData.consultingServices.length > 0
+    ? footerData.consultingServices.map((service: any) => ({
+        ar: getLocalizedValue(service.label),
+        en: getLocalizedValue(service.label),
+        href: service.href || '/consulting'
+      }))
+    : defaultConsultingServices;
+
+  const legalServices = footerData?.legalServices && footerData.legalServices.length > 0
+    ? footerData.legalServices.map((service: any) => ({
+        ar: getLocalizedValue(service.label),
+        en: getLocalizedValue(service.label),
+        href: service.href || '/legalservices'
+      }))
+    : defaultLegalServices;
+
+  // Quick links - use Strapi data if available
+  const defaultQuickLinks = [
+    { ar: DICT.home[language], en: DICT.home[language], href: '/' },
+    { ar: DICT.aboutUs[language], en: DICT.aboutUs[language], href: '/about' },
+    { ar: DICT.offers[language], en: DICT.offers[language], href: '/offers' },
+    { ar: DICT.packages[language], en: DICT.packages[language], href: '/packages' },
+    { ar: DICT.blog[language], en: DICT.blog[language], href: '/blog' },
+    { ar: DICT.contact[language], en: DICT.contact[language], href: '/contact' }
+  ];
+
+  const quickLinks = footerData?.quickLinks && footerData.quickLinks.length > 0
+    ? footerData.quickLinks.map((link: any) => ({
+        ar: getLocalizedValue(link.label),
+        en: getLocalizedValue(link.label),
+        href: link.href || '#'
+      }))
+    : defaultQuickLinks;
 
   return (
     <footer 
@@ -132,10 +178,10 @@ const Footer = () => {
                 {DICT.consultingServices[language]}
               </h3>
               <div className="space-y-2">
-                {consultingServices.map((service, index) => (
+                {consultingServices.map((service: { ar: string; en: string; href: string }, index: number) => (
                    <Link 
                      key={index} 
-                     href="/consulting" 
+                     href={service.href || '/consulting'} 
                      className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" 
                      style={{ fontFamily: 'var(--font-almarai)' }}
                    >
@@ -156,10 +202,10 @@ const Footer = () => {
                 {DICT.legalServices[language]}
               </h3>
               <div className="space-y-2">
-                {legalServices.map((service, index) => (
+                {legalServices.map((service: { ar: string; en: string; href: string }, index: number) => (
                    <Link 
                      key={index} 
-                     href="/legalservices" 
+                     href={service.href || '/legalservices'} 
                      className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" 
                      style={{ fontFamily: 'var(--font-almarai)' }}
                    >
@@ -180,24 +226,16 @@ const Footer = () => {
                 {DICT.quickLinks[language]}
               </h3>
               <div className="space-y-2">
-                 <Link href="/" className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" style={{ fontFamily: 'var(--font-almarai)' }}>
-                   {DICT.home[language]}
-                 </Link>
-                 <Link href="/about" className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" style={{ fontFamily: 'var(--font-almarai)' }}>
-                   {DICT.aboutUs[language]}
-                 </Link>
-                 <Link href="/offers" className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" style={{ fontFamily: 'var(--font-almarai)' }}>
-                   {DICT.offers[language]}
-                 </Link>
-                 <Link href="/packages" className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" style={{ fontFamily: 'var(--font-almarai)' }}>
-                   {DICT.packages[language]}
-                 </Link>
-                 <Link href="/blog" className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" style={{ fontFamily: 'var(--font-almarai)' }}>
-                   {DICT.blog[language]}
-                 </Link>
-                 <Link href="/contact" className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" style={{ fontFamily: 'var(--font-almarai)' }}>
-                   {DICT.contact[language]}
-                 </Link>
+                {quickLinks.map((link: { ar: string; en: string; href: string }, index: number) => (
+                  <Link 
+                    key={index}
+                    href={link.href} 
+                    className="block text-white/90 text-sm sm:text-base md:text-lg lg:text-xl hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1" 
+                    style={{ fontFamily: 'var(--font-almarai)' }}
+                  >
+                    {link[language]}
+                  </Link>
+                ))}
               </div>
             </div>
 
@@ -206,19 +244,29 @@ const Footer = () => {
               <div className="flex flex-col items-center lg:items-start space-y-6">
                 {/* Logo Section */}
                 <div className="flex flex-col items-center lg:items-start space-y-3">
-                  <Image
-                    src="/images/logos/logo.png"
-                    alt="Etmam"
-                    width={140}
-                    height={98}
-                    className="object-contain brightness-0 invert w-[120px] h-[84px] sm:w-[140px] sm:h-[98px] md:w-[160px] md:h-[112px] lg:w-[180px] lg:h-[126px]"
-                  />
+                  {footerData?.logo?.url ? (
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${footerData.logo.url}`}
+                      alt={footerData.logo.name || 'Etmam'}
+                      width={140}
+                      height={98}
+                      className="object-contain brightness-0 invert w-[120px] h-[84px] sm:w-[140px] sm:h-[98px] md:w-[160px] md:h-[112px] lg:w-[180px] lg:h-[126px]"
+                    />
+                  ) : (
+                    <Image
+                      src="/images/logos/logo.png"
+                      alt="Etmam"
+                      width={140}
+                      height={98}
+                      className="object-contain brightness-0 invert w-[120px] h-[84px] sm:w-[140px] sm:h-[98px] md:w-[160px] md:h-[112px] lg:w-[180px] lg:h-[126px]"
+                    />
+                  )}
                   <div className="text-center lg:text-right">
                     <h4 className="text-white font-bold text-lg sm:text-xl md:text-2xl mb-2" style={{ fontFamily: 'var(--font-almarai)' }}>
-                      إتمام
+                      {getLocalizedValue(footerData?.companyName) || 'إتمام'}
                     </h4>
                     <p className="text-white/80 text-sm sm:text-base md:text-lg" style={{ fontFamily: 'var(--font-almarai)' }}>
-                      ETMAM Business Solutions
+                      {getLocalizedValue(footerData?.companyTagline) || 'ETMAM Business Solutions'}
                     </p>
                   </div>
                 </div>
@@ -250,13 +298,23 @@ const Footer = () => {
             
             {/* Logo */}
             <div className="flex items-center">
-              <Image
-                src="/images/logos/logo.png"
-                alt="Etmam"
-                width={80}
-                height={56}
-                className="object-contain"
-              />
+              {footerData?.logo?.url ? (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${footerData.logo.url}`}
+                  alt={footerData.logo.name || 'Etmam'}
+                  width={80}
+                  height={56}
+                  className="object-contain"
+                />
+              ) : (
+                <Image
+                  src="/images/logos/logo.png"
+                  alt="Etmam"
+                  width={80}
+                  height={56}
+                  className="object-contain"
+                />
+              )}
             </div>
 
             {/* Social Media Icons */}

@@ -18,6 +18,7 @@ export interface Package {
 
 export interface Offer {
   id: number;
+  slug?: string;
   title: {
     ar: string;
     en: string;
@@ -148,6 +149,7 @@ export const packages: Package[] = [
 export const offers: Offer[] = [
   {
     id: 1,
+    slug: 'offer-1',
     title: {
       ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة',
       en: 'Establish a Human Resources Management Company with full currency'
@@ -170,6 +172,7 @@ export const offers: Offer[] = [
   },
   {
     id: 2,
+    slug: 'offer-2',
     title: {
       ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة',
       en: 'Establish a Human Resources Management Company with full currency'
@@ -196,6 +199,7 @@ export const offers: Offer[] = [
   },
   {
     id: 3,
+    slug: 'offer-3',
     title: {
       ar: 'تأسيس شركة إدارة موارد بشرية بعملة كاملة',
       en: 'Establish a Human Resources Management Company with full currency'
