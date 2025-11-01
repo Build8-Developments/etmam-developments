@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_consultation_sections",
+  "info": {
+    "displayName": "consultation-section",
+    "description": "Free consultation booking section with form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_reviews_sections",
+  "info": {
+    "displayName": "reviews-section",
+    "description": "Customer reviews and testimonials section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

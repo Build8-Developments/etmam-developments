@@ -44,7 +44,7 @@ export default function Header({
     contactButton?.label || getTranslation("navigation", "contact", language);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 animate-slide-down">
+    <header className="fixed top-0 left-0 right-0 z-[100] animate-slide-down">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="flex items-center justify-between transition-all duration-300 hover:shadow-lg"
@@ -103,46 +103,47 @@ export default function Header({
 
           {/* Right Section */}
           <div className="flex items-center gap-2 lg:gap-3">
-            {/* Language Switcher with Flags */}
-            <Button
+            {/* Language Switcher - Unified Design */}
+            <button
               onClick={() => setLanguage(language === "ar" ? "en" : "ar")}
-              variant="primary"
-              size="sm"
-              className="relative overflow-hidden bg-white text-white border-2 border-gray-300 hover:border-green-500 
-              hover:bg-green-50 transition-all duration-300 shadow-sm 
-              hover:shadow-lg hover:scale-110 active:scale-95 focus:outline-none 
-              focus:ring-4 focus:ring-green-500/40 active:shadow-inner
-              before:absolute before:inset-0 before:bg-green-500/10 before:translate-y-full 
-              before:transition-transform before:duration-300 hover:before:translate-y-0"
-              style={{
-                borderRadius: "35px",
-              }}
-              ariaLabel={getTranslation(
+              className="group relative flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 border-2 border-gray-200 hover:border-green-500 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/30"
+              aria-label={getTranslation(
                 "accessibility",
                 "languageSwitch",
                 language
               )}
             >
-              {language === "ar" ? (
-                <>
-                  <span
-                    className="hidden sm:inline text-white text-sm font-bold group-hover:text-green-600 transition-all duration-300 relative z-10"
-                    style={{ fontFamily: "var(--font-almarai)" }}
-                  >
-                    EN
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span
-                    className="hidden sm:inline text-sm font-bold text-white group-hover:text-green-600 transition-all duration-300  relative z-10"
-                    style={{ fontFamily: "var(--font-almarai)" }}
-                  >
-                    عر
-                  </span>
-                </>
-              )}
-            </Button>
+              {/* Animated background */}
+              <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+              
+              {/* Globe Icon */}
+              <svg 
+                className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors duration-300 transform group-hover:scale-110" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              
+              {/* Language Text */}
+              <span
+                className="text-sm font-bold text-gray-700 group-hover:text-green-600 transition-colors duration-300 relative z-10"
+                style={{ fontFamily: "var(--font-almarai)" }}
+              >
+                {language === "ar" ? "EN" : "عر"}
+              </span>
+              
+              {/* Swap Icon */}
+              <svg 
+                className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:rotate-180 transition-all duration-500" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+              </svg>
+            </button>
 
             {/* Contact Button */}
             <Button
@@ -168,10 +169,10 @@ export default function Header({
               className="hidden sm:inline-flex whitespace-nowrap text-sm font-semibold transition-transform hover:scale-105 duration-300 shadow-md hover:shadow-lg"
             />
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Enhanced Animation */}
             <button
               onClick={toggle}
-              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600/50"
+              className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-full bg-gradient-to-br from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/30 group"
               aria-label={getTranslation(
                 "accessibility",
                 "menuToggle",
@@ -180,21 +181,27 @@ export default function Header({
               aria-expanded={isOpen}
               aria-controls="mobile-nav"
             >
-              <span
-                className={`w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
-                  isOpen ? "rotate-45 translate-y-1.5" : ""
-                }`}
-              ></span>
-              <span
-                className={`w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
-                  isOpen ? "opacity-0" : ""
-                }`}
-              ></span>
-              <span
-                className={`w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
-                  isOpen ? "-rotate-45 -translate-y-1.5" : ""
-                }`}
-              ></span>
+              {/* Animated background pulse */}
+              <span className={`absolute inset-0 rounded-full bg-green-500 opacity-0 ${isOpen ? 'animate-ping' : ''}`}></span>
+              
+              {/* Hamburger Icon */}
+              <div className="relative w-6 h-5 flex flex-col justify-center items-center">
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-700 group-hover:bg-green-600 rounded-full transition-all duration-300 ease-in-out ${
+                    isOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-700 group-hover:bg-green-600 rounded-full transition-all duration-300 ease-in-out ${
+                    isOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-700 group-hover:bg-green-600 rounded-full transition-all duration-300 ease-in-out ${
+                    isOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
+                  }`}
+                ></span>
+              </div>
             </button>
           </div>
         </div>
@@ -202,7 +209,7 @@ export default function Header({
         {/* Page overlay when mobile menu open */}
         {isOpen && (
           <div
-            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden transition-all duration-300"
+            className="fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm lg:hidden transition-all duration-300"
             onClick={close}
           />
         )}
@@ -214,7 +221,7 @@ export default function Header({
             isOpen
               ? "opacity-100 pointer-events-auto translate-y-0"
               : "opacity-0 pointer-events-none -translate-y-4"
-          } lg:hidden transition-all duration-300 ease-out relative z-[60]`}
+          } lg:hidden transition-all duration-300 ease-out relative z-[95]`}
         >
           <div className="mt-3 mx-4 rounded-3xl bg-white shadow-2xl ring-1 ring-black/10 overflow-hidden backdrop-blur-sm">
             {/* Menu Header */}
@@ -256,12 +263,12 @@ export default function Header({
             </div>
 
             {/* Menu Footer */}
-            <div className="px-6 py-4 border-t border-gray-100 bg-gray-50/50">
+            <div className="px-6 py-4 border-t border-gray-100 bg-gradient-to-br from-gray-50/50 to-white">
               <div className="flex items-center justify-between gap-4">
-                {/* Language Switcher with Flags */}
+                {/* Language Switcher - Matching Desktop Design */}
                 <button
                   onClick={() => setLanguage(language === "ar" ? "en" : "ar")}
-                  className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-green-500 hover:bg-green-50 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+                  className="group relative flex items-center gap-3 px-4 py-2.5 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 border-2 border-gray-200 hover:border-green-500 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/30"
                   aria-label={getTranslation(
                     "accessibility",
                     "languageSwitch",
@@ -269,33 +276,33 @@ export default function Header({
                   )}
                   style={{ fontFamily: "var(--font-almarai)" }}
                 >
-                  {language === "ar" ? (
-                    <>
-                      <span
-                        className="text-2xl"
-                        role="img"
-                        aria-label="English"
-                      >
-                        🇬🇧
-                      </span>
-                      <span className="text-sm font-semibold text-gray-700 hover:text-green-600 transition-colors">
-                        English
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <span
-                        className="text-2xl"
-                        role="img"
-                        aria-label="العربية"
-                      >
-                        🇸🇦
-                      </span>
-                      <span className="text-sm font-semibold text-gray-700 hover:text-green-600 transition-colors">
-                        العربية
-                      </span>
-                    </>
-                  )}
+                  {/* Animated background */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                  
+                  {/* Globe Icon */}
+                  <svg 
+                    className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300 transform group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  
+                  {/* Language Text */}
+                  <span className="text-sm font-bold text-gray-700 group-hover:text-green-600 transition-colors duration-300 relative z-10">
+                    {language === "ar" ? "English" : "العربية"}
+                  </span>
+                  
+                  {/* Swap Icon */}
+                  <svg 
+                    className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:rotate-180 transition-all duration-500" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+                  </svg>
                 </button>
 
                 {/* Contact Button */}
@@ -304,7 +311,7 @@ export default function Header({
                   href={contactButton?.href || "/contact"}
                   variant="primary"
                   size="sm"
-                  className="px-4 py-2 rounded-xl text-sm font-semibold"
+                  className="px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105"
                 />
               </div>
             </div>

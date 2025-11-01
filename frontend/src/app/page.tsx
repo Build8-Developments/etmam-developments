@@ -121,9 +121,12 @@ export default async function Home() {
         />
       </AnimatedSection>
 
-      {/* Reviews Section - keeping default for now */}
+      {/* Reviews Section with Strapi data */}
       <AnimatedSection animation="fadeInRight" delay={100}>
-        <ReviewsSection />
+        <ReviewsSection 
+          title={homeData?.Reviews?.title}
+          subtitle={homeData?.Reviews?.subtitle}
+        />
       </AnimatedSection>
 
       {/* Blog Section with Strapi data */}
@@ -136,9 +139,13 @@ export default async function Home() {
         <FAQSection title={homeData?.Faq?.string} faqs={homeData?.Faq?.faqs} />
       </AnimatedSection>
 
-      {/* Consultation Section */}
+      {/* Consultation Section with Strapi data */}
       <AnimatedSection animation="fadeInUp" delay={200}>
-        <ConsultationSection />
+        <ConsultationSection 
+          title={homeData?.Consultation?.title}
+          description={homeData?.Consultation?.description}
+          backgroundImage={homeData?.Consultation?.backgroundImage}
+        />
       </AnimatedSection>
 
       {/* CTA Section with Strapi data */}

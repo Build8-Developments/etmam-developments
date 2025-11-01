@@ -107,6 +107,19 @@ export const GET_HOME_PAGE = gql`
           question
         }
       }
+      Consultation {
+        title
+        description
+        backgroundImage {
+          url
+          name
+        }
+      }
+      Reviews {
+        title
+        subtitle
+        description
+      }
       CTA {
         buttonLink
         buttonText
