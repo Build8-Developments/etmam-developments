@@ -3,16 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  
+
   /* Color Palette */
-  --green-100: #DAEDD5;
-  --green-200: #8BD6B0;
-  --green-300: #BCDBB4;
-  --green-400: #79B669;
-  --primary: #90C054;
-  --green-600: #155A03;
+  --green-100: #daedd5;
+  --green-200: #8bd6b0;
+  --green-300: #bcdbb4;
+  --green-400: #79b669;
+  --primary: #90c054;
+  --green-600: #155a03;
   --green-700: #104502;
-  --green-800: #0B2E02;
+  --green-800: #0b2e02;
 }
 
 @theme inline {
@@ -20,16 +20,16 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
+
   /* Custom Colors */
-  --color-green-100: #DAEDD5;
-  --color-green-200: #8BD6B0;
-  --color-green-300: #BCDBB4;
-  --color-green-400: #79B669;
-  --color-primary: #90C054;
-  --color-green-600: #155A03;
+  --color-green-100: #daedd5;
+  --color-green-200: #8bd6b0;
+  --color-green-300: #bcdbb4;
+  --color-green-400: #79b669;
+  --color-primary: #90c054;
+  --color-green-600: #155a03;
   --color-green-700: #104502;
-  --color-green-800: #0B2E02;
+  --color-green-800: #0b2e02;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,6 +43,53 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-almarai), Arial, Helvetica, sans-serif;
+}
+
+/* Language Transition Animations */
+@keyframes languageFade {
+  0% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+}
+
+body.language-transitioning {
+  overflow-x: hidden;
+}
+
+body.language-transitioning
+  > *:not(.animate-fade-in-up):not(.animate-fade-in):not(
+    .animate-fade-in-left
+  ):not(.animate-fade-in-right):not(.animate-scale-in):not(
+    .animate-slide-in-up
+  ) {
+  animation: languageFade 0.4s ease-in-out;
+}
+
+/* Add pulse to language button during transition */
+body.language-transitioning button[aria-label*="language"],
+body.language-transitioning button[aria-label*="اللغة"] {
+  animation: buttonPulse 0.4s ease-in-out !important;
 }
 
 /* Smooth Scrolling */
@@ -154,10 +201,25 @@ html {
   }
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Animation Classes */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-out forwards;
 }
 
 .animate-fade-in {
@@ -243,7 +305,8 @@ html {
 
 /* Gradient Animations */
 @keyframes gradient-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -258,7 +321,8 @@ html {
 
 /* Pulse Animation */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -295,7 +359,8 @@ html {
 
 /* Float Animation */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -323,7 +388,8 @@ html {
 
 /* Bounce Subtle */
 @keyframes bounce-subtle {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -337,7 +403,8 @@ html {
 
 /* Glow Pulse */
 @keyframes glow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
   }
   50% {
@@ -375,12 +442,24 @@ html {
 }
 
 /* Stagger Animation Delays */
-.stagger-1 { animation-delay: 0.05s; }
-.stagger-2 { animation-delay: 0.1s; }
-.stagger-3 { animation-delay: 0.15s; }
-.stagger-4 { animation-delay: 0.2s; }
-.stagger-5 { animation-delay: 0.25s; }
-.stagger-6 { animation-delay: 0.3s; }
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+.stagger-4 {
+  animation-delay: 0.2s;
+}
+.stagger-5 {
+  animation-delay: 0.25s;
+}
+.stagger-6 {
+  animation-delay: 0.3s;
+}
 
 /* Smooth Entrance */
 .entrance-blur {
@@ -434,7 +513,9 @@ html {
 .bg-gradient-to-r.absolute.inset-0,
 .bg-gradient-to-b.absolute.inset-0,
 .bg-gradient-to-br.absolute.inset-0,
-[style*="gradient"].absolute.inset-0:not(form):not(input):not(textarea):not(select):not(button) {
+[style*="gradient"].absolute.inset-0:not(form):not(input):not(textarea):not(
+    select
+  ):not(button) {
   pointer-events: none;
 }
 
@@ -476,7 +557,7 @@ html {
 .whatsapp-button {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
+  background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -486,7 +567,7 @@ html {
 }
 
 .whatsapp-button:hover {
-  background: linear-gradient(135deg, #20BA5A 0%, #1EA952 100%);
+  background: linear-gradient(135deg, #20ba5a 0%, #1ea952 100%);
   transform: scale(1.1) translateY(-2px);
   box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -498,14 +579,15 @@ html {
 
 .whatsapp-button:focus {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.3), 0 4px 12px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.3),
+    0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 .whatsapp-pulse {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
+  background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
   animation: whatsappPulse 2s infinite;
   opacity: 0.7;
 }
@@ -545,7 +627,7 @@ html {
 }
 
 .whatsapp-tooltip::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -590,7 +672,8 @@ html {
 }
 
 @keyframes whatsappBadgePulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -614,7 +697,7 @@ html {
     background: #374151;
     color: #f9fafb;
   }
-  
+
   .whatsapp-tooltip::after {
     border-top-color: #374151;
   }
@@ -626,19 +709,243 @@ html {
     bottom: 20px;
     left: 20px;
   }
-  
+
   [dir="rtl"] .whatsapp-float {
     left: auto;
     right: 20px;
   }
-  
+
   .whatsapp-button {
     width: 50px;
     height: 50px;
   }
-  
+
   .whatsapp-tooltip {
     font-size: 12px;
     padding: 6px 12px;
+  }
+}
+
+/* ========================================
+   BUTTON VARIANTS
+   ======================================== */
+
+/* Base button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(144, 192, 84, 0.3);
+}
+
+/* Primary Button Variant */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-green-400) 100%
+  );
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(144, 192, 84, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(144, 192, 84, 0.4);
+}
+
+.btn-primary:active {
+  box-shadow: 0 2px 8px rgba(144, 192, 84, 0.3);
+}
+
+/* Secondary Button Variant */
+.btn-secondary {
+  background: #15803d;
+  color: white;
+  border-color: transparent;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(21, 90, 3, 0.3);
+}
+
+.btn-secondary:hover {
+  background: #166534;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(21, 90, 3, 0.4);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(21, 90, 3, 0.3);
+}
+
+/* Outlined Button Variant */
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(144, 192, 84, 0.3);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(144, 192, 84, 0.2);
+}
+
+/* Ghost Button Variant */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-foreground);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  background: rgba(144, 192, 84, 0.1);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
+  background: rgba(144, 192, 84, 0.15);
+}
+
+/* Button Sizes */
+.btn-sm {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+
+.btn-md {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.btn-lg {
+  padding: 0.7rem 1.6rem;
+  border-radius: 1rem;
+}
+
+.btn-xl {
+  font-size: 1.25rem;
+  padding: 1.25rem 2.5rem;
+  border-radius: 0.75rem;
+}
+
+/* Button with Icon */
+.btn-icon-left {
+  flex-direction: row;
+}
+
+.btn-icon-right {
+  flex-direction: row-reverse;
+}
+
+/* RTL Support for Buttons */
+[dir="rtl"] .btn-icon-left {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .btn-icon-right {
+  flex-direction: row;
+}
+
+/* Button Loading State */
+.btn-loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: button-spin 0.6s linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button Group */
+.btn-group {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.btn-group .btn {
+  margin: 0;
+}
+
+/* Full Width Button */
+.btn-block {
+  width: 100%;
+  display: flex;
+}
+
+/* Responsive Button Adjustments */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+
+  .btn-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .btn-xl {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
   }
 }

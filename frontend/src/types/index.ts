@@ -1,7 +1,7 @@
 // ========================================
 // CORE TYPES
 // ========================================
-export type Language = 'ar' | 'en';
+export type Language = "ar" | "en";
 
 // ========================================
 // COMMON TYPES
@@ -18,6 +18,7 @@ export interface NavigationItem {
 
 export interface Button {
   label: string;
+  variant?: "primary" | "secondary" | "outlined" | "ghost";
   href: string;
 }
 
@@ -197,7 +198,7 @@ export interface ContactInfo {
   title: string;
   description: string;
   contactMethods: {
-    type: 'phone' | 'email' | 'address' | 'whatsapp';
+    type: "phone" | "email" | "address" | "whatsapp";
     label: string;
     value: string;
     icon: string;

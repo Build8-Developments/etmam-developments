@@ -92,6 +92,24 @@ export interface ContentFaqItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentFooterLink extends Struct.ComponentSchema {
+  collectionName: 'components_content_footer_links';
+  info: {
+    description: 'A link item in the footer (for services, quick links, etc.)';
+    displayName: 'Footer Link';
+  };
+  attributes: {
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ContentNumberedStep extends Struct.ComponentSchema {
   collectionName: 'components_content_numbered_steps';
   info: {
@@ -108,6 +126,54 @@ export interface ContentNumberedStep extends Struct.ComponentSchema {
         number
       >;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ContentOfferBenefit extends Struct.ComponentSchema {
+  collectionName: 'components_content_offer_benefits';
+  info: {
+    description: 'Benefit of an offer';
+    displayName: 'offer-benefit';
+  };
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface ContentOfferFeature extends Struct.ComponentSchema {
+  collectionName: 'components_content_offer_features';
+  info: {
+    description: 'Feature included in an offer';
+    displayName: 'offer-feature';
+  };
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -583,13 +649,7 @@ export interface UiButton extends Struct.ComponentSchema {
   };
   attributes: {
     href: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     label: Schema.Attribute.String;
-    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    variant: Schema.Attribute.Enumeration<
-      ['primary', 'secondary', 'outline', 'ghost']
-    > &
-      Schema.Attribute.DefaultTo<'primary'>;
   };
 }
 
@@ -624,7 +684,10 @@ declare module '@strapi/strapi' {
       'content.contact-info-card': ContentContactInfoCard;
       'content.content-service-card': ContentContentServiceCard;
       'content.faq-item': ContentFaqItem;
+      'content.footer-link': ContentFooterLink;
       'content.numbered-step': ContentNumberedStep;
+      'content.offer-benefit': ContentOfferBenefit;
+      'content.offer-feature': ContentOfferFeature;
       'content.package-card': ContentPackageCard;
       'content.partner-logo': ContentPartnerLogo;
       'content.service-slide': ContentServiceSlide;

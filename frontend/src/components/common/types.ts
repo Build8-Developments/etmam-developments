@@ -5,7 +5,7 @@ export interface BaseComponentProps {
 }
 
 export interface LanguageProps {
-  language: 'ar' | 'en';
+  language: "ar" | "en";
   isRTL: boolean;
 }
 
@@ -15,10 +15,15 @@ export interface ImageAsset {
 }
 
 export interface ButtonProps {
-  label: string;
-  href: string;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  label?: string;
+  href?: string;
+  variant?: "primary" | "secondary" | "outlined" | "ghost";
+  size?: "sm" | "md" | "lg" | "xl";
+  icon?: {
+    url?: string;
+    name?: string;
+  };
+  openInNewTab?: boolean;
 }
 
 export interface SectionProps extends BaseComponentProps {
@@ -36,7 +41,7 @@ export interface CardProps extends BaseComponentProps {
 
 export interface IconProps {
   name: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   color?: string;
   className?: string;
 }

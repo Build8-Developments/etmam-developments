@@ -15,44 +15,22 @@ export const GET_HOME_PAGE = gql`
         }
         primaryButton {
           href
-          icon {
-            url
-            name
-          }
           label
-          openInNewTab
-          variant
         }
         secondaryButton {
           href
-          icon {
-            url
-            name
-          }
           label
-          openInNewTab
-          variant
         }
         subtitle
         title
       }
       About {
         title
-        statLabel
-        statNumber
-        heading
+        subtitle
         description
-        ctaButton {
-          href
-          label
-          openInNewTab
-          variant
-        }
-        features {
-          description
-          title
-        }
-        mainImage {
+        trustDescription
+        visionDescription
+        primaryImage {
           url
           name
         }
@@ -60,6 +38,8 @@ export const GET_HOME_PAGE = gql`
           url
           name
         }
+        partnersCount
+        partnersCountText
       }
       Services {
         title
@@ -75,13 +55,7 @@ export const GET_HOME_PAGE = gql`
         }
         ctaButton {
           href
-          icon {
-            url
-            name
-          }
           label
-          openInNewTab
-          variant
         }
       }
       HowItWorks {

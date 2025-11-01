@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useHomePage } from '@/hooks/graphql';
+import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useHomePage } from "@/hooks/graphql";
 
 interface Partner {
   name: string;
@@ -21,125 +21,119 @@ const PartnersSection = ({ partners: propPartners }: PartnersSectionProps) => {
   const { language } = useLanguage();
   const { data: homeData } = useHomePage();
 
-  // Helper function to get string value from Strapi i18n field
-  const getLocalizedValue = (value: any): string => {
-    if (!value) return '';
-    if (typeof value === 'string') return value;
-    if (typeof value === 'object' && value !== null) {
-      return value[language] || value.ar || value.en || '';
-    }
-    return String(value);
-  };
-
   // Default partners data
   const defaultPartners = [
-    { name: 'Paysafe', logo: '/Payment method icon.png' },
-    { name: 'Klarna', logo: '/Payment method icon1.png' },
-    { name: 'Affirm', logo: '/Payment method icon2.png' },
-    { name: 'Google Pay', logo: '/4.png' },
-    { name: 'PayPal', logo: '/Payment method icon.png' },
-    { name: 'Stripe', logo: '/Payment method icon1.png' },
-    { name: 'Square', logo: '/Payment method icon2.png' },
-    { name: 'Apple Pay', logo: '/4.png' },
+    { name: "Stripe", logo: "/Payment method icon1.png" },
+    { name: "Amazon", logo: "/Payment method icon2.png" },
+    { name: "Google", logo: "/Payment method icon.png" },
   ];
 
   // Use props first, then home page data, then default data
   const partners = propPartners || homeData?.PartnersLogos?.partners;
-  
-  const partnersData = partners && partners.length > 0 
-    ? partners.map(partner => ({
-        name: getLocalizedValue(partner.name),
-        logo: partner.logo?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${partner.logo.url}` : '/Payment method icon.png'
-      }))
-    : defaultPartners;
+
+  const partnersData =
+    partners && partners.length > 0
+      ? partners.map((partner: Partner) => ({
+          name: partner.name || "",
+          logo: partner.logo?.url
+            ? `http://localhost:1337${partner.logo.url}`
+            : "/Payment method icon.png",
+        }))
+      : defaultPartners;
 
   // Duplicate partners array for seamless infinite scroll
-  const duplicatedPartners = [...partnersData, ...partnersData];
+  // Triple the array for smoother continuous scrolling
+  const duplicatedPartners = [
+    ...partnersData,
+    ...partnersData,
+    ...partnersData,
+  ];
 
   return (
-     <section 
-       className="py-8 sm:py-12 lg:py-16 bg-white overflow-hidden"
-       dir={language === 'ar' ? 'rtl' : 'ltr'}
-     >
+    <section
+      className="py-8 sm:py-12 lg:py-16 bg-white overflow-hidden"
+      dir={language === "ar" ? "rtl" : "ltr"}
+    >
       {/* Header Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="text-center">
-          <h2 
+          <h2
             className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4"
-            style={{ fontFamily: 'var(--font-almarai)' }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
-            {language === 'ar' ? 'شركاؤنا في النجاح' : 'Our Success Partners'}
+            {language === "ar" ? "شركاؤنا في النجاح" : "Our Success Partners"}
           </h2>
-          <p 
+          <p
             className="text-lg text-gray-600 max-w-3xl mx-auto"
-            style={{ fontFamily: 'var(--font-almarai)' }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
-            {language === 'ar' 
-              ? 'نفتخر بشراكتنا مع أفضل الشركات والمؤسسات الرائدة في مجال الخدمات المالية والتقنية'
-              : 'We are proud to partner with the best companies and leading institutions in the field of financial and technical services'
-            }
+            {language === "ar"
+              ? "نفتخر بشراكتنا مع أفضل الشركات والمؤسسات الرائدة في مجال الخدمات المالية والتقنية"
+              : "We are proud to partner with the best companies and leading institutions in the field of financial and technical services"}
           </p>
         </div>
       </div>
 
-      <div className="w-full">
-        <div 
-          className="flex"
-          style={{
-            width: '100%',
-            height: '64px',
-            overflow: 'hidden',
-          }}
-        >
-           <div 
-             className="flex animate-scroll"
-             style={{
-               animation: 'scroll 8s linear infinite',
-             }}
-           >
-            {/* Duplicated logos for seamless infinite scroll */}
-            {duplicatedPartners.map((partner, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 flex items-center justify-center"
-                style={{
-                  width: '120px',
-                  height: '64px',
-                  border: '1px solid #E5E7EB',
-                  borderRadius: '8px',
-                  backgroundColor: 'white',
-                  marginRight: '16px',
-                }}
-              >
-                 <Image
-                   src={partner.logo}
-                   alt={partner.name}
-                   width={80}
-                   height={40}
-                   className="object-contain"
-                 />
-              </div>
-            ))}
-          </div>
+      {/* Partners Logos Carousel */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex gap-4 animate-scroll hover:pause-animation">
+          {duplicatedPartners.map((partner, index) => (
+            <div
+              key={`${partner.name}-${index}`}
+              className="flex-shrink-0 flex items-center justify-center bg-white rounded-lg p-6 hover:bg-gray-50 transition-all duration-300"
+              style={{
+                width: "160px",
+                height: "100px",
+              }}
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={140}
+                height={80}
+                className="object-contain max-w-full max-h-full"
+                priority={index < partnersData.length}
+                quality={95}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes scroll {
+        @keyframes scrollLTR {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(calc(-100% / 3));
           }
         }
-        
-        .animate-scroll {
-          animation: scroll 8s linear infinite;
+
+        @keyframes scrollRTL {
+          0% {
+            transform: translateX(calc(-100% / 3));
+          }
+          100% {
+            transform: translateX(0);
+          }
         }
-        
-        .animate-scroll:hover {
+
+        .animate-scroll {
+          animation: ${language === "ar" ? "scrollRTL" : "scrollLTR"} 30s linear
+            infinite;
+          will-change: transform;
+        }
+
+        .animate-scroll:hover,
+        .pause-animation:hover .animate-scroll {
           animation-play-state: paused;
+        }
+
+        /* Ensure smooth rendering */
+        .animate-scroll {
+          backface-visibility: hidden;
+          perspective: 1000px;
         }
       `}</style>
     </section>

@@ -2,11 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_REVIEWS = gql`
   query Reviews($locale: I18NLocaleCode) {
-    reviews(
-      locale: $locale
-      publicationState: LIVE
-      sort: "order:asc,createdAt:desc"
-    ) {
+    reviews(locale: $locale) {
       documentId
       name
       position
@@ -48,4 +44,3 @@ export const GET_FEATURED_REVIEWS = gql`
     }
   }
 `;
-

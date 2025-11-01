@@ -1,60 +1,116 @@
-'use client';
+"use client";
 
-import { useLanguage } from '@/contexts/LanguageContext';
-import { ButtonProps } from './types';
-import Link from 'next/link';
+import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
+import { ReactNode } from "react";
 
-interface ButtonComponentProps extends ButtonProps {
+interface ButtonComponentProps {
+  label?: string;
+  children?: ReactNode;
+  href?: string;
+  variant?: "primary" | "secondary" | "outlined" | "ghost";
+  size?: "sm" | "md" | "lg" | "xl";
   onClick?: () => void;
   disabled?: boolean;
   loading?: boolean;
   className?: string;
+  type?: "button" | "submit" | "reset";
+  fullWidth?: boolean;
+  icon?: ReactNode;
+  iconPosition?: "left" | "right";
+  openInNewTab?: boolean;
+  style?: React.CSSProperties;
+  ariaLabel?: string;
+  ariaExpanded?: boolean;
+  ariaControls?: string;
 }
 
-export function Button({ 
-  label, 
-  href, 
-  variant = 'primary', 
-  size = 'md',
+export function Button({
+  label,
+  children,
+  href,
+  variant = "primary",
+  size = "md",
   onClick,
   disabled = false,
   loading = false,
-  className = ''
+  className = "",
+  type = "button",
+  fullWidth = false,
+  icon,
+  iconPosition = "left",
+  openInNewTab = false,
+  style,
+  ariaLabel,
+  ariaExpanded,
+  ariaControls,
 }: ButtonComponentProps) {
   const { language } = useLanguage();
-  
-  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 transform';
-  
-  const variantClasses = {
-    primary: 'bg-primary hover:bg-green-600 text-white shadow-lg hover:shadow-xl hover-lift',
-    secondary: 'bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl hover-lift',
-    outline: 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-800 hover-scale'
-  };
-  
-  const sizeClasses = {
-    sm: 'px-4 py-2 text-sm rounded-lg',
-    md: 'px-6 py-3 text-base rounded-lg',
-    lg: 'px-8 py-4 text-lg rounded-xl'
-  };
-  
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
-  
+
+  // Build class names using CSS button classes
+  const baseClasses = "btn";
+  const variantClass = `btn-${variant}`;
+  const sizeClass = `btn-${size}`;
+  const iconClass = icon ? `btn-icon-${iconPosition}` : "";
+  const loadingClass = loading ? "btn-loading" : "";
+  const fullWidthClass = fullWidth ? "btn-block" : "";
+
+  const classes = [
+    baseClasses,
+    variantClass,
+    sizeClass,
+    iconClass,
+    loadingClass,
+    fullWidthClass,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const content = (
+    <>
+      {icon && iconPosition === "left" && (
+        <span className="btn-icon">{icon}</span>
+      )}
+      <span>{children || label}</span>
+      {icon && iconPosition === "right" && (
+        <span className="btn-icon">{icon}</span>
+      )}
+    </>
+  );
+
   if (href) {
     return (
-      <Link href={href} className={classes} dir={language === 'ar' ? 'rtl' : 'ltr'}>
-        {loading ? '...' : label}
+      <Link
+        href={href}
+        className={classes}
+        style={style}
+        dir={language === "ar" ? "rtl" : "ltr"}
+        aria-disabled={disabled}
+        aria-label={ariaLabel}
+        {...(openInNewTab && {
+          target: "_blank",
+          rel: "noopener noreferrer",
+        })}
+      >
+        {content}
       </Link>
     );
   }
-  
+
   return (
-    <button 
-      onClick={onClick} 
+    <button
+      type={type}
+      onClick={onClick}
       disabled={disabled || loading}
       className={classes}
-      dir={language === 'ar' ? 'rtl' : 'ltr'}
+      style={style}
+      dir={language === "ar" ? "rtl" : "ltr"}
+      aria-label={ariaLabel}
+      aria-expanded={ariaExpanded}
+      aria-controls={ariaControls}
     >
-      {loading ? '...' : label}
+      {content}
     </button>
   );
 }

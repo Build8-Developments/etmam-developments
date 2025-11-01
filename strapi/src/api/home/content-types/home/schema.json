@@ -25,6 +25,16 @@
       "component": "sections.hero-section",
       "repeatable": false
     },
+    "About": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.about-us-component",
+      "repeatable": true
+    },
     "Services": {
       "type": "component",
       "pluginOptions": {
