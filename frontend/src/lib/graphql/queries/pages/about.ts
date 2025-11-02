@@ -95,7 +95,7 @@ export const GET_ABOUT_PAGE = gql`
         description
       }
       Faq {
-        string
+        title
         faqs {
           answer
           order

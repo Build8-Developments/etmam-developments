@@ -1,4 +1,4 @@
-'use client';
+ 
 
 import { 
   Header, 
@@ -6,15 +6,29 @@ import {
   ConsultationSection
 } from '@/components';
 import { AnimatedSection } from '@/components/common/AnimatedSection';
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useTermsConditionsPage } from '@/hooks/graphql';
+import { GET_TERMS_CONDITIONS } from '@/lib/graphql/queries/pages/terms-conditions';
+import { fetchWithLocale } from '@/lib/graphql/utils/fetchGraphQL';
+import { getLocale } from '@/lib/graphql/utils/locale';
 import { termsAndConditionsContent } from '@/mockData/pages';
 import Link from 'next/link';
 
-export default function TermsConditionsPage() {
-  const { language } = useLanguage();
-  const { data: termsConditionsPageData } = useTermsConditionsPage();
+export default async function TermsConditionsPage() {
+  const locale = await getLocale();
+  const language = (locale === 'en' ? 'en' : 'ar') as 'ar' | 'en';
+  const { data } = await fetchWithLocale({ query: GET_TERMS_CONDITIONS, locale });
+  const termsConditionsPageData = (data as any)?.termsAndConditionsPage || null;
   const currentContent = termsAndConditionsContent;
+
+  const L = (v: any): string => {
+    if (v == null) return '';
+    if (typeof v === 'string' || typeof v === 'number') return String(v);
+    if (Array.isArray(v)) return v.map((x) => L(x)).join('\n\n');
+    if (typeof v === 'object') {
+      const candidate = (v as any)[language];
+      return typeof candidate === 'string' || typeof candidate === 'number' ? String(candidate) : '';
+    }
+    return '';
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -51,14 +65,14 @@ export default function TermsConditionsPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {termsConditionsPageData?.Hero?.title || currentContent.title[language]}
+                  {L(termsConditionsPageData?.Hero?.title) || currentContent.title[language]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {termsConditionsPageData?.Hero?.subtitle || (language === 'ar' 
+                  {L(termsConditionsPageData?.Hero?.subtitle) || (language === 'ar' 
                     ? 'الشروط والأحكام التي تحكم استخدام خدمات إتمام. تعرف على حقوقك ومسؤولياتك عند استخدام خدماتنا.'
                     : 'Terms and conditions governing the use of Etmam services. Learn about your rights and responsibilities when using our services.')
                   }
@@ -71,7 +85,7 @@ export default function TermsConditionsPage() {
                       className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
-                      {termsConditionsPageData.Hero.primaryButton.label || (language === 'ar' ? 'اقرأ الشروط' : 'Read Terms')}
+                      {L(termsConditionsPageData.Hero.primaryButton.label) || (language === 'ar' ? 'اقرأ الشروط' : 'Read Terms')}
                     </Link>
                   )}
                   {termsConditionsPageData?.Hero?.secondaryButton && (
@@ -80,7 +94,7 @@ export default function TermsConditionsPage() {
                       className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
-                      {termsConditionsPageData.Hero.secondaryButton.label || (language === 'ar' ? 'استشارة قانونية' : 'Legal Consultation')}
+                      {L(termsConditionsPageData.Hero.secondaryButton.label) || (language === 'ar' ? 'استشارة قانونية' : 'Legal Consultation')}
                     </Link>
                   )}
                 </div>
@@ -93,12 +107,12 @@ export default function TermsConditionsPage() {
                   {termsConditionsPageData?.Hero?.stats?.map((stat: any, index: number) => (
                     <div key={stat.id || index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                        <div className="text-3xl font-bold text-white mb-2">{L(stat.value) || stat.value}</div>
                         <div 
                           className="text-sm text-white/80"
                           style={{ fontFamily: 'var(--font-almarai)' }}
                         >
-                          {stat.label}
+                          {L(stat.label) || stat.label}
                         </div>
                       </div>
                     </div>
@@ -179,13 +193,13 @@ export default function TermsConditionsPage() {
                   className="text-3xl font-bold mb-4"
                   style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
                 >
-                  {termsConditionsPageData?.privacy_policy?.title || (language === 'ar' ? 'شروط استخدام خدمات إتمام' : 'Terms for Using Etmam Services')}
+                  {L(termsConditionsPageData?.privacy_policy?.title) || (language === 'ar' ? 'شروط استخدام خدمات إتمام' : 'Terms for Using Etmam Services')}
                 </h2>
                 <p 
                   className="text-lg text-gray-600 max-w-3xl mx-auto"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {termsConditionsPageData?.privacy_policy?.subtitle || (language === 'ar' 
+                  {L(termsConditionsPageData?.privacy_policy?.subtitle) || (language === 'ar' 
                     ? 'هذه الشروط والأحكام تحدد حقوقك ومسؤولياتك عند استخدام خدمات إتمام. ننصحك بقراءتها بعناية قبل استخدام خدماتنا.'
                     : 'These terms and conditions define your rights and responsibilities when using Etmam services. We recommend reading them carefully before using our services.')
                   }
@@ -214,7 +228,7 @@ export default function TermsConditionsPage() {
                           color: '#11613A'
                         }}
                       >
-                        {section.title || section.title?.[language]}
+                        {L(section.title) || section.title?.[language]}
                       </h3>
                       
                       <div 
@@ -226,7 +240,7 @@ export default function TermsConditionsPage() {
                           lineHeight: '1.7'
                         }}
                       >
-                        {section.contents || section.content?.[language]}
+                        {L(section.contents ?? section.content)}
                       </div>
                     </div>
                   </div>

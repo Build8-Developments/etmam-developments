@@ -105,8 +105,23 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
 
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50"
+      style={{ 
+        position: 'relative',
+        zIndex: 1,
+        pointerEvents: 'auto',
+        touchAction: 'manipulation'
+      }}
+    >
+      <div 
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+        style={{ 
+          pointerEvents: 'auto',
+          position: 'relative',
+          zIndex: 1
+        }}
+      >
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 
@@ -118,18 +133,48 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+        <div 
+          className="space-y-3 sm:space-y-4 lg:space-y-6"
+          style={{ 
+            pointerEvents: 'auto',
+            position: 'relative',
+            zIndex: 1
+          }}
+        >
           {faqData.map((item, index) => (
             <div 
               key={index} 
               className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-smooth hover-lift"
+              style={{ 
+                pointerEvents: 'auto',
+                touchAction: 'manipulation',
+                position: 'relative',
+                zIndex: 1,
+                isolation: 'isolate'
+              }}
             >
               {/* Mobile/Tablet Layout - Single Column */}
-              <div className="block lg:hidden">
+              <div 
+                className="block lg:hidden"
+                style={{ 
+                  pointerEvents: 'auto',
+                  position: 'relative',
+                  zIndex: 10
+                }}
+              >
                 <button
                   onClick={() => toggleItem(index)}
+                  onTouchStart={(e) => {
+                    e.stopPropagation();
+                  }}
                   className="w-full flex items-center justify-between gap-3 sm:gap-4 group text-left"
-                  style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
+                  style={{ 
+                    direction: language === 'ar' ? 'rtl' : 'ltr',
+                    pointerEvents: 'auto',
+                    touchAction: 'manipulation',
+                    WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
+                    cursor: 'pointer'
+                  }}
                 >
                   <span 
                     className="flex-1 text-base sm:text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"
@@ -171,15 +216,30 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
               </div>
 
               {/* Desktop Layout - Two Columns */}
-              <div className="hidden lg:flex items-start gap-6 lg:gap-8">
+              <div 
+                className="hidden lg:flex items-start gap-6 lg:gap-8"
+                style={{ 
+                  pointerEvents: 'auto',
+                  position: 'relative',
+                  zIndex: 10
+                }}
+              >
                 {/* Question Side */}
-                <div className="flex-1 min-w-0">
+                <div 
+                  className="flex-1 min-w-0"
+                  style={{ pointerEvents: 'auto' }}
+                >
                   <button
                     onClick={() => toggleItem(index)}
                     className={`w-full flex items-center justify-between group transition-smooth ${
                       language === 'ar' ? 'text-right' : 'text-left'
                     }`}
-                    style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
+                    style={{ 
+                      direction: language === 'ar' ? 'rtl' : 'ltr',
+                      pointerEvents: 'auto',
+                      touchAction: 'manipulation',
+                      cursor: 'pointer'
+                    }}
                   >
                     <span 
                       className="flex-1 text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"

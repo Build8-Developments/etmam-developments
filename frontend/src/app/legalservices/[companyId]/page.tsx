@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { 
   Header, 
@@ -38,16 +38,16 @@ export default function CompanyServicesPage() {
 
   // Transform GraphQL data or use mock data
   const company = useMemo(() => {
-    // If we have GraphQL data, use it
-    if (categoryData && categorySubservices.length > 0) {
+    // If we have valid GraphQL data with both category and subservices, use it
+    if (categoryData && categorySubservices && categorySubservices.length > 0) {
       const services = categorySubservices.map((sub: any) => {
         const periodText = language === 'ar'
-          ? `من ${sub.finishPeriodMin} إلى ${sub.finishPeriodMax} أيام عمل`
-          : `${sub.finishPeriodMin} to ${sub.finishPeriodMax} business days`;
+          ? `من ${sub.finishPeriodMin || 1} إلى ${sub.finishPeriodMax || 3} أيام عمل`
+          : `${sub.finishPeriodMin || 1} to ${sub.finishPeriodMax || 3} business days`;
         
         const priceText = language === 'ar'
-          ? `يبدأ من ${sub.startFromPrice} ${sub.currency}`
-          : `Starting from ${sub.startFromPrice} ${sub.currency}`;
+          ? `يبدأ من ${sub.startFromPrice || 500} ${sub.currency || 'ريال'}`
+          : `Starting from ${sub.startFromPrice || 500} ${sub.currency || 'SAR'}`;
 
         return {
           id: sub.slug || sub.documentId,
@@ -66,6 +66,9 @@ export default function CompanyServicesPage() {
         services
       };
     }
+    
+    // If GraphQL data is not ready or incomplete, fall back to mock data
+    console.log('Using mock data fallback for legal services - companyId:', companyId);
 
     // Fall back to mock data
     const companyData: any = {

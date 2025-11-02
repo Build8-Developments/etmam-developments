@@ -101,54 +101,109 @@ export const ServiceCard = ({ service, href, showDetails = true }: ServiceCardPr
   };
 
   return (
-    <Link href={href} className="block">
-      <div className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-xl transition-smooth hover-lift p-6 h-full flex flex-col transform">
-        {/* Service Icon */}
-        <div className="flex items-center justify-center mb-4">
-          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center transition-smooth hover-scale hover-brightness group">
-            <div className="group-hover:animate-bounce-subtle">
-              {getIconComponent(service.icon)}
+    <Link href={href} className="block h-full">
+      <div className="
+        group relative bg-white rounded-2xl h-full flex flex-col overflow-hidden
+        transition-all duration-500 ease-out
+        shadow-[0_4px_20px_rgba(0,0,0,0.08)]
+        hover:shadow-[0_20px_60px_rgba(27,128,54,0.15)]
+        transform hover:-translate-y-3
+        border border-gray-100
+        before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#1B8036]/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500
+        hover:before:opacity-100
+      ">
+        {/* Gradient Header */}
+        <div className="relative bg-gradient-to-br from-[#1B8036] via-[#1a7532] to-[#145c28] p-8 overflow-hidden">
+          {/* Animated Background Patterns */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12 group-hover:scale-150 transition-transform duration-700" />
+          
+          {/* Service Icon */}
+          <div className="relative z-10 flex items-center justify-center">
+            <div className="
+              w-16 h-16 bg-white rounded-2xl flex items-center justify-center
+              shadow-[0_8px_30px_rgba(0,0,0,0.12)]
+              transform group-hover:scale-110 group-hover:rotate-3
+              transition-all duration-500
+            ">
+              <div className="group-hover:scale-110 transition-transform duration-500">
+                {getIconComponent(service.icon)}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Service Title */}
-        <h3 className="text-lg font-bold text-gray-800 mb-3 text-center" style={{ fontFamily: 'var(--font-almarai)' }}>
-          {service.title}
-        </h3>
+        {/* Content */}
+        <div className="p-6 flex-1 flex flex-col">
+          {/* Service Title */}
+          <h3 className="
+            text-xl font-bold text-gray-900 mb-3 text-center
+            group-hover:text-[#1B8036] 
+            transition-colors duration-300
+            leading-tight
+          " style={{ fontFamily: 'var(--font-almarai)' }}>
+            {service.title}
+          </h3>
 
-        {/* Service Description */}
-        <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-1" style={{ fontFamily: 'var(--font-almarai)' }}>
-          {service.description}
-        </p>
+          {/* Service Description */}
+          <p className="
+            text-gray-600 text-sm leading-relaxed mb-4 flex-1 text-center
+            group-hover:text-gray-700
+            transition-colors duration-300
+          " style={{ fontFamily: 'var(--font-almarai)' }}>
+            {service.description}
+          </p>
 
-        {/* Service Details */}
-        {showDetails && (
-          <div className="space-y-2 mb-4">
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-              </svg>
-              <span style={{ fontFamily: 'var(--font-almarai)' }}>{service.price}</span>
+          {/* Service Details */}
+          {showDetails && (
+            <div className="space-y-3 mb-6 px-4">
+              <div className="
+                flex items-center justify-center gap-3 text-sm
+                px-4 py-2.5 rounded-xl
+                bg-gradient-to-r from-green-50 to-emerald-50
+                border border-green-100
+                group-hover:border-green-200
+                transition-all duration-300
+              ">
+                <svg className="w-5 h-5 text-[#1B8036] group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+                <span className="font-semibold text-gray-700" style={{ fontFamily: 'var(--font-almarai)' }}>{service.price}</span>
+              </div>
+              <div className="
+                flex items-center justify-center gap-3 text-sm
+                px-4 py-2.5 rounded-xl
+                bg-gradient-to-r from-blue-50 to-cyan-50
+                border border-blue-100
+                group-hover:border-blue-200
+                transition-all duration-300
+              ">
+                <svg className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="font-semibold text-gray-700" style={{ fontFamily: 'var(--font-almarai)' }}>{service.duration}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span style={{ fontFamily: 'var(--font-almarai)' }}>{service.duration}</span>
-            </div>
-          </div>
-        )}
+          )}
 
-        {/* CTA Button */}
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white rounded-lg px-6 py-2 gap-2 transition-smooth hover-scale">
-            <span className="text-sm font-semibold" style={{ fontFamily: 'var(--font-almarai)' }}>
-              {language === 'ar' ? 'عرض التفاصيل' : 'View Details'}
-            </span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+          {/* CTA Button */}
+          <div className="pt-4 border-t border-gray-100">
+            <div className="
+              flex items-center justify-center gap-2
+              w-full py-3 px-6 rounded-xl
+              bg-gradient-to-r from-[#1B8036] to-[#145c28]
+              text-white font-bold
+              group-hover:shadow-lg group-hover:shadow-[#1B8036]/50
+              transform group-hover:scale-[1.02]
+              transition-all duration-300
+            ">
+              <span className="text-sm" style={{ fontFamily: 'var(--font-almarai)' }}>
+                {language === 'ar' ? 'عرض التفاصيل' : 'View Details'}
+              </span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d={language === 'ar' ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7'} />
+              </svg>
+            </div>
           </div>
         </div>
       </div>

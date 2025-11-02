@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_content_service_category_cards",
+  "info": {
+    "displayName": "Service Category Card",
+    "description": "Card for service category with icon and details"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true,
+      "default": "/services"
+    },
+    "servicesCount": {
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "min": 0
+    },
+    "isHighlighted": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "color": {
+      "type": "string",
+      "required": false,
+      "default": "from-green-500 to-green-600"
+    }
+  }
+}

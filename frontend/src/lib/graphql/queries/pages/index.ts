@@ -6,3 +6,4 @@ export * from "./packages";
 export * from "./privacy-policy";
 export * from "./services";
 export * from "./terms-conditions";
+// Note: consulting and legal-services queries not yet implemented

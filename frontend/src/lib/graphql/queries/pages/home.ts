@@ -100,12 +100,25 @@ export const GET_HOME_PAGE = gql`
         }
       }
       Faq {
-        string
+        title
         faqs {
           answer
           order
           question
         }
+      }
+      Consultation {
+        title
+        description
+        backgroundImage {
+          url
+          name
+        }
+      }
+      Reviews {
+        title
+        subtitle
+        description
       }
       CTA {
         buttonLink

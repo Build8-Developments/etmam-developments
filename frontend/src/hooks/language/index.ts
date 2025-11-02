@@ -16,6 +16,7 @@ export const useLanguage = () => {
       document.body.classList.add("language-transitioning");
 
       localStorage.setItem("language", lang);
+      document.cookie = `language=${lang}; path=/; max-age=31536000`;
       document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
       document.documentElement.lang = lang;
 
@@ -39,6 +40,12 @@ export const useLanguage = () => {
       // Ignore localStorage errors
     }
   }, []);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.cookie = `language=${language}; path=/; max-age=31536000`;
+    }
+  }, [language]);
 
   return {
     language,

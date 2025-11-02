@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useHomePage } from "@/hooks/graphql";
 
 interface Partner {
   name: string;
@@ -17,9 +16,8 @@ interface PartnersSectionProps {
   partners?: Partner[];
 }
 
-const PartnersSection = ({ partners: propPartners }: PartnersSectionProps) => {
+const PartnersSection = ({ partners }: PartnersSectionProps) => {
   const { language } = useLanguage();
-  const { data: homeData } = useHomePage();
 
   // Default partners data
   const defaultPartners = [
@@ -28,9 +26,7 @@ const PartnersSection = ({ partners: propPartners }: PartnersSectionProps) => {
     { name: "Google", logo: "/Payment method icon.png" },
   ];
 
-  // Use props first, then home page data, then default data
-  const partners = propPartners || homeData?.PartnersLogos?.partners;
-
+  // Use provided partners or default data
   const partnersData =
     partners && partners.length > 0
       ? partners.map((partner: Partner) => ({

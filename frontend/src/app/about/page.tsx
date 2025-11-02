@@ -225,7 +225,7 @@ export default async function AboutPage() {
       {/* FAQ Section with Strapi data */}
       <AnimatedSection animation="slideInUp" delay={150}>
         <FAQSection 
-        title={aboutData?.Faq?.string}
+        title={aboutData?.Faq?.title}
         faqs={aboutData?.Faq?.faqs}
       />
       </AnimatedSection>

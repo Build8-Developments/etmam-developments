@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useHomePage } from "@/hooks/graphql";
 import { getTranslation, IMAGE_PATHS } from "@/constants";
 import { CTASectionProps } from "@/types";
 
@@ -15,42 +14,12 @@ const CTASection: React.FC<CTASectionProps> = ({
   backgroundImage,
 }) => {
   const { language, isRTL } = useLanguage();
-  const { data: homeData } = useHomePage();
 
-  // Helper function to get string value from Strapi i18n field (can be string or {ar, en} object)
-  const getLocalizedValue = (value: any): string => {
-    if (!value) return "";
-    if (typeof value === "string") return value;
-    if (typeof value === "object" && value !== null) {
-      return value[language] || value.ar || value.en || "";
-    }
-    return String(value);
-  };
-
-  // Use props first, then home page data, then default
-  const displayTitle =
-    title ||
-    getLocalizedValue(homeData?.CTA?.title) ||
-    getTranslation("cta", "title", language);
-  const displayButtonText =
-    buttonText ||
-    getLocalizedValue(homeData?.CTA?.buttonText) ||
-    getTranslation("cta", "buttonText", language);
-  const displayButtonLink =
-    buttonLink ||
-    (typeof homeData?.CTA?.buttonLink === "string"
-      ? homeData.CTA.buttonLink
-      : homeData?.CTA?.buttonLink?.[language]) ||
-    "/contact";
-  const displayBackgroundImage =
-    backgroundImage || homeData?.CTA?.backgroundImage;
-
-  console.log({
-    title,
-    buttonLink,
-    buttonText,
-    backgroundImage,
-  });
+  // Use props first, then default
+  const displayTitle = title || getTranslation("cta", "title", language);
+  const displayButtonText = buttonText || getTranslation("cta", "buttonText", language);
+  const displayButtonLink = buttonLink || "/contact";
+  const displayBackgroundImage = backgroundImage;
 
   return (
     <section className="py-8 sm:py-12 lg:py-16" dir={isRTL ? "rtl" : "ltr"}>
@@ -183,7 +152,7 @@ const CTASection: React.FC<CTASectionProps> = ({
                       ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${displayBackgroundImage.url}`
                       : IMAGE_PATHS.backgrounds.cta
                   }
-                  alt={displayBackgroundImage?.name || "Background"}
+                  alt={displayBackgroundImage?.alternativeText || "Background"}
                   fill
                   className="object-cover"
                   style={{

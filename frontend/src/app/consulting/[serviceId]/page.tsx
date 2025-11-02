@@ -1,7 +1,7 @@
 'use client';
 
-import { 
-  Header, 
+import {
+  Header,
   Footer,
   CTASection,
   ServiceDetailPage as ServiceDetailComponent,
@@ -23,7 +23,7 @@ export default function ConsultingServiceDetailPage() {
 
   // First, get all services to find the documentId by slug
   const { data: allServices } = useConsultingServices();
-  
+
   // Find the service by slug
   const serviceBySlug = useMemo(() => {
     if (!allServices || !serviceId) return null;
@@ -73,8 +73,12 @@ export default function ConsultingServiceDetailPage() {
     }
 
     // Fall back to mock data
+    console.log('Using mock data fallback for consulting service:', serviceId);
     const mockService = mockConsultingServices.find(service => service.id === serviceId);
-    if (!mockService) return null;
+    if (!mockService) {
+      console.warn('Service not found in mock data:', serviceId);
+      return null;
+    }
 
     return {
       title: mockService.title[language],
@@ -113,7 +117,7 @@ export default function ConsultingServiceDetailPage() {
   const handleRequestService = () => {
     if (transformedService) {
       showToast(
-        language === 'ar' 
+        language === 'ar'
           ? `تم طلب خدمة: ${transformedService.title}`
           : `Service requested: ${transformedService.title}`,
         'success',

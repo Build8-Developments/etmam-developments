@@ -76,10 +76,17 @@ export default function ServicesSection({
     }
 
     // Check if it's a Strapi URL (starts with / or http)
-    const imageSrc =
-      iconPath.startsWith("http") || iconPath.startsWith("/")
-        ? `http://localhost:1337${iconPath.startsWith("/") ? iconPath : ""}`
-        : `http://localhost:1337/uploads/${iconPath}`;
+    let imageSrc: string;
+    if (iconPath.startsWith("http")) {
+      // Already a complete URL
+      imageSrc = iconPath;
+    } else if (iconPath.startsWith("/")) {
+      // Relative path from Strapi
+      imageSrc = `http://localhost:1337${iconPath}`;
+    } else {
+      // Just filename
+      imageSrc = `http://localhost:1337/uploads/${iconPath}`;
+    }
 
     return (
       <Image
