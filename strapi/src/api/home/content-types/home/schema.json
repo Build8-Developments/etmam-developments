@@ -33,7 +33,7 @@
         }
       },
       "component": "sections.about-us-component",
-      "repeatable": false
+      "repeatable": true
     },
     "Services": {
       "type": "component",
@@ -75,16 +75,6 @@
       "component": "sections.services-carousel-section",
       "repeatable": false
     },
-    "Reviews": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "sections.reviews-section",
-      "repeatable": false
-    },
     "Blog": {
       "type": "component",
       "pluginOptions": {
@@ -103,16 +93,6 @@
         }
       },
       "component": "sections.faq-section",
-      "repeatable": false
-    },
-    "Consultation": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "sections.consultation-section",
       "repeatable": false
     },
     "CTA": {
