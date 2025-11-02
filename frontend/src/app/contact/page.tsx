@@ -7,14 +7,17 @@ import {
   ConsultationSection
 } from '@/components';
 import { AnimatedSection } from '@/components/common/AnimatedSection';
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useContactPage, useContactsInfo } from '@/hooks/graphql';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 
 export default function ContactPage() {
+  const { data: contactData } = useContactPage();
+  const { data: contactsData } = useContactsInfo();
   const { language } = useLanguage();
-  const { data: contactPageData } = useContactPage();
-  const { data: contactInfoData } = useContactsInfo();
+
+  const contactPageData = contactData;
+  const contactInfoData = contactsData;
 
   return (
     <div className="min-h-screen bg-white">

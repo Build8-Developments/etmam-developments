@@ -3,28 +3,52 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useContactsInfo, useFooter } from '@/hooks/graphql';
 
-const Footer = () => {
-  const { language } = useLanguage();
-  const { data: contactInfoData } = useContactsInfo();
-  const { data: footerData } = useFooter();
+interface ContactInfo {
+  email?: string;
+  phone_number?: string;
+  whatsapp_number?: string;
+  address?: string;
+  facebook_link?: string;
+  twitter_link?: string;
+  instagram_link?: string;
+}
 
-  // Helper function to get localized value
-  const getLocalizedValue = (value: any): string => {
-    if (!value) return '';
-    if (typeof value === 'string') return value;
-    if (typeof value === 'object' && value !== null) {
-      return value[language] || value.ar || value.en || '';
-    }
-    return String(value);
+interface FooterService {
+  ar: string;
+  en: string;
+  href: string;
+}
+
+interface FooterProps {
+  contactInfo?: ContactInfo;
+  consultingServices?: FooterService[];
+  legalServices?: FooterService[];
+  logo?: {
+    url: string;
+    name: string;
   };
+  companyName?: string;
+  companyTagline?: string;
+  slogan?: string;
+}
+
+const Footer = ({ 
+  contactInfo, 
+  consultingServices, 
+  legalServices,
+  logo,
+  companyName,
+  companyTagline,
+  slogan
+}: FooterProps) => {
+  const { language } = useLanguage();
 
   const DICT = {
     contactUs: { ar: 'تواصل معنا', en: 'Contact Us' },
-    email: { ar: contactInfoData?.email || 'Etmamm@gmail.com', en: contactInfoData?.email || 'Etmamm@gmail.com' },
-    phone1: { ar: contactInfoData?.phone_number || '(00) 0000-0000', en: contactInfoData?.phone_number || '(00) 0000-0000' },
-    phone2: { ar: contactInfoData?.whatsapp_number || '(00) 00000-0000', en: contactInfoData?.whatsapp_number || '(00) 00000-0000' },
+    email: { ar: contactInfo?.email || 'Etmamm@gmail.com', en: contactInfo?.email || 'Etmamm@gmail.com' },
+    phone1: { ar: contactInfo?.phone_number || '(00) 0000-0000', en: contactInfo?.phone_number || '(00) 0000-0000' },
+    phone2: { ar: contactInfo?.whatsapp_number || '(00) 00000-0000', en: contactInfo?.whatsapp_number || '(00) 00000-0000' },
     consultingServices: { ar: 'ابرز الخدمات الاستشارية', en: 'Key Consulting Services' },
     legalServices: { ar: 'ابرز الخدمات القانونية', en: 'Key Legal Services' },
     quickLinks: { ar: 'روابط سريعه', en: 'Quick Links' },
@@ -35,7 +59,7 @@ const Footer = () => {
     blog: { ar: 'المدونة', en: 'Blog' },
     packages: { ar: 'الباقات', en: 'Packages' },
     contact: { ar: 'تواصل معنا', en: 'Contact Us' },
-    slogan: { ar: getLocalizedValue(footerData?.slogan) || 'إتمام... وجهتك الأولى لإنجاز أعمالك بثقة وسهولة.', en: getLocalizedValue(footerData?.slogan) || 'Etmam... Your first destination to accomplish your business with confidence and ease.' },
+    slogan: { ar: 'إتمام... وجهتك الأولى لإنجاز أعمالك بثقة وسهولة.', en: 'Etmam... Your first destination to accomplish your business with confidence and ease.' },
     privacyPolicy: { ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
     termsConditions: { ar: 'الشروط والاحكام', en: 'Terms and Conditions' },
   } as const;
@@ -59,24 +83,16 @@ const Footer = () => {
     { ar: 'وزارة التعليم', en: 'Ministry of Education', href: '/legalservices' }
   ];
 
-  // Use Strapi data if available, otherwise use defaults
-  const consultingServices = footerData?.consultingServices && footerData.consultingServices.length > 0
-    ? footerData.consultingServices.map((service: any) => ({
-        ar: getLocalizedValue(service.label),
-        en: getLocalizedValue(service.label),
-        href: service.href || '/consulting'
-      }))
+  // Use provided data or defaults
+  const displayConsultingServices = consultingServices && consultingServices.length > 0
+    ? consultingServices
     : defaultConsultingServices;
 
-  const legalServices = footerData?.legalServices && footerData.legalServices.length > 0
-    ? footerData.legalServices.map((service: any) => ({
-        ar: getLocalizedValue(service.label),
-        en: getLocalizedValue(service.label),
-        href: service.href || '/legalservices'
-      }))
+  const displayLegalServices = legalServices && legalServices.length > 0
+    ? legalServices
     : defaultLegalServices;
 
-  // Quick links - use Strapi data if available
+  // Quick links
   const defaultQuickLinks = [
     { ar: DICT.home[language], en: DICT.home[language], href: '/' },
     { ar: DICT.aboutUs[language], en: DICT.aboutUs[language], href: '/about' },
@@ -86,13 +102,7 @@ const Footer = () => {
     { ar: DICT.contact[language], en: DICT.contact[language], href: '/contact' }
   ];
 
-  const quickLinks = footerData?.quickLinks && footerData.quickLinks.length > 0
-    ? footerData.quickLinks.map((link: any) => ({
-        ar: getLocalizedValue(link.label),
-        en: getLocalizedValue(link.label),
-        href: link.href || '#'
-      }))
-    : defaultQuickLinks;
+  const quickLinks = defaultQuickLinks;
 
   return (
     <footer 
@@ -129,7 +139,7 @@ const Footer = () => {
               </h3>
               <div className="space-y-4">
                 <a 
-                  href={`mailto:${contactInfoData?.email || 'Etmamm@gmail.com'}`}
+                  href={`mailto:${contactInfo?.email || 'Etmamm@gmail.com'}`}
                   className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group"
                 >
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
@@ -138,10 +148,10 @@ const Footer = () => {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
                   </div>
-                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfoData?.email || DICT.email[language]}</span>
+                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfo?.email || DICT.email[language]}</span>
                 </a>
                 <a 
-                  href={`tel:${contactInfoData?.phone_number || '(00) 0000-0000'}`}
+                  href={`tel:${contactInfo?.phone_number || '(00) 0000-0000'}`}
                   className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group"
                 >
                   <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
@@ -149,10 +159,10 @@ const Footer = () => {
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
                   </div>
-                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfoData?.phone_number || DICT.phone1[language]}</span>
+                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfo?.phone_number || DICT.phone1[language]}</span>
                 </a>
                 <a 
-                  href={`https://wa.me/${contactInfoData?.whatsapp_number?.replace(/[^0-9]/g, '') || '00000000000'}`}
+                  href={`https://wa.me/${contactInfo?.whatsapp_number?.replace(/[^0-9]/g, '') || '00000000000'}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-white/90 hover:text-white transition-colors duration-300 group"
@@ -162,7 +172,7 @@ const Footer = () => {
                       <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
                     </svg>
                   </div>
-                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfoData?.whatsapp_number || DICT.phone2[language]}</span>
+                   <span className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ fontFamily: 'var(--font-almarai)' }}>{contactInfo?.whatsapp_number || DICT.phone2[language]}</span>
                 </a>
               </div>
             </div>
@@ -178,7 +188,7 @@ const Footer = () => {
                 {DICT.consultingServices[language]}
               </h3>
               <div className="space-y-2">
-                {consultingServices.map((service: { ar: string; en: string; href: string }, index: number) => (
+                {displayConsultingServices.map((service: { ar: string; en: string; href: string }, index: number) => (
                    <Link 
                      key={index} 
                      href={service.href || '/consulting'} 
@@ -202,7 +212,7 @@ const Footer = () => {
                 {DICT.legalServices[language]}
               </h3>
               <div className="space-y-2">
-                {legalServices.map((service: { ar: string; en: string; href: string }, index: number) => (
+                {displayLegalServices.map((service: { ar: string; en: string; href: string }, index: number) => (
                    <Link 
                      key={index} 
                      href={service.href || '/legalservices'} 
@@ -244,10 +254,10 @@ const Footer = () => {
               <div className="flex flex-col items-center lg:items-start space-y-6">
                 {/* Logo Section */}
                 <div className="flex flex-col items-center lg:items-start space-y-3">
-                  {footerData?.logo?.url ? (
+                  {logo?.url ? (
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${footerData.logo.url}`}
-                      alt={footerData.logo.name || 'Etmam'}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${logo.url}`}
+                      alt={logo.name || 'Etmam'}
                       width={140}
                       height={98}
                       className="object-contain brightness-0 invert w-[120px] h-[84px] sm:w-[140px] sm:h-[98px] md:w-[160px] md:h-[112px] lg:w-[180px] lg:h-[126px]"
@@ -263,10 +273,10 @@ const Footer = () => {
                   )}
                   <div className="text-center lg:text-right">
                     <h4 className="text-white font-bold text-lg sm:text-xl md:text-2xl mb-2" style={{ fontFamily: 'var(--font-almarai)' }}>
-                      {getLocalizedValue(footerData?.companyName) || 'إتمام'}
+                      {companyName || 'إتمام'}
                     </h4>
                     <p className="text-white/80 text-sm sm:text-base md:text-lg" style={{ fontFamily: 'var(--font-almarai)' }}>
-                      {getLocalizedValue(footerData?.companyTagline) || 'ETMAM Business Solutions'}
+                      {companyTagline || 'ETMAM Business Solutions'}
                     </p>
                   </div>
                 </div>
@@ -279,7 +289,7 @@ const Footer = () => {
                       fontFamily: 'var(--font-almarai)',
                     }}
                   >
-                    {DICT.slogan[language]}
+                    {slogan || DICT.slogan[language]}
                   </div>
                 </div>
               </div>
@@ -298,10 +308,10 @@ const Footer = () => {
             
             {/* Logo */}
             <div className="flex items-center">
-              {footerData?.logo?.url ? (
+              {logo?.url ? (
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${footerData.logo.url}`}
-                  alt={footerData.logo.name || 'Etmam'}
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${logo.url}`}
+                  alt={logo.name || 'Etmam'}
                   width={80}
                   height={56}
                   className="object-contain"
@@ -319,9 +329,9 @@ const Footer = () => {
 
             {/* Social Media Icons */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-5">
-              {contactInfoData?.facebook_link && (
+              {contactInfo?.facebook_link && (
                 <a 
-                  href={contactInfoData.facebook_link}
+                  href={contactInfo.facebook_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105"
@@ -329,9 +339,9 @@ const Footer = () => {
                   <span className="text-white font-bold text-lg sm:text-xl">f</span>
                 </a>
               )}
-              {contactInfoData?.twitter_link && (
+              {contactInfo?.twitter_link && (
                 <a 
-                  href={contactInfoData.twitter_link}
+                  href={contactInfo.twitter_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105"
@@ -341,9 +351,9 @@ const Footer = () => {
                   </svg>
                 </a>
               )}
-              {contactInfoData?.instagram_link && (
+              {contactInfo?.instagram_link && (
                 <a 
-                  href={contactInfoData.instagram_link}
+                  href={contactInfo.instagram_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105"

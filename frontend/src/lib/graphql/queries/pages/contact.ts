@@ -49,10 +49,8 @@ export const GET_CONTACT_PAGE = gql`
         data
       }
       Faq {
-        id
-        string
+        title
         faqs {
-          id
           question
           answer
           order

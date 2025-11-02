@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useReviews } from "@/hooks/graphql";
 import { getTranslation, IMAGE_PATHS } from "@/constants";
 
 interface Review {
@@ -26,17 +25,15 @@ interface ReviewsSectionProps {
 const ReviewsSection: React.FC<ReviewsSectionProps> = ({
   title,
   subtitle,
-  reviews: propReviews,
+  reviews,
 }) => {
   const { language, isRTL } = useLanguage();
-  const { data: strapiReviews } = useReviews();
 
   const defaultTitle = getTranslation("reviews", "title", language);
   const defaultSubtitle = getTranslation("reviews", "subtitle", language);
 
   // Default reviews for fallback
-  const defaultReviews: Review[] = useMemo(
-    () => [
+  const defaultReviews: Review[] = [
       {
         id: 1,
         name: language === "ar" ? "سارة أحمد" : "Sarah Ahmed",
@@ -111,46 +108,10 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
             : "Fast and guaranteed service. They helped us register the trading company in two weeks. Thank you.",
         avatar: IMAGE_PATHS.people.small,
       },
-    ],
-    [language]
-  );
+  ];
 
-  // Transform Strapi reviews or use provided reviews or default
-  const displayReviews = useMemo(() => {
-    // If reviews prop is provided, use it
-    if (propReviews && propReviews.length > 0) {
-      return propReviews;
-    }
-
-    // If Strapi reviews exist, transform them
-    if (strapiReviews && strapiReviews.length > 0) {
-      return strapiReviews.map((review: any) => {
-        const reviewDate = review.date
-          ? new Date(review.date).toLocaleDateString(
-              language === "ar" ? "ar-SA" : "en-US"
-            )
-          : undefined;
-
-        return {
-          id: review.documentId || review.id || "",
-          name: review.name || "",
-          // Note: In the Strapi data, position and company fields appear to be swapped
-          // position field contains order number, company field contains the actual position/title
-          position: review.company || "",
-          company: review.position || "",
-          rating: review.rating || 5,
-          comment: review.comment || "",
-          date: reviewDate,
-          avatar: review.avatar?.url
-            ? `http://localhost:1337${review.avatar.url}`
-            : IMAGE_PATHS.people.main,
-        };
-      });
-    }
-
-    // Fallback to default reviews
-    return defaultReviews;
-  }, [strapiReviews, propReviews, language, defaultReviews]);
+  // Use provided reviews or default
+  const displayReviews = reviews && reviews.length > 0 ? reviews : defaultReviews;
 
   return (
     <section className="py-16 bg-white" dir={isRTL ? "rtl" : "ltr"}>

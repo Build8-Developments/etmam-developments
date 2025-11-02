@@ -39,9 +39,13 @@ export default function Header({
     },
   ];
 
-  const navItems = navigationItems || defaultNavItems;
+  const navItems = (navigationItems || defaultNavItems).map((item: any) => ({
+    ...item,
+    label: typeof item.label === 'string' ? item.label : (item.label?.[language] ?? ''),
+  }));
   const contactLabel =
-    contactButton?.label || getTranslation("navigation", "contact", language);
+    (typeof contactButton?.label === 'string' ? contactButton?.label : contactButton?.label?.[language])
+    || getTranslation("navigation", "contact", language);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] animate-slide-down">

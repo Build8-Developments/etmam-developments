@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_sections_service_categories",
+  "info": {
+    "displayName": "Service Categories Section",
+    "description": "Section displaying service category cards"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "categories": {
+      "type": "component",
+      "component": "content.service-category-card",
+      "repeatable": true,
+      "required": true,
+      "min": 2,
+      "max": 6
+    }
+  }
+}

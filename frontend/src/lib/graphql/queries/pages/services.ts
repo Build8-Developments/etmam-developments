@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_SERVICES_PAGE = gql`
-  query Query($locale: I18NLocaleCode) {
-    service(locale: $locale) {
+  query ServicesPage($locale: I18NLocaleCode) {
+    servicesPage(locale: $locale) {
       Hero {
         id
         title
@@ -39,37 +39,65 @@ export const GET_SERVICES_PAGE = gql`
           label
         }
       }
-      serviceCategories {
-        id
+      ServiceCategories {
         title
         description
-        icon {
-          name
-          url
+        categories {
+          title
+          description
+          icon {
+            url
+            name
+          }
+          href
+          servicesCount
+          isHighlighted
+          color
         }
-        href
-        servicesCount
-        isHighlighted
-        color
       }
-      features {
-        id
-        icon
+      Features {
         title
         description
+        features {
+          title
+          description
+          icon {
+            url
+            name
+          }
+        }
       }
-      Faq {
-        id
-        string
+      HowItWorks {
+        title
+        description
+        bannerText
+        personImage {
+          url
+          name
+        }
+        steps {
+          title
+          description
+          order
+        }
+      }
+      FAQ {
+        title
         faqs {
-          id
           question
           answer
           order
         }
       }
-      cta {
-        id
+      Consultation {
+        title
+        description
+        backgroundImage {
+          url
+          name
+        }
+      }
+      CTA {
         title
         buttonText
         buttonLink
@@ -78,10 +106,8 @@ export const GET_SERVICES_PAGE = gql`
           name
         }
       }
-      partners {
-        id
+      Partners {
         partners {
-          id
           name
           logo {
             url

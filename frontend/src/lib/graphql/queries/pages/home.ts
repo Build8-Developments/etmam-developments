@@ -100,7 +100,7 @@ export const GET_HOME_PAGE = gql`
         }
       }
       Faq {
-        string
+        title
         faqs {
           answer
           order

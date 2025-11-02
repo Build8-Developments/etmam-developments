@@ -1,7 +1,6 @@
 'use client';
 
 import { use } from 'react';
-import { useParams } from 'next/navigation';
 import { 
   Header, 
   Footer,

@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "string": {
+    "title": {
       "type": "string"
     },
     "faqs": {

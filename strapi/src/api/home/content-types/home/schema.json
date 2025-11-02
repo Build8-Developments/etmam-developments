@@ -33,7 +33,7 @@
         }
       },
       "component": "sections.about-us-component",
-      "repeatable": true
+      "repeatable": false
     },
     "Services": {
       "type": "component",

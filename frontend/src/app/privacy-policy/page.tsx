@@ -1,4 +1,4 @@
-'use client';
+ 
 
 import { 
   Header, 
@@ -6,15 +6,29 @@ import {
   ConsultationSection
 } from '@/components';
 import { AnimatedSection } from '@/components/common/AnimatedSection';
-import { useLanguage } from "@/contexts/LanguageContext";
-import { usePrivacyPolicyPage } from '@/hooks/graphql';
+import { GET_PRIVACY_POLICY } from '@/lib/graphql/queries/pages/privacy-policy';
+import { fetchWithLocale } from '@/lib/graphql/utils/fetchGraphQL';
+import { getLocale } from '@/lib/graphql/utils/locale';
 import { privacyPolicyContent } from '@/mockData/pages';
 import Link from 'next/link';
 
-export default function PrivacyPolicyPage() {
-  const { language } = useLanguage();
-  const { data: privacyPolicyPageData } = usePrivacyPolicyPage();
+export default async function PrivacyPolicyPage() {
+  const locale = await getLocale();
+  const language = (locale === 'en' ? 'en' : 'ar') as 'ar' | 'en';
+  const { data } = await fetchWithLocale({ query: GET_PRIVACY_POLICY, locale });
+  const privacyPolicyPageData = (data as any)?.privacyPolicyPage || null;
   const currentContent = privacyPolicyContent;
+
+  const L = (v: any): string => {
+    if (v == null) return '';
+    if (typeof v === 'string' || typeof v === 'number') return String(v);
+    if (Array.isArray(v)) return v.map((x) => L(x)).join('\n\n');
+    if (typeof v === 'object') {
+      const candidate = (v as any)[language];
+      return typeof candidate === 'string' || typeof candidate === 'number' ? String(candidate) : '';
+    }
+    return '';
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -51,14 +65,14 @@ export default function PrivacyPolicyPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {privacyPolicyPageData?.Hero?.title || currentContent.title[language]}
+                  {L(privacyPolicyPageData?.Hero?.title) || currentContent.title[language]}
                 </h1>
                 
                 <p 
                   className="text-lg md:text-xl mb-8 leading-relaxed opacity-90"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {privacyPolicyPageData?.Hero?.subtitle || (language === 'ar' 
+                  {L(privacyPolicyPageData?.Hero?.subtitle) || (language === 'ar' 
                     ? 'نحن ملتزمون بحماية خصوصيتك وضمان أمان معلوماتك الشخصية. تعرف على كيفية جمعنا واستخدامنا وحمايتنا لبياناتك.'
                     : 'We are committed to protecting your privacy and ensuring the security of your personal information. Learn how we collect, use, and protect your data.')
                   }
@@ -71,7 +85,7 @@ export default function PrivacyPolicyPage() {
                       className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
-                      {privacyPolicyPageData.Hero.primaryButton.label || (language === 'ar' ? 'اقرأ السياسة' : 'Read Policy')}
+                      {L(privacyPolicyPageData.Hero.primaryButton.label) || (language === 'ar' ? 'اقرأ السياسة' : 'Read Policy')}
                     </Link>
                   )}
                   {privacyPolicyPageData?.Hero?.secondaryButton && (
@@ -80,7 +94,7 @@ export default function PrivacyPolicyPage() {
                       className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
-                      {privacyPolicyPageData.Hero.secondaryButton.label || (language === 'ar' ? 'تواصل معنا' : 'Contact Us')}
+                      {L(privacyPolicyPageData.Hero.secondaryButton.label) || (language === 'ar' ? 'تواصل معنا' : 'Contact Us')}
                     </Link>
                   )}
                 </div>
@@ -93,12 +107,12 @@ export default function PrivacyPolicyPage() {
                   {privacyPolicyPageData?.Hero?.stats?.map((stat: any, index: number) => (
                     <div key={stat.id || index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                        <div className="text-3xl font-bold text-white mb-2">{L(stat.value) || stat.value}</div>
                         <div 
                           className="text-sm text-white/80"
                           style={{ fontFamily: 'var(--font-almarai)' }}
                         >
-                          {stat.label}
+                          {L(stat.label) || stat.label}
                         </div>
                       </div>
                     </div>
@@ -179,13 +193,13 @@ export default function PrivacyPolicyPage() {
                   className="text-3xl font-bold mb-4"
                   style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
                 >
-                  {privacyPolicyPageData?.privacy_policy?.title || (language === 'ar' ? 'التزامنا بحماية خصوصيتك' : 'Our Commitment to Your Privacy')}
+                  {L(privacyPolicyPageData?.privacy_policy?.title) || (language === 'ar' ? 'التزامنا بحماية خصوصيتك' : 'Our Commitment to Your Privacy')}
                 </h2>
                 <p 
                   className="text-lg text-gray-600 max-w-3xl mx-auto"
                   style={{ fontFamily: 'var(--font-almarai)' }}
                 >
-                  {privacyPolicyPageData?.privacy_policy?.subtitle || (language === 'ar' 
+                  {L(privacyPolicyPageData?.privacy_policy?.subtitle) || (language === 'ar' 
                     ? 'نحن في إتمام نؤمن بأن خصوصيتك هي حق أساسي. هذه السياسة توضح بالتفصيل كيف نتعامل مع معلوماتك الشخصية ونحميها.'
                     : 'At Etmam, we believe your privacy is a fundamental right. This policy details how we handle and protect your personal information.')
                   }
@@ -214,7 +228,7 @@ export default function PrivacyPolicyPage() {
                           color: '#11613A'
                         }}
                       >
-                        {section.title || section.title?.[language]}
+                        {L(section.title) || section.title?.[language]}
                       </h3>
                       
                       <div 
@@ -226,7 +240,7 @@ export default function PrivacyPolicyPage() {
                           lineHeight: '1.7'
                         }}
                       >
-                        {section.contents || section.content?.[language]}
+                        {L(section.contents ?? section.content)}
                       </div>
                     </div>
                   </div>

@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useFeaturedBlogPosts } from "@/hooks/graphql";
 
 interface BlogPost {
   id: string;
@@ -16,9 +15,12 @@ interface BlogPost {
   slug?: string;
 }
 
-const BlogSection: React.FC = () => {
+interface BlogSectionProps {
+  posts?: BlogPost[];
+}
+
+const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
   const { language } = useLanguage();
-  const { data: featuredPosts } = useFeaturedBlogPosts();
 
   // Dictionary for Arabic and English content
   const DICT = {
@@ -31,34 +33,8 @@ const BlogSection: React.FC = () => {
     location: { ar: "سوهاج • 25 أبريل, 2025", en: "Sohag • April 25, 2025" },
   } as const;
 
-  // Transform Strapi data or use mock data
-  const blogPosts: BlogPost[] = useMemo(() => {
-    if (featuredPosts && featuredPosts.length > 0) {
-      return featuredPosts.slice(0, 3).map((post: any) => {
-        const publishedDate = post.publishedAt 
-          ? new Date(post.publishedAt).toLocaleDateString(language === 'ar' ? 'ar-SA' : 'en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })
-          : DICT.date[language];
-        
-        return {
-          id: post.slug || post.documentId || '',
-          title: post.title || '',
-          description: post.summary || post.description || DICT.description[language],
-          image: post.banner?.url 
-            ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${post.banner.url}`
-            : "/blog1.jpg",
-          date: publishedDate,
-          location: publishedDate,
-          slug: post.slug
-        };
-      });
-    }
-
-    // Fallback to mock data
-    return [
+  // Default mock data
+  const defaultBlogPosts: BlogPost[] = [
       {
         id: "1",
         title: language === 'ar' ? "3 حيل بسيطة تجذب عملائك" : "3 Simple Tricks to Attract Your Customers",
@@ -83,8 +59,10 @@ const BlogSection: React.FC = () => {
         date: DICT.date[language],
         location: DICT.location[language],
       },
-    ];
-  }, [featuredPosts, language]);
+  ];
+
+  // Use provided posts or default
+  const blogPosts = posts && posts.length > 0 ? posts : defaultBlogPosts;
 
   return (
     <section

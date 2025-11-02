@@ -54,10 +54,8 @@ export const GET_PACKAGES_PAGE = gql`
         description
       }
       Faq {
-        id
-        string
+        title
         faqs {
-          id
           question
           answer
           order
