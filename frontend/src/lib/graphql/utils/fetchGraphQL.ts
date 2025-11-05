@@ -103,8 +103,14 @@ export async function fetchGraphQL<T = any>(
   } catch (err: any) {
     // Only log errors in development or when explicitly needed
     // Suppress connection refused errors when Strapi is not running (using mock data fallback)
-    if (process.env.NODE_ENV === 'development' && !err.message?.includes('ECONNREFUSED')) {
-      console.warn("GraphQL Error:", err.message || "An unknown error occurred");
+    if (
+      process.env.NODE_ENV === "development" &&
+      !err.message?.includes("ECONNREFUSED")
+    ) {
+      console.warn(
+        "GraphQL Error:",
+        err.message || "An unknown error occurred"
+      );
     }
 
     return {
@@ -160,7 +166,9 @@ export async function fetchWithLocale<T = any>(options: {
     fetchOptions.tags = tags;
   }
 
-  return fetchGraphQL<T>(fetchOptions);
+  const result = await fetchGraphQL<T>(fetchOptions);
+
+  return result;
 }
 
 /**

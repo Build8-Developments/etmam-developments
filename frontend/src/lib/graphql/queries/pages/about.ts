@@ -7,24 +7,12 @@ export const GET_ABOUT_PAGE = gql`
         title
         subtitle
         primaryButton {
-          icon {
-            url
-            name
-          }
           href
           label
-          openInNewTab
-          variant
         }
         secondaryButton {
           href
-          icon {
-            url
-            name
-          }
           label
-          openInNewTab
-          variant
         }
         stats {
           label

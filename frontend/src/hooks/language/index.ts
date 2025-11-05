@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { Language } from "@/types";
 
 /**
@@ -8,24 +9,30 @@ import { Language } from "@/types";
  */
 export const useLanguage = () => {
   const [language, setLanguageState] = useState<Language>("ar");
+  const router = useRouter();
 
-  const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
-    if (typeof window !== "undefined") {
-      // Add transition class to body
-      document.body.classList.add("language-transitioning");
+  const setLanguage = useCallback(
+    (lang: Language) => {
+      setLanguageState(lang);
+      if (typeof window !== "undefined") {
+        // Add transition class to body
+        document.body.classList.add("language-transitioning");
 
-      localStorage.setItem("language", lang);
-      document.cookie = `language=${lang}; path=/; max-age=31536000`;
-      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-      document.documentElement.lang = lang;
+        localStorage.setItem("language", lang);
+        document.cookie = `language=${lang}; path=/; max-age=31536000`;
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+        document.documentElement.lang = lang;
 
-      // Remove transition class after animation completes
-      setTimeout(() => {
-        document.body.classList.remove("language-transitioning");
-      }, 400);
-    }
-  }, []);
+        // Remove transition class after animation completes
+        setTimeout(() => {
+          document.body.classList.remove("language-transitioning");
+          // Force router refresh to re-fetch server components with new locale
+          router.refresh();
+        }, 400);
+      }
+    },
+    [router]
+  );
 
   // Load saved language on mount
   useEffect(() => {

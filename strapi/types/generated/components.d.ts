@@ -389,7 +389,7 @@ export interface SectionsFaqSection extends Struct.ComponentSchema {
         },
         number
       >;
-    string: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 

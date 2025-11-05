@@ -103,6 +103,27 @@ export const GET_BLOG_POST_BY_SLUG = gql`
   }
 `;
 
+export const GET_BLOG_POST_DEFAULT_LOCALE = gql`
+  query BlogPostDefaultLocale($slug: String!) {
+    blogsAr: blogs(
+      locale: "ar"
+      filters: { slug: { eq: $slug } }
+      pagination: { limit: 1 }
+    ) {
+      documentId
+      locale
+    }
+    blogsEn: blogs(
+      locale: "en"
+      filters: { slug: { eq: $slug } }
+      pagination: { limit: 1 }
+    ) {
+      documentId
+      locale
+    }
+  }
+`;
+
 export const GET_BLOG_POST_COMMENTS = gql`
   query BlogComments($blogPostId: ID!) {
     blogComments(

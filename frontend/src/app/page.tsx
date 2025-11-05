@@ -46,21 +46,31 @@ export default async function Home() {
   // Extract data from Strapi responses
   const homeData = strapiData?.home;
   const reviews = reviewsData?.reviews;
-  
+
   // Transform blog posts to expected format
-  const blogPosts = blogData?.blogs?.map((post: any) => ({
-    id: post.slug || post.documentId || '',
-    title: post.title || '',
-    description: post.summary || '',
-    image: post.banner?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${post.banner.url}` : '/blog1.jpg',
-    date: post.publishedAt ? new Date(post.publishedAt).toLocaleDateString(locale === 'ar' ? 'ar-SA' : 'en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    }) : '',
-    location: '',
-    slug: post.slug
-  })) || [];
+  const blogPosts =
+    blogData?.blogs?.map((post: any) => ({
+      id: post.slug || post.documentId || "",
+      title: post.title || "",
+      description: post.summary || "",
+      image: post.banner?.url
+        ? `${
+            process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+          }${post.banner.url}`
+        : "/blog1.jpg",
+      date: post.publishedAt
+        ? new Date(post.publishedAt).toLocaleDateString(
+            locale === "ar" ? "ar-SA" : "en-US",
+            {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }
+          )
+        : "",
+      location: "",
+      slug: post.slug,
+    })) || [];
 
   return (
     <div className="min-h-screen bg-white">
@@ -150,7 +160,7 @@ export default async function Home() {
 
       {/* Reviews Section with Strapi data */}
       <AnimatedSection animation="fadeInRight" delay={100}>
-        <ReviewsSection 
+        <ReviewsSection
           title={homeData?.Reviews?.title}
           subtitle={homeData?.Reviews?.subtitle}
           reviews={reviews}
@@ -169,7 +179,7 @@ export default async function Home() {
 
       {/* Consultation Section with Strapi data */}
       <AnimatedSection animation="fadeInUp" delay={200}>
-        <ConsultationSection 
+        <ConsultationSection
           title={homeData?.Consultation?.title}
           description={homeData?.Consultation?.description}
           backgroundImage={homeData?.Consultation?.backgroundImage}

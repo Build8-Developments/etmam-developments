@@ -18,6 +18,7 @@ export interface BlogPost {
     ar: string;
     en: string;
   };
+  authorImage?: string;
   date: string;
   readTime: {
     ar: string;
@@ -33,14 +34,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: 'national-day-95',
+    id: "national-day-95",
     title: {
-      ar: 'عزنا بطبعنا - اليوم الوطني السعودي 95',
-      en: 'Our Pride by Nature - Saudi National Day 95'
+      ar: "عزنا بطبعنا - اليوم الوطني السعودي 95",
+      en: "Our Pride by Nature - Saudi National Day 95",
     },
     excerpt: {
-      ar: 'وهي تبدو غير منطقية أو مركبة من كلمات عشوائية. يقدم هذا المقال نظرة عامة حول الموضوع ويشرح أهم النقاط بطريقة مختصرة وواضحة.',
-      en: 'It seems illogical or composed of random words. This article provides an overview of the topic and explains the most important points in a concise and clear way.'
+      ar: "وهي تبدو غير منطقية أو مركبة من كلمات عشوائية. يقدم هذا المقال نظرة عامة حول الموضوع ويشرح أهم النقاط بطريقة مختصرة وواضحة.",
+      en: "It seems illogical or composed of random words. This article provides an overview of the topic and explains the most important points in a concise and clear way.",
     },
     content: {
       ar: `
@@ -116,35 +117,36 @@ export const blogPosts: BlogPost[] = [
             <p class="text-green-700">Make sure to update all documents and licenses periodically. Laws and regulations change constantly, and compliance protects your company from legal problems.</p>
           </div>
         </div>
-      `
+      `,
     },
-    image: '/blog3.jpg',
-    category: 'culture',
+    image: "/blog3.jpg",
+    category: "culture",
     author: {
-      ar: 'فاطمة السيد',
-      en: 'Fatima Al-Sayed'
+      ar: "فاطمة السيد",
+      en: "Fatima Al-Sayed",
     },
-    date: '2025-04-25',
+    authorImage: "/men1.png",
+    date: "2025-04-25",
     readTime: {
-      ar: '10 دقائق',
-      en: '10 minutes'
+      ar: "10 دقائق",
+      en: "10 minutes",
     },
     comments: 0,
     featured: true,
     tags: {
-      ar: ['اليوم الوطني', 'السعودية', 'الثقافة', 'التقاليد'],
-      en: ['National Day', 'Saudi Arabia', 'Culture', 'Traditions']
-    }
+      ar: ["اليوم الوطني", "السعودية", "الثقافة", "التقاليد"],
+      en: ["National Day", "Saudi Arabia", "Culture", "Traditions"],
+    },
   },
   {
-    id: 'business-growth',
+    id: "business-growth",
     title: {
-      ar: 'نمو الأعمال في المملكة العربية السعودية',
-      en: 'Business Growth in Saudi Arabia'
+      ar: "نمو الأعمال في المملكة العربية السعودية",
+      en: "Business Growth in Saudi Arabia",
     },
     excerpt: {
-      ar: 'دليل شامل لنمو الأعمال والاستثمار في المملكة العربية السعودية مع التركيز على الفرص المتاحة.',
-      en: 'Comprehensive guide to business growth and investment in Saudi Arabia with focus on available opportunities.'
+      ar: "دليل شامل لنمو الأعمال والاستثمار في المملكة العربية السعودية مع التركيز على الفرص المتاحة.",
+      en: "Comprehensive guide to business growth and investment in Saudi Arabia with focus on available opportunities.",
     },
     content: {
       ar: `
@@ -212,35 +214,36 @@ export const blogPosts: BlogPost[] = [
             <p class="text-blue-700">Take advantage of government programs supporting investment such as the "Invest" program and "Special Economic Zones" to get additional benefits.</p>
           </div>
         </div>
-      `
+      `,
     },
-    image: '/blog1.jpg',
-    category: 'business',
+    image: "/blog1.jpg",
+    category: "business",
     author: {
-      ar: 'أحمد محمد',
-      en: 'Ahmed Mohammed'
+      ar: "أحمد محمد",
+      en: "Ahmed Mohammed",
     },
-    date: '2025-04-20',
+    authorImage: "/men1.png",
+    date: "2025-04-20",
     readTime: {
-      ar: '8 دقائق',
-      en: '8 minutes'
+      ar: "8 دقائق",
+      en: "8 minutes",
     },
     comments: 5,
     featured: false,
     tags: {
-      ar: ['الأعمال', 'الاستثمار', 'رؤية 2030', 'النمو'],
-      en: ['Business', 'Investment', 'Vision 2030', 'Growth']
-    }
+      ar: ["الأعمال", "الاستثمار", "رؤية 2030", "النمو"],
+      en: ["Business", "Investment", "Vision 2030", "Growth"],
+    },
   },
   {
-    id: 'legal-updates',
+    id: "legal-updates",
     title: {
-      ar: 'أحدث التحديثات القانونية في المملكة',
-      en: 'Latest Legal Updates in the Kingdom'
+      ar: "أحدث التحديثات القانونية في المملكة",
+      en: "Latest Legal Updates in the Kingdom",
     },
     excerpt: {
-      ar: 'مراجعة شاملة لأحدث التحديثات القانونية والتشريعية في المملكة العربية السعودية وأثرها على الأعمال.',
-      en: 'Comprehensive review of the latest legal and legislative updates in Saudi Arabia and their impact on business.'
+      ar: "مراجعة شاملة لأحدث التحديثات القانونية والتشريعية في المملكة العربية السعودية وأثرها على الأعمال.",
+      en: "Comprehensive review of the latest legal and legislative updates in Saudi Arabia and their impact on business.",
     },
     content: {
       ar: `
@@ -290,32 +293,33 @@ export const blogPosts: BlogPost[] = [
             <p class="text-yellow-700">Make sure to review all new legal updates and ensure your company's compliance to avoid any legal problems.</p>
           </div>
         </div>
-      `
+      `,
     },
-    image: '/blog2.jpg',
-    category: 'legal',
+    image: "/blog2.jpg",
+    category: "legal",
     author: {
-      ar: 'محمد العلي',
-      en: 'Mohammed Al-Ali'
+      ar: "محمد العلي",
+      en: "Mohammed Al-Ali",
     },
-    date: '2025-04-15',
+    authorImage: "/men1.png",
+    date: "2025-04-15",
     readTime: {
-      ar: '6 دقائق',
-      en: '6 minutes'
+      ar: "6 دقائق",
+      en: "6 minutes",
     },
     comments: 12,
     featured: true,
     tags: {
-      ar: ['القانون', 'التحديثات', 'الشركات', 'الضرائب'],
-      en: ['Law', 'Updates', 'Companies', 'Taxes']
-    }
-  }
+      ar: ["القانون", "التحديثات", "الشركات", "الضرائب"],
+      en: ["Law", "Updates", "Companies", "Taxes"],
+    },
+  },
 ];
 
 export const blogCategories = [
-  { id: 'all', name: { ar: 'الكل', en: 'All' } },
-  { id: 'business', name: { ar: 'الأعمال', en: 'Business' } },
-  { id: 'legal', name: { ar: 'القانون', en: 'Legal' } },
-  { id: 'culture', name: { ar: 'الثقافة', en: 'Culture' } },
-  { id: 'technology', name: { ar: 'التقنية', en: 'Technology' } }
+  { id: "all", name: { ar: "الكل", en: "All" } },
+  { id: "business", name: { ar: "الأعمال", en: "Business" } },
+  { id: "legal", name: { ar: "القانون", en: "Legal" } },
+  { id: "culture", name: { ar: "الثقافة", en: "Culture" } },
+  { id: "technology", name: { ar: "التقنية", en: "Technology" } },
 ];
