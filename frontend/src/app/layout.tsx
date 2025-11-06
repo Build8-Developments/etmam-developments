@@ -53,6 +53,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Determine staging/preview environment for noindex meta tag
+  const isStaging =
+    process.env.DEPLOY_ENV === "staging" ||
+    process.env.NEXT_PUBLIC_DEPLOY_ENV === "staging" ||
+    process.env.VERCEL_ENV === "preview";
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
@@ -61,6 +66,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        {isStaging && (
+          // In staging we explicitly instruct search engines not to index or follow links
+          <meta name="robots" content="noindex,nofollow" />
+        )}
       </head>
       <body
         suppressHydrationWarning
