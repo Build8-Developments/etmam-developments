@@ -6,7 +6,7 @@ import { useToast } from "@/contexts/ToastContext";
 import { use, useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { blogPosts as mockBlogPosts, blogCategories } from "@/mockData/blog";
+import { blogPosts as mockBlogPosts } from "@/mockData/blog";
 import {
   useBlogPostBySlug,
   useBlogPostDefaultLocale,
