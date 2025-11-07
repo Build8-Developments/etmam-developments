@@ -44,10 +44,10 @@ export const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantClasses = {
-    primary: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
-    outline: 'border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white focus:ring-green-500',
-    ghost: 'text-green-600 hover:bg-green-50 focus:ring-green-500',
+    primary: 'bg-[#026838] text-white hover:bg-[#014d29] focus:ring-[#026838]',
+    secondary: 'bg-[#aad83a] text-[#026838] hover:bg-[#8fb830] focus:ring-[#aad83a]',
+    outline: 'border-2 border-[#026838] text-[#026838] hover:bg-[#026838] hover:text-white focus:ring-[#026838]',
+    ghost: 'text-[#026838] hover:bg-[#dff4d8] focus:ring-[#026838]',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
   };
   

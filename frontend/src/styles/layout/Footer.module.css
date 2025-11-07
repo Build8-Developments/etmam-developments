@@ -5,7 +5,7 @@
 
 .footer-upper {
   @apply relative py-12 sm:py-16 lg:py-20;
-  background: linear-gradient(135deg, #11613A 0%, #2A9A5B 100%);
+  background: linear-gradient(135deg, #026838 0%, #2A9A5B 100%);
 }
 
 .footer-background {

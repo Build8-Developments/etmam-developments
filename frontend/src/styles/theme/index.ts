@@ -1,21 +1,24 @@
-// Theme configuration
+// Theme configuration - Based on Brand Identity
 export const THEME_CONFIG = {
   light: {
     colors: {
-      primary: '#90C054',
-      primaryDark: '#7BA047',
-      secondary: '#11613A',
-      secondaryDark: '#0A3A22',
-      accent: '#F59E0B',
+      primary: '#026838',        // Main brand green
+      primaryDark: '#014d29',    // Darker green
+      primaryLight: '#03885a',   // Lighter green
+      secondary: '#aad83a',      // Lime green accent
+      secondaryDark: '#8fb830',  // Darker lime
+      secondaryLight: '#c5e674', // Lighter lime
+      accent: '#aad83a',         // Lime green for CTAs
       background: '#FFFFFF',
-      surface: '#F9FAFB',
-      text: '#111827',
-      textSecondary: '#6B7280',
-      border: '#E5E7EB',
+      surface: '#dff4d8',        // Light mint background
+      surfaceLight: '#f0f9ec',   // Very light mint
+      text: '#171717',
+      textSecondary: '#616764',  // Brand gray
+      border: '#c0e6d1',
       error: '#EF4444',
-      success: '#10B981',
+      success: '#026838',        // Use brand green for success
       warning: '#F59E0B',
-      info: '#3B82F6',
+      info: '#03885a',
     },
     shadows: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -26,20 +29,23 @@ export const THEME_CONFIG = {
   },
   dark: {
     colors: {
-      primary: '#90C054',
-      primaryDark: '#7BA047',
-      secondary: '#11613A',
-      secondaryDark: '#0A3A22',
-      accent: '#F59E0B',
+      primary: '#03885a',        // Lighter brand green for dark mode
+      primaryDark: '#026838',    // Main green
+      primaryLight: '#4cbb7d',   // Even lighter
+      secondary: '#c3ec60',      // Brighter lime for dark mode
+      secondaryDark: '#aad83a',  // Main lime
+      secondaryLight: '#ddf4a4', // Lighter lime
+      accent: '#c3ec60',         // Bright lime for CTAs in dark mode
       background: '#111827',
       surface: '#1F2937',
+      surfaceLight: '#374151',
       text: '#F9FAFB',
-      textSecondary: '#D1D5DB',
-      border: '#374151',
+      textSecondary: '#8a8f8c',  // Lighter brand gray
+      border: '#4a4f4c',         // Dark brand gray
       error: '#EF4444',
-      success: '#10B981',
+      success: '#4cbb7d',        // Lighter brand green for success
       warning: '#F59E0B',
-      info: '#3B82F6',
+      info: '#73c999',
     },
     shadows: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.3)',
@@ -57,11 +63,14 @@ export const generateCSSVariables = (theme: keyof typeof THEME_CONFIG) => {
   return {
     '--color-primary': themeConfig.colors.primary,
     '--color-primary-dark': themeConfig.colors.primaryDark,
+    '--color-primary-light': themeConfig.colors.primaryLight,
     '--color-secondary': themeConfig.colors.secondary,
     '--color-secondary-dark': themeConfig.colors.secondaryDark,
+    '--color-secondary-light': themeConfig.colors.secondaryLight,
     '--color-accent': themeConfig.colors.accent,
     '--color-background': themeConfig.colors.background,
     '--color-surface': themeConfig.colors.surface,
+    '--color-surface-light': themeConfig.colors.surfaceLight,
     '--color-text': themeConfig.colors.text,
     '--color-text-secondary': themeConfig.colors.textSecondary,
     '--color-border': themeConfig.colors.border,

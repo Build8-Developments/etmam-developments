@@ -35,7 +35,7 @@
 
 .headerTitle {
   font-weight: bold;
-  color: #11613A;
+  color: #026838;
   margin-bottom: 1.5rem;
   font-family: var(--font-almarai);
   font-size: 48px;
@@ -90,7 +90,7 @@
   width: 381px;
   height: 389px;
   background: radial-gradient(94.62% 124.56% at 40.95% -10.45%, #FFFFFF 44.28%, rgba(17, 97, 58, 0.17) 97.64%);
-  border: 2px solid #11613A;
+  border: 2px solid #026838;
   border-radius: 24px;
   box-shadow: 3.12px 9.37px 21.85px 0px rgba(0, 0, 0, 0.06);
 }
@@ -213,10 +213,10 @@
   opacity: 0.6;
   width: 2px;
   height: 48px;
-  background: linear-gradient(to bottom, #11613A, #11613A);
+  background: linear-gradient(to bottom, #026838, #026838);
   border-style: dashed;
   border-width: 0 0 2px 0;
-  border-color: #11613A;
+  border-color: #026838;
 }
 
 .stepContent {

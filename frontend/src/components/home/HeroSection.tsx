@@ -50,14 +50,15 @@ export default function HeroSection({
 
       {/* Gradient overlay */}
       <div
-        className="absolute inset-0 z-[1] pointer-events-none"
+        className="absolute inset-0 z-[1]"
         style={{
           background:
             "linear-gradient(94.78deg, rgba(22, 97, 19, 0.59) 17.73%, rgba(0, 0, 0, 0.7) 113.39%)",
+          pointerEvents: "none",
         }}
       />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[2]">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[2]" style={{ pointerEvents: "auto" }}>
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column - Content */}
           <div
@@ -91,17 +92,17 @@ export default function HeroSection({
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href={primaryButton?.href || defaultPrimaryBtn.href}
-                className="bg-primary hover:bg-green-600 text-white font-semibold transition-smooth hover-lift shadow-lg hover:shadow-xl inline-flex items-center justify-center rounded-full px-8 py-3.5 md:px-10 md:py-4 lg:px-12 lg:py-4 text-base md:text-lg transform"
+                className="bg-primary hover:bg-green-600 text-white font-semibold transition-smooth hover-lift shadow-lg hover:shadow-xl inline-flex items-center justify-center rounded-full px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 text-sm sm:text-base md:text-lg transform whitespace-nowrap"
                 style={{ fontFamily: "var(--font-almarai)" }}
               >
                 {primaryButton?.label || defaultPrimaryBtn.label}
               </Link>
               <Link
                 href={secondaryButton?.href || defaultSecondaryBtn.href}
-                className="bg-transparent hover:bg-white/10 text-white font-semibold transition-smooth hover-scale inline-flex items-center justify-center rounded-full border-2 border-white hover:border-white/80 px-8 py-3.5 md:px-10 md:py-4 lg:px-12 lg:py-4 text-base md:text-lg transform"
+                className="bg-transparent hover:bg-white/10 text-white font-semibold transition-smooth hover-scale inline-flex items-center justify-center rounded-full border-2 border-white hover:border-white/80 px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 text-sm sm:text-base md:text-lg transform whitespace-nowrap"
                 style={{ fontFamily: "var(--font-almarai)" }}
               >
                 {secondaryButton?.label || defaultSecondaryBtn.label}

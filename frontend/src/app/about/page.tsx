@@ -49,6 +49,7 @@ export default async function AboutPage() {
                 background:
                   "linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)",
                 backdropFilter: "blur(4px)",
+                pointerEvents: "none",
               }}
             >
               {/* Background Image */}
@@ -62,10 +63,11 @@ export default async function AboutPage() {
                   backgroundPosition: "center center",
                   backgroundRepeat: "no-repeat",
                   backgroundAttachment: "fixed",
+                  pointerEvents: "none",
                 }}
               />
 
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   {/* Left Side - Content */}
                   <div className="text-white">
@@ -84,12 +86,12 @@ export default async function AboutPage() {
                         content.hero.description[locale]}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-wrap gap-4">
                       <Link
                         href={
                           aboutData?.Hero?.primaryButton?.href || "/services"
                         }
-                        className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-colors"
+                        className="bg-white text-green-600 hover:bg-gray-100 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold transition-colors whitespace-nowrap"
                         style={{ fontFamily: "var(--font-almarai)" }}
                       >
                         {aboutData?.Hero?.primaryButton?.label ||
@@ -99,7 +101,7 @@ export default async function AboutPage() {
                         href={
                           aboutData?.Hero?.secondaryButton?.href || "/contact"
                         }
-                        className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-semibold transition-colors"
+                        className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold transition-colors whitespace-nowrap"
                         style={{ fontFamily: "var(--font-almarai)" }}
                       >
                         {aboutData?.Hero?.secondaryButton?.label ||

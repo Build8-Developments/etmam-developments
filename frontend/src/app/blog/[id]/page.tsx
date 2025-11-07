@@ -592,6 +592,7 @@ export default function BlogDetailPage({
             background:
               "linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)",
             backdropFilter: "blur(4px)",
+            pointerEvents: "none",
           }}
         >
           {/* Background Image */}
@@ -603,13 +604,14 @@ export default function BlogDetailPage({
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
               backgroundAttachment: "fixed",
+              pointerEvents: "none",
             }}
           />
 
           {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/20" style={{ pointerEvents: "none" }}></div>
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
             <div className="text-center text-white max-w-4xl mx-auto">
               {/* Author Info - Smaller and Elegant */}
               <div className="mb-6">

@@ -126,7 +126,7 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 
             className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6" 
-            style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
+            style={{ fontFamily: 'var(--font-almarai)', color: '#026838' }}
           >
             {title || (language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions')}
           </h2>

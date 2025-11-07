@@ -46,7 +46,7 @@ const CTASection: React.FC<CTASectionProps> = ({
                   : "clamp(60%, 60vw, 900px)",
                 height: "100%",
                 background:
-                  "linear-gradient(263.5deg, #11613A 49.84%, rgba(42, 154, 91, 0.98) 94.9%)",
+                  "linear-gradient(263.5deg, #026838 49.84%, rgba(42, 154, 91, 0.98) 94.9%)",
                 borderTopLeftRadius: isRTL ? "0px" : "clamp(16px, 2.5vw, 24px)",
                 borderBottomLeftRadius: isRTL
                   ? "0px"

@@ -42,6 +42,7 @@ export default async function PrivacyPolicyPage() {
           style={{
             background: 'linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)',
             backdropFilter: 'blur(4px)',
+            pointerEvents: 'none',
           }}
         >
           {/* Background Image */}
@@ -53,10 +54,11 @@ export default async function PrivacyPolicyPage() {
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               backgroundAttachment: 'fixed',
+              pointerEvents: 'none',
             }}
           />
           
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               
               {/* Left Side - Content */}
@@ -191,7 +193,7 @@ export default async function PrivacyPolicyPage() {
                 </div>
                 <h2 
                   className="text-3xl font-bold mb-4"
-                  style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
+                  style={{ fontFamily: 'var(--font-almarai)', color: '#026838' }}
                 >
                   {L(privacyPolicyPageData?.privacy_policy?.title) || (language === 'ar' ? 'التزامنا بحماية خصوصيتك' : 'Our Commitment to Your Privacy')}
                 </h2>
@@ -225,7 +227,7 @@ export default async function PrivacyPolicyPage() {
                         style={{ 
                           fontFamily: 'var(--font-almarai)',
                           textAlign: language === 'ar' ? 'right' : 'left',
-                          color: '#11613A'
+                          color: '#026838'
                         }}
                       >
                         {L(section.title) || section.title?.[language]}

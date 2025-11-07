@@ -125,7 +125,7 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
               fontWeight: "700",
               fontSize: "clamp(28px, 4vw, 42px)",
               lineHeight: "clamp(36px, 5vw, 56px)",
-              color: "#11613A",
+              color: "#026838",
             }}
           >
             {title || defaultTitle}

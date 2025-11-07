@@ -91,7 +91,7 @@ export default function StatisticsSection({
             style={{
               width: 'min(100%, 1064px)',
               height: 'clamp(120px, 160px, 200px)',
-              background: 'linear-gradient(90deg, #90C054 0%, #11613A 100%)',
+              background: 'linear-gradient(90deg, #aad83a 0%, #026838 100%)',
               boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
               border: '1px solid rgba(255,255,255,0.2)',
             }}

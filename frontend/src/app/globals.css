@@ -1,35 +1,59 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand Color Palette - Override Tailwind defaults with brand colors */
+  
+  /* Primary Color */
+  --color-primary: #026838;
+  
+  /* Green Scale - Brand colors override Tailwind green */
+  --color-green-50: #e6f5ed;
+  --color-green-100: #c0e6d1;
+  --color-green-200: #99d8b5;
+  --color-green-300: #73c999;
+  --color-green-400: #4cbb7d;
+  --color-green-500: #026838;  /* Main brand green */
+  --color-green-600: #025530;  /* Darker brand green */
+  --color-green-700: #014228;
+  --color-green-800: #012f20;
+  --color-green-900: #011c18;
+  
+  /* Lime/Accent Scale */
+  --color-lime-50: #f7fce8;
+  --color-lime-100: #eaf8c6;
+  --color-lime-200: #ddf4a4;
+  --color-lime-300: #d0f082;
+  --color-lime-400: #c3ec60;
+  --color-lime-500: #aad83a;  /* Accent color */
+  --color-lime-600: #8fb830;
+  --color-lime-700: #749826;
+  --color-lime-800: #59781c;
+  --color-lime-900: #3e5812;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Color Palette */
-  --green-100: #daedd5;
-  --green-200: #8bd6b0;
-  --green-300: #bcdbb4;
-  --green-400: #79b669;
-  --primary: #90c054;
-  --green-600: #155a03;
-  --green-700: #104502;
-  --green-800: #0b2e02;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-almarai);
-  --font-mono: var(--font-geist-mono);
-
-  /* Custom Colors */
-  --color-green-100: #daedd5;
-  --color-green-200: #8bd6b0;
-  --color-green-300: #bcdbb4;
-  --color-green-400: #79b669;
-  --color-primary: #90c054;
-  --color-green-600: #155a03;
-  --color-green-700: #104502;
-  --color-green-800: #0b2e02;
+  /* Brand Color Palette - Based on Brand Identity */
+  /* Primary Green (#026838) - Main brand color */
+  --primary: #026838;
+  --primary-dark: #014d29;
+  --primary-light: #03885a;
+  
+  /* Light Green/Lime (#aad83a) - Accent color */
+  --accent: #aad83a;
+  --accent-dark: #8fb830;
+  --accent-light: #c5e674;
+  
+  /* Gray (#616764) - Neutral tones */
+  --gray: #616764;
+  --gray-dark: #4a4f4c;
+  --gray-light: #8a8f8c;
+  
+  /* Background tints */
+  --bg-mint: #dff4d8;
+  --bg-light-green: #f0f9ec;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -949,3 +973,4 @@ html {
     font-size: 1.125rem;
   }
 }
+

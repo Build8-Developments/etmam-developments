@@ -163,7 +163,7 @@ const Footer = ({
       <div
         className="relative py-16 sm:py-20 lg:py-24"
         style={{
-          background: "linear-gradient(135deg, #11613A 0%, #2A9A5B 100%)",
+          background: "linear-gradient(135deg, #026838 0%, #2A9A5B 100%)",
         }}
       >
         {/* Background Pattern */}

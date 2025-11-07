@@ -147,6 +147,7 @@ export default function OfferDetailPage({ params }: { params: Promise<{ slug: st
             style={{
               background: 'linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)',
               backdropFilter: 'blur(4px)',
+              pointerEvents: 'none',
             }}
           >
             {/* Background Image */}
@@ -158,17 +159,18 @@ export default function OfferDetailPage({ params }: { params: Promise<{ slug: st
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
+                pointerEvents: 'none',
               }}
             />
             
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
               <div className="max-w-4xl mx-auto text-center text-white">
                 {/* Back Button */}
                 <div className="mb-8 flex justify-start">
                   <Link
                     href="/offers"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
+                    style={{ fontFamily: 'var(--font-almarai)', pointerEvents: "auto" }}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

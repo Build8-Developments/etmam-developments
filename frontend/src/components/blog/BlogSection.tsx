@@ -79,7 +79,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
               fontWeight: "700",
               lineHeight: "1.2",
               direction: language === "ar" ? "rtl" : "ltr",
-              color: "#11613A",
+              color: "#026838",
             }}
           >
             {DICT.sectionTitle[language]}

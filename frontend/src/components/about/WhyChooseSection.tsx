@@ -112,7 +112,7 @@ export default function WhyChooseSection({
           <div
             className="w-1 h-12 mx-auto mb-16"
             style={{
-              background: "linear-gradient(180deg, #11613A 0%, #000000 100%)",
+              background: "linear-gradient(180deg, #026838 0%, #000000 100%)",
               transform: "rotate(-90.28deg)",
             }}
           ></div>
@@ -142,7 +142,7 @@ export default function WhyChooseSection({
                 {/* Content wrapper with relative positioning */}
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-[#11613A] transition-all duration-300 ease-in-out">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-[#026838] transition-all duration-300 ease-in-out">
                     {item.icon?.url ? (
                       <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.icon.url}`}

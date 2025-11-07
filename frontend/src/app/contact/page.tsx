@@ -31,6 +31,7 @@ export default function ContactPage() {
           style={{
             background: 'linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)',
             backdropFilter: 'blur(4px)',
+            pointerEvents: 'none',
           }}
         >
           {/* Background Image */}
@@ -42,10 +43,11 @@ export default function ContactPage() {
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               backgroundAttachment: 'fixed',
+              pointerEvents: 'none',
             }}
           />
           
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               
               {/* Left Side - Content */}
@@ -217,10 +219,10 @@ export default function ContactPage() {
                     opacity: 1
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #11613A -88.26%, #90C054 425.49%)';
+                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #026838 -88.26%, #026838 425.49%)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#16a34a';
+                    e.currentTarget.style.background = '#026838';
                   }}
                 >
                   <div className="flex items-center justify-center mb-6">
@@ -258,7 +260,7 @@ export default function ContactPage() {
                     opacity: 1
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #11613A -88.26%, #90C054 425.49%)';
+                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #026838 -88.26%, #026838 425.49%)';
                     e.currentTarget.style.color = 'white';
                     e.currentTarget.style.borderColor = 'transparent';
                     const textElements = e.currentTarget.querySelectorAll('h3, p');
@@ -273,14 +275,14 @@ export default function ContactPage() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'white';
                     e.currentTarget.style.color = 'inherit';
-                    e.currentTarget.style.borderColor = '#16a34a';
+                    e.currentTarget.style.borderColor = '#026838';
                     const textElements = e.currentTarget.querySelectorAll('h3, p');
                     textElements.forEach(el => {
-                      (el as HTMLElement).style.color = '#16a34a';
+                      (el as HTMLElement).style.color = '#026838';
                     });
                     const icon = e.currentTarget.querySelector('svg');
                     if (icon) {
-                      icon.style.color = '#16a34a';
+                      icon.style.color = '#026838';
                     }
                   }}
                 >
@@ -319,7 +321,7 @@ export default function ContactPage() {
                     opacity: 1
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #11613A -88.26%, #90C054 425.49%)';
+                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #026838 -88.26%, #026838 425.49%)';
                     e.currentTarget.style.color = 'white';
                     e.currentTarget.style.borderColor = 'transparent';
                     const textElements = e.currentTarget.querySelectorAll('h3, p');
@@ -334,14 +336,14 @@ export default function ContactPage() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'white';
                     e.currentTarget.style.color = 'inherit';
-                    e.currentTarget.style.borderColor = '#16a34a';
+                    e.currentTarget.style.borderColor = '#026838';
                     const textElements = e.currentTarget.querySelectorAll('h3, p');
                     textElements.forEach(el => {
-                      (el as HTMLElement).style.color = '#16a34a';
+                      (el as HTMLElement).style.color = '#026838';
                     });
                     const icon = e.currentTarget.querySelector('svg');
                     if (icon) {
-                      icon.style.color = '#16a34a';
+                      icon.style.color = '#026838';
                     }
                   }}
                 >
@@ -380,10 +382,10 @@ export default function ContactPage() {
                     opacity: 1
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #11613A -88.26%, #90C054 425.49%)';
+                    e.currentTarget.style.background = 'linear-gradient(164.42deg, #026838 -88.26%, #026838 425.49%)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#16a34a';
+                    e.currentTarget.style.background = '#026838';
                   }}
                 >
                   <div className="flex items-center justify-center mb-6">
@@ -429,7 +431,7 @@ export default function ContactPage() {
           <div className="text-center mb-12">
             <h2 
               className="text-3xl md:text-4xl font-bold mb-4"
-              style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
+              style={{ fontFamily: 'var(--font-almarai)', color: '#026838' }}
             >
               {language === 'ar' ? 'موقعنا على الخريطة' : 'Our Location on Map'}
             </h2>

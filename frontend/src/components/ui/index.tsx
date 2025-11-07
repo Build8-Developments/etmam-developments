@@ -91,8 +91,8 @@ interface ToastProps {
 export function Toast({ message, type = 'info', duration = 3000, onClose }: ToastProps) {
   const [isVisible, setIsVisible] = useState(true);
   
-  const typeClasses = {
-    success: 'bg-green-500 text-white',
+  const typeStyles = {
+    success: 'bg-[#026838] text-white',
     error: 'bg-red-500 text-white',
     warning: 'bg-yellow-500 text-white',
     info: 'bg-blue-500 text-white'
@@ -120,7 +120,7 @@ export function Toast({ message, type = 'info', duration = 3000, onClose }: Toas
   if (!isVisible) return null;
   
   return (
-    <div className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg ${typeClasses[type]}`}>
+    <div className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg ${typeStyles[type]}`}>
       <Icon name={icons[type]} size="sm" />
       <span className="font-medium" style={{ fontFamily: 'var(--font-almarai)' }}>
         {message}

@@ -27,7 +27,7 @@ export function Section({
                 style={{ 
                   fontFamily: 'var(--font-almarai)',
                   textAlign: isRTL ? 'right' : 'left',
-                  color: '#11613A'
+                  color: '#026838'
                 }}
               >
                 {title}

@@ -130,6 +130,7 @@ export default function LegalServicesPage() {
             style={{
               background: 'linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)',
               backdropFilter: 'blur(4px)',
+              pointerEvents: 'none',
             }}
           >
             {/* Background Image */}
@@ -141,10 +142,11 @@ export default function LegalServicesPage() {
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
+                pointerEvents: 'none',
               }}
             />
             
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
               <div className="text-center text-white">
                 <h1 
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
@@ -164,7 +166,7 @@ export default function LegalServicesPage() {
                 </p>
 
                 {/* Enhanced Search Bar */}
-                <div className="max-w-2xl mx-auto mb-8">
+                <div className="max-w-2xl mx-auto mb-8" style={{ pointerEvents: "auto" }}>
                   <div className="relative">
                     <div className={`absolute inset-y-0 flex items-center pointer-events-none ${language === 'ar' ? 'right-0 pr-4' : 'left-0 pl-4'}`}>
                       <svg className="h-5 w-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,13 +181,14 @@ export default function LegalServicesPage() {
                       onFocus={() => setIsSearchFocused(true)}
                       onBlur={() => setIsSearchFocused(false)}
                       className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-300 ${language === 'ar' ? 'pr-12 pl-4 text-right' : 'pl-12 pr-4 text-left'} ${isSearchFocused ? 'bg-white/20 border-white/40' : ''}`}
-                      style={{ fontFamily: 'var(--font-almarai)' }}
+                      style={{ fontFamily: 'var(--font-almarai)', pointerEvents: "auto", touchAction: "manipulation" }}
                       dir={language === 'ar' ? 'rtl' : 'ltr'}
                     />
                     {searchTerm && (
                       <button
                         onClick={() => setSearchTerm('')}
                         className={`absolute inset-y-0 flex items-center text-white/70 hover:text-white transition-colors ${language === 'ar' ? 'left-0 pl-4' : 'right-0 pr-4'}`}
+                        style={{ pointerEvents: "auto" }}
                       >
                         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

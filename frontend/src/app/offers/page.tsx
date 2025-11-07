@@ -65,6 +65,7 @@ export default function OffersPage() {
           style={{
             background: 'linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)',
             backdropFilter: 'blur(4px)',
+            pointerEvents: 'none',
           }}
         >
           {/* Background Image */}
@@ -76,10 +77,11 @@ export default function OffersPage() {
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               backgroundAttachment: 'fixed',
+              pointerEvents: 'none',
             }}
           />
           
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               
               {/* Left Side - Content */}

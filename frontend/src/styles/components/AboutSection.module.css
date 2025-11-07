@@ -190,7 +190,7 @@
   display: block;
   width: 64px;
   height: 3px;
-  background-color: #90C054;
+  background-color: #026838;
 }
 
 .aboutTitle {
@@ -200,7 +200,7 @@
   font-size: clamp(18px, 3.5vw, 28px);
   line-height: 100%;
   letter-spacing: 0;
-  background: linear-gradient(180deg, #11613A 0%, #0A3A22 100%);
+  background: linear-gradient(180deg, #026838 0%, #0A3A22 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

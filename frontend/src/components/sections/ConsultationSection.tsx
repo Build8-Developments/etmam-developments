@@ -490,32 +490,65 @@ export const ConsultationSection = ({
           
           {/* Text Content */}
           <div 
-            className={`lg:order-1 text-center ${language === 'ar' ? 'lg:text-right' : 'lg:text-left'} lg:pl-8 bg-blue-50 p-6 rounded-lg`}
+            className={`lg:order-1 text-center ${language === 'ar' ? 'lg:text-right' : 'lg:text-left'} lg:pl-8 rounded-2xl shadow-lg overflow-hidden relative`}
             style={{ 
               pointerEvents: 'auto',
-              ...(backgroundImage && {
-                backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${backgroundImage.url})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              })
+              minHeight: '400px'
             }}
           >
-            <h2 
-              className="text-3xl lg:text-4xl font-bold mb-8"
-              style={{ fontFamily: 'var(--font-almarai)', color: '#11613A' }}
-            >
-              {title || (language === 'ar' ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation')}
-            </h2>
+            {/* Background Image with Overlay */}
+            {backgroundImage && (
+              <div 
+                className="absolute inset-0 z-0"
+                style={{
+                  backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${backgroundImage.url})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-green-800/95 via-green-700/90 to-green-600/85" />
+              </div>
+            )}
             
-            <p 
-              className="text-lg leading-relaxed text-gray-600 max-w-2xl mx-auto lg:mx-0"
-              style={{ fontFamily: 'var(--font-almarai)' }}
+            {/* Content */}
+            <div 
+              className={`relative z-10 p-8 lg:p-12 ${!backgroundImage ? 'bg-gradient-to-br from-green-700 via-green-600 to-green-500' : ''}`}
+              style={{ minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
             >
-              {description || (language === 'ar' 
-                ? 'عبئ النموذج الآن، ودع فريق إتمام، بخبرته في تأسيس الشركات والخدمات الإدارية، يحدد لك الحل الأنسب لاحتياجات نشاطك، ويضع خطة تنفيذية متكاملة لإنجاز جميع الإجراءات الحكومية ومتابعتها خطوة بخطوة، حتى تبدأ أعمالك بسرعة وبأقل جهد ممكن.'
-                : 'Fill out the form now, and let the Etmam team, with its expertise in company formation and administrative services, determine the most suitable solution for your business needs, and develop a comprehensive implementation plan to complete all government procedures and follow up step by step, so that your business starts quickly and with the least possible effort.')
-              }
-            </p>
+              {/* Decorative Icon */}
+              <div className="mb-6 inline-block">
+                <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block">
+                  <svg 
+                    className="w-12 h-12 text-white" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+
+              <h2 
+                className="text-3xl lg:text-5xl font-bold mb-6 text-white drop-shadow-lg"
+                style={{ fontFamily: 'var(--font-almarai)', lineHeight: '1.2' }}
+              >
+                {title || (language === 'ar' ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation')}
+              </h2>
+              
+              {/* Decorative Line */}
+              <div className="w-20 h-1 bg-white/60 mb-6 rounded-full" />
+              
+              <p 
+                className="text-lg lg:text-xl leading-relaxed text-white/95 max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
+                style={{ fontFamily: 'var(--font-almarai)' }}
+              >
+                {description || (language === 'ar' 
+                  ? 'عبئ النموذج الآن، ودع فريق إتمام، بخبرته في تأسيس الشركات والخدمات الإدارية، يحدد لك الحل الأنسب لاحتياجات نشاطك، ويضع خطة تنفيذية متكاملة لإنجاز جميع الإجراءات الحكومية ومتابعتها خطوة بخطوة، حتى تبدأ أعمالك بسرعة وبأقل جهد ممكن.'
+                  : 'Fill out the form now, and let the Etmam team, with its expertise in company formation and administrative services, determine the most suitable solution for your business needs, and develop a comprehensive implementation plan to complete all government procedures and follow up step by step, so that your business starts quickly and with the least possible effort.')
+                }
+              </p>
+            </div>
           </div>
         </div>
       </div>
