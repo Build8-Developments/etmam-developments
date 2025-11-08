@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { IMAGE_PATHS } from "@/constants";
+import { buildImageUrl } from "@/lib/api";
 import Image from "next/image";
 import { useState, useEffect, useCallback, useRef } from "react";
 
@@ -111,9 +112,7 @@ export default function ServicesCarouselSection({
 
     if (image.url) {
       // Strapi image URL
-      return image.url.startsWith("http") || image.url.startsWith("/")
-        ? `http://localhost:1337${image.url.startsWith("/") ? image.url : ""}`
-        : `http://localhost:1337/uploads/${image.url}`;
+      return buildImageUrl(image.url);
     }
 
     return "";
@@ -201,10 +200,7 @@ export default function ServicesCarouselSection({
 
     // Handle Strapi icon (object with url)
     if (icon && typeof icon === "object" && icon.url) {
-      const iconUrl =
-        icon.url.startsWith("http") || icon.url.startsWith("/")
-          ? `http://localhost:1337${icon.url.startsWith("/") ? icon.url : ""}`
-          : `http://localhost:1337/uploads/${icon.url}`;
+      const iconUrl = buildImageUrl(icon.url);
 
       return (
         <Image
