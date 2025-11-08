@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useCreateContactSubmission } from '@/hooks/graphql';
+import { buildImageUrl } from "@/lib/api";
+import { useCreateContactSubmission } from "@/hooks/graphql";
 
 interface ConsultationSectionProps {
   compact?: boolean; // If true, removes outer Section wrapper and grid layout
@@ -14,37 +15,42 @@ interface ConsultationSectionProps {
   };
 }
 
-export const ConsultationSection = ({ 
+export const ConsultationSection = ({
   compact = false,
   title,
   description,
-  backgroundImage
+  backgroundImage,
 }: ConsultationSectionProps = {}) => {
   const { language } = useLanguage();
-  const { createSubmission, loading: isSubmitting } = useCreateContactSubmission();
+  const { createSubmission, loading: isSubmitting } =
+    useCreateContactSubmission();
   const [formData, setFormData] = useState({
-    companyName: '',
-    fullName: '',
-    mobileNumber: '',
-    email: '',
-    preferredTime: '',
-    preferredLanguage: '',
-    service: '',
-    note: ''
+    companyName: "",
+    fullName: "",
+    mobileNumber: "",
+    email: "",
+    preferredTime: "",
+    preferredLanguage: "",
+    service: "",
+    note: "",
   });
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.fullName || !formData.email || !formData.mobileNumber) {
       return;
@@ -62,394 +68,495 @@ export const ConsultationSection = ({
             language: formData.preferredLanguage || language,
             service: formData.service || null,
             note: formData.note || null,
-          }
-        }
+          },
+        },
       });
 
-      console.log('Form submitted successfully:', result);
+      console.log("Form submitted successfully:", result);
       setIsSuccess(true);
-      
+
       // Reset form
       setFormData({
-        companyName: '',
-        fullName: '',
-        mobileNumber: '',
-        email: '',
-        preferredTime: '',
-        preferredLanguage: '',
-        service: '',
-        note: ''
+        companyName: "",
+        fullName: "",
+        mobileNumber: "",
+        email: "",
+        preferredTime: "",
+        preferredLanguage: "",
+        service: "",
+        note: "",
       });
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setIsSuccess(false);
       }, 5000);
     } catch (error: any) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
       // Error handling is done in the hook's onError callback
     }
   };
 
   const formContent = (
-    <form 
-      onSubmit={handleSubmit} 
+    <form
+      onSubmit={handleSubmit}
       className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8"
-      style={{ 
-        pointerEvents: 'auto',
-        touchAction: 'manipulation',
-        position: 'relative',
-        zIndex: 10,
-        WebkitTouchCallout: 'default',
-        WebkitUserSelect: 'text',
-        userSelect: 'text',
-        isolation: 'isolate'
-      } as React.CSSProperties}
+      style={
+        {
+          pointerEvents: "auto",
+          touchAction: "manipulation",
+          position: "relative",
+          zIndex: 10,
+          WebkitTouchCallout: "default",
+          WebkitUserSelect: "text",
+          userSelect: "text",
+          isolation: "isolate",
+        } as React.CSSProperties
+      }
     >
-            {/* Row 1 */}
-            <div 
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
-              style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}
-            >
-              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}>
-                <label 
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
-                >
-                  {language === 'ar' ? 'اسم المنشأة' : 'Company Name'}
-                </label>
-                 <input
-                   type="text"
-                   name="companyName"
-                   value={formData.companyName}
-                   onChange={handleInputChange}
-                   onTouchStart={(e) => {
-                     e.stopPropagation();
-                   }}
-                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                   style={{ 
-                     touchAction: 'manipulation', 
-                     pointerEvents: 'auto',
-                     position: 'relative',
-                     zIndex: 1,
-                     WebkitAppearance: 'none',
-                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
-                     userSelect: 'text',
-                     WebkitUserSelect: 'text',
-                     MozUserSelect: 'text',
-                     msUserSelect: 'text'
-                   } as React.CSSProperties}
-                   placeholder={language === 'ar' ? 'أدخل اسم المنشأة' : 'Enter company name'}
-                   dir={language === 'ar' ? 'rtl' : 'ltr'}
-                   autoComplete="organization"
-                 />
-              </div>
-              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}>
-                <label 
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
-                >
-                  {language === 'ar' ? 'الاسم بالكامل' : 'Full Name'}
-                </label>
-                 <input
-                   type="text"
-                   name="fullName"
-                   value={formData.fullName}
-                   onChange={handleInputChange}
-                   onTouchStart={(e) => {
-                     e.stopPropagation();
-                   }}
-                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                   style={{ 
-                     touchAction: 'manipulation', 
-                     pointerEvents: 'auto',
-                     position: 'relative',
-                     zIndex: 1,
-                     WebkitAppearance: 'none',
-                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
-                     userSelect: 'text',
-                     WebkitUserSelect: 'text',
-                     MozUserSelect: 'text',
-                     msUserSelect: 'text'
-                   } as React.CSSProperties}
-                   placeholder={language === 'ar' ? 'أدخل الاسم بالكامل' : 'Enter full name'}
-                   dir={language === 'ar' ? 'rtl' : 'ltr'}
-                   autoComplete="name"
-                 />
-              </div>
-            </div>
+      {/* Row 1 */}
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
+        style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}
+      >
+        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+          <label
+            className="block text-sm font-semibold text-gray-700 mb-2"
+            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          >
+            {language === "ar" ? "اسم المنشأة" : "Company Name"}
+          </label>
+          <input
+            type="text"
+            name="companyName"
+            value={formData.companyName}
+            onChange={handleInputChange}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+            style={
+              {
+                touchAction: "manipulation",
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 1,
+                WebkitAppearance: "none",
+                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+                userSelect: "text",
+                WebkitUserSelect: "text",
+                MozUserSelect: "text",
+                msUserSelect: "text",
+              } as React.CSSProperties
+            }
+            placeholder={
+              language === "ar" ? "أدخل اسم المنشأة" : "Enter company name"
+            }
+            dir={language === "ar" ? "rtl" : "ltr"}
+            autoComplete="organization"
+          />
+        </div>
+        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+          <label
+            className="block text-sm font-semibold text-gray-700 mb-2"
+            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          >
+            {language === "ar" ? "الاسم بالكامل" : "Full Name"}
+          </label>
+          <input
+            type="text"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleInputChange}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+            style={
+              {
+                touchAction: "manipulation",
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 1,
+                WebkitAppearance: "none",
+                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+                userSelect: "text",
+                WebkitUserSelect: "text",
+                MozUserSelect: "text",
+                msUserSelect: "text",
+              } as React.CSSProperties
+            }
+            placeholder={
+              language === "ar" ? "أدخل الاسم بالكامل" : "Enter full name"
+            }
+            dir={language === "ar" ? "rtl" : "ltr"}
+            autoComplete="name"
+          />
+        </div>
+      </div>
 
-            {/* Row 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}>
-                <label 
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
-                >
-                  {language === 'ar' ? 'رقم الجوال' : 'Mobile Number'}
-                </label>
-                 <input
-                   type="tel"
-                   name="mobileNumber"
-                   value={formData.mobileNumber}
-                   onChange={handleInputChange}
-                   onTouchStart={(e) => {
-                     e.stopPropagation();
-                   }}
-                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                   style={{ 
-                     touchAction: 'manipulation', 
-                     pointerEvents: 'auto',
-                     position: 'relative',
-                     zIndex: 1,
-                     WebkitAppearance: 'none',
-                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
-                     userSelect: 'text',
-                     WebkitUserSelect: 'text',
-                     MozUserSelect: 'text',
-                     msUserSelect: 'text'
-                   } as React.CSSProperties}
-                   placeholder={language === 'ar' ? 'أدخل رقم الجوال' : 'Enter mobile number'}
-                   dir={language === 'ar' ? 'rtl' : 'ltr'}
-                   autoComplete="tel"
-                   inputMode="tel"
-                 />
-              </div>
-              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}>
-                <label 
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
-                >
-                  {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
-                </label>
-                 <input
-                   type="email"
-                   name="email"
-                   value={formData.email}
-                   onChange={handleInputChange}
-                   onTouchStart={(e) => {
-                     e.stopPropagation();
-                   }}
-                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                   style={{ 
-                     touchAction: 'manipulation', 
-                     pointerEvents: 'auto',
-                     position: 'relative',
-                     zIndex: 1,
-                     WebkitAppearance: 'none',
-                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
-                     userSelect: 'text',
-                     WebkitUserSelect: 'text',
-                     MozUserSelect: 'text',
-                     msUserSelect: 'text'
-                   } as React.CSSProperties}
-                   placeholder={language === 'ar' ? 'أدخل البريد الإلكتروني' : 'Enter email address'}
-                   dir={language === 'ar' ? 'rtl' : 'ltr'}
-                   autoComplete="email"
-                   inputMode="email"
-                 />
-              </div>
-            </div>
+      {/* Row 2 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+          <label
+            className="block text-sm font-semibold text-gray-700 mb-2"
+            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          >
+            {language === "ar" ? "رقم الجوال" : "Mobile Number"}
+          </label>
+          <input
+            type="tel"
+            name="mobileNumber"
+            value={formData.mobileNumber}
+            onChange={handleInputChange}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+            style={
+              {
+                touchAction: "manipulation",
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 1,
+                WebkitAppearance: "none",
+                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+                userSelect: "text",
+                WebkitUserSelect: "text",
+                MozUserSelect: "text",
+                msUserSelect: "text",
+              } as React.CSSProperties
+            }
+            placeholder={
+              language === "ar" ? "أدخل رقم الجوال" : "Enter mobile number"
+            }
+            dir={language === "ar" ? "rtl" : "ltr"}
+            autoComplete="tel"
+            inputMode="tel"
+          />
+        </div>
+        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+          <label
+            className="block text-sm font-semibold text-gray-700 mb-2"
+            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          >
+            {language === "ar" ? "البريد الإلكتروني" : "Email"}
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+            style={
+              {
+                touchAction: "manipulation",
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 1,
+                WebkitAppearance: "none",
+                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+                userSelect: "text",
+                WebkitUserSelect: "text",
+                MozUserSelect: "text",
+                msUserSelect: "text",
+              } as React.CSSProperties
+            }
+            placeholder={
+              language === "ar"
+                ? "أدخل البريد الإلكتروني"
+                : "Enter email address"
+            }
+            dir={language === "ar" ? "rtl" : "ltr"}
+            autoComplete="email"
+            inputMode="email"
+          />
+        </div>
+      </div>
 
-            {/* Row 3 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}>
-                <label 
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
-                >
-                  {language === 'ar' ? 'أوقات التواصل المفضلة' : 'Preferred Contact Times'}
-                </label>
-                 <select
-                   name="preferredTime"
-                   value={formData.preferredTime}
-                   onChange={handleInputChange}
-                   onTouchStart={(e) => {
-                     e.stopPropagation();
-                   }}
-                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                   style={{ 
-                     touchAction: 'manipulation', 
-                     WebkitTouchCallout: 'default',
-                     pointerEvents: 'auto',
-                     position: 'relative',
-                     zIndex: 1,
-                     WebkitAppearance: 'menulist',
-                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)'
-                   }}
-                   dir={language === 'ar' ? 'rtl' : 'ltr'}
-                 >
-                  <option value="">{language === 'ar' ? 'اختر الوقت المناسب' : 'Select preferred time'}</option>
-                  <option value="morning">{language === 'ar' ? 'صباحاً (9 ص - 12 م)' : 'Morning (9 AM - 12 PM)'}</option>
-                  <option value="afternoon">{language === 'ar' ? 'بعد الظهر (12 م - 5 م)' : 'Afternoon (12 PM - 5 PM)'}</option>
-                  <option value="evening">{language === 'ar' ? 'مساءً (5 م - 9 م)' : 'Evening (5 PM - 9 PM)'}</option>
-                </select>
-              </div>
-              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}>
-                <label 
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
-                >
-                  {language === 'ar' ? 'لغة التواصل' : 'Preferred Language'}
-                </label>
-                 <select
-                   name="preferredLanguage"
-                   value={formData.preferredLanguage}
-                   onChange={handleInputChange}
-                   onTouchStart={(e) => {
-                     e.stopPropagation();
-                   }}
-                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                   style={{ 
-                     touchAction: 'manipulation', 
-                     WebkitTouchCallout: 'default',
-                     pointerEvents: 'auto',
-                     position: 'relative',
-                     zIndex: 1,
-                     WebkitAppearance: 'menulist',
-                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)'
-                   }}
-                   dir={language === 'ar' ? 'rtl' : 'ltr'}
-                 >
-                  <option value="">{language === 'ar' ? 'اختر اللغة' : 'Select language'}</option>
-                  <option value="arabic">{language === 'ar' ? 'العربية' : 'Arabic'}</option>
-                  <option value="english">{language === 'ar' ? 'الإنجليزية' : 'English'}</option>
-                </select>
-              </div>
-            </div>
+      {/* Row 3 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+          <label
+            className="block text-sm font-semibold text-gray-700 mb-2"
+            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          >
+            {language === "ar"
+              ? "أوقات التواصل المفضلة"
+              : "Preferred Contact Times"}
+          </label>
+          <select
+            name="preferredTime"
+            value={formData.preferredTime}
+            onChange={handleInputChange}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+            style={{
+              touchAction: "manipulation",
+              WebkitTouchCallout: "default",
+              pointerEvents: "auto",
+              position: "relative",
+              zIndex: 1,
+              WebkitAppearance: "menulist",
+              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+            }}
+            dir={language === "ar" ? "rtl" : "ltr"}
+          >
+            <option value="">
+              {language === "ar"
+                ? "اختر الوقت المناسب"
+                : "Select preferred time"}
+            </option>
+            <option value="morning">
+              {language === "ar"
+                ? "صباحاً (9 ص - 12 م)"
+                : "Morning (9 AM - 12 PM)"}
+            </option>
+            <option value="afternoon">
+              {language === "ar"
+                ? "بعد الظهر (12 م - 5 م)"
+                : "Afternoon (12 PM - 5 PM)"}
+            </option>
+            <option value="evening">
+              {language === "ar"
+                ? "مساءً (5 م - 9 م)"
+                : "Evening (5 PM - 9 PM)"}
+            </option>
+          </select>
+        </div>
+        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+          <label
+            className="block text-sm font-semibold text-gray-700 mb-2"
+            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          >
+            {language === "ar" ? "لغة التواصل" : "Preferred Language"}
+          </label>
+          <select
+            name="preferredLanguage"
+            value={formData.preferredLanguage}
+            onChange={handleInputChange}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+            style={{
+              touchAction: "manipulation",
+              WebkitTouchCallout: "default",
+              pointerEvents: "auto",
+              position: "relative",
+              zIndex: 1,
+              WebkitAppearance: "menulist",
+              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+            }}
+            dir={language === "ar" ? "rtl" : "ltr"}
+          >
+            <option value="">
+              {language === "ar" ? "اختر اللغة" : "Select language"}
+            </option>
+            <option value="arabic">
+              {language === "ar" ? "العربية" : "Arabic"}
+            </option>
+            <option value="english">
+              {language === "ar" ? "الإنجليزية" : "English"}
+            </option>
+          </select>
+        </div>
+      </div>
 
-            {/* Row 4 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div></div>
-              <div style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}>
-                <label 
-                  className="block text-sm font-semibold text-gray-700 mb-2"
-                  style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
-                >
-                  {language === 'ar' ? 'اختر الخدمة' : 'Choose Service'}
-                </label>
-                 <select
-                   name="service"
-                   value={formData.service}
-                   onChange={handleInputChange}
-                   onTouchStart={(e) => {
-                     e.stopPropagation();
-                   }}
-                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-                   style={{ 
-                     touchAction: 'manipulation', 
-                     WebkitTouchCallout: 'default',
-                     pointerEvents: 'auto',
-                     position: 'relative',
-                     zIndex: 1,
-                     WebkitAppearance: 'menulist',
-                     WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)'
-                   }}
-                   dir={language === 'ar' ? 'rtl' : 'ltr'}
-                 >
-                  <option value="">{language === 'ar' ? 'اختر الخدمة المطلوبة' : 'Select required service'}</option>
-                  <option value="company_formation">{language === 'ar' ? 'تأسيس الشركات' : 'Company Formation'}</option>
-                  <option value="legal_services">{language === 'ar' ? 'الخدمات القانونية' : 'Legal Services'}</option>
-                  <option value="business_consulting">{language === 'ar' ? 'الاستشارات التجارية' : 'Business Consulting'}</option>
-                  <option value="financial_consulting">{language === 'ar' ? 'الاستشارات المالية' : 'Financial Consulting'}</option>
-                  <option value="marketing_consulting">{language === 'ar' ? 'الاستشارات التسويقية' : 'Marketing Consulting'}</option>
-                  <option value="hr_consulting">{language === 'ar' ? 'الاستشارات الإدارية' : 'HR Consulting'}</option>
-                  <option value="technical_consulting">{language === 'ar' ? 'الاستشارات التقنية' : 'Technical Consulting'}</option>
-                </select>
-              </div>
-            </div>
+      {/* Row 4 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div></div>
+        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+          <label
+            className="block text-sm font-semibold text-gray-700 mb-2"
+            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          >
+            {language === "ar" ? "اختر الخدمة" : "Choose Service"}
+          </label>
+          <select
+            name="service"
+            value={formData.service}
+            onChange={handleInputChange}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
+            style={{
+              touchAction: "manipulation",
+              WebkitTouchCallout: "default",
+              pointerEvents: "auto",
+              position: "relative",
+              zIndex: 1,
+              WebkitAppearance: "menulist",
+              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+            }}
+            dir={language === "ar" ? "rtl" : "ltr"}
+          >
+            <option value="">
+              {language === "ar"
+                ? "اختر الخدمة المطلوبة"
+                : "Select required service"}
+            </option>
+            <option value="company_formation">
+              {language === "ar" ? "تأسيس الشركات" : "Company Formation"}
+            </option>
+            <option value="legal_services">
+              {language === "ar" ? "الخدمات القانونية" : "Legal Services"}
+            </option>
+            <option value="business_consulting">
+              {language === "ar"
+                ? "الاستشارات التجارية"
+                : "Business Consulting"}
+            </option>
+            <option value="financial_consulting">
+              {language === "ar"
+                ? "الاستشارات المالية"
+                : "Financial Consulting"}
+            </option>
+            <option value="marketing_consulting">
+              {language === "ar"
+                ? "الاستشارات التسويقية"
+                : "Marketing Consulting"}
+            </option>
+            <option value="hr_consulting">
+              {language === "ar" ? "الاستشارات الإدارية" : "HR Consulting"}
+            </option>
+            <option value="technical_consulting">
+              {language === "ar"
+                ? "الاستشارات التقنية"
+                : "Technical Consulting"}
+            </option>
+          </select>
+        </div>
+      </div>
 
-            {/* Row 5 - Note */}
-            <div 
-              className="mb-6"
-              style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1 }}
-            >
-              <label 
-                className="block text-sm font-semibold text-gray-700 mb-2"
-                style={{ fontFamily: 'var(--font-almarai)', pointerEvents: 'none' }}
+      {/* Row 5 - Note */}
+      <div
+        className="mb-6"
+        style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}
+      >
+        <label
+          className="block text-sm font-semibold text-gray-700 mb-2"
+          style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+        >
+          {language === "ar" ? "ملاحظة" : "Note"}
+        </label>
+        <textarea
+          name="note"
+          value={formData.note}
+          onChange={handleInputChange}
+          onTouchStart={(e) => {
+            e.stopPropagation();
+          }}
+          rows={4}
+          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-800"
+          style={
+            {
+              touchAction: "manipulation",
+              pointerEvents: "auto",
+              position: "relative",
+              zIndex: 1,
+              WebkitAppearance: "none",
+              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
+              userSelect: "text",
+              WebkitUserSelect: "text",
+              MozUserSelect: "text",
+              msUserSelect: "text",
+            } as React.CSSProperties
+          }
+          placeholder={
+            language === "ar"
+              ? "أضف أي ملاحظات إضافية..."
+              : "Add any additional notes..."
+          }
+          dir={language === "ar" ? "rtl" : "ltr"}
+        />
+      </div>
+
+      {/* Submit Button / Success Message */}
+      {isSuccess ? (
+        <div className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-6 rounded-xl font-bold text-lg text-center shadow-lg flex items-center justify-center gap-3">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          <span style={{ fontFamily: "var(--font-almarai)" }}>
+            {language === "ar" ? "تم الإرسال بنجاح" : "Sent Successfully"}
+          </span>
+        </div>
+      ) : (
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 ${
+            isSubmitting
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:from-green-700 hover:to-green-800"
+          }`}
+          style={{ fontFamily: "var(--font-almarai)" }}
+        >
+          {isSubmitting ? (
+            <>
+              <svg
+                className="animate-spin w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
               >
-                {language === 'ar' ? 'ملاحظة' : 'Note'}
-              </label>
-              <textarea
-                name="note"
-                value={formData.note}
-                onChange={handleInputChange}
-                onTouchStart={(e) => {
-                  e.stopPropagation();
-                }}
-                rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-800"
-                style={{ 
-                  touchAction: 'manipulation', 
-                  pointerEvents: 'auto',
-                  position: 'relative',
-                  zIndex: 1,
-                  WebkitAppearance: 'none',
-                  WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
-                  userSelect: 'text',
-                  WebkitUserSelect: 'text',
-                  MozUserSelect: 'text',
-                  msUserSelect: 'text'
-                } as React.CSSProperties}
-                placeholder={language === 'ar' ? 'أضف أي ملاحظات إضافية...' : 'Add any additional notes...'}
-                dir={language === 'ar' ? 'rtl' : 'ltr'}
-              />
-            </div>
-
-            {/* Submit Button / Success Message */}
-            {isSuccess ? (
-              <div className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-6 rounded-xl font-bold text-lg text-center shadow-lg flex items-center justify-center gap-3">
-                <svg 
-                  className="w-6 h-6" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span style={{ fontFamily: 'var(--font-almarai)' }}>
-                  {language === 'ar' ? 'تم الإرسال بنجاح' : 'Sent Successfully'}
-                </span>
-              </div>
-            ) : (
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 ${
-                  isSubmitting 
-                    ? 'opacity-50 cursor-not-allowed' 
-                    : 'hover:from-green-700 hover:to-green-800'
-                }`}
-                style={{ fontFamily: 'var(--font-almarai)' }}
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              <span>
+                {language === "ar" ? "جاري الإرسال..." : "Sending..."}
+              </span>
+            </>
+          ) : (
+            <>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                {isSubmitting ? (
-                  <>
-                    <svg 
-                      className="animate-spin w-5 h-5" 
-                      fill="none" 
-                      viewBox="0 0 24 24"
-                    >
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span>{language === 'ar' ? 'جاري الإرسال...' : 'Sending...'}</span>
-                  </>
-                ) : (
-                  <>
-                    <svg 
-                      className="w-5 h-5" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <span>{language === 'ar' ? 'إرسال الرسالة' : 'Send Message'}</span>
-                  </>
-                )}
-              </button>
-            )}
-          </form>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <span>
+                {language === "ar" ? "إرسال الرسالة" : "Send Message"}
+              </span>
+            </>
+          )}
+        </button>
+      )}
+    </form>
   );
 
   if (compact) {
@@ -457,96 +564,115 @@ export const ConsultationSection = ({
   }
 
   return (
-    <section 
+    <section
       className="bg-gray-50 py-16 lg:py-24"
-      style={{ 
-        position: 'relative', 
+      style={{
+        position: "relative",
         zIndex: 1,
-        pointerEvents: 'auto',
-        touchAction: 'manipulation'
+        pointerEvents: "auto",
+        touchAction: "manipulation",
       }}
-      dir={language === 'ar' ? 'rtl' : 'ltr'}
+      dir={language === "ar" ? "rtl" : "ltr"}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
+        <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-          style={{ 
-            position: 'relative', 
+          style={{
+            position: "relative",
             zIndex: 1,
-            pointerEvents: 'auto'
+            pointerEvents: "auto",
           }}
         >
           {/* Contact Form */}
-          <div 
+          <div
             className="lg:order-2 lg:pr-8"
-            style={{ 
-              position: 'relative', 
+            style={{
+              position: "relative",
               zIndex: 1,
-              pointerEvents: 'auto'
+              pointerEvents: "auto",
             }}
           >
             {formContent}
           </div>
-          
+
           {/* Text Content */}
-          <div 
-            className={`lg:order-1 text-center ${language === 'ar' ? 'lg:text-right' : 'lg:text-left'} lg:pl-8 rounded-2xl shadow-lg overflow-hidden relative`}
-            style={{ 
-              pointerEvents: 'auto',
-              minHeight: '400px'
+          <div
+            className={`lg:order-1 text-center ${
+              language === "ar" ? "lg:text-right" : "lg:text-left"
+            } lg:pl-8 rounded-2xl shadow-lg overflow-hidden relative`}
+            style={{
+              pointerEvents: "auto",
+              minHeight: "400px",
             }}
           >
             {/* Background Image with Overlay */}
             {backgroundImage && (
-              <div 
+              <div
                 className="absolute inset-0 z-0"
                 style={{
-                  backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${backgroundImage.url})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
+                  backgroundImage: `url(${buildImageUrl(backgroundImage.url)})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-green-800/95 via-green-700/90 to-green-600/85" />
               </div>
             )}
-            
+
             {/* Content */}
-            <div 
-              className={`relative z-10 p-8 lg:p-12 ${!backgroundImage ? 'bg-gradient-to-br from-green-700 via-green-600 to-green-500' : ''}`}
-              style={{ minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+            <div
+              className={`relative z-10 p-8 lg:p-12 ${
+                !backgroundImage
+                  ? "bg-gradient-to-br from-green-700 via-green-600 to-green-500"
+                  : ""
+              }`}
+              style={{
+                minHeight: "400px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
             >
               {/* Decorative Icon */}
               <div className="mb-6 inline-block">
                 <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block">
-                  <svg 
-                    className="w-12 h-12 text-white" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-12 h-12 text-white"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
                   </svg>
                 </div>
               </div>
 
-              <h2 
+              <h2
                 className="text-3xl lg:text-5xl font-bold mb-6 text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-almarai)', lineHeight: '1.2' }}
+                style={{ fontFamily: "var(--font-almarai)", lineHeight: "1.2" }}
               >
-                {title || (language === 'ar' ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation')}
+                {title ||
+                  (language === "ar"
+                    ? "احجز استشارتك المجانية"
+                    : "Book Your Free Consultation")}
               </h2>
-              
+
               {/* Decorative Line */}
               <div className="w-20 h-1 bg-white/60 mb-6 rounded-full" />
-              
-              <p 
+
+              <p
                 className="text-lg lg:text-xl leading-relaxed text-white/95 max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
-                style={{ fontFamily: 'var(--font-almarai)' }}
+                style={{ fontFamily: "var(--font-almarai)" }}
               >
-                {description || (language === 'ar' 
-                  ? 'عبئ النموذج الآن، ودع فريق إتمام، بخبرته في تأسيس الشركات والخدمات الإدارية، يحدد لك الحل الأنسب لاحتياجات نشاطك، ويضع خطة تنفيذية متكاملة لإنجاز جميع الإجراءات الحكومية ومتابعتها خطوة بخطوة، حتى تبدأ أعمالك بسرعة وبأقل جهد ممكن.'
-                  : 'Fill out the form now, and let the Etmam team, with its expertise in company formation and administrative services, determine the most suitable solution for your business needs, and develop a comprehensive implementation plan to complete all government procedures and follow up step by step, so that your business starts quickly and with the least possible effort.')
-                }
+                {description ||
+                  (language === "ar"
+                    ? "عبئ النموذج الآن، ودع فريق إتمام، بخبرته في تأسيس الشركات والخدمات الإدارية، يحدد لك الحل الأنسب لاحتياجات نشاطك، ويضع خطة تنفيذية متكاملة لإنجاز جميع الإجراءات الحكومية ومتابعتها خطوة بخطوة، حتى تبدأ أعمالك بسرعة وبأقل جهد ممكن."
+                    : "Fill out the form now, and let the Etmam team, with its expertise in company formation and administrative services, determine the most suitable solution for your business needs, and develop a comprehensive implementation plan to complete all government procedures and follow up step by step, so that your business starts quickly and with the least possible effort.")}
               </p>
             </div>
           </div>

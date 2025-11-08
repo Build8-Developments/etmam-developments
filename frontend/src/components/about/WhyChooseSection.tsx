@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildImageUrl } from "@/lib/api";
 import Image from "next/image";
 
 interface ContentItem {
@@ -145,7 +146,7 @@ export default function WhyChooseSection({
                   <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-[#026838] transition-all duration-300 ease-in-out">
                     {item.icon?.url ? (
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.icon.url}`}
+                        src={buildImageUrl(item.icon.url)}
                         alt={item.icon.name || item.title}
                         width={32}
                         height={32}

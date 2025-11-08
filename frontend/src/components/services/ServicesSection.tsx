@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildImageUrl } from "@/lib/api";
 import {
   servicesMockData,
   servicesMockDataEn,
@@ -75,18 +76,10 @@ export default function ServicesSection({
       return null;
     }
 
-    // Check if it's a Strapi URL (starts with / or http)
-    let imageSrc: string;
-    if (iconPath.startsWith("http")) {
-      // Already a complete URL
-      imageSrc = iconPath;
-    } else if (iconPath.startsWith("/")) {
-      // Relative path from Strapi
-      imageSrc = `http://localhost:1337${iconPath}`;
-    } else {
-      // Just filename
-      imageSrc = `http://localhost:1337/uploads/${iconPath}`;
-    }
+    // Use buildImageUrl for Strapi URLs
+    const imageSrc = iconPath.startsWith("http")
+      ? iconPath
+      : buildImageUrl(iconPath);
 
     return (
       <Image

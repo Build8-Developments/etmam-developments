@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { IMAGE_PATHS } from "@/constants";
+import { buildImageUrl } from "@/lib/api";
 import Image from "next/image";
 import styles from "@/styles/components/HowItWorksSection.module.css";
 
@@ -101,7 +102,7 @@ export default function HowItWorksSection({
                   <Image
                     src={
                       personImage
-                        ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${personImage.url}`
+                        ? buildImageUrl(personImage.url)
                         : IMAGE_PATHS.people.alt
                     }
                     alt={personImage?.alternativeText || "Person with laptop"}

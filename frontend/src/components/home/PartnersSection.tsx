@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildImageUrl } from "@/lib/api";
 
 interface Partner {
   name: string;
@@ -32,7 +33,7 @@ const PartnersSection = ({ partners }: PartnersSectionProps) => {
       ? partners.map((partner: Partner) => ({
           name: partner.name || "",
           logo: partner.logo?.url
-            ? `http://localhost:1337${partner.logo.url}`
+            ? buildImageUrl(partner.logo.url)
             : "/Payment method icon.png",
         }))
       : defaultPartners;
