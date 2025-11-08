@@ -23,7 +23,7 @@ jobs:
   deploy-frontend:
     name: Deploy Frontend
     runs-on: ubuntu-latest
-    environment: production
+    environment: prod
     if: github.event_name == 'push' || github.event.inputs.deploy_target == 'all' || github.event.inputs.deploy_target == 'frontend'
 
     steps:
@@ -196,7 +196,7 @@ jobs:
   deploy-strapi:
     name: Deploy Strapi
     runs-on: ubuntu-latest
-    environment: production
+    environment: prod
     if: github.event_name == 'push' || github.event.inputs.deploy_target == 'all' || github.event.inputs.deploy_target == 'strapi'
 
     steps:
