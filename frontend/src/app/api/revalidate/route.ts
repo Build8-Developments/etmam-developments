@@ -8,18 +8,22 @@ import { NextRequest } from "next/server";
  * Useful for Strapi webhooks to instantly update cache when content changes
  *
  * Usage:
- * POST /api/revalidate?secret=YOUR_SECRET&path=/
- * POST /api/revalidate?secret=YOUR_SECRET&tag=home-page
+ * GET/POST /api/revalidate?secret=YOUR_SECRET&path=/
+ * GET/POST /api/revalidate?secret=YOUR_SECRET&tag=home-page
  *
  * Set REVALIDATION_SECRET in .env.local
  */
-export async function POST(request: NextRequest) {
+
+/**
+ * Handle revalidation logic for both GET and POST requests
+ */
+async function handleRevalidation(request: NextRequest) {
   const secret = request.nextUrl.searchParams.get("secret");
   const path = request.nextUrl.searchParams.get("path");
   const tag = request.nextUrl.searchParams.get("tag");
 
   // Verify secret to prevent unauthorized revalidation
-  if (secret !== process.env.REVALIDATION_SECRET) {
+  if (!secret || secret !== process.env.REVALIDATION_SECRET) {
     return Response.json({ message: "Invalid secret token" }, { status: 401 });
   }
 
@@ -65,23 +69,15 @@ export async function POST(request: NextRequest) {
 }
 
 /**
- * GET endpoint for testing (should be disabled in production)
+ * POST endpoint - primary method for webhooks
  */
-export async function GET() {
-  // Only allow in development
-  if (process.env.NODE_ENV === "production") {
-    return Response.json(
-      { message: "GET method not allowed in production" },
-      { status: 405 }
-    );
-  }
+export async function POST(request: NextRequest) {
+  return handleRevalidation(request);
+}
 
-  return Response.json({
-    message: "Revalidation API",
-    usage: {
-      path: "/api/revalidate?secret=YOUR_SECRET&path=/page-path",
-      tag: "/api/revalidate?secret=YOUR_SECRET&tag=tag-name",
-    },
-    note: "Use POST method for revalidation",
-  });
+/**
+ * GET endpoint - for webhooks that only support GET
+ */
+export async function GET(request: NextRequest) {
+  return handleRevalidation(request);
 }
