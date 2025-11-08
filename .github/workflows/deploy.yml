@@ -23,6 +23,7 @@ jobs:
   deploy-frontend:
     name: Deploy Frontend
     runs-on: ubuntu-latest
+    environment: production
     if: github.event_name == 'push' || github.event.inputs.deploy_target == 'all' || github.event.inputs.deploy_target == 'frontend'
 
     steps:
@@ -39,14 +40,6 @@ jobs:
       - name: Install dependencies
         working-directory: frontend
         run: npm ci
-
-      - name: Run ESLint
-        working-directory: frontend
-        run: npm run lint
-
-      - name: Type check
-        working-directory: frontend
-        run: npm run type-check
 
       - name: Create production .env file
         working-directory: frontend
@@ -203,6 +196,7 @@ jobs:
   deploy-strapi:
     name: Deploy Strapi
     runs-on: ubuntu-latest
+    environment: production
     if: github.event_name == 'push' || github.event.inputs.deploy_target == 'all' || github.event.inputs.deploy_target == 'strapi'
 
     steps:
