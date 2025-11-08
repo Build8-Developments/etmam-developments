@@ -14,11 +14,13 @@ module.exports = {
         NODE_ENV: "production",
         PORT: "3000",
         HOSTNAME: "0.0.0.0",
+        REVALIDATION_SECRET: "z5TrTiBeFT4nG/HHmVoOmnQUCyxPIvn1+70Bp4Kyd/I=",
       },
       env_production: {
         NODE_ENV: "production",
         PORT: "3000",
         HOSTNAME: "0.0.0.0",
+        REVALIDATION_SECRET: "z5TrTiBeFT4nG/HHmVoOmnQUCyxPIvn1+70Bp4Kyd/I=",
       },
       error_file: "/var/log/pm2/etmam-frontend-error.log",
       out_file: "/var/log/pm2/etmam-frontend-out.log",
