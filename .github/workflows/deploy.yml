@@ -41,6 +41,15 @@ jobs:
         working-directory: frontend
         run: npm ci
 
+      - name: Debug - Check secrets (masked)
+        run: |
+          echo "Checking if secrets are available..."
+          echo "FRONTEND_NEXT_PUBLIC_APP_URL length: ${#FRONTEND_NEXT_PUBLIC_APP_URL}"
+          echo "SSH_HOST length: ${#SSH_HOST}"
+        env:
+          FRONTEND_NEXT_PUBLIC_APP_URL: ${{ secrets.FRONTEND_NEXT_PUBLIC_APP_URL }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+
       - name: Create production .env file
         working-directory: frontend
         run: |
@@ -308,7 +317,11 @@ jobs:
 
           # Install production dependencies
           echo "📦 Installing production dependencies..."
-          npm ci --production --ignore-scripts
+          npm ci --production
+
+          # Rebuild native modules (better-sqlite3)
+          echo "🔨 Rebuilding native modules..."
+          npm rebuild better-sqlite3
 
           # Ensure proper permissions
           echo "🔒 Setting permissions..."
