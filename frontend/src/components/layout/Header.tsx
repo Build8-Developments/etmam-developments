@@ -77,18 +77,18 @@ export default function Header({
               <Image
                 src={buildImageUrl(logo.url)}
                 alt={logo.alternativeText || "Logo"}
-                width={90}
-                height={50}
-                className="w-[90px] h-[50px] object-contain"
+                width={120}
+                height={65}
+                className="w-[110px] h-[60px] sm:w-[120px] sm:h-[65px] lg:w-[90px] lg:h-[50px] object-contain"
                 priority
               />
             ) : (
               <Image
                 src={IMAGE_PATHS.logos.main}
                 alt="Etmam"
-                width={90}
-                height={50}
-                className="w-[90px] h-[50px] object-contain"
+                width={120}
+                height={65}
+                className="w-[110px] h-[60px] sm:w-[120px] sm:h-[65px] lg:w-[90px] lg:h-[50px] object-contain"
                 priority
               />
             )}
