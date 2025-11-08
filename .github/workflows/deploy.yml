@@ -330,6 +330,14 @@ jobs:
 
           cd /var/www/strapi
 
+          # Stop PM2 process before updating dependencies
+          echo "⏸️  Stopping Strapi process..."
+          pm2 stop strapi 2>/dev/null || echo "Strapi not running"
+
+          # Clean up node_modules to avoid ENOTEMPTY errors
+          echo "🧹 Cleaning node_modules..."
+          rm -rf node_modules
+
           # Install production dependencies
           echo "📦 Installing production dependencies..."
           npm ci --production
@@ -355,9 +363,9 @@ jobs:
           chown -R www-data:www-data .tmp 2>/dev/null || true
           chmod 644 .tmp/data.db 2>/dev/null || true
 
-          # Start PM2 process
-          echo "▶️  Starting PM2 process..."
-          pm2 start ecosystem.config.js || pm2 restart strapi
+          # Restart PM2 process
+          echo "▶️  Restarting Strapi..."
+          pm2 restart strapi || pm2 start ecosystem.config.js
 
           # Save PM2 configuration
           pm2 save
