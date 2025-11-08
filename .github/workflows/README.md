@@ -9,11 +9,14 @@ This directory contains automated CI/CD workflows for the Etmam platform.
 Automatically deploys Frontend and Strapi to production server.
 
 **Triggers:**
+
 - Push to `main` branch (automatic)
 - Manual workflow dispatch (on-demand)
 
 **What it does:**
+
 1. **Frontend Job**
+
    - Lint and type-check code
    - Build Next.js production bundle
    - Deploy to `/var/www/etmam-frontend/`
@@ -28,6 +31,7 @@ Automatically deploys Frontend and Strapi to production server.
 **Duration:** ~3-5 minutes
 
 **Manual Run:**
+
 1. Go to **Actions → Deploy to Production**
 2. Click **Run workflow**
 3. Choose what to deploy:
@@ -42,18 +46,21 @@ Automatically deploys Frontend and Strapi to production server.
 See [`QUICKSTART.md`](../QUICKSTART.md) for complete setup guide.
 
 **SSH Secrets:**
+
 - `SSH_HOST` - Server IP (72.60.135.197)
 - `SSH_USER` - SSH username
 - `SSH_PASSWORD` - SSH password
 - `SSH_PORT` - SSH port (22)
 
 **Frontend Secrets:**
+
 - `FRONTEND_NEXT_PUBLIC_APP_URL`
 - `FRONTEND_NEXT_PUBLIC_STRAPI_API_URL`
 - `FRONTEND_NEXT_PUBLIC_STRAPI_API_TOKEN`
 - `FRONTEND_REVALIDATION_SECRET`
 
 **Strapi Secrets:**
+
 - `STRAPI_API_URL`
 - `STRAPI_GRAPHQL_URL`
 - `STRAPI_API_TOKEN`

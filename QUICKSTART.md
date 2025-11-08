@@ -9,10 +9,12 @@ Based on your GitHub secrets screenshot, you have most secrets configured. Here'
 ### 🔐 Secrets to Verify/Update
 
 #### 1. Fix SSH_HOST Secret
+
 **Current**: Shows as a URL  
 **Should be**: `72.60.135.197` (IP address only)
 
 **How to fix:**
+
 1. Go to: **Repository → Settings → Secrets → Actions**
 2. Find `SSH_HOST` → Click **Update**
 3. Change value to: `72.60.135.197`
@@ -23,12 +25,14 @@ Based on your GitHub secrets screenshot, you have most secrets configured. Here'
 ## 📋 Complete Secrets Checklist
 
 ### SSH Secrets (4/4 ✅)
+
 - [x] `SSH_HOST` - ⚠️ **Update to IP: `72.60.135.197`**
 - [x] `SSH_USER`
 - [x] `SSH_PASSWORD`
 - [x] `SSH_PORT`
 
 ### Frontend Secrets (5/5 ✅)
+
 - [x] `FRONTEND_NEXT_PUBLIC_APP_URL`
 - [x] `FRONTEND_NEXT_PUBLIC_STRAPI_API_URL`
 - [x] `FRONTEND_NEXT_PUBLIC_STRAPI_API_TOKEN`
@@ -36,6 +40,7 @@ Based on your GitHub secrets screenshot, you have most secrets configured. Here'
 - [x] `REVALIDATION_SECRET` (duplicate - that's fine)
 
 ### Strapi Secrets (8/8 ✅)
+
 - [x] `STRAPI_API_URL`
 - [x] `STRAPI_GRAPHQL_URL`
 - [x] `STRAPI_API_TOKEN`
@@ -51,6 +56,7 @@ Based on your GitHub secrets screenshot, you have most secrets configured. Here'
 ## 🎯 Next Steps
 
 ### 1. Update SSH_HOST (Required)
+
 ```
 Old: https://etmam.alkelany.com (or similar URL)
 New: 72.60.135.197
@@ -61,6 +67,7 @@ New: 72.60.135.197
 Once `SSH_HOST` is fixed, you can test deployment:
 
 #### Option A: Push to main branch
+
 ```bash
 git add .
 git commit -m "chore: setup CI/CD deployment"
@@ -68,6 +75,7 @@ git push origin main
 ```
 
 #### Option B: Manual workflow trigger
+
 1. Go to: **Actions → Deploy to Production**
 2. Click: **Run workflow**
 3. Select: `frontend` (test frontend first)
@@ -87,13 +95,16 @@ git push origin main
 ### Check These Common Issues:
 
 1. **SSH_HOST is still a URL**
+
    - Must be IP address: `72.60.135.197`
 
 2. **SSH connection fails**
+
    - Test manually: `ssh root@72.60.135.197`
    - Verify password is correct
 
 3. **Build fails**
+
    - Check GitHub Actions logs
    - Test locally: `npm run build`
 

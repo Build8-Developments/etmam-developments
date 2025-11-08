@@ -37,17 +37,20 @@ This repository uses GitHub Actions for automated deployment to production:
 Ensure the following are installed and configured:
 
 1. **Node.js** (v20.x or higher)
+
    ```bash
    node --version  # Should be v20.x
    ```
 
 2. **PM2** (Process Manager)
+
    ```bash
    pm2 --version
    pm2 list  # Should show etmam-frontend and strapi
    ```
 
 3. **Directory Structure**
+
    ```bash
    /var/www/
    ├── etmam-frontend/
@@ -60,6 +63,7 @@ Ensure the following are installed and configured:
    ```
 
 4. **Log Directory** (for PM2 logs)
+
    ```bash
    sudo mkdir -p /var/log/pm2
    sudo chown -R $USER:$USER /var/log/pm2
@@ -81,35 +85,35 @@ Go to: **GitHub Repository → Settings → Secrets and variables → Actions �
 
 #### SSH Connection Secrets
 
-| Secret Name | Value | Description |
-|------------|-------|-------------|
-| `SSH_HOST` | `72.60.135.197` | Server IP address |
-| `SSH_USER` | `root` | SSH username |
-| `SSH_PASSWORD` | `your-password` | SSH password |
-| `SSH_PORT` | `22` | SSH port (default: 22) |
+| Secret Name    | Value           | Description            |
+| -------------- | --------------- | ---------------------- |
+| `SSH_HOST`     | `72.60.135.197` | Server IP address      |
+| `SSH_USER`     | `root`          | SSH username           |
+| `SSH_PASSWORD` | `your-password` | SSH password           |
+| `SSH_PORT`     | `22`            | SSH port (default: 22) |
 
 #### Frontend Environment Secrets
 
-| Secret Name | Example Value | Description |
-|------------|---------------|-------------|
-| `FRONTEND_NEXT_PUBLIC_APP_URL` | `https://etmam.alkelany.com` | Frontend public URL |
-| `FRONTEND_NEXT_PUBLIC_STRAPI_API_URL` | `https://etmam-admin.alkelany.com` | Strapi public URL |
-| `FRONTEND_NEXT_PUBLIC_STRAPI_API_TOKEN` | `abc123...` | Strapi API token (from Strapi admin) |
-| `FRONTEND_REVALIDATION_SECRET` | `random-secret-key` | On-demand revalidation secret |
+| Secret Name                             | Example Value                      | Description                          |
+| --------------------------------------- | ---------------------------------- | ------------------------------------ |
+| `FRONTEND_NEXT_PUBLIC_APP_URL`          | `https://etmam.alkelany.com`       | Frontend public URL                  |
+| `FRONTEND_NEXT_PUBLIC_STRAPI_API_URL`   | `https://etmam-admin.alkelany.com` | Strapi public URL                    |
+| `FRONTEND_NEXT_PUBLIC_STRAPI_API_TOKEN` | `abc123...`                        | Strapi API token (from Strapi admin) |
+| `FRONTEND_REVALIDATION_SECRET`          | `random-secret-key`                | On-demand revalidation secret        |
 
 #### Strapi Environment Secrets
 
-| Secret Name | Example Value | Description |
-|------------|---------------|-------------|
-| `STRAPI_API_URL` | `http://localhost:1337` | Internal Strapi URL |
-| `STRAPI_GRAPHQL_URL` | `http://localhost:1337/graphql` | Internal GraphQL URL |
-| `STRAPI_API_TOKEN` | `abc123...` | Server-side API token |
-| `STRAPI_APP_KEYS` | `key1,key2,key3,key4` | Strapi app keys (comma-separated) |
-| `STRAPI_API_TOKEN_SALT` | `salt-value` | API token salt |
-| `STRAPI_ADMIN_JWT_SECRET` | `jwt-secret` | Admin JWT secret |
-| `STRAPI_JWT_SECRET` | `jwt-secret` | User JWT secret |
-| `STRAPI_TRANSFER_TOKEN_SALT` | `salt-value` | Transfer token salt |
-| `STRAPI_ENCRYPTION_KEY` | `encryption-key` | Encryption key |
+| Secret Name                  | Example Value                   | Description                       |
+| ---------------------------- | ------------------------------- | --------------------------------- |
+| `STRAPI_API_URL`             | `http://localhost:1337`         | Internal Strapi URL               |
+| `STRAPI_GRAPHQL_URL`         | `http://localhost:1337/graphql` | Internal GraphQL URL              |
+| `STRAPI_API_TOKEN`           | `abc123...`                     | Server-side API token             |
+| `STRAPI_APP_KEYS`            | `key1,key2,key3,key4`           | Strapi app keys (comma-separated) |
+| `STRAPI_API_TOKEN_SALT`      | `salt-value`                    | API token salt                    |
+| `STRAPI_ADMIN_JWT_SECRET`    | `jwt-secret`                    | Admin JWT secret                  |
+| `STRAPI_JWT_SECRET`          | `jwt-secret`                    | User JWT secret                   |
+| `STRAPI_TRANSFER_TOKEN_SALT` | `salt-value`                    | Transfer token salt               |
+| `STRAPI_ENCRYPTION_KEY`      | `encryption-key`                | Encryption key                    |
 
 ### How to Get Strapi API Token
 
@@ -158,6 +162,7 @@ git push origin main
 ### Frontend Deployment
 
 **Deployed Files:**
+
 - `.next/` - Production build
 - `public/` - Static assets
 - `src/` - Source code
@@ -166,12 +171,14 @@ git push origin main
 - `.env.production` - Generated from GitHub secrets
 
 **Preserved on Server:**
+
 - Existing `.env.production` (if not using GitHub secrets)
 - Node modules (reinstalled)
 
 ### Strapi Deployment
 
 **Deployed Files:**
+
 - `dist/` - Built Strapi code
 - `src/` - Source code
 - `config/` - Configuration files
@@ -179,6 +186,7 @@ git push origin main
 - `package.json`, `package-lock.json`
 
 **Preserved on Server:**
+
 - `public/uploads/` - User uploaded files
 - `.tmp/` - Temporary files
 - Database files (SQLite)
@@ -243,6 +251,7 @@ ls -lah /var/www/backups/
 ```
 
 Output example:
+
 ```
 frontend-20241108-143020/
 frontend-20241108-150030/
@@ -295,6 +304,7 @@ pm2 restart strapi
 ### Deployment Failed
 
 **Check GitHub Actions logs:**
+
 1. Go to: **GitHub Repository → Actions**
 2. Click on the failed workflow run
 3. Expand failed step to see error details
@@ -302,23 +312,29 @@ pm2 restart strapi
 **Common issues:**
 
 1. **SSH Connection Failed**
+
    ```
    Error: Permission denied (publickey,password)
    ```
+
    - **Fix**: Check `SSH_HOST`, `SSH_USER`, `SSH_PASSWORD` secrets
    - Verify server is accessible: `ping 72.60.135.197`
 
 2. **Build Failed (Frontend)**
+
    ```
    Error: Type error or ESLint error
    ```
+
    - **Fix**: Run locally first: `npm run lint && npm run type-check && npm run build`
    - Fix errors before pushing
 
 3. **Build Failed (Strapi)**
+
    ```
    Error: Build failed
    ```
+
    - **Fix**: Run locally: `npm run build`
    - Check Strapi logs for specific errors
 
@@ -359,18 +375,21 @@ free -h
 ### Frontend Not Loading
 
 1. **Check PM2 status:**
+
    ```bash
    pm2 list
    pm2 logs etmam-frontend --lines 100
    ```
 
 2. **Check .env.production:**
+
    ```bash
    cat /var/www/etmam-frontend/.env.production
    # Verify all URLs and tokens are correct
    ```
 
 3. **Check build exists:**
+
    ```bash
    ls -lah /var/www/etmam-frontend/.next
    ```
@@ -384,18 +403,21 @@ free -h
 ### Strapi Not Loading
 
 1. **Check PM2 status:**
+
    ```bash
    pm2 list
    pm2 logs strapi --lines 100
    ```
 
 2. **Check .env:**
+
    ```bash
    cat /var/www/strapi/.env
    # Verify all secrets are set
    ```
 
 3. **Check database:**
+
    ```bash
    ls -lah /var/www/strapi/.tmp/*.db
    # or check PostgreSQL connection
