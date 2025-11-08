@@ -7,7 +7,17 @@ export default {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register({ strapi }: { strapi: any }) {
+    // Force the socket to be treated as encrypted for proxy setups
+    // This fixes "Cannot send secure cookie over unencrypted connection" error
+    // when Strapi is behind a reverse proxy (nginx/Apache) with HTTPS
+    strapi.server.use(async (ctx: any, next: any) => {
+      if (ctx.req?.socket) {
+        (ctx.req.socket as any).encrypted = true;
+      }
+      await next();
+    });
+  },
 
   /**
    * An asynchronous bootstrap function that runs before

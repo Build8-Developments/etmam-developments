@@ -44,8 +44,9 @@ jobs:
       - name: Debug - Check secrets (masked)
         run: |
           echo "Checking if secrets are available..."
-          echo "FRONTEND_NEXT_PUBLIC_APP_URL length: ${#FRONTEND_NEXT_PUBLIC_APP_URL}"
-          echo "SSH_HOST length: ${#SSH_HOST}"
+          echo "FRONTEND_NEXT_PUBLIC_APP_URL (var): ${{ vars.FRONTEND_NEXT_PUBLIC_APP_URL }}"
+          echo "FRONTEND_NEXT_PUBLIC_APP_URL (secret) length: ${#FRONTEND_NEXT_PUBLIC_APP_URL}"
+          echo "SSH_HOST (secret) length: ${#SSH_HOST}"
         env:
           FRONTEND_NEXT_PUBLIC_APP_URL: ${{ secrets.FRONTEND_NEXT_PUBLIC_APP_URL }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
@@ -55,23 +56,23 @@ jobs:
         run: |
           cat > .env.production << EOF
           # Production Environment Variables
-          NEXT_PUBLIC_APP_URL=${{ secrets.FRONTEND_NEXT_PUBLIC_APP_URL }}
-          NEXT_PUBLIC_SITE_URL=${{ secrets.FRONTEND_NEXT_PUBLIC_APP_URL }}
+          NEXT_PUBLIC_APP_URL=${{ vars.FRONTEND_NEXT_PUBLIC_APP_URL }}
+          NEXT_PUBLIC_SITE_URL=${{ vars.FRONTEND_NEXT_PUBLIC_APP_URL }}
 
           # Strapi URLs (Client-side)
-          NEXT_PUBLIC_STRAPI_API_URL=${{ secrets.FRONTEND_NEXT_PUBLIC_STRAPI_API_URL }}
-          NEXT_PUBLIC_STRAPI_GRAPHQL_URL=${{ secrets.FRONTEND_NEXT_PUBLIC_STRAPI_API_URL }}/graphql
+          NEXT_PUBLIC_STRAPI_API_URL=${{ vars.FRONTEND_NEXT_PUBLIC_STRAPI_API_URL }}
+          NEXT_PUBLIC_STRAPI_GRAPHQL_URL=${{ vars.FRONTEND_NEXT_PUBLIC_STRAPI_API_URL }}/graphql
 
           # Strapi URLs (Server-side)
-          STRAPI_API_URL=${{ secrets.STRAPI_API_URL }}
-          STRAPI_GRAPHQL_URL=${{ secrets.STRAPI_GRAPHQL_URL }}
+          STRAPI_API_URL=${{ vars.STRAPI_API_URL }}
+          STRAPI_GRAPHQL_URL=${{ vars.STRAPI_GRAPHQL_URL }}
 
           # API Tokens
-          NEXT_PUBLIC_STRAPI_API_TOKEN=${{ secrets.FRONTEND_NEXT_PUBLIC_STRAPI_API_TOKEN }}
-          STRAPI_API_TOKEN=${{ secrets.STRAPI_API_TOKEN }}
+          NEXT_PUBLIC_STRAPI_API_TOKEN=${{ vars.FRONTEND_NEXT_PUBLIC_STRAPI_API_TOKEN }}
+          STRAPI_API_TOKEN=${{ vars.STRAPI_API_TOKEN }}
 
           # Revalidation
-          REVALIDATION_SECRET=${{ secrets.FRONTEND_REVALIDATION_SECRET }}
+          REVALIDATION_SECRET=${{ vars.FRONTEND_REVALIDATION_SECRET }}
 
           # Feature Flags
           NEXT_PUBLIC_ENABLE_ANALYTICS=true
