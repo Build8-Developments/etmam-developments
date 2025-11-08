@@ -248,14 +248,29 @@ jobs:
           # Create backups directory if it doesn't exist
           mkdir -p /var/www/backups
 
-          # Backup current deployment
+          # Backup current deployment AND database
           if [ -d "/var/www/strapi/dist" ]; then
             echo "📦 Creating backup..."
             BACKUP_DIR="/var/www/backups/strapi-$(date +%Y%m%d-%H%M%S)"
             mkdir -p "$BACKUP_DIR"
             cp -r /var/www/strapi/dist "$BACKUP_DIR/" 2>/dev/null || true
             cp -r /var/www/strapi/config "$BACKUP_DIR/" 2>/dev/null || true
+            
+            # Backup database file
+            if [ -f "/var/www/strapi/.tmp/data.db" ]; then
+              mkdir -p "$BACKUP_DIR/.tmp"
+              cp /var/www/strapi/.tmp/data.db "$BACKUP_DIR/.tmp/" 2>/dev/null || true
+              echo "✅ Database backed up"
+            fi
+            
             echo "✅ Backup created at: $BACKUP_DIR"
+          fi
+
+          # Backup database to temporary location (preserve during deployment)
+          echo "💾 Preserving database..."
+          if [ -f "/var/www/strapi/.tmp/data.db" ]; then
+            cp /var/www/strapi/.tmp/data.db /tmp/strapi-data.db.backup
+            echo "✅ Database preserved to /tmp/strapi-data.db.backup"
           fi
 
           # Navigate to deployment directory
@@ -269,7 +284,6 @@ jobs:
           echo "🧹 Cleaning old build..."
           rm -rf dist
           rm -rf .strapi
-          rm -rf .tmp/*.db 2>/dev/null || true
 
           echo "✅ Deployment preparation complete"
           SCRIPT
@@ -324,10 +338,22 @@ jobs:
           echo "🔨 Rebuilding native modules..."
           npm rebuild better-sqlite3
 
+          # Restore database from backup
+          echo "🔄 Restoring database..."
+          if [ -f "/tmp/strapi-data.db.backup" ]; then
+            mkdir -p .tmp
+            cp /tmp/strapi-data.db.backup .tmp/data.db
+            echo "✅ Database restored from backup"
+            rm /tmp/strapi-data.db.backup
+          else
+            echo "⚠️  No database backup found, starting with fresh database"
+          fi
+
           # Ensure proper permissions
           echo "🔒 Setting permissions..."
           chown -R www-data:www-data public/uploads 2>/dev/null || true
           chown -R www-data:www-data .tmp 2>/dev/null || true
+          chmod 644 .tmp/data.db 2>/dev/null || true
 
           # Start PM2 process
           echo "▶️  Starting PM2 process..."
