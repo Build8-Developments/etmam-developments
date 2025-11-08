@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation, IMAGE_PATHS } from "@/constants";
+import { buildImageUrl } from "@/lib/api";
 import { HeroProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,7 +39,7 @@ export default function HeroSection({
         <Image
           src={
             backgroundImage
-              ? `http://localhost:1337${backgroundImage.url}`
+              ? buildImageUrl(backgroundImage.url)
               : IMAGE_PATHS.backgrounds.hero
           }
           alt={backgroundImage?.alternativeText || "Background"}
@@ -46,8 +47,7 @@ export default function HeroSection({
           className="object-cover"
           priority
         />
-      </div>
-
+      </div>{" "}
       {/* Gradient overlay */}
       <div
         className="absolute inset-0 z-[1]"
@@ -57,8 +57,10 @@ export default function HeroSection({
           pointerEvents: "none",
         }}
       />
-
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[2]" style={{ pointerEvents: "auto" }}>
+      <div
+        className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[2]"
+        style={{ pointerEvents: "auto" }}
+      >
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column - Content */}
           <div
@@ -126,7 +128,7 @@ export default function HeroSection({
                   <Image
                     src={
                       personImage
-                        ? `http://localhost:1337${personImage.url}`
+                        ? buildImageUrl(personImage.url)
                         : IMAGE_PATHS.people.main
                     }
                     alt={personImage?.alternativeText || "Person"}
@@ -190,7 +192,7 @@ export default function HeroSection({
                   <Image
                     src={
                       personImage
-                        ? `http://localhost:1337${personImage.url}`
+                        ? buildImageUrl(personImage.url)
                         : IMAGE_PATHS.people.main
                     }
                     alt={personImage?.alternativeText || "Person"}

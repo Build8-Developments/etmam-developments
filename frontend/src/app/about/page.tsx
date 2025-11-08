@@ -9,6 +9,7 @@ import {
   ErrorBoundary,
 } from "@/components";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { buildImageUrl } from "@/lib/api";
 import {
   SuccessFoundationSection,
   LeadershipSection,
@@ -57,7 +58,9 @@ export default async function AboutPage() {
                 className="absolute inset-0"
                 style={{
                   backgroundImage: aboutData?.Hero?.backgroundImage?.url
-                    ? `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${aboutData.Hero.backgroundImage.url})`
+                    ? `url(${buildImageUrl(
+                        aboutData.Hero.backgroundImage.url
+                      )})`
                     : "url(/bgabout.png)",
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
@@ -67,7 +70,10 @@ export default async function AboutPage() {
                 }}
               />
 
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ pointerEvents: "auto" }}>
+              <div
+                className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+                style={{ pointerEvents: "auto" }}
+              >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   {/* Left Side - Content */}
                   <div className="text-white">

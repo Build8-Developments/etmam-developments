@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation, IMAGE_PATHS } from "@/constants";
+import { buildImageUrl } from "@/lib/api";
 import { CTASectionProps } from "@/types";
 
 const CTASection: React.FC<CTASectionProps> = ({
@@ -17,7 +18,8 @@ const CTASection: React.FC<CTASectionProps> = ({
 
   // Use props first, then default
   const displayTitle = title || getTranslation("cta", "title", language);
-  const displayButtonText = buttonText || getTranslation("cta", "buttonText", language);
+  const displayButtonText =
+    buttonText || getTranslation("cta", "buttonText", language);
   const displayButtonLink = buttonLink || "/contact";
   const displayBackgroundImage = backgroundImage;
 
@@ -149,7 +151,7 @@ const CTASection: React.FC<CTASectionProps> = ({
                 <Image
                   src={
                     displayBackgroundImage?.url
-                      ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${displayBackgroundImage.url}`
+                      ? buildImageUrl(displayBackgroundImage.url)
                       : IMAGE_PATHS.backgrounds.cta
                   }
                   alt={displayBackgroundImage?.alternativeText || "Background"}

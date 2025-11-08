@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildImageUrl } from "@/lib/api";
 
 interface ContactInfo {
   email?: string;
@@ -355,7 +356,7 @@ const Footer = ({
                 <div className="flex flex-col items-center lg:items-start space-y-3">
                   {logo?.url ? (
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${logo.url}`}
+                      src={buildImageUrl(logo.url)}
                       alt={logo.name || "Etmam"}
                       width={140}
                       height={98}
@@ -414,7 +415,7 @@ const Footer = ({
             <div className="flex items-center">
               {logo?.url ? (
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${logo.url}`}
+                  src={buildImageUrl(logo.url)}
                   alt={logo.name || "Etmam"}
                   width={80}
                   height={56}

@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "localhost",
+        hostname: "etmam-admin.alkelany.com",
         pathname: "/uploads/**",
       },
       {

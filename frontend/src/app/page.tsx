@@ -15,6 +15,7 @@ import {
   ConsultationSection,
 } from "@/components";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { buildImageUrl } from "@/lib/api";
 import { GET_HOME_PAGE } from "@/lib/graphql/queries/pages/home";
 import { GET_FEATURED_REVIEWS } from "@/lib/graphql/queries/content/reviews";
 import { GET_FEATURED_BLOG_POSTS } from "@/lib/graphql/queries/content/blog";
@@ -53,11 +54,7 @@ export default async function Home() {
       id: post.slug || post.documentId || "",
       title: post.title || "",
       description: post.summary || "",
-      image: post.banner?.url
-        ? `${
-            process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
-          }${post.banner.url}`
-        : "/blog1.jpg",
+      image: post.banner?.url ? buildImageUrl(post.banner.url) : "/blog1.jpg",
       date: post.publishedAt
         ? new Date(post.publishedAt).toLocaleDateString(
             locale === "ar" ? "ar-SA" : "en-US",

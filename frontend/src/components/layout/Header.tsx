@@ -3,6 +3,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMobileMenu } from "@/hooks";
 import { getTranslation, IMAGE_PATHS } from "@/constants";
+import { buildImageUrl } from "@/lib/api";
 import { HeaderProps } from "@/types";
 import { Button } from "../common";
 import Image from "next/image";
@@ -41,11 +42,16 @@ export default function Header({
 
   const navItems = (navigationItems || defaultNavItems).map((item: any) => ({
     ...item,
-    label: typeof item.label === 'string' ? item.label : (item.label?.[language] ?? ''),
+    label:
+      typeof item.label === "string"
+        ? item.label
+        : item.label?.[language] ?? "",
   }));
   const contactLabel =
-    (typeof contactButton?.label === 'string' ? contactButton?.label : contactButton?.label?.[language])
-    || getTranslation("navigation", "contact", language);
+    (typeof contactButton?.label === "string"
+      ? contactButton?.label
+      : contactButton?.label?.[language]) ||
+    getTranslation("navigation", "contact", language);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] animate-slide-down">
@@ -69,7 +75,7 @@ export default function Header({
           >
             {logo ? (
               <Image
-                src={`http://localhost:1337${logo.url}`}
+                src={buildImageUrl(logo.url)}
                 alt={logo.alternativeText || "Logo"}
                 width={90}
                 height={50}
@@ -119,17 +125,22 @@ export default function Header({
             >
               {/* Animated background */}
               <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-              
+
               {/* Globe Icon */}
-              <svg 
-                className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors duration-300 transform group-hover:scale-110" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors duration-300 transform group-hover:scale-110"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
-              
+
               {/* Language Text */}
               <span
                 className="text-sm font-bold text-gray-700 group-hover:text-green-600 transition-colors duration-300 relative z-10"
@@ -137,15 +148,20 @@ export default function Header({
               >
                 {language === "ar" ? "EN" : "عر"}
               </span>
-              
+
               {/* Swap Icon */}
-              <svg 
-                className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:rotate-180 transition-all duration-500" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:rotate-180 transition-all duration-500"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"
+                />
               </svg>
             </button>
 
@@ -186,8 +202,12 @@ export default function Header({
               aria-controls="mobile-nav"
             >
               {/* Animated background pulse */}
-              <span className={`absolute inset-0 rounded-full bg-green-500 opacity-0 ${isOpen ? 'animate-ping' : ''}`}></span>
-              
+              <span
+                className={`absolute inset-0 rounded-full bg-green-500 opacity-0 ${
+                  isOpen ? "animate-ping" : ""
+                }`}
+              ></span>
+
               {/* Hamburger Icon */}
               <div className="relative w-6 h-5 flex flex-col justify-center items-center">
                 <span
@@ -282,30 +302,40 @@ export default function Header({
                 >
                   {/* Animated background */}
                   <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-                  
+
                   {/* Globe Icon */}
-                  <svg 
-                    className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300 transform group-hover:scale-110" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300 transform group-hover:scale-110"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  
+
                   {/* Language Text */}
                   <span className="text-sm font-bold text-gray-700 group-hover:text-green-600 transition-colors duration-300 relative z-10">
                     {language === "ar" ? "English" : "العربية"}
                   </span>
-                  
+
                   {/* Swap Icon */}
-                  <svg 
-                    className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:rotate-180 transition-all duration-500" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:rotate-180 transition-all duration-500"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"
+                    />
                   </svg>
                 </button>
 
