@@ -81,7 +81,7 @@ export default function HeroSection({
               {subtitle || defaultSubtitle}
             </h2>
             <p
-              className="text-primary font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight transition-slow animate-delay-200"
+              className="text-white font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight transition-slow animate-delay-200"
               style={{ fontFamily: "var(--font-almarai)" }}
             >
               {defaultHeading}
