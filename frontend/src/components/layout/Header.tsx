@@ -77,18 +77,18 @@ export default function Header({
               <Image
                 src={buildImageUrl(logo.url)}
                 alt={logo.alternativeText || "Logo"}
-                width={120}
-                height={65}
-                className="w-[110px] h-[60px] sm:w-[120px] sm:h-[65px] lg:w-[90px] lg:h-[50px] object-contain"
+                width={140}
+                height={75}
+                className="w-[130px] h-[70px] sm:w-[140px] sm:h-[75px] lg:w-[90px] lg:h-[50px] object-contain"
                 priority
               />
             ) : (
               <Image
                 src={IMAGE_PATHS.logos.main}
                 alt="Etmam"
-                width={120}
-                height={65}
-                className="w-[110px] h-[60px] sm:w-[120px] sm:h-[65px] lg:w-[90px] lg:h-[50px] object-contain"
+                width={140}
+                height={75}
+                className="w-[130px] h-[70px] sm:w-[140px] sm:h-[75px] lg:w-[90px] lg:h-[50px] object-contain"
                 priority
               />
             )}
@@ -100,23 +100,26 @@ export default function Header({
               <Link
                 key={index}
                 href={item.href}
-                className="relative text-gray-700 hover:text-green-600 transition-all duration-300 whitespace-nowrap text-sm xl:text-base font-semibold group"
+                className="relative text-gray-700 hover:text-green-600 transition-all duration-300 whitespace-nowrap text-sm xl:text-base font-semibold group leading-none"
                 style={{
                   fontFamily: "var(--font-almarai)",
+                  lineHeight: 1,
+                  marginBottom: 0,
+                  paddingBottom: 0,
                 }}
               >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
+                <span style={{paddingTop: '14px', display: 'inline-block'}}>{item.label}</span>
+                <span className="absolute left-0 right-0 bottom-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300 m-0 p-0"></span>
               </Link>
             ))}
           </nav>
 
           {/* Right Section */}
           <div className="flex items-center gap-2 lg:gap-3">
-            {/* Language Switcher - Unified Design */}
+            {/* Language Switcher - Hidden on Mobile, Visible on Desktop */}
             <button
               onClick={() => setLanguage(language === "ar" ? "en" : "ar")}
-              className="group relative flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 border-2 border-gray-200 hover:border-green-500 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/30"
+              className="hidden lg:group lg:relative lg:flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 border-2 border-gray-200 hover:border-green-500 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/30"
               aria-label={getTranslation(
                 "accessibility",
                 "languageSwitch",
@@ -165,7 +168,7 @@ export default function Header({
               </svg>
             </button>
 
-            {/* Contact Button */}
+            {/* Contact Button - يظهر فقط على الشاشات الكبيرة */}
             <Button
               label={contactLabel}
               href={contactButton?.href || "/contact"}
@@ -186,7 +189,7 @@ export default function Header({
               }
               variant="primary"
               size="sm"
-              className="hidden sm:inline-flex whitespace-nowrap text-sm font-bold tracking-wide transition-all duration-300 hover:scale-[1.08] active:scale-[0.98]"
+              className="hidden lg:inline-flex whitespace-nowrap text-sm font-bold tracking-wide transition-all duration-300 hover:scale-[1.08] active:scale-[0.98]"
             />
 
             {/* Mobile Menu Button - Enhanced Animation */}
@@ -252,10 +255,10 @@ export default function Header({
             {/* Menu Header */}
             <div className="px-6 py-4 border-b border-gray-100">
               <h3
-                className="text-lg font-bold text-gray-800"
+                className="text-lg font-bold text-gray-800 text-center w-full"
                 style={{ fontFamily: "var(--font-almarai)" }}
               >
-                {language === "ar" ? "القائمة" : "Menu"}
+                {language === "ar" ? "اتمام" : "Etmam"}
               </h3>
             </div>
 
@@ -341,13 +344,6 @@ export default function Header({
                 </button>
 
                 {/* Contact Button */}
-                <Button
-                  label={contactLabel}
-                  href={contactButton?.href || "/contact"}
-                  variant="primary"
-                  size="sm"
-                  className="px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 hover:scale-[1.08] active:scale-[0.98]"
-                />
               </div>
             </div>
           </div>
