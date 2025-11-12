@@ -56,15 +56,15 @@ export default function Header({
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] animate-slide-down">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
+          <div
           className="flex items-center justify-between transition-all duration-300 hover:shadow-lg"
           style={{
-            height: "70px",
+            minHeight: "70px",
             background: "#FFFFFF",
             borderBottomRightRadius: "35px",
             borderBottomLeftRadius: "35px",
-            paddingLeft: "20px",
-            paddingRight: "20px",
+            paddingLeft: "clamp(12px, 3vw, 20px)",
+            paddingRight: "clamp(12px, 3vw, 20px)",
             boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
           }}
         >
@@ -192,7 +192,7 @@ export default function Header({
             {/* Mobile Menu Button - Enhanced Animation */}
             <button
               onClick={toggle}
-              className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-full bg-gradient-to-br from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/30 group"
+              className="lg:hidden relative min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-gradient-to-br from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500/30 group touch-manipulation"
               aria-label={getTranslation(
                 "accessibility",
                 "menuToggle",
@@ -233,8 +233,9 @@ export default function Header({
         {/* Page overlay when mobile menu open */}
         {isOpen && (
           <div
-            className="fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm lg:hidden transition-all duration-300"
+            className="fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm lg:hidden transition-all duration-300 touch-manipulation"
             onClick={close}
+            aria-hidden="true"
           />
         )}
 

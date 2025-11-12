@@ -50,6 +50,7 @@ export const ConsultationSection = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
 
     // Basic validation
     if (!formData.fullName || !formData.email || !formData.mobileNumber) {
@@ -100,29 +101,20 @@ export const ConsultationSection = ({
   const formContent = (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8"
-      style={
-        {
-          pointerEvents: "auto",
-          touchAction: "manipulation",
-          position: "relative",
-          zIndex: 10,
-          WebkitTouchCallout: "default",
-          WebkitUserSelect: "text",
-          userSelect: "text",
-          isolation: "isolate",
-        } as React.CSSProperties
-      }
+      onClick={(e) => e.stopPropagation()}
+      onMouseDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
+      className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 relative z-30"
     >
       {/* Row 1 */}
       <div
         className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
-        style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}
+        
       >
-        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+        <div >
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
-            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
             {language === "ar" ? "اسم المنشأة" : "Company Name"}
           </label>
@@ -131,24 +123,7 @@ export const ConsultationSection = ({
             name="companyName"
             value={formData.companyName}
             onChange={handleInputChange}
-            onTouchStart={(e) => {
-              e.stopPropagation();
-            }}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-            style={
-              {
-                touchAction: "manipulation",
-                pointerEvents: "auto",
-                position: "relative",
-                zIndex: 1,
-                WebkitAppearance: "none",
-                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-                userSelect: "text",
-                WebkitUserSelect: "text",
-                MozUserSelect: "text",
-                msUserSelect: "text",
-              } as React.CSSProperties
-            }
             placeholder={
               language === "ar" ? "أدخل اسم المنشأة" : "Enter company name"
             }
@@ -156,10 +131,10 @@ export const ConsultationSection = ({
             autoComplete="organization"
           />
         </div>
-        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+        <div >
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
-            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
             {language === "ar" ? "الاسم بالكامل" : "Full Name"}
           </label>
@@ -168,24 +143,7 @@ export const ConsultationSection = ({
             name="fullName"
             value={formData.fullName}
             onChange={handleInputChange}
-            onTouchStart={(e) => {
-              e.stopPropagation();
-            }}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-            style={
-              {
-                touchAction: "manipulation",
-                pointerEvents: "auto",
-                position: "relative",
-                zIndex: 1,
-                WebkitAppearance: "none",
-                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-                userSelect: "text",
-                WebkitUserSelect: "text",
-                MozUserSelect: "text",
-                msUserSelect: "text",
-              } as React.CSSProperties
-            }
             placeholder={
               language === "ar" ? "أدخل الاسم بالكامل" : "Enter full name"
             }
@@ -197,10 +155,10 @@ export const ConsultationSection = ({
 
       {/* Row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+        <div >
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
-            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
             {language === "ar" ? "رقم الجوال" : "Mobile Number"}
           </label>
@@ -209,24 +167,7 @@ export const ConsultationSection = ({
             name="mobileNumber"
             value={formData.mobileNumber}
             onChange={handleInputChange}
-            onTouchStart={(e) => {
-              e.stopPropagation();
-            }}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-            style={
-              {
-                touchAction: "manipulation",
-                pointerEvents: "auto",
-                position: "relative",
-                zIndex: 1,
-                WebkitAppearance: "none",
-                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-                userSelect: "text",
-                WebkitUserSelect: "text",
-                MozUserSelect: "text",
-                msUserSelect: "text",
-              } as React.CSSProperties
-            }
             placeholder={
               language === "ar" ? "أدخل رقم الجوال" : "Enter mobile number"
             }
@@ -235,10 +176,10 @@ export const ConsultationSection = ({
             inputMode="tel"
           />
         </div>
-        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+        <div >
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
-            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
             {language === "ar" ? "البريد الإلكتروني" : "Email"}
           </label>
@@ -247,24 +188,7 @@ export const ConsultationSection = ({
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            onTouchStart={(e) => {
-              e.stopPropagation();
-            }}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-            style={
-              {
-                touchAction: "manipulation",
-                pointerEvents: "auto",
-                position: "relative",
-                zIndex: 1,
-                WebkitAppearance: "none",
-                WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-                userSelect: "text",
-                WebkitUserSelect: "text",
-                MozUserSelect: "text",
-                msUserSelect: "text",
-              } as React.CSSProperties
-            }
             placeholder={
               language === "ar"
                 ? "أدخل البريد الإلكتروني"
@@ -279,10 +203,10 @@ export const ConsultationSection = ({
 
       {/* Row 3 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+        <div >
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
-            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
             {language === "ar"
               ? "أوقات التواصل المفضلة"
@@ -292,19 +216,7 @@ export const ConsultationSection = ({
             name="preferredTime"
             value={formData.preferredTime}
             onChange={handleInputChange}
-            onTouchStart={(e) => {
-              e.stopPropagation();
-            }}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-            style={{
-              touchAction: "manipulation",
-              WebkitTouchCallout: "default",
-              pointerEvents: "auto",
-              position: "relative",
-              zIndex: 1,
-              WebkitAppearance: "menulist",
-              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-            }}
             dir={language === "ar" ? "rtl" : "ltr"}
           >
             <option value="">
@@ -329,10 +241,10 @@ export const ConsultationSection = ({
             </option>
           </select>
         </div>
-        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+        <div >
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
-            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
             {language === "ar" ? "لغة التواصل" : "Preferred Language"}
           </label>
@@ -340,19 +252,7 @@ export const ConsultationSection = ({
             name="preferredLanguage"
             value={formData.preferredLanguage}
             onChange={handleInputChange}
-            onTouchStart={(e) => {
-              e.stopPropagation();
-            }}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-            style={{
-              touchAction: "manipulation",
-              WebkitTouchCallout: "default",
-              pointerEvents: "auto",
-              position: "relative",
-              zIndex: 1,
-              WebkitAppearance: "menulist",
-              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-            }}
             dir={language === "ar" ? "rtl" : "ltr"}
           >
             <option value="">
@@ -371,10 +271,10 @@ export const ConsultationSection = ({
       {/* Row 4 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div></div>
-        <div style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}>
+        <div >
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
-            style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+            style={{ fontFamily: "var(--font-almarai)" }}
           >
             {language === "ar" ? "اختر الخدمة" : "Choose Service"}
           </label>
@@ -382,19 +282,7 @@ export const ConsultationSection = ({
             name="service"
             value={formData.service}
             onChange={handleInputChange}
-            onTouchStart={(e) => {
-              e.stopPropagation();
-            }}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-800"
-            style={{
-              touchAction: "manipulation",
-              WebkitTouchCallout: "default",
-              pointerEvents: "auto",
-              position: "relative",
-              zIndex: 1,
-              WebkitAppearance: "menulist",
-              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-            }}
             dir={language === "ar" ? "rtl" : "ltr"}
           >
             <option value="">
@@ -438,11 +326,11 @@ export const ConsultationSection = ({
       {/* Row 5 - Note */}
       <div
         className="mb-6"
-        style={{ pointerEvents: "auto", position: "relative", zIndex: 1 }}
+        
       >
         <label
           className="block text-sm font-semibold text-gray-700 mb-2"
-          style={{ fontFamily: "var(--font-almarai)", pointerEvents: "none" }}
+          style={{ fontFamily: "var(--font-almarai)" }}
         >
           {language === "ar" ? "ملاحظة" : "Note"}
         </label>
@@ -450,25 +338,8 @@ export const ConsultationSection = ({
           name="note"
           value={formData.note}
           onChange={handleInputChange}
-          onTouchStart={(e) => {
-            e.stopPropagation();
-          }}
           rows={4}
           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-800"
-          style={
-            {
-              touchAction: "manipulation",
-              pointerEvents: "auto",
-              position: "relative",
-              zIndex: 1,
-              WebkitAppearance: "none",
-              WebkitTapHighlightColor: "rgba(34, 197, 94, 0.2)",
-              userSelect: "text",
-              WebkitUserSelect: "text",
-              MozUserSelect: "text",
-              msUserSelect: "text",
-            } as React.CSSProperties
-          }
           placeholder={
             language === "ar"
               ? "أضف أي ملاحظات إضافية..."
@@ -502,12 +373,12 @@ export const ConsultationSection = ({
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 ${
+          className={`w-full min-h-[48px] bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 touch-manipulation ${
             isSubmitting
               ? "opacity-50 cursor-not-allowed"
-              : "hover:from-green-700 hover:to-green-800"
+              : "hover:from-green-700 hover:to-green-800 active:scale-[0.98]"
           }`}
-          style={{ fontFamily: "var(--font-almarai)" }}
+          style={{ fontFamily: "var(--font-almarai)", touchAction: "manipulation" }}
         >
           {isSubmitting ? (
             <>
@@ -565,13 +436,7 @@ export const ConsultationSection = ({
 
   return (
     <section
-      className="bg-gray-50 py-16 lg:py-24"
-      style={{
-        position: "relative",
-        zIndex: 1,
-        pointerEvents: "auto",
-        touchAction: "manipulation",
-      }}
+      className="bg-gray-50 py-16 lg:py-24 relative"
       dir={language === "ar" ? "rtl" : "ltr"}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -659,22 +524,13 @@ export const ConsultationSection = ({
           </div>
         </div>
 
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-          style={{
-            position: "relative",
-            zIndex: 1,
-            pointerEvents: "auto",
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Contact Form */}
-          <div
-            className="lg:order-2 lg:pr-8"
-            style={{
-              position: "relative",
-              zIndex: 1,
-              pointerEvents: "auto",
-            }}
+          <div 
+            className="lg:order-2 lg:pr-8 relative z-20"
+            onClick={(e) => e.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
           >
             {formContent}
           </div>
@@ -685,21 +541,20 @@ export const ConsultationSection = ({
               language === "ar" ? "lg:text-right" : "lg:text-left"
             } lg:pl-8 rounded-2xl shadow-lg overflow-hidden relative`}
             style={{
-              pointerEvents: "auto",
               minHeight: "400px",
             }}
           >
             {/* Background Image with Overlay */}
             {backgroundImage && (
               <div
-                className="absolute inset-0 z-0"
+                className="absolute inset-0 z-0 pointer-events-none"
                 style={{
                   backgroundImage: `url(${buildImageUrl(backgroundImage.url)})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-green-800/95 via-green-700/90 to-green-600/85" />
+                <div className="absolute inset-0 bg-gradient-to-br from-green-800/95 via-green-700/90 to-green-600/85 pointer-events-none" />
               </div>
             )}
 
@@ -765,3 +620,8 @@ export const ConsultationSection = ({
     </section>
   );
 };
+
+
+
+
+

@@ -35,7 +35,7 @@ export default function HeroSection({
   return (
     <section className="relative flex items-center overflow-hidden min-h-[600px] md:min-h-[700px] lg:min-h-[800px] pt-20 md:pt-24 lg:pt-28 pb-12 md:pb-16 lg:pb-20">
       {/* Background image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src={
             backgroundImage
@@ -47,20 +47,16 @@ export default function HeroSection({
           className="object-cover"
           priority
         />
-      </div>{" "}
+      </div>
       {/* Gradient overlay */}
       <div
-        className="absolute inset-0 z-[1]"
+        className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background:
             "linear-gradient(94.78deg, rgba(22, 97, 19, 0.59) 17.73%, rgba(0, 0, 0, 0.7) 113.39%)",
-          pointerEvents: "none",
         }}
       />
-      <div
-        className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[2]"
-        style={{ pointerEvents: "auto" }}
-      >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-[2]">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column - Content */}
           <div
@@ -115,7 +111,7 @@ export default function HeroSection({
           {/* Right Column - Person Image */}
           <div className="relative order-1 lg:order-2">
             {/* Mobile/Tablet simplified visual */}
-            <div className="relative mx-auto w-full max-w-[400px] h-[400px] sm:max-w-[480px] sm:h-[480px] lg:hidden">
+            <div className="relative mx-auto w-full max-w-sm md:max-w-md h-[400px] md:h-[480px] lg:hidden">
               <Image
                 src={IMAGE_PATHS.icons.ellipse}
                 alt="Ellipse"
@@ -124,7 +120,7 @@ export default function HeroSection({
                 priority
               />
               <div className="absolute inset-0 flex items-end justify-center p-4">
-                <div className="relative w-[75%] h-[85%] rounded-[48px] overflow-hidden">
+                <div className="relative w-[75%] h-[85%] rounded-[3rem] overflow-hidden">
                   <Image
                     src={
                       personImage
@@ -138,13 +134,12 @@ export default function HeroSection({
                   />
                 </div>
               </div>
-              <div className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 w-[100px] h-[110px] sm:w-[120px] sm:h-[130px] rounded-xl overflow-hidden shadow-lg bg-white">
+              <div className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg bg-white">
                 <Image
                   src={IMAGE_PATHS.people.small}
                   alt="Team member"
-                  width={120}
-                  height={130}
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>
