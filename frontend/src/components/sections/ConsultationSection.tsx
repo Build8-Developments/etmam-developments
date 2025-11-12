@@ -575,6 +575,90 @@ export const ConsultationSection = ({
       dir={language === "ar" ? "rtl" : "ltr"}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12 lg:mb-16">
+          {/* Section Badge */}
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-green-100 px-5 py-2.5 rounded-full mb-6 shadow-sm border border-green-200">
+            <svg
+              className="w-5 h-5 text-green-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            <span
+              className="text-sm font-bold text-green-700 tracking-wide"
+              style={{ fontFamily: "var(--font-almarai)" }}
+            >
+              {language === "ar" ? "احجز استشارتك" : "Book Consultation"}
+            </span>
+          </div>
+
+          {/* Main Title */}
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 px-4"
+            style={{ fontFamily: "var(--font-almarai)", lineHeight: "1.2" }}
+          >
+            {language === "ar"
+              ? "ابدأ رحلتك معنا الآن"
+              : "Start Your Journey With Us"}
+          </h2>
+
+          {/* Decorative Line */}
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-transparent to-green-500 rounded-full" />
+            <div className="w-3 h-3 bg-green-500 rounded-full" />
+            <div className="w-12 sm:w-16 h-1 bg-gradient-to-l from-transparent to-green-500 rounded-full" />
+          </div>
+
+          {/* Description */}
+          <p
+            className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4"
+            style={{ fontFamily: "var(--font-almarai)" }}
+          >
+            {language === "ar"
+              ? "املأ البيانات المطلوبة وسيتواصل معك فريقنا المتخصص خلال 24 ساعة لمناقشة احتياجاتك وتقديم أفضل الحلول"
+              : "Fill in the required information and our specialized team will contact you within 24 hours to discuss your needs and provide the best solutions"}
+          </p>
+
+          {/* Features List */}
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <span
+                className="text-sm sm:text-base text-gray-700 font-semibold"
+                style={{ fontFamily: "var(--font-almarai)" }}
+              >
+                {language === "ar" ? "استشارة مجانية" : "Free Consultation"}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <span
+                className="text-sm sm:text-base text-gray-700 font-semibold"
+                style={{ fontFamily: "var(--font-almarai)" }}
+              >
+                {language === "ar" ? "رد سريع خلال 24 ساعة" : "Quick Response in 24h"}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <span
+                className="text-sm sm:text-base text-gray-700 font-semibold"
+                style={{ fontFamily: "var(--font-almarai)" }}
+              >
+                {language === "ar" ? "فريق متخصص" : "Expert Team"}
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
           style={{

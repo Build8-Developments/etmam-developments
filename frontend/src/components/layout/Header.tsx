@@ -186,7 +186,7 @@ export default function Header({
               }
               variant="primary"
               size="sm"
-              className="hidden sm:inline-flex whitespace-nowrap text-sm font-semibold transition-transform hover:scale-105 duration-300 shadow-md hover:shadow-lg"
+              className="hidden sm:inline-flex whitespace-nowrap text-sm font-bold tracking-wide transition-all duration-300 hover:scale-[1.08] active:scale-[0.98]"
             />
 
             {/* Mobile Menu Button - Enhanced Animation */}
@@ -345,7 +345,7 @@ export default function Header({
                   href={contactButton?.href || "/contact"}
                   variant="primary"
                   size="sm"
-                  className="px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105"
+                  className="px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 hover:scale-[1.08] active:scale-[0.98]"
                 />
               </div>
             </div>
