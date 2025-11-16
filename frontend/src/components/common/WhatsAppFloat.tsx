@@ -58,7 +58,7 @@ const WhatsAppFloat = ({
       >
         {/* Pulse Animation */}
         {WHATSAPP_CONFIG.styling.pulse && (
-          <div className="whatsapp-pulse"></div>
+          <div className="whatsapp-pulse" data-decorative="true" style={{ pointerEvents: 'none' }}></div>
         )}
         
         {/* WhatsApp Icon */}
@@ -72,10 +72,10 @@ const WhatsAppFloat = ({
         </svg>
 
         {/* Hover Effect */}
-        <div className="absolute inset-0 rounded-full bg-green-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-5"></div>
+        <div className="absolute inset-0 rounded-full bg-green-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-5" data-decorative="true" style={{ pointerEvents: 'none' }}></div>
         
         {/* Ripple Effect on Click */}
-        <div className="absolute inset-0 rounded-full bg-white opacity-0 group-active:opacity-20 transition-opacity duration-150 z-5"></div>
+        <div className="absolute inset-0 rounded-full bg-white opacity-0 group-active:opacity-20 transition-opacity duration-150 z-5" data-decorative="true" style={{ pointerEvents: 'none' }}></div>
       </button>
 
       {/* Notification Badge */}

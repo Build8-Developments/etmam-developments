@@ -34,6 +34,7 @@ export function Section({
                 {/* Green gradient background */}
                 <div 
                   className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-green-600/20 rounded-lg blur-sm -z-10 pointer-events-none"
+                  data-decorative="true"
                   style={{ transform: 'scale(1.1)' }}
                 />
               </h2>

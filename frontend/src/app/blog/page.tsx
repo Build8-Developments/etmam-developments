@@ -398,15 +398,17 @@ export default function BlogPage() {
                           }`}
                          style={{
                            height: '60px',
-                           background: selectedCategory === category.id 
-                             ? 'linear-gradient(135deg, rgba(34, 197, 94, 0.8), rgba(22, 163, 74, 0.9))'
-                             : 'rgba(0, 0, 0, 0.27)',
-                           backgroundImage: selectedCategory === category.id 
-                             ? 'none' 
-                             : 'url(/cat.jpg)',
-                           backgroundSize: 'cover',
-                           backgroundPosition: 'center',
-                           backgroundRepeat: 'no-repeat'
+                           ...(selectedCategory === category.id 
+                             ? {
+                                 backgroundImage: 'linear-gradient(135deg, rgba(34, 197, 94, 0.8), rgba(22, 163, 74, 0.9))',
+                               }
+                             : {
+                                 backgroundImage: 'url(/cat.jpg)',
+                                 backgroundSize: 'cover',
+                                 backgroundPosition: 'center',
+                                 backgroundRepeat: 'no-repeat',
+                                 backgroundColor: 'rgba(0, 0, 0, 0.27)',
+                               })
                          }}
                        >
                          {/* Dark overlay - only when not selected */}
@@ -416,7 +418,7 @@ export default function BlogPage() {
                          
                          {/* Gradient overlay for selected state */}
                          {selectedCategory === category.id && (
-                           <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-green-500/20"></div>
+                           <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-green-500/20" data-decorative="true"></div>
                          )}
                          
                          {/* Text */}

@@ -60,25 +60,25 @@ export default function OffersPage() {
 
       {/* Custom Hero Section */}
       <AnimatedSection animation="fadeIn" delay={0}>
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden" style={{ isolation: 'isolate' }}>
           <div
             className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
+            data-decorative="true"
             style={{
               background:
                 "linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)",
               backdropFilter: "blur(4px)",
-              pointerEvents: "none",
             }}
           >
             {/* Background Image */}
             <div
               className="absolute inset-0"
+              data-decorative="true"
               style={{
                 backgroundImage: "url(/bgabout.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
                 backgroundRepeat: "no-repeat",
-                backgroundAttachment: "fixed",
                 pointerEvents: "none",
               }}
             />
@@ -280,7 +280,7 @@ export default function OffersPage() {
                     />
 
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/40" data-decorative="true"></div>
 
                     {/* Content */}
                     <div className="relative z-10 h-full flex flex-col justify-end">

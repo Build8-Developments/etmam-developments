@@ -21,6 +21,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Suppress hydration warnings caused by browser extensions
+  reactStrictMode: true,
+  onDemandEntries: {
+    // Reduce memory usage in development
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
 };
 
 export default nextConfig;

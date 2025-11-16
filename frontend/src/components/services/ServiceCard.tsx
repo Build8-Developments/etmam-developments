@@ -109,7 +109,7 @@ export const ServiceCard = ({ service, href, showDetails = true }: ServiceCardPr
         hover:shadow-[0_20px_60px_rgba(27,128,54,0.15)]
         transform hover:-translate-y-3
         border border-gray-100
-        before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#1B8036]/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500
+        before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#1B8036]/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500 before:pointer-events-none
         hover:before:opacity-100
       ">
         {/* Gradient Header */}

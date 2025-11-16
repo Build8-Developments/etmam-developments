@@ -147,7 +147,7 @@ const CTASection: React.FC<CTASectionProps> = ({
               }}
             >
               {/* Background Image */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0" data-decorative="true">
                 <Image
                   src={
                     displayBackgroundImage?.url
@@ -177,6 +177,7 @@ const CTASection: React.FC<CTASectionProps> = ({
               {/* Overlay for better text contrast */}
               <div
                 className="absolute inset-0 pointer-events-none"
+                data-decorative="true"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(17, 97, 58, 0.1) 0%, rgba(17, 97, 58, 0.3) 100%)",

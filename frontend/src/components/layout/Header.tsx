@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMobileMenu } from "@/hooks";
-import { getTranslation, IMAGE_PATHS } from "@/constants";
+import { getTranslation, IMAGE_PATHS, Z_INDEX_CLASSES } from "@/constants";
 import { buildImageUrl } from "@/lib/api";
 import { HeaderProps } from "@/types";
 import { Button } from "../common";
@@ -54,7 +54,7 @@ export default function Header({
     getTranslation("navigation", "contact", language);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] animate-slide-down">
+    <header className={`fixed top-0 left-0 right-0 ${Z_INDEX_CLASSES.HEADER} animate-slide-down`}>
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
           className="flex items-center justify-between transition-all duration-300 hover:shadow-lg"
@@ -236,7 +236,7 @@ export default function Header({
         {/* Page overlay when mobile menu open */}
         {isOpen && (
           <div
-            className="fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm lg:hidden transition-all duration-300 touch-manipulation"
+            className="fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm lg:hidden transition-all duration-300 touch-manipulation pointer-events-auto"
             onClick={close}
             aria-hidden="true"
           />
@@ -249,7 +249,7 @@ export default function Header({
             isOpen
               ? "opacity-100 pointer-events-auto translate-y-0"
               : "opacity-0 pointer-events-none -translate-y-4"
-          } lg:hidden transition-all duration-300 ease-out relative z-[95]`}
+          } lg:hidden transition-all duration-300 ease-out relative ${Z_INDEX_CLASSES.MOBILE_MENU}`}
         >
           <div className="mt-3 mx-4 rounded-3xl bg-white shadow-2xl ring-1 ring-black/10 overflow-hidden backdrop-blur-sm">
             {/* Menu Header */}
@@ -305,7 +305,7 @@ export default function Header({
                   style={{ fontFamily: "var(--font-almarai)" }}
                 >
                   {/* Animated background */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" data-decorative="true"></span>
 
                   {/* Globe Icon */}
                   <svg

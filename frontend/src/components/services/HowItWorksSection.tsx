@@ -148,7 +148,7 @@ export default function HowItWorksSection({
                   }}
                 >
                   {/* Step Number Circle */}
-                  <div className={styles.stepNumberContainer}>
+                  <div className={styles.stepNumberContainer} suppressHydrationWarning>
                     <div
                       className={`${styles.stepNumberCircle} ${
                         isRTL ? styles.rtl : styles.ltr

@@ -391,7 +391,7 @@ export default function ServicesCarouselSection({
           </div>
 
           {/* Carousel Container */}
-          <div className="relative" style={{ touchAction: "pan-y" }}>
+          <div className="relative" style={{ touchAction: "pan-y" }} suppressHydrationWarning>
             {/* Navigation Arrows - Hidden on mobile */}
             <button
               onClick={prevSlide}

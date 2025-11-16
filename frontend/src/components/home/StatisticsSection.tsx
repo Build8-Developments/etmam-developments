@@ -66,6 +66,7 @@ export default function StatisticsSection({
       {/* Background Image - Upper 2/3 */}
       <div
         className="absolute inset-0 z-0"
+        data-decorative="true"
         style={{ height: "clamp(300px, 400px, 500px)" }}
       >
         <Image
@@ -75,7 +76,7 @@ export default function StatisticsSection({
           className="object-cover"
         />
         {/* Green overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-green-600/30 to-green-800/50 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-green-600/30 to-green-800/50 pointer-events-none" data-decorative="true"></div>
       </div>
 
       {/* Content */}

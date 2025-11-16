@@ -4,22 +4,18 @@ import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildImageUrl } from "@/lib/api";
 import { useCreateContactSubmission } from "@/hooks/graphql";
+import { ContactForm } from "@/components/common/ContactForm";
 
 interface ConsultationSectionProps {
   compact?: boolean; // If true, removes outer Section wrapper and grid layout
   title?: string;
   description?: string;
-  backgroundImage?: {
-    url: string;
-    name: string;
-  };
 }
 
 export const ConsultationSection = ({
   compact = false,
   title,
   description,
-  backgroundImage,
 }: ConsultationSectionProps = {}) => {
   const { language } = useLanguage();
   const { createSubmission, loading: isSubmitting } =
@@ -50,7 +46,6 @@ export const ConsultationSection = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    e.stopPropagation();
 
     // Basic validation
     if (!formData.fullName || !formData.email || !formData.mobileNumber) {
@@ -101,10 +96,12 @@ export const ConsultationSection = ({
   const formContent = (
     <form
       onSubmit={handleSubmit}
-      onClick={(e) => e.stopPropagation()}
-      onMouseDown={(e) => e.stopPropagation()}
-      onTouchStart={(e) => e.stopPropagation()}
-      className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 relative z-30"
+      className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 relative z-[50]"
+      style={{ 
+        isolation: 'isolate',
+        touchAction: 'manipulation',
+        pointerEvents: 'auto'
+      }}
     >
       {/* Row 1 */}
       <div
@@ -431,7 +428,7 @@ export const ConsultationSection = ({
   );
 
   if (compact) {
-    return formContent;
+    return <ContactForm />;
   }
 
   return (
@@ -528,9 +525,6 @@ export const ConsultationSection = ({
           {/* Contact Form */}
           <div 
             className="lg:order-2 lg:pr-8 relative z-20"
-            onClick={(e) => e.stopPropagation()}
-            onMouseDown={(e) => e.stopPropagation()}
-            onTouchStart={(e) => e.stopPropagation()}
           >
             {formContent}
           </div>

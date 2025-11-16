@@ -19,6 +19,11 @@ export * from './config';
 export * from './validation';
 
 // ========================================
+// Z-INDEX MANAGEMENT
+// ========================================
+export * from './zIndex';
+
+// ========================================
 // BREAKPOINTS
 // ========================================
 export * from './breakpoints';

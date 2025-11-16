@@ -103,10 +103,8 @@ select:focus {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Prevent double-tap zoom on touch devices while allowing pinch zoom */
-* {
-  touch-action: manipulation;
-}
+/* Touch action is applied specifically to interactive elements, not globally */
+/* See button, input, etc. selectors for touch-action: manipulation */
 
 /* Language Transition Animations */
 @keyframes languageFade {
@@ -180,8 +178,7 @@ body {
 }
 
 /* Prevent invisible/animating elements from blocking pointer events */
-.opacity-0,
-[class*="opacity-0"] {
+.opacity-0 {
   pointer-events: none !important;
 }
 
@@ -191,13 +188,7 @@ body {
 .opacity-0 a,
 .opacity-0 input,
 .opacity-0 textarea,
-.opacity-0 select,
-[class*="opacity-0"] form,
-[class*="opacity-0"] button,
-[class*="opacity-0"] a,
-[class*="opacity-0"] input,
-[class*="opacity-0"] textarea,
-[class*="opacity-0"] select {
+.opacity-0 select {
   pointer-events: auto !important;
 }
 
@@ -371,30 +362,36 @@ body {
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover Effects */
+/* Hover Effects - Only on devices with hover capability (not touch screens) */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
 }
 
 .hover-scale {
   transition: transform 0.3s ease;
 }
 
-.hover-scale:hover {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
 }
 
 .hover-glow {
   transition: box-shadow 0.3s ease;
 }
 
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+@media (hover: hover) and (pointer: fine) {
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
 }
 
 /* Gradient Animations */
@@ -602,24 +599,26 @@ body {
   direction: rtl;
 }
 
-/* Fix for overlay blocking touch interactions on mobile */
-/* Apply pointer-events: none to ALL decorative overlays and backgrounds */
-.absolute.inset-0[class*="bg-gradient"],
-.absolute.inset-0[class*="gradient"],
-.bg-gradient-to-r.absolute.inset-0,
-.bg-gradient-to-b.absolute.inset-0,
-.bg-gradient-to-br.absolute.inset-0,
-.bg-gradient-to-bl.absolute.inset-0,
-.bg-gradient-to-tr.absolute.inset-0,
-.bg-gradient-to-tl.absolute.inset-0,
-.bg-gradient-to-l.absolute.inset-0,
-.bg-gradient-to-t.absolute.inset-0,
-[style*="gradient"].absolute.inset-0:not(form):not(input):not(textarea):not(select):not(button):not(a),
-[class*="backdrop-blur"].absolute.inset-0:not(form):not(input):not(textarea):not(select):not(button):not(a) {
+/* =========================================
+   POINTER-EVENTS FIX FOR DECORATIVE OVERLAYS
+   =========================================
+   
+   Problem: Decorative background gradients and overlays were blocking
+   touch/click interactions on mobile devices.
+   
+   Solution: Apply pointer-events: none ONLY to elements marked as decorative.
+   Use data-decorative="true" attribute on purely visual overlays.
+   
+   This approach is more precise than class-based matching and prevents
+   accidentally blocking functional overlays like mobile menu backdrops.
+*/
+
+/* Decorative overlays should not capture pointer events */
+[data-decorative="true"] {
   pointer-events: none !important;
 }
 
-/* Ensure interactive elements within containers are always clickable */
+/* ⚠️ CRITICAL: Ensure ALL interactive elements are ALWAYS clickable */
 button,
 a,
 input,
@@ -627,23 +626,43 @@ textarea,
 select,
 [role="button"],
 [role="link"],
-form {
-  pointer-events: auto !important;
-}
-
-/* Make sure form elements and their children are always clickable */
+[type="submit"],
+[type="button"],
+[type="text"],
+[type="email"],
+[type="tel"],
+[type="search"],
 form,
-form *,
-[role="form"],
-[role="form"] * {
+.clickable,
+[onclick],
+[href] {
   pointer-events: auto !important;
 }
 
-/* Ensure forms have higher stacking context than overlays */
+/* Special handling for input fields */
+input,
+textarea,
+select {
+  cursor: text !important;
+}
+
+/* Ensure forms have proper stacking context (below header at z-100) */
 form {
   position: relative;
   z-index: 50;
   isolation: isolate;
+  touch-action: manipulation;
+  pointer-events: auto !important;
+}
+
+/* Ensure form inputs are always interactive */
+form input,
+form textarea,
+form select,
+form button,
+form label {
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
 }
 
 /* WhatsApp Float Button Styles */
@@ -651,7 +670,7 @@ form {
   position: fixed;
   bottom: 24px;
   left: 24px;
-  z-index: 9999;
+  z-index: 9500;
   animation: whatsappBounceIn 0.6s ease-out;
   animation-delay: 0.2s;
   animation-fill-mode: both;
@@ -693,10 +712,12 @@ form {
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.whatsapp-button:hover {
-  background: linear-gradient(135deg, #20ba5a 0%, #1ea952 100%);
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15);
+@media (hover: hover) and (pointer: fine) {
+  .whatsapp-button:hover {
+    background: linear-gradient(135deg, #20ba5a 0%, #1ea952 100%);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
 }
 
 .whatsapp-button:active {
@@ -928,22 +949,25 @@ form {
   );
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(
-    135deg,
-    #15803d 0%,
-    #14532d 50%,
-    #052e16 100%
-  );
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.45), 
-              0 4px 12px rgba(21, 128, 61, 0.35);
-}
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background: linear-gradient(
+      135deg,
+      #15803d 0%,
+      #14532d 50%,
+      #052e16 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.45), 
+                0 4px 12px rgba(21, 128, 61, 0.35);
+  }
 
-.btn-primary:hover::before {
-  opacity: 1;
+  .btn-primary:hover::before {
+    opacity: 1;
+  }
 }
 
 .btn-primary:active {
@@ -961,10 +985,12 @@ form {
   box-shadow: 0 4px 12px rgba(21, 90, 3, 0.3);
 }
 
-.btn-secondary:hover {
-  background: #166534;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(21, 90, 3, 0.4);
+@media (hover: hover) and (pointer: fine) {
+  .btn-secondary:hover {
+    background: #166534;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(21, 90, 3, 0.4);
+  }
 }
 
 .btn-secondary:active {
@@ -980,11 +1006,13 @@ form {
   box-shadow: none;
 }
 
-.btn-outline:hover {
-  background: var(--color-primary);
-  color: white;
-  border-color: var(--color-primary);
-  box-shadow: 0 4px 12px rgba(144, 192, 84, 0.3);
+@media (hover: hover) and (pointer: fine) {
+  .btn-outline:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(144, 192, 84, 0.3);
+  }
 }
 
 .btn-outline:active {
@@ -1000,10 +1028,12 @@ form {
   box-shadow: none;
 }
 
-.btn-ghost:hover {
-  background: rgba(144, 192, 84, 0.1);
-  color: var(--color-primary);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost:hover {
+    background: rgba(144, 192, 84, 0.1);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
 }
 
 .btn-ghost:active {

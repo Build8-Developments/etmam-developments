@@ -530,7 +530,7 @@ const Footer = ({
                   rel="noopener noreferrer"
                   className="group relative w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-green-500/30 hover:scale-110 hover:-rotate-6"
                 >
-                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   <svg
                     className="w-6 h-6 text-white relative z-10"
                     fill="currentColor"
@@ -547,7 +547,7 @@ const Footer = ({
                   rel="noopener noreferrer"
                   className="group relative w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-green-500/30 hover:scale-110 hover:-rotate-6"
                 >
-                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   <svg
                     className="w-5 h-5 text-white relative z-10"
                     fill="currentColor"
@@ -564,7 +564,7 @@ const Footer = ({
                   rel="noopener noreferrer"
                   className="group relative w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-green-500/30 hover:scale-110 hover:-rotate-6"
                 >
-                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   <svg
                     className="w-5 h-5 text-white relative z-10"
                     fill="currentColor"

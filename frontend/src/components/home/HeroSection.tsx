@@ -35,7 +35,7 @@ export default function HeroSection({
   return (
     <section className="relative flex items-center overflow-hidden min-h-[600px] md:min-h-[700px] lg:min-h-[800px] pt-20 md:pt-24 lg:pt-28 pb-12 md:pb-16 lg:pb-20">
       {/* Background image */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none" data-decorative="true">
         <Image
           src={
             backgroundImage
@@ -51,6 +51,7 @@ export default function HeroSection({
       {/* Gradient overlay */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
+        data-decorative="true"
         style={{
           background:
             "linear-gradient(94.78deg, rgba(22, 97, 19, 0.59) 17.73%, rgba(0, 0, 0, 0.7) 113.39%)",

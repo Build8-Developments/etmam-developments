@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect } from 'react';
 import { registerToastHandler, unregisterToastHandler } from '@/utils/toast';
+import { Z_INDEX_CLASSES } from '@/constants';
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info';
 
@@ -72,7 +73,7 @@ interface ToastContainerProps {
 function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
   return (
     <div 
-      className="fixed z-[9999] pointer-events-none top-4 left-1/2 -translate-x-1/2 w-full max-w-[420px] px-4 sm:px-0"
+      className={`fixed ${Z_INDEX_CLASSES.TOAST} pointer-events-none top-4 left-1/2 -translate-x-1/2 w-full max-w-[420px] px-4 sm:px-0`}
     >
       <div className="flex flex-col gap-2 sm:gap-3">
         {toasts.map((toast) => (
