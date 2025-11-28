@@ -13,6 +13,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useLegalServiceCategories } from "@/hooks/graphql/useGraphQL";
 import { useState, useMemo } from "react";
 import LegalServicesClient from "@/components/legalservices/LegalServicesClient";
+import { buildImageUrl } from "@/lib/api";
 
 interface LegalCompany {
   id: string;
@@ -37,16 +38,12 @@ export default function LegalServicesPage() {
 
     if (legalData && legalData.length > 0) {
       // Use Strapi data
-      const strapiUrl =
-        process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
       companiesList = legalData.map((category: any) => ({
         id: category.slug || category.documentId,
         name: category.name || "",
         description: category.description || "",
         logo: category.icon?.url
-          ? category.icon.url.startsWith("http")
-            ? category.icon.url
-            : `${strapiUrl}${category.icon.url}`
+          ? buildImageUrl(category.icon.url)
           : "/images/logos/logo.png",
         servicesCount: 0, // TODO: Count from subservices relation
         isHighlighted: false,

@@ -13,6 +13,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useMemo } from "react";
 import { useConsultingServices } from "@/hooks/graphql/useGraphQL";
 import { consultingServices as mockConsultingServices } from "@/mockData/services";
+import { buildImageUrl } from "@/lib/api";
 
 export default function ConsultingServicesPage() {
   const { language } = useLanguage();
@@ -73,22 +74,15 @@ export default function ConsultingServicesPage() {
           ? `يبدأ من ${service.startFromPrice} ${service.currency}`
           : `Starting from ${service.startFromPrice} ${service.currency}`;
 
-      // Get Strapi URL for icon
-      const strapiUrl =
-        process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
-      const iconUrl = service.icon?.url
-        ? service.icon.url.startsWith("http")
-          ? service.icon.url
-          : `${strapiUrl}${service.icon.url}`
-        : null;
-
       return {
         id: String(service.order), // Use order as ID for routing
         title: service.name || "",
         description: service.shortDescription || "",
         price: priceText,
         duration: periodText,
-        icon: iconUrl || "consulting", // Use actual icon URL or fallback to hardcoded icon
+        icon: service.icon?.url
+          ? buildImageUrl(service.icon.url)
+          : "consulting",
       };
     });
 
