@@ -1,0 +1,24 @@
+{
+  "name": "migrate-consulting-services",
+  "version": "1.0.0",
+  "description": "Migration scripts for importing consulting services into Strapi",
+  "main": "migrate.js",
+  "scripts": {
+    "migrate": "node migrate.js",
+    "migrate:auto": "node migrate.js --auto",
+    "transform": "node transform-data.js",
+    "upload": "node upload-media.js",
+    "import": "node import-services.js"
+  },
+  "keywords": [
+    "strapi",
+    "migration",
+    "graphql"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.7.0"
+  }
+}

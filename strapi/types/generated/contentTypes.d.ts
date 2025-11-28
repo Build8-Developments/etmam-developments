@@ -762,6 +762,15 @@ export interface ApiConsultingServiceConsultingService
     };
   };
   attributes: {
+    benefits: Schema.Attribute.Component<
+      'services.single-service-benefit',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     button_label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -848,7 +857,7 @@ export interface ApiConsultingServiceConsultingService
         maxLength: 200;
       }>;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
-    startFromPrice: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    startFromPrice: Schema.Attribute.Decimal;
     steps: Schema.Attribute.Component<'services.single-service-step', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1249,6 +1258,11 @@ export interface ApiLegalServiceCategoryLegalServiceCategory
         };
       }>;
     order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
@@ -1288,12 +1302,30 @@ export interface ApiLegalSubServiceLegalSubService
           localized: true;
         };
       }>;
+    conditions: Schema.Attribute.Component<
+      'services.single-service-condition',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'SAR'>;
     description: Schema.Attribute.Component<
       'services.single-service-description',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    documents: Schema.Attribute.Component<
+      'services.single-service-document',
       true
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1340,6 +1372,11 @@ export interface ApiLegalSubServiceLegalSubService
         };
       }>;
     order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
       Schema.Attribute.SetMinMax<
         {
           min: 0;

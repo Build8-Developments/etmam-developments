@@ -589,6 +589,30 @@ export interface ServicesServiceSteps extends Struct.ComponentSchema {
   };
 }
 
+export interface ServicesSingleServiceBenefit extends Struct.ComponentSchema {
+  collectionName: 'components_services_single_service_benefits';
+  info: {
+    displayName: 'single_service_benefit';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon_color_code: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ServicesSingleServiceCondition extends Struct.ComponentSchema {
+  collectionName: 'components_services_single_service_conditions';
+  info: {
+    description: 'Service condition or eligibility requirement';
+    displayName: 'single_service_condition';
+  };
+  attributes: {
+    condition: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ServicesSingleServiceDescription
   extends Struct.ComponentSchema {
   collectionName: 'components_services_single_service_descriptions';
@@ -600,6 +624,17 @@ export interface ServicesSingleServiceDescription
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     icon_color_code: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ServicesSingleServiceDocument extends Struct.ComponentSchema {
+  collectionName: 'components_services_single_service_documents';
+  info: {
+    description: 'Required document for a service';
+    displayName: 'single_service_document';
+  };
+  attributes: {
+    document: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -712,7 +747,10 @@ declare module '@strapi/strapi' {
       'services.service-description': ServicesServiceDescription;
       'services.service-requirements': ServicesServiceRequirements;
       'services.service-steps': ServicesServiceSteps;
+      'services.single-service-benefit': ServicesSingleServiceBenefit;
+      'services.single-service-condition': ServicesSingleServiceCondition;
       'services.single-service-description': ServicesSingleServiceDescription;
+      'services.single-service-document': ServicesSingleServiceDocument;
       'services.single-service-requirement': ServicesSingleServiceRequirement;
       'services.single-service-step': ServicesSingleServiceStep;
       'shared.seo': SharedSeo;

@@ -1,0 +1,12 @@
+# Migration output files
+output/
+temp/
+
+# Node modules
+node_modules/
+
+# Environment files
+.env
+
+# Log files
+*.log

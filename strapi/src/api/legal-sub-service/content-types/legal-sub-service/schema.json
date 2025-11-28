@@ -38,9 +38,7 @@
         }
       },
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "shortDescription": {
       "type": "text",
@@ -71,6 +69,11 @@
     },
     "order": {
       "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "default": 0,
       "min": 0
     },
@@ -116,6 +119,26 @@
         }
       },
       "component": "services.single-service-step",
+      "repeatable": true
+    },
+    "documents": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "services.single-service-document",
+      "repeatable": true
+    },
+    "conditions": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "services.single-service-condition",
       "repeatable": true
     }
   }

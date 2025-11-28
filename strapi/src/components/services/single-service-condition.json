@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_services_single_service_conditions",
+  "info": {
+    "displayName": "single_service_condition",
+    "description": "Service condition or eligibility requirement"
+  },
+  "options": {},
+  "attributes": {
+    "condition": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

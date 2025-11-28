@@ -1,0 +1,2629 @@
+[
+  {
+    "documentId": "service_1",
+    "slug": "establishing-a-foreign-company-in-saudi-arabia",
+    "name": "Establishing a foreign company in Saudi Arabia",
+    "shortDescription": "Establishing a foreign company in the Kingdom means establishing an independent legal entity subject to Saudi laws, and represents an extension of the commercial activity of an existing foreign company, and the foreign company can carry out its commercial activity in the Kingdom directly.",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 7,
+    "finishPeriodMax": 10,
+    "order": 1,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/673a416cb174a_1731871084.png",
+      "name": "تأسيس شركة أجنبية في السعودية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "Establishing a foreign company in the Kingdom means establishing an independent legal entity that is subject to Saudi laws, and represents an extension of the commercial activity of an existing foreign company. The foreign company can practice its commercial activity in the Kingdom directly, and benefit from the opportunities available in the Saudi market. This procedure requires an expert company that has dealt with hundreds of companies and has experience with all the minute details of the regulations and laws of establishing companies in Saudi Arabia, and this is what you will find in the Ahmed Bashamakh Business Services Group.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "Establishing a foreign company in the Kingdom means establishing an independent legal entity subject to Saudi laws, and represents an extension of the commercial activity of an existing foreign company. The foreign company can conduct its commercial activity in the Kingdom directly, and benefit from the opportunities available in the Saudi market. This procedure requires an expert company that has dealt with hundreds of companies and has experience with all the minute details of the regulations and laws of establishing companies in Saudi Arabia, and this is what you will find in the Ahmed Bashamakh Business Services Group. Yes, after incorporation, the foreign company can conduct its commercial activity in the Kingdom directly and benefit from the opportunities available in the Saudi market. Hiring an expert company is very important because the incorporation process requires precise knowledge of the Saudi laws and regulations regarding establishing companies. Expert companies, such as Ahmed Bashamakh Group, have experience in dealing with hundreds of companies and have expertise in every minute detail of the process. Obligations include complying with Saudi laws, paying prescribed taxes and fees, submitting periodic financial reports, and adhering to Saudi labor laws. Ahmed Bashamakh Group provides comprehensive services including consultation",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "Submitting periodic financial reports"
+      },
+      {
+        "id": 2,
+        "requirement": "Assistance in preparing and submitting the required documents"
+      },
+      {
+        "id": 3,
+        "requirement": "Providing support throughout all stages of the establishment process"
+      },
+      {
+        "id": 4,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "A foreign company can carry out its commercial activity in the Kingdom...",
+        "description": "The foreign company can carry out its commercial activity in the Kingdom directly",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "A foreign company can conduct its commercial activity in the Kingdom...",
+        "description": "The foreign company can carry out its commercial activity in the Kingdom directly and benefit from the opportunities available in the Saudi market",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#3B82F6"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The time varies according to the nature of the license and the field of each company. Available for individuals. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ]
+  },
+  {
+    "documentId": "service_2",
+    "slug": "establishing-a-gulf-company",
+    "name": "Establishing a Gulf company",
+    "shortDescription": "Establishing a Gulf company or opening a branch of a Gulf company in the Kingdom means establishing an independent legal entity subject to the laws and facilities established by the Gulf Cooperation Council countries, which provides the right to citizens of the Gulf Cooperation Council countries (the UAE, Qatar, etc.)",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 7,
+    "finishPeriodMax": 10,
+    "order": 2,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/673e99f780ead_1732155895.png",
+      "name": "تأسيس شركة خليجية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "Establishing a Gulf company or opening a branch of a Gulf company in the Kingdom means establishing an independent legal entity that is subject to the laws and facilities established by the Gulf Cooperation Council countries, which provides the right for citizens of the Gulf Cooperation Council countries (UAE, Qatar, Oman, Bahrain, Kuwait) to establish their companies within the Kingdom and deal with these companies as Saudis who have all the rights and privileges of Saudi companies, and can carry out their commercial activity in the Kingdom directly, and benefit from the opportunities available in the Saudi market.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "Establishing a Gulf company or opening a branch of a Gulf company in the Kingdom means establishing an independent legal entity that is subject to the laws and facilities established by the Gulf Cooperation Council countries, which provides the right to citizens of the Gulf Cooperation Council countries (UAE, Qatar, Oman, Bahrain, Kuwait) to establish their companies within the Kingdom and deal with these companies as Saudis who have all the rights and privileges of Saudi companies, and can practice their commercial activity in the Kingdom directly, and benefit from the opportunities available in the Saudi market. Submitting the articles of incorporation, partners’ data, and a commercial register or Gulf identity. The process usually takes 10 to 15 business days. Yes, this is allowed in some specific sectors.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "And it can carry out its commercial activity in the Kingdom directly...",
+        "description": "And it can carry out its commercial activity directly in the Kingdom",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The time varies according to the nature of the license and the field of each company. Available for individuals. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#F59E0B"
+      }
+    ]
+  },
+  {
+    "documentId": "service_3",
+    "slug": "special-accommodation",
+    "name": "Premium accommodation",
+    "shortDescription": "Distinctive Residency in the Kingdom of Saudi Arabia is an initiative aimed at attracting talent and investors within Vision 2030 to enhance the economy and business environment. There are two main types of residency: permanent, which grants individuals unlimited residency",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 90,
+    "order": 3,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/673e9e7e741e2_1732157054.png",
+      "name": "الإقامة المميزة"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "Distinctive Residency in the Kingdom of Saudi Arabia is an initiative aimed at attracting talent and investors within Vision 2030 to enhance the economy and business environment. There are two main types of residency: permanent, which grants individuals unlimited residency for a flat fee, and temporary, which is renewed annually. It also includes special types such as the exceptional competence residency designated for specialized expertise, and the talent residency to support creators in the cultural and sports fields. The distinguished residency allows residents the right to own real estate and means of transportation, work and invest, and bring in family and workers. In addition, the Business Investor Residency is designed to attract foreign investors, and the Entrepreneur Residency is designed to support innovation and start-ups. The residence permit of the property owner also grants the right of residency to owners within the Kingdom. This system grants freedom of movement and work, which makes it a pivotal step in transforming the Kingdom into a global destination attractive for investment and talent.✨ Fill out the form at the bottom of the page, and we will serve you directly! ✨",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "Distinctive Residency in the Kingdom of Saudi Arabia is an initiative aimed at attracting talent and investors within Vision 2030 to enhance the economy and business environment. Residency provides two main types: permanent, which grants individuals unlimited residency for a flat fee, and temporary, which is renewed annually. It also includes special types such as the Exceptional Competence Residency designated for specialized expertise, and the Talent Residency to support creators in the cultural and sports fields. Premium residency allows residents the right to own real estate and means of transportation, work and invest, and bring in family and workers. In addition, the Business Investor Residency is designed to attract foreign investors, and the Entrepreneur Residency is designed to support innovation and start-up projects. Also, the residency of the property owner grants the right of residence to the owners within the Kingdom. This system gives freedom of movement and work, making it a pivotal step in transforming the Kingdom into a global destination attractive for investment and talent. ✨Fill out the form at the bottom of the page, and we will serve you directly!✨ It is a residency system that provides residents with additional benefits such as ownership and investment. Submit a valid passport, health certificate, and clean criminal record. Premium residency is available for one year, rentable",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "Submit a valid passport"
+      },
+      {
+        "id": 2,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "Distinguished Residency in the Kingdom of Saudi Arabia is an initiative aimed at...",
+        "description": "Distinctive residency in the Kingdom of Saudi Arabia is an initiative aimed at attracting talent and investors within Vision 2030 to enhance the economy and business environment.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#8B5CF6"
+      },
+      {
+        "id": 2,
+        "title": "Residency provides two main types: permanent, which grants individuals permanent residency...",
+        "description": "Residency provides two main types: Permanent, which grants individuals unlimited residency for a flat fee",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#EC4899"
+      },
+      {
+        "id": 3,
+        "title": "Premium residency allows residents the right to own real estate and means of transportation...",
+        "description": "Premium residency allows residents the right to own real estate and means of transportation",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_3"
+        },
+        "icon_color_code": "#EC4899"
+      },
+      {
+        "id": 4,
+        "title": "Also, the residency of the property owner grants the right of residence to the owners within the Kingdom...",
+        "description": "Also, the residency of the property owner grants the right of residence to the owners within the Kingdom",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_4"
+        },
+        "icon_color_code": "#EC4899"
+      },
+      {
+        "id": 5,
+        "title": "The premium residency is available for one year, renewable or permanent residency...",
+        "description": "Premium residency is available for one year, renewable or permanent residency",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_5"
+        },
+        "icon_color_code": "#06B6D4"
+      },
+      {
+        "id": 6,
+        "title": "Family members can be included in the premium accommodation...",
+        "description": "Family members can be included in the premium stay",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_6"
+        },
+        "icon_color_code": "#F97316"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Approval is usually issued within 30 - 90 days of submitting a completed application. Available to individuals",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ]
+  },
+  {
+    "documentId": "service_4",
+    "slug": "trademark-registration-agent",
+    "name": "Trademark registration agent",
+    "shortDescription": "We are the Ahmed Bashmakh Business Services Group, accredited by the Saudi Authority for Intellectual Property in registering the trademark with license number ALN202401067. To confirm, you can visit the approved link: https://www.saip.gov.s",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 7,
+    "finishPeriodMax": 30,
+    "order": 4,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/673ea25daa23b_1732158045.png",
+      "name": "وكيل تسجيل علامة التجارية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "We are the Ahmed Bashmakh Business Services Group, accredited by the Saudi Authority for Intellectual Property in trademark registration with license number ALN202401067. To confirm, you can visit the approved link: https://www.saip.gov.sa/agents/2783/. We provide integrated services for registering a trademark, transferring trademark ownership, and documenting a trademark, with the aim of supporting entrepreneurs and company owners in protecting intellectual property rights inside and outside Saudi Arabia. Whether you&nbsp;are individuals or companies, in Saudi Arabia, the Gulf states, or in any country around the world,&nbsp;you can register a trademark in Saudi Arabia easily through us, without the need to attend in person or conduct business within the Kingdom. We provide, through a trademark registration office, comprehensive services that include a method for registering a trademark in Saudi Arabia, and renewing trademarks to ensure continued legal protection. We also provide the services of the Intellectual Property Rights Registration Office to ensure that your rights are preserved officially and legally. If you need a specialized trademark agent to help you transfer ownership of a trademark or deal with any legal issue related to trademarks, we provide you with this service to ensure that your rights are fully protected. In addition, we provide trademark documentation services through an approved trademark registration company, in accordance with the regulations of the Saudi Authority for Intellectual Property. With our services, you can ensure the legal protection of your trademark, enhance the reputation of your business, and protect your innovations from unauthorized use. With it. We help you achieve business expansion locally and internationally, in line with Saudi Vision 2030 to improve the business environment and enhance investment.✨ Fill out the form at the bottom of the page, and we will serve you directly! ✨",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "We are Ahmed Bashmakh Business Services Group, accredited by the Saudi Authority for Intellectual Property in trademark registration with license number ALN202401067. To confirm, you can visit the approved link: https://www.saip.gov.sa/agents/2783/. We provide integrated services for registering a trademark, transferring trademark ownership, and documenting a trademark, with the aim of supporting entrepreneurs and company owners in protecting intellectual property rights inside and outside Saudi Arabia. Whether you are individuals or companies, in Saudi Arabia, the Gulf states, or in any country around the world, you can register the trademark in Saudi Arabia easily through us, without the need to appear in person or conduct business within the Kingdom. Through the trademark registration office, we provide comprehensive services that include how to register a trademark in Saudi Arabia and renew trademarks to ensure continued legal protection. We also provide the services of the Intellectual Property Rights Registration Office to ensure that your rights are preserved officially and legally. If you need a specialized trademark agent to help you transfer ownership of a trademark or deal with any legal issue related to trademarks, we provide you with this service to ensure that your rights are fully protected. Bal",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "We are approved by the Saudi Authority for Intellectual Property to register the trademark with license number ALN202401067"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "You can visit the approved link: https://www...",
+        "description": "You can visit the approved link: https://www",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "You can easily register the trademark in Saudi Arabia through us...",
+        "description": "You can easily register the trademark in Saudi Arabia through us",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#F97316"
+      },
+      {
+        "id": 3,
+        "title": "You can ensure the legal protection of your trademark...",
+        "description": "You can guarantee the legal protection of your trademark",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_3"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: A trademark registration application is approved within 7 to 30 days of submitting a completed application. Available for individualsAvailable for businesses",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#06B6D4"
+      }
+    ]
+  },
+  {
+    "documentId": "service_5",
+    "slug": "industrial-licensing",
+    "name": "Industrial licensing",
+    "shortDescription": "The industrial license extraction service is an electronic service provided by the Ministry of Industry and Mineral Resources to enable investors and establishments to obtain a legal license to practice industrial activities in the Kingdom. The service aims to facilitate...",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 5,
+    "finishPeriodMax": 10,
+    "order": 5,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/673ea5f124fdf_1732158961.png",
+      "name": "الترخيص الصناعي"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "خدمة استخراج الترخيص الصناعي هي خدمة إلكترونية تقدمها وزارة الصناعة والثروة المعدنية لتمكين المستثمرين والمنشآت من الحصول على ترخيص قانوني لمزاولة الأنشطة الصناعية في المملكة. تهدف الخدمة إلى تسهيل بدء وتشغيل المشاريع الصناعية من خلال منح التصاريح اللازمة وفقًا للوائح المعمول بها.تتضمن الخدمة نوعين رئيسيين:الترخيص المبدئي:&nbsp;يمنح للمشاريع الصناعية في مراحل التخطيط أو التأسيس، ويسمح للمستثمرين باتخاذ الخطوات الأولية اللازمة.الترخيص النهائي:&nbsp;يمنح للمصانع الجاهزة بعد استيفاء المتطلبات كافة، ويتيح التشغيل الكامل والإنتاج. يتطلب من المتقدمين تقديم بيانات دقيقة عن النشاط الصناعي، دراسة جدوى المشروع، ومخططات المصنع. تقدم الوزارة من خلال هذه الخدمة مزايا مثل الإعفاءات الجمركية، الدعم المالي، والإرشاد الفني.تُعد هذه الخدمة جزءًا من استراتيجية المملكة لتعزيز القطاع الصناعي ودعم الاستثمار، بما يتماشى مع رؤية 2030.الترخيص الصناعي.لبناء صرح صناعي راسخ في المملكة العربية السعودية، يمثل الترخيص الصناعي حجر الزاوية الذي يضمن لعملك الشرعية، الاستدامة، والقدرة على المساهمة الفاعلة في نهضة القطاع الصناعي. إنه ليس مجرد وثيقة، بل هو المفتاح الذي يفتح لك أبواب الإنتاج، الابتكار، والتوسع في سوق واعد، يزخر بالفرص الاستثمارية الكبرى.الحصول على الترخيص الصناعي هو الخطوة الإلزامية التي تؤكد التزام منشأتك بالمعايير واللوائح الوطنية، وتؤهلك لمزاولة الأنشطة الصناعية بكفاءة وأمان. سواء كنت مستثمرًا طموحًا يتطلع لإنشاء مصنع جديد، أو رائد أعمال يسعى لتحويل فكرته الصناعية إلى واقع ملموس، فإن هذا الترخيص يمنحك الغطاء القانوني اللازم للبدء، ويحميك من أي مخالفات قد تعيق مسيرتك.لماذا يعد الترخيص الصناعي ضرورة حتمية لعملك؟تكمن أهمية الترخيص الصناعي في كونه يضمن عدة جوانب حيوية لنجاح واستمرارية منشأتك:الشرعية والامتثال:&nbsp;يضمن لك الترخيص الصناعي ممارسة نشاطك ضمن الإطار القانوني السعودي، مما يحميك من الغرامات والعقوبات، ويؤكد التزامك بالمعايير الصناعية والبيئية.المصداقية والثقة:&nbsp;يضفي الترخيص الرسمي على منشأتك طابعًا من المصداقية أمام العملاء، الموردين، البنوك، والجهات الحكومية. هذا يعزز الثقة في قدرتك على الإنتاج وفقًا للمعايير، ويفتح لك آفاقًا أوسع للتعاون والشراكات.الوصول إلى الأسواق والدعم:&nbsp;كمنشأة مرخصة، يمكنك الوصول إلى الأسواق المحلية والدولية بثقة، والاستفادة من برامج الدعم الحكومي الموجه للقطاع الصناعي، والتسهيلات التمويلية التي تقدمها البنوك والمؤسسات المالية للمشاريع الصناعية المعتمدة.التوسع والنمو:&nbsp;يمثل الترخيص الصناعي أساسًا متينًا لأي خطط توسعية مستقبلية. فمع نمو أعمالك، ستجد أن وجود ترخيص ساري ومحدث يبسط إجراءات إضافة خطوط إنتاج جديدة، أو التوسع في أسواق أخرى.حماية الاستثمار:&nbsp;يضمن لك الترخيص حماية استثمارك من خلال توفير بيئة عمل منظمة، ويسهل عليك تسوية أي نزاعات قد تنشأ في المستقبل.تعقيدات الترخيص الصناعي لماذا تحتاج إلى خبرة متخصصة؟على الرغم من أهميته، فإن عملية الحصول على الترخيص الصناعي قد تكون معقدة وتتطلب دراية عميقة بالأنظيمة والإجراءات المتغيرة. فمن تحديد النشاط الصناعي بدقة، إلى استيفاء الشروط الفنية والبيئية، مرورًا بتجهيز المستندات المطلوبة من الجهات المتعددة مثل وزارة الصناعة والثروة المعدنية، ووزارة البيئة، والهيئة السعودية للمدن الصناعية ومناطق التقنية (مدن)، وصولًا إلى متابعة الطلب والرد على الاستفسارات، كل ذلك يتطلب وقتًا وجهدًا وخبرة متخصصة.إن أي خطأ في تقديم الطلب، أو نقص في المستندات، أو عدم فهم دقيق للمتطلبات، قد يؤدي إلى تأخير كبير في الحصول على الترخيص الصناعي، مما يكبدك خسائر مالية ويؤثر على جدولك الزمني",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The industrial license extraction service is an electronic service provided by the Ministry of Industry and Mineral Resources to enable investors and establishments to obtain a legal license to practice industrial activities in the Kingdom. The service aims to facilitate the start and operation of industrial projects by granting the necessary permits in accordance with applicable regulations. The service includes two main types: Initial license: granted to industrial projects in the planning or establishment stages, and allows investors to take the necessary initial steps. Final license: granted to ready-made factories after meeting all requirements, and allows full operation and production. Applicants are required to provide accurate data on industrial activity, project feasibility study, and factory plans. Through this service, the Ministry provides benefits such as customs exemptions, financial support, and technical guidance. This service is part of the Kingdom's strategy to strengthen the industrial sector and support investment, in line with Vision 2030. To build a solid industrial edifice in the Kingdom of Saudi Arabia, industrial licensing represents the cornerstone that guarantees your business legitimacy, sustainability, and the ability to effectively contribute to the renaissance of the industrial sector. It's not just a document",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The industrial license extraction service is an electronic service provided by the Ministry of Industry and Mineral Resources to enable investors and establishments to obtain a legal license to practice industrial activities in the Kingdom."
+      },
+      {
+        "id": 2,
+        "requirement": "The service includes two main types: Initial license: granted to industrial projects in the planning or establishment stages"
+      },
+      {
+        "id": 3,
+        "requirement": "Final license: granted to ready-made factories after meeting all requirements"
+      },
+      {
+        "id": 4,
+        "requirement": "Applicants are required to provide accurate data on industrial activity"
+      },
+      {
+        "id": 5,
+        "requirement": "Industrial licensing is the cornerstone that ensures your business has legitimacy"
+      },
+      {
+        "id": 6,
+        "requirement": "Obtaining an industrial license is the mandatory step that confirms your facility's compliance with national standards and regulations"
+      },
+      {
+        "id": 7,
+        "requirement": "This license gives you the legal cover necessary to get started"
+      },
+      {
+        "id": 8,
+        "requirement": "Why is industrial licensing an absolute necessity for your business? The importance of an industrial license lies in the fact that it guarantees several vital aspects for the success and continuity of your facility: Legality and compliance: An industrial license guarantees you the practice of your activity within the Saudi legal framework."
+      },
+      {
+        "id": 9,
+        "requirement": "Credibility and trust: An official license gives your facility an air of credibility with customers"
+      },
+      {
+        "id": 10,
+        "requirement": "Expansion and Growth: An industrial license represents a solid foundation for any future expansion plans"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "You can access local and international markets with confidence...",
+        "description": "You can access domestic and international markets with confidence",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#06B6D4"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Licenses are usually issued within 5 to 10 business days after completing all requirements. Available for facilities",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ]
+  },
+  {
+    "documentId": "service_6",
+    "slug": "license-trusted",
+    "name": "Trusted license",
+    "shortDescription": "The “Trustworthy” license is a service provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia to regulate advertisements on social media platforms. This license allows individuals, including citizens of the Gulf Cooperation Council countries",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 45,
+    "order": 6,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/67406ee168f14_1732275937.png",
+      "name": "رخصة موثوق"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The “Trustworthy” license is a service provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia to regulate advertisements on social media platforms. This license allows individuals, including citizens of Gulf Cooperation Council countries and residents of the Kingdom, the opportunity to provide advertising content in a legal and organized manner, while adhering to specific standards and controls. The service aims to raise the level of reliability in the advertising market, enhance the quality of advertisements, and ensure their compatibility with cultural and social values. To obtain the license, the applicant must be at least 18 years old, with a criminal record free of disruptive crimes, and clean media content during the previous six months. Non-Saudi residents must possess a commercial register and a license to practice advertising and promotional activity in the Kingdom. A “trusted” license reflects the Authority’s commitment to regulating and developing the digital media sector in a way that guarantees the rights of advertisers and consumers alike. You can apply through the Authority’s electronic platform easily and flexibly.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The “Trustworthy” license is a service provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia to regulate advertisements on social media platforms. This license allows individuals, including citizens of Gulf Cooperation Council countries and residents of the Kingdom, the opportunity to provide advertising content in a legal and organized manner, while adhering to specific standards and controls. The service aims to raise the level of reliability in the advertising market, enhance the quality of advertisements, and ensure their compatibility with cultural and social values. To obtain the licence, the applicant must be at least 18 years old, with a criminal record free of disruptive offenses, and clean media content within the previous six months. Non-Saudi residents must possess a commercial register and a license to practice advertising activity in the Kingdom. The “Trustworthy” license reflects the Authority’s commitment to regulating and developing the digital media sector in a way that guarantees the rights of advertisers and consumers alike. You can apply through the Authority’s electronic platform easily and flexibly. A reliable license is an official permit issued by the General Authority for Audiovisual Media, allowing individuals to advertise products and services through their personal accounts on websites.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The opportunity to provide advertising content in a legal and organized manner"
+      },
+      {
+        "id": 2,
+        "requirement": "The applicant must be at least 18 years old"
+      },
+      {
+        "id": 3,
+        "requirement": "Non-Saudi residents must possess a commercial register and a license to practice advertising activity in the Kingdom"
+      },
+      {
+        "id": 4,
+        "requirement": "You can apply through the Authority’s electronic platform easily and flexibly"
+      },
+      {
+        "id": 5,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "You can apply through the Authority’s electronic platform easily and flexibly...",
+        "description": "You can apply through the Authority’s electronic platform easily and flexibly",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#EF4444"
+      },
+      {
+        "id": 2,
+        "title": "Non-Saudis can apply provided they have a valid residency...",
+        "description": "Non-Saudis can apply provided that they have a valid residence permit within the Kingdom. Penalties may include imposing financial fines and stopping advertising activity for violators.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#F59E0B"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: It takes about 30 working days after submitting the application and meeting the requirements. Available for individuals",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#F59E0B"
+      }
+    ]
+  },
+  {
+    "documentId": "service_7",
+    "slug": "transfer-of-regional-headquarters",
+    "name": "Moving regional headquarters",
+    "shortDescription": "The regional headquarters transfer service to Saudi Arabia is a strategic initiative provided by the Ministry of Investment in cooperation with the relevant government agencies. This service aims to enhance the Kingdom’s position as a regional center for business and investments through...",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 7,
+    "finishPeriodMax": 10,
+    "order": 7,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745bb4558078_1732623173.png",
+      "name": "نقل المقرات الإقليمية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The regional headquarters transfer service to Saudi Arabia is a strategic initiative provided by the Ministry of Investment in cooperation with the relevant government agencies. This service aims to enhance the Kingdom's position as a regional center for business and investments by attracting international companies to move their regional headquarters to Saudi Arabia. The service provides companies with a range of facilities, including tax exemptions, full support for procedures, and legal facilities that help speed up the transfer process. This initiative allows companies to benefit from Saudi Arabia's strategic geographic location, enhancing their access to regional markets. In addition, companies benefit from a competitive investment environment and advanced infrastructure that supports business growth. Service requirements include submitting a clear business plan, registering the company in Saudi Arabia, and adhering to local regulations. Through this initiative, Saudi Arabia seeks to enable companies to expand in the local and regional market, while ensuring a smooth and comfortable experience for moving their regional headquarters.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The regional headquarters transfer service to Saudi Arabia is a strategic initiative provided by the Ministry of Investment in cooperation with the relevant government agencies. This service aims to enhance the Kingdom's position as a regional center for business and investments by attracting international companies to move their regional headquarters to Saudi Arabia. The service provides companies with a range of facilities, including tax exemptions, full support for procedures, and legal facilities that help speed up the transfer process. This initiative allows companies to benefit from Saudi Arabia's strategic geographic location, enhancing their access to regional markets. In addition, companies benefit from a competitive investment environment and advanced infrastructure that supports business growth. Service requirements include submitting a clear business plan, registering the company in Saudi Arabia, and adhering to local regulations. Through this initiative, Saudi Arabia seeks to enable companies to expand in the local and regional market, while ensuring a smooth and comfortable experience for moving their regional headquarters. Benefits include tax exemptions, legal support, regulatory facilities, and a competitive investment environment. Yes, the company must be officially registered with the competent authorities in the Kingdom. The process usually takes 2 hours",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "Service requirements include submitting a clear business plan"
+      },
+      {
+        "id": 2,
+        "requirement": "The company must be officially registered with the competent authorities in the Kingdom"
+      },
+      {
+        "id": 3,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "The service provides companies with a range of facilities, including tax exemptions...",
+        "description": "The service provides companies with a range of facilities, including tax exemptions",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#8B5CF6"
+      },
+      {
+        "id": 2,
+        "title": "This initiative allows companies to benefit from Saudi Arabia's geographical location...",
+        "description": "This initiative allows companies to benefit from Saudi Arabia's strategic geographical location",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The time varies according to the nature of the license and the field of each company. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ]
+  },
+  {
+    "documentId": "service_8",
+    "slug": "classification-contractors",
+    "name": "Classification of contractors",
+    "shortDescription": "The contractor classification service is a service provided by the Ministry of Municipal, Rural Affairs and Housing in the Kingdom of Saudi Arabia. It aims to regulate the contracting sector and stimulate improved performance by classifying contractors according to their financial capabilities.",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 45,
+    "order": 8,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745c17e75f0c_1732624766.png",
+      "name": "تصنيف المقاولين"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The Contractors Classification Service is a service provided by the Ministry of Municipal, Rural Affairs and Housing in the Kingdom of Saudi Arabia. It aims to regulate the contracting sector and stimulate improved performance by classifying contractors according to their financial, technical and administrative capabilities. The classification certificate is considered a prerequisite for participation in major government projects, as the classification reflects the level of competence and competence of contractors, which enhances customer confidence and gives them greater opportunities to compete in the market. The classification process is carried out through a comprehensive assessment of financial capabilities, previous experiences, and implemented projects, in addition to the contractor’s commitment to quality standards. This service contributes to the development of the contracting sector by improving the efficiency of companies and raising the level of implemented projects, which reflects positively on the national economy and infrastructure.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The Contractors Classification Service is a service provided by the Ministry of Municipal, Rural Affairs and Housing in the Kingdom of Saudi Arabia. It aims to regulate the contracting sector and stimulate improved performance by classifying contractors according to their financial, technical and administrative capabilities. The classification certificate is considered a prerequisite for participation in major government projects, as the classification reflects the level of competence and merit of contractors, which enhances customer confidence and gives them greater opportunities to compete in the market. The classification process is carried out through a comprehensive assessment of financial capabilities, previous experiences, and implemented projects, in addition to the contractor’s commitment to quality standards. This service contributes to the development of the contracting sector by improving the efficiency of companies and raising the level of implemented projects, which reflects positively on the national economy and infrastructure. It enables contractors to compete in major government projects and enhances their credibility. Including financial statements, certificates of completion of previous projects, and details of technical and administrative capabilities usually takes 30 to 45 business days. Yes, the classification is mandatory to participate in major government projects.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The classification certificate is a prerequisite for participation in major government projects"
+      },
+      {
+        "id": 2,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: It takes approximately 30-45 business days to review the classification application and issue the certificate",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#8B5CF6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_9",
+    "slug": "licensing-of-hospitals-and-medical-centres",
+    "name": "Licensing hospitals and medical centers",
+    "shortDescription": "The licensing service for hospitals, medical dispensaries and clinics of all kinds in the Kingdom of Saudi Arabia is provided by the Ministry of Health, and aims to ensure the operation of all health facilities in accordance with the required health and technical standards.",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 10,
+    "finishPeriodMax": 15,
+    "order": 9,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745c4c639b42_1732625606.png",
+      "name": "ترخيص المستشفيات والمراكز الطبية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The licensing service for hospitals, medical dispensaries, and clinics of all types in the Kingdom of Saudi Arabia is provided by the Ministry of Health, and aims to ensure the operation of all health facilities in accordance with the required health and technical standards. This service includes issuing and renewing licenses for various health facilities, including: general clinic license, specialized clinic license, surgical clinic license, cosmetic clinic license, diagnostic clinic license, labor clinic license, physical therapy and rehabilitation clinic license, sports medicine clinic license, alternative medicine clinic license, mental health clinic license, chronic diseases clinic license, veterinary clinic license, day surgery center license, mobile clinic license, and home clinic license. In addition to licensing hospitals and dispensaries, the Ministry works to monitor the facilities’ compliance with regulations. and local health laws. This service aims to enhance the quality of health services provided to the community, which contributes to building trust between patients and health facilities. The service is implemented through electronic procedures that facilitate the application and follow-up process. The requirements for obtaining a license include submitting legal documents, engineering plans, medical equipment that conforms to standards, and insurance certificates against medical errors. Through these procedures, the Ministry of Health seeks to provide an integrated healthy environment that ensures that all facilities adhere to quality and safety standards, and achieve distinguished health care that meets the needs of society.✨ Fill out the form at the bottom of the page, and we will serve you directly! ✨",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The licensing service for hospitals, medical dispensaries and clinics of all types in the Kingdom of Saudi Arabia is provided by the Ministry of Health, and aims to ensure the operation of all health facilities in accordance with the required health and technical standards. This service includes issuing and renewing licenses for various health facilities, including: general clinic license, specialized clinic license, surgical clinic license, cosmetic clinic license, diagnostic clinic license, labor clinic license, physical therapy and rehabilitation clinic license, sports medicine clinic license, alternative medicine clinic license, mental health clinic license, chronic diseases clinic license, veterinary clinic license, day surgery center license, mobile clinic license, and home clinic license. In addition to licensing hospitals and dispensaries, the Ministry works to monitor facilities’ compliance with local health regulations and laws. This service aims to enhance the quality of health services provided to the community, which contributes to building trust between patients and health facilities. The service is implemented through electronic procedures that facilitate the application and follow-up process. The requirements for obtaining a license include submitting legal documents, engineering plans, and medical equipment.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The service for licensing hospitals, medical dispensaries and clinics of all types in the Kingdom of Saudi Arabia is provided by the Ministry of Health"
+      },
+      {
+        "id": 2,
+        "requirement": "Including: a public clinic license"
+      },
+      {
+        "id": 3,
+        "requirement": "Licensing a physical therapy and rehabilitation clinic"
+      },
+      {
+        "id": 4,
+        "requirement": "Licensing a mental health clinic"
+      },
+      {
+        "id": 5,
+        "requirement": "Chronic diseases clinic license"
+      },
+      {
+        "id": 6,
+        "requirement": "Day surgery center license"
+      },
+      {
+        "id": 7,
+        "requirement": "In addition to licensing hospitals and dispensaries"
+      },
+      {
+        "id": 8,
+        "requirement": "The service is implemented through electronic procedures that facilitate the application and follow-up process"
+      },
+      {
+        "id": 9,
+        "requirement": "Requirements for obtaining a license include submitting legal documents"
+      },
+      {
+        "id": 10,
+        "requirement": "We will serve you directly!✨ Providing the required documents such as engineering plans"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "Providing distinguished health care that meets the needs of society...",
+        "description": "Achieving distinguished health care that meets the needs of society",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#F97316"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The license issuance process usually takes about 10 working days after completing all requirements. Available for individualsAvailable for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ]
+  },
+  {
+    "documentId": "service_10",
+    "slug": "licensing-of-sports-centres",
+    "name": "Licensing of sports centers",
+    "shortDescription": "The sports center licensing service in Saudi Arabia is provided by the Ministry of Sports, and aims to regulate the sports activities sector and ensure that sports centers adhere to the approved standards and regulations. The service includes issuance and renewal",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 15,
+    "finishPeriodMax": 22,
+    "order": 10,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745c6f7c19ba_1732626167.png",
+      "name": "ترخيص المراكز الرياضية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The sports center licensing service in Saudi Arabia is provided by the Ministry of Sports, and aims to regulate the sports activities sector and ensure that sports centers adhere to the approved standards and regulations. The service includes issuing and renewing licenses to operate sports centres, ensuring the provision of high-quality sports services and enhancing the level of health and fitness in the community. This service contributes to providing a safe and advanced sports environment for individuals through adherence to technical and legal requirements. Requirements for obtaining a license include submitting approved engineering drawings, a facility safety certificate, the presence of qualified trainers, and adherence to safety and public health regulations. This initiative aims to raise the level of health awareness and promote an active lifestyle among various segments of society, which will reflect positively on improving the quality of life in the Kingdom.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The sports center licensing service in Saudi Arabia is provided by the Ministry of Sports, and aims to regulate the sports activities sector and ensure that sports centers adhere to the approved standards and regulations. The service includes issuing and renewing licenses to operate sports centres, ensuring the provision of high-quality sports services and enhancing the level of health and fitness in the community. This service contributes to providing a safe and advanced sports environment for individuals by adhering to technical and legal requirements. Requirements for obtaining a license include submitting approved engineering drawings, a facility safety certificate, having qualified trainers, and adhering to safety and public health regulations. This initiative aims to raise the level of health awareness and promote an active lifestyle among various segments of society, which will reflect positively on improving the quality of life in the Kingdom. The service requires the submission of approved engineering drawings, a facility safety certificate, and a list of qualified trainers. Fees vary based on the size of the center and the quality of services. Yes, trainers must be certified with official certificates.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The sports center licensing service in Saudi Arabia is provided by the Ministry of Sports"
+      },
+      {
+        "id": 2,
+        "requirement": "This ensures the provision of high-quality sports services and enhances the level of health and fitness in the community"
+      },
+      {
+        "id": 3,
+        "requirement": "Requirements for obtaining a license include submitting approved engineering drawings"
+      },
+      {
+        "id": 4,
+        "requirement": "The service requires submitting approved engineering drawings"
+      },
+      {
+        "id": 5,
+        "requirement": "Trainers must be certified with official certificates"
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Time Duration: The licensing process takes approximately 15 working days from submitting the application and meeting the conditions. Available for individualsAvailable for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ]
+  },
+  {
+    "documentId": "service_11",
+    "slug": "private-school-license",
+    "name": "Private school license",
+    "shortDescription": "The private school licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Education, and aims to regulate the private education sector and ensure the provision of a safe and distinguished educational environment for students. This service includes issuing and renewing licenses",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 15,
+    "finishPeriodMax": 30,
+    "order": 11,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745cffd8c891_1732628477.png",
+      "name": "ترخيص مدرسة خاصة"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The private school licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Education, and aims to regulate the private education sector and ensure the provision of a safe and distinguished educational environment for students. This service includes issuing and renewing licenses to operate private schools, while adhering to the required educational, technical and administrative standards. This service contributes to improving the quality of education in the Kingdom by ensuring that private schools adhere to the best educational practices. It also supports the provision of diverse educational options that meet the needs of society and enhance students' ability to achieve the highest levels of academic performance. Service requirements include submitting approved engineering plans, a list of qualified faculty members, and an educational plan compatible with the standards of the Ministry of Education. This initiative contributes to strengthening private education as an essential part of the Saudi education system.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The private school licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Education, and aims to regulate the private education sector and ensure the provision of a safe and distinguished educational environment for students. This service includes issuing and renewing licenses to operate private schools, while adhering to the required educational, technical and administrative standards. This service contributes to improving the quality of education in the Kingdom by ensuring that private schools adhere to the best educational practices. It also supports the provision of diverse educational options that meet community needs and enhance students' ability to achieve the highest levels of academic performance. Service requirements include submitting approved engineering plans, a list of qualified faculty members, and an educational plan compatible with Ministry of Education standards. This initiative contributes to strengthening private education as an essential part of the Saudi education system. It includes submitting approved engineering plans, a list of qualified educational personnel, and an educational plan in line with the standards of the Ministry of Education. The process usually takes 15 to 30 business days. Yes, inspection visits are conducted to ensure compliance with the required standards. Yes, provided that prior approval is obtained from the Ministry.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The private school licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Education"
+      },
+      {
+        "id": 2,
+        "requirement": "Service requirements include submitting approved engineering drawings"
+      },
+      {
+        "id": 3,
+        "requirement": "Includes submitting approved engineering drawings"
+      },
+      {
+        "id": 4,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "It aims to regulate the private education sector and ensure the provision of an educational environment...",
+        "description": "It aims to regulate the private education sector and ensure the provision of a safe and distinguished educational environment for students",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The process of issuing a private school license usually takes 15 to 30 working days, based on the completion of all necessary documents and requirements. Available for individualsAvailable for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#3B82F6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_12",
+    "slug": "licensing-of-banks",
+    "name": "Licensing of banking institutions",
+    "shortDescription": "The banking licensing service in Saudi Arabia is provided by the Central Bank of Saudi Arabia (SAMA), and aims to regulate the banking sector and ensure that banking institutions adhere to international and local financial and legal standards. Contribute etc",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 3,
+    "finishPeriodMax": 6,
+    "order": 12,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745ce0acbd07_1732627978.png",
+      "name": "ترخيص المصارف البنكية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The banking licensing service in Saudi Arabia is provided by the Central Bank of Saudi Arabia (SAMA), and aims to regulate the banking sector and ensure that banking institutions adhere to international and local financial and legal standards. The service contributes to providing a safe and reliable banking environment that enhances the stability of the financial system and supports the growth of the national economy. The service includes issuing and renewing licenses for banks and financial institutions, while adhering to legal requirements, such as submitting a comprehensive feasibility study, incorporation documents, and adhering to the specified minimum capital. It is also required to provide clear plans for risk management and adherence to financial compliance standards. This service contributes to enhancing trust between customers and banking institutions, which supports transparency and encourages investment in the financial sector. This initiative is part of the Kingdom's Vision 2030 to strengthen the financial sector and attract global institutions.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The banking licensing service in Saudi Arabia is provided by the Central Bank of Saudi Arabia (SAMA), and aims to regulate the banking sector and ensure that banking institutions adhere to international and local financial and legal standards. The service contributes to providing a safe and reliable banking environment that enhances the stability of the financial system and supports the growth of the national economy. The service includes issuing and renewing licenses for banks and financial institutions, while adhering to legal requirements, such as submitting a comprehensive feasibility study, incorporation documents, and adhering to the specified minimum capital. It is also required to provide clear risk management plans and adhere to financial compliance standards. This service contributes to enhancing trust between customers and banking institutions, which supports transparency and encourages investment in the financial sector. This initiative is part of the Kingdom's Vision 2030 to strengthen the financial sector and attract global institutions. Includes submitting a comprehensive feasibility study, incorporation documents, and committing to the required capital. The process usually takes 3 to 6 months. Yes, provided that local laws and regulations are adhered to. The validity of the license is permanent, subject to compliance with periodic reports and reviews. Yes, T",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The banking licensing service in Saudi Arabia is provided by the Central Bank of Saudi Arabia (SAMA)"
+      },
+      {
+        "id": 2,
+        "requirement": "Such as presenting a comprehensive feasibility study"
+      },
+      {
+        "id": 3,
+        "requirement": "Includes presenting a comprehensive feasibility study"
+      },
+      {
+        "id": 4,
+        "requirement": "The validity of the license is permanent, subject to compliance with periodic reports and reviews"
+      },
+      {
+        "id": 5,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Time Duration: The process of issuing a banking license usually takes from 3 to 6 months, depending on the completion of all necessary documents and requirements by the applicant institution. Available for establishments.",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ]
+  },
+  {
+    "documentId": "service_13",
+    "slug": "licensing-of-gas-stations",
+    "name": "Licensing of gas stations",
+    "shortDescription": "The gas station licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Municipal and Rural Affairs and Housing, and aims to regulate the fuel selling sector and ensure that stations adhere to the required environmental and technical standards. Include",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 60,
+    "order": 13,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745cfdc3a395_1732628444.png",
+      "name": "ترخيص محطات الوقود"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The gas station licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Municipal and Rural Affairs and Housing, and aims to regulate the fuel selling sector and ensure that stations adhere to the required environmental and technical standards. This service includes issuing and renewing gas station licenses to ensure the provision of safe, high-quality services to consumers. The service works to improve the level of safety and operational efficiency of stations by adhering to legal requirements such as providing approved engineering drawings, safety certificates, and installing fuel measuring systems that conform to standards. It is also required to obtain approvals from competent authorities such as civil defense to ensure safe operation. This service aims to enhance customer confidence in licensed stations, and stimulate the development of the fuel sector in line with the Kingdom’s Vision 2030 to improve the quality of services provided and enhance public safety standards.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The gas station licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Municipal and Rural Affairs and Housing, and aims to regulate the fuel selling sector and ensure that stations adhere to the required environmental and technical standards. This service includes issuing and renewing gas station licenses to ensure the provision of safe and high-quality services to consumers. The service works to improve the safety and operational efficiency of stations by adhering to legal requirements such as submitting approved engineering drawings, safety certificates, and installing fuel measuring systems that comply with standards. It is also required to obtain approvals from competent authorities such as civil defense to ensure safe operation. This service aims to enhance customer confidence in licensed stations, and stimulate the development of the fuel sector in line with the Kingdom’s Vision 2030 to improve the quality of services provided and enhance public safety standards. Submit engineering drawings, a safety certificate from civil defense, and an operational plan. The process usually takes 30 to 60 business days. Yes, provided that the required regulations are adhered to. The license is valid for 5 years, renewable.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The gas station licensing service in the Kingdom of Saudi Arabia is provided by the Ministry of Municipal and Rural Affairs and Housing"
+      },
+      {
+        "id": 2,
+        "requirement": "This service includes issuing and renewing gas station licenses to ensure the provision of safe and high-quality services to consumers"
+      },
+      {
+        "id": 3,
+        "requirement": "The service improves the safety and operational efficiency of stations by adhering to legal requirements such as submitting approved engineering drawings"
+      },
+      {
+        "id": 4,
+        "requirement": "Safety certificate from civil defense"
+      },
+      {
+        "id": 5,
+        "requirement": "The license is valid for 5 years, renewable"
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Time period: The process of issuing a gas station license usually takes from 30 to 60 working days after submitting all the required documents and completing the procedures. Available for individualsAvailable for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#3B82F6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_14",
+    "slug": "licensing-of-medical-laboratories-and-pharmacies",
+    "name": "Licensing medical laboratories and pharmacies",
+    "shortDescription": "The medical laboratories and pharmacies licensing service is provided by the Ministry of Health in the Kingdom of Saudi Arabia, and aims to regulate the health services sector and ensure the provision of high-quality medical and pharmaceutical services in line with national standards.",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 15,
+    "finishPeriodMax": 30,
+    "order": 14,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745d20f1e487_1732629007.png",
+      "name": "ترخيص المختبرات الطبية والصيدليات"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The medical laboratories and pharmacies licensing service is provided by the Ministry of Health in the Kingdom of Saudi Arabia, and aims to regulate the health services sector and ensure the provision of high-quality medical and pharmaceutical services in line with national standards. This service includes issuing and renewing licenses for medical laboratories and pharmacies to ensure their compliance with legal and health requirements. The service works to enhance community confidence in health and pharmaceutical facilities by ensuring that they meet the specified standards. The requirements for obtaining a license include submitting a clear operational plan, medical and pharmaceutical equipment that conforms to specifications, and employing qualified medical and pharmaceutical staff with accredited certificates. This service contributes to improving the quality of health services provided, and strengthening the health sector to be a safe and reliable environment that meets the needs of citizens and residents, in line with the Kingdom’s 2030 vision in developing health infrastructure.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The medical laboratories and pharmacies licensing service is provided by the Ministry of Health in the Kingdom of Saudi Arabia, and aims to regulate the health services sector and ensure the provision of high-quality medical and pharmaceutical services in line with national standards. This service includes issuing and renewing licenses for medical laboratories and pharmacies to ensure their compliance with legal and health requirements. The service works to enhance community confidence in health and pharmaceutical facilities by ensuring that they meet specified standards. Requirements for obtaining a license include submitting a clear operational plan, medical and pharmaceutical equipment that conforms to specifications, and employing qualified medical and pharmaceutical personnel with accredited certificates. This service contributes to improving the quality of health services provided, and strengthening the health sector to be a safe and reliable environment that meets the needs of citizens and residents, in line with the Kingdom’s 2030 vision of developing health infrastructure. Providing a clear operational plan, medical and pharmaceutical equipment that conforms to specifications, an insurance certificate against medical malpractice, and a list of qualified personnel. Yes, inspection visits are conducted to ensure compliance with health and legal standards. The process usually takes 15 to 30 business days.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The medical laboratories and pharmacies licensing service is provided by the Ministry of Health in the Kingdom of Saudi Arabia"
+      },
+      {
+        "id": 2,
+        "requirement": "It aims to regulate the health services sector and ensure the provision of high-quality medical and pharmaceutical services in line with national standards"
+      },
+      {
+        "id": 3,
+        "requirement": "Requirements for obtaining a license include submitting a clear operational plan"
+      },
+      {
+        "id": 4,
+        "requirement": "Provide a clear operational plan"
+      },
+      {
+        "id": 5,
+        "requirement": "Medical malpractice insurance certificate"
+      },
+      {
+        "id": 6,
+        "requirement": "Documents include engineering drawings"
+      },
+      {
+        "id": 7,
+        "requirement": "And a safety equipment inspection certificate"
+      },
+      {
+        "id": 8,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Time Duration: The process of issuing a license for medical laboratories and pharmacies usually takes 15 to 30 working days after completing all required documents. Available for individualsAvailable for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#06B6D4"
+      }
+    ]
+  },
+  {
+    "documentId": "service_15",
+    "slug": "licensing-of-amusement-parks",
+    "name": "License for amusement parks",
+    "shortDescription": "The amusement park establishment licensing service is provided by the General Entertainment Authority in the Kingdom of Saudi Arabia. This service aims to regulate the entertainment sector and ensure the provision of a safe and enjoyable environment for citizens and residents through adherence to...",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 60,
+    "order": 15,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745d652dc2e2_1732630098.png",
+      "name": "ترخيص ملاهي ترفيهية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The amusement park establishment licensing service is provided by the General Entertainment Authority in the Kingdom of Saudi Arabia. This service aims to regulate the entertainment sector and ensure a safe and enjoyable environment for citizens and residents through adherence to technical and safety standards. The service includes issuing and renewing licenses for amusement parks to ensure the highest standards of quality and safety are achieved. Service requirements include submitting approved engineering plans, details about rides and facilities, and safety and maintenance management plans. It is also required to obtain approvals from competent authorities such as civil defense to ensure the safety of facilities. This service allows submission via the General Entertainment Authority’s platform electronically, making it easier for investors to follow up on applications and complete procedures. The service contributes to the development of the entertainment sector as part of the Kingdom’s Vision 2030, as it encourages investment in entertainment projects to enhance local and international tourism, while ensuring the provision of an enjoyable and safe experience for everyone.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The amusement park establishment licensing service is provided by the General Entertainment Authority in the Kingdom of Saudi Arabia. This service aims to regulate the entertainment sector and ensure a safe and enjoyable environment for citizens and residents through adherence to technical and safety standards. The service includes issuing and renewing licenses for amusement parks to ensure the highest standards of quality and safety are achieved. Service requirements include submitting approved engineering drawings, details of rides and facilities, and safety and maintenance management plans. It is also required to obtain approvals from competent authorities such as civil defense to ensure the safety of facilities. This service allows submission via the General Entertainment Authority’s platform electronically, making it easier for investors to follow up on applications and complete procedures. The service contributes to the development of the entertainment sector as part of the Kingdom’s Vision 2030, as it encourages investment in entertainment projects to enhance local and international tourism, while ensuring the provision of an enjoyable and safe experience for everyone. Provide engineering drawings, details of rides and facilities, and a safety and maintenance plan. The process usually takes 30 to 60 business days. Yes, provided that additional approvals are obtained from the competent authorities. Usually D",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The amusement park establishment licensing service is provided by the General Entertainment Authority in the Kingdom of Saudi Arabia"
+      },
+      {
+        "id": 2,
+        "requirement": "Service requirements include submitting approved engineering drawings"
+      },
+      {
+        "id": 3,
+        "requirement": "This service allows submission via the General Entertainment Authority’s electronic platform"
+      },
+      {
+        "id": 4,
+        "requirement": "While ensuring an enjoyable and safe experience for everyone"
+      },
+      {
+        "id": 5,
+        "requirement": "The license period is usually one year, renewable"
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Time frame: The process of issuing a license to establish an amusement park usually takes 30 to 60 working days. Available for individuals. Available for establishments.",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#3B82F6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_16",
+    "slug": "licensing-hotels-and-serviced-apartments",
+    "name": "Licensing hotels and serviced apartments",
+    "shortDescription": "The hotel and serviced apartment licensing service is provided by the Ministry of Tourism in the Kingdom of Saudi Arabia, and aims to regulate the hospitality sector and ensure that hotel establishments adhere to standards of quality and distinguished service. The service includes issuance",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 20,
+    "finishPeriodMax": 30,
+    "order": 16,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745d950d5669_1732630864.png",
+      "name": "ترخيص الفنادق والشقق المخدومة"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The hotel and serviced apartment licensing service is provided by the Ministry of Tourism in the Kingdom of Saudi Arabia, and aims to regulate the hospitality sector and ensure that hotel establishments adhere to standards of quality and distinguished service. The service includes issuing and renewing licenses to operate hotels and serviced apartments while ensuring adherence to tourism standards, which contributes to improving visitors’ experience and enhancing the tourism sector. Licensing requirements include submitting approved engineering plans, equipment that conforms to standards, the presence of qualified administrative staff, and adherence to safety and public health regulations. This service contributes to strengthening the Kingdom’s position as a global tourist destination by providing high-quality hospitality services, which reflects the Kingdom’s 2030 vision in developing the tourism sector and enhancing investments in the field of hospitality.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The hotel and serviced apartment licensing service is provided by the Ministry of Tourism in the Kingdom of Saudi Arabia, and aims to regulate the hospitality sector and ensure that hotel establishments adhere to standards of quality and distinguished service. The service includes issuing and renewing operating licenses for hotels and serviced apartments while ensuring adherence to tourism standards, which contributes to improving visitors’ experience and enhancing the tourism sector. Licensing requirements include submitting approved engineering plans, equipment that conforms to standards, the presence of qualified administrative staff, and adherence to safety and public health regulations. This service contributes to strengthening the Kingdom’s position as a global tourist destination by providing high-quality hospitality services, which reflects the Kingdom’s 2030 vision of developing the tourism sector and enhancing investments in the field of hospitality. Cleanliness standards, safety equipment must be adhered to, and approved engineering drawings must be submitted. It usually takes 20 to 30 business days. It includes engineering drawings, a facility safety certificate, and an operational plan. Yes, visits are conducted to ensure compliance with standards.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The hotel and serviced apartment licensing service is provided by the Ministry of Tourism in the Kingdom of Saudi Arabia"
+      },
+      {
+        "id": 2,
+        "requirement": "Licensing requirements include submitting approved engineering drawings"
+      },
+      {
+        "id": 3,
+        "requirement": "This service contributes to enhancing the Kingdom's position as a global tourist destination by providing high-quality hospitality services"
+      },
+      {
+        "id": 4,
+        "requirement": "Hygiene standards must be adhered to"
+      },
+      {
+        "id": 5,
+        "requirement": "Providing approved engineering plans"
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "It aims to regulate the hospitality sector and ensure that hotel establishments adhere to...",
+        "description": "It aims to regulate the hospitality sector and ensure that hotel establishments adhere to standards of quality and distinguished service",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#06B6D4"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The process of issuing a hotel and serviced apartment license usually takes 20 to 30 working days, based on the completion of all documents and requirements. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#F59E0B"
+      }
+    ]
+  },
+  {
+    "documentId": "service_17",
+    "slug": "radio-and-television-broadcasting-license",
+    "name": "Radio and television broadcasting license",
+    "shortDescription": "The radio and television broadcasting licensing service is provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia. This service aims to regulate the media sector and ensure the provision of high-quality media content that complies with...",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 20,
+    "finishPeriodMax": 40,
+    "order": 17,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6745dd82b4d3e_1732631938.png",
+      "name": "ترخيص البث الإذاعي والتلفزيوني"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The radio and television broadcasting licensing service is provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia. This service aims to regulate the media sector and ensure the provision of high-quality media content that complies with local laws and regulations. The service includes issuing and renewing licenses for radio and television broadcasting, which contributes to enhancing transparency and media creativity. The service provides electronic procedures that make it easier for media companies to submit and follow up on applications. Applicants must submit a business plan that includes the nature of the content, company incorporation documents, and commitment to intellectual property rights. It is also required to adhere to technical and engineering standards that guarantee broadcast quality and safe operations. This service supports the development of the local media sector and enhances its role in spreading cultural and social awareness, which reflects the Kingdom’s 2030 vision of building a distinct and diverse media sector.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The radio and television broadcasting licensing service is provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia. This service aims to regulate the media sector and ensure the provision of high-quality media content that complies with local laws and regulations. The service includes issuing and renewing licenses for radio and television broadcasting, which contributes to enhancing transparency and media creativity. The service provides electronic procedures that make it easier for media companies to submit and follow up requests. Applicants must submit a business plan that includes the nature of the content, company incorporation documents, and commitment to intellectual property rights. It is also required to adhere to technical and engineering standards that ensure broadcast quality and operational safety. This service supports the development of the local media sector and enhances its role in spreading cultural and social awareness, which reflects the Kingdom’s 2030 vision of building a distinct and diverse media sector. Submit a business plan, incorporation documents, and adherence to intellectual property rights. The process takes 20 to 40 business days. Yes, provided that the necessary approvals are obtained. The validity of the license varies depending on the type of broadcast, from one to five years.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The radio and television broadcasting licensing service is provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia"
+      },
+      {
+        "id": 2,
+        "requirement": "This service aims to regulate the media sector and ensure the provision of high-quality media content that complies with local laws and regulations"
+      },
+      {
+        "id": 3,
+        "requirement": "The service provides electronic procedures that make it easier for media companies to submit and follow up requests"
+      },
+      {
+        "id": 4,
+        "requirement": "Applicants must submit a business plan that includes the nature of the content"
+      },
+      {
+        "id": 5,
+        "requirement": "The validity of the license varies depending on the type of broadcast"
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "The service provides electronic procedures that make it easier for media companies to...",
+        "description": "The service provides electronic procedures that make it easier for media companies to submit and follow up requests",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The process of issuing a radio and television broadcasting license usually takes 20 to 40 working days. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ]
+  },
+  {
+    "documentId": "service_18",
+    "slug": "licensing-logistics-transportation-companies",
+    "name": "Licensing logistical transport companies",
+    "shortDescription": "The logistics transportation company licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the transportation and logistics services sector and ensure the provision of safe and effective services that meet the needs of the local and international market. This aims",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 20,
+    "finishPeriodMax": 30,
+    "order": 18,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/674f80cf63801_1733263567.png",
+      "name": "ترخيص شركات النقل اللوجستي"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The logistics transportation company licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the transportation and logistics services sector and ensure the provision of safe and effective services that meet the needs of the local and international market. This service aims to enhance the efficiency of transportation and the smoothness of logistical operations in line with the Kingdom’s Vision 2030 to make the Kingdom a global logistics center. The service includes issuing and renewing licenses for logistical transportation companies of various types, whether specialized in land, sea, or air transportation. Licensing requires the submission of documents such as a commercial registry, an operational plan, transportation fleet details, and safety certificates. The service allows companies to operate legally while adhering to the regulations and standards set by the regulators.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The logistics transportation company licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the transportation and logistics services sector and ensure the provision of safe and effective services that meet the needs of the local and international market. This service aims to enhance transportation efficiency and smooth logistics operations in line with the Kingdom’s Vision 2030 to make the Kingdom a global logistics center. The service includes issuing and renewing licenses for various types of logistical transport companies, whether specialized in land, sea, or air transport. Licensing requires the submission of documents such as a commercial registry, an operational plan, transportation fleet details, and safety certificates. The service allows companies to operate legally while adhering to the regulations and standards set by regulators. Any company operating in the fields of land, sea, or air transportation can apply for a license. Yes, companies must provide details of facilities used in logistics operations, such as warehouses and distribution centres. The license is valid for one year, renewable. Yes, provided that it is registered with the competent authorities within the Kingdom and adheres to local regulations. The company's activity will be suspended and financial fines may be imposed until...",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The logistics transportation company licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the transportation and logistics services sector and ensure the provision of safe and effective services that meet the needs of the local and international market."
+      },
+      {
+        "id": 2,
+        "requirement": "Licensing requires the submission of documents such as a commercial register"
+      },
+      {
+        "id": 3,
+        "requirement": "Or apply for a license"
+      },
+      {
+        "id": 4,
+        "requirement": "Companies must provide details of the facilities used in logistics operations"
+      },
+      {
+        "id": 5,
+        "requirement": "The license is valid for one year, renewable"
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "The service allows companies to operate legally while adhering to regulations and...",
+        "description": "The service allows companies to operate legally while adhering to the regulations and standards set by regulators",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#EC4899"
+      },
+      {
+        "id": 2,
+        "title": "Any company working in the field of land transportation can...",
+        "description": "Any company working in the field of land transportation can",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#8B5CF6"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The license issuance process usually takes 20 to 30 working days. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#F97316"
+      }
+    ]
+  },
+  {
+    "documentId": "service_19",
+    "slug": "licensing-brokers-insurance",
+    "name": "Insurance brokers license",
+    "shortDescription": "“The insurance brokers licensing service is provided to regulate the work of individuals and companies that provide brokerage services in the insurance sector within the Kingdom of Saudi Arabia. This service aims to ensure that insurance brokers adhere to professional and ethical standards.”",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 15,
+    "finishPeriodMax": 30,
+    "order": 19,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/674f82978e091_1733264023.png",
+      "name": "ترخيص وسطاء التأمين"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "“The insurance brokers licensing service is provided to regulate the work of individuals and companies that provide brokerage services in the insurance sector within the Kingdom of Saudi Arabia. This service aims to ensure that insurance brokers adhere to professional and legal standards, and to provide a transparent work environment that supports customer confidence in the services provided. The service includes issuing and renewing licenses for individuals and companies after meeting the legal and administrative requirements. The license requires the submission of documents such as the commercial registry (for companies), certificates of professional competence, a clear business plan, and an insurance certificate covering brokerage activities.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "“The insurance brokers licensing service is provided to regulate the work of individuals and companies that provide brokerage services in the insurance sector within the Kingdom of Saudi Arabia. This service aims to ensure that insurance brokers adhere to professional and legal standards, and to provide a transparent work environment that supports customer confidence in the services provided. The service includes issuing and renewing licenses for individuals and companies after meeting the legal and administrative requirements. The license requires the submission of documents such as the commercial registry (for companies), certificates of professional competence, a clear business plan, and an insurance certificate covering brokerage activities. Individuals and companies operating in the insurance sector can apply for a license after Meet the requirements. The license is valid for one year and is renewable. Yes, individuals may be required to pass a test or interview to evaluate professional competency",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "“The insurance brokers licensing service is provided to regulate the work of individuals and companies that provide brokerage services in the insurance sector within the Kingdom of Saudi Arabia"
+      },
+      {
+        "id": 2,
+        "requirement": "Licensing requires the submission of documents such as the commercial register (for companies)"
+      },
+      {
+        "id": 3,
+        "requirement": "An insurance certificate covering brokerage activities"
+      },
+      {
+        "id": 4,
+        "requirement": "Individuals and companies operating in the insurance sector can apply for a license after meeting the requirements"
+      },
+      {
+        "id": 5,
+        "requirement": "The license is valid for one year, renewable"
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "Individuals and companies operating in the insurance sector can apply for...",
+        "description": "Individuals and companies operating in the insurance sector can apply for a license after meeting the requirements",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#F97316"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The licensing process usually takes 15 to 30 working days for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ]
+  },
+  {
+    "documentId": "service_20",
+    "slug": "license-of-solar-energy-stations",
+    "name": "Licensing solar power plants",
+    "shortDescription": "The solar energy plants licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia with the aim of regulating the renewable energy sector and encouraging investment in it. The service aims to facilitate the establishment and operation of electricity generation plants from...",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 60,
+    "order": 20,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/674f83eb876ea_1733264363.png",
+      "name": "ترخيص محطات الطاقة الشمسية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The solar energy plants licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia with the aim of regulating the renewable energy sector and encouraging investment in it. The service aims to facilitate the establishment and operation of solar power plants in line with the Kingdom’s Vision 2030 to enhance environmental sustainability and diversify energy sources. The service includes issuing and renewing licenses for solar power plants while adhering to environmental and technical standards. Obtaining a license requires submitting a feasibility study, approved engineering plans, an environmental impact assessment report, and a clear operational plan. This service helps investors achieve a safe and sustainable investment return, while providing technical and organizational support during all stages of the project.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The solar energy plants licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia with the aim of regulating the renewable energy sector and encouraging investment in it. The service aims to facilitate the establishment and operation of solar electricity generation plants in line with the Kingdom’s Vision 2030 to enhance environmental sustainability and diversify energy sources. The service includes issuing and renewing licenses for solar energy plants while adhering to environmental and technical standards. Obtaining a license requires submitting a feasibility study, approved engineering plans, an environmental impact assessment report, and a clear operational plan. This service helps investors achieve a safe and sustainable investment return, while providing technical and organizational support during all stages of the project. Any investor or company wishing to develop solar energy projects can apply for a license. Yes, an environmental impact assessment report must be submitted to ensure compliance with environmental standards. The license is valid for 5 years, renewable. The license may be canceled or fines may be imposed if the station is not operated within the specified period.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The solar energy plants licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia with the aim of regulating the renewable energy sector and encouraging investment in it"
+      },
+      {
+        "id": 2,
+        "requirement": "Obtaining a license requires submitting a feasibility study"
+      },
+      {
+        "id": 3,
+        "requirement": "With the provision of technical and regulatory support during all stages of the project, any investor or company wishing to develop solar energy projects can apply for a license. Yes"
+      },
+      {
+        "id": 4,
+        "requirement": "An environmental impact assessment report must be submitted to ensure compliance with environmental standards. The license is valid for 5 years, renewable. The license may be canceled or fines may be imposed if the plant is not operated within the specified period. Fill out the form now."
+      },
+      {
+        "id": 5,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "With the provision of technical and organizational support during all stages of the project, any project can...",
+        "description": "With the provision of technical and regulatory support during all stages of the project, any investor or company wishing to develop solar energy projects can apply for a license. Yes",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#06B6D4"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The license issuance process usually takes 30 to 60 working days for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ]
+  },
+  {
+    "documentId": "service_21",
+    "slug": "licensing-business-incubators-and-accelerators",
+    "name": "Licensing business incubators and accelerators",
+    "shortDescription": "The business incubator and accelerator licensing service is provided to regulate the entrepreneurship sector in the Kingdom of Saudi Arabia, promote innovation, and support emerging companies. This service aims to facilitate the establishment and operation of business and investment incubators",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 15,
+    "finishPeriodMax": 30,
+    "order": 21,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/674f853977c17_1733264697.png",
+      "name": "ترخيص حاضنات الأعمال ومسرعات الأعمال"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The business incubator and accelerator licensing service is provided to regulate the entrepreneurship sector in the Kingdom of Saudi Arabia, promote innovation, and support emerging companies. This service aims to facilitate the establishment and operation of business incubators and accelerators in line with the Kingdom’s Vision 2030 to stimulate entrepreneurship and develop the national economy. The service includes issuing and renewing licenses for projects that provide support to emerging companies by providing work spaces, consultations, networking, and specialized training services. To obtain a license, a feasibility study, an operational plan, details of the programs and services provided, and available work facilities are required.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The business incubator and accelerator licensing service is provided to regulate the entrepreneurship sector in the Kingdom of Saudi Arabia, promote innovation, and support emerging companies. This service aims to facilitate the establishment and operation of business incubators and accelerators in line with the Kingdom’s Vision 2030 to stimulate entrepreneurship and develop the national economy. The service includes issuing and renewing licenses for projects that provide support to emerging companies by providing work spaces, consultations, networking, and specialized training services. To obtain a license, a feasibility study, an operational plan, details of the programs and services provided, and available work facilities are required. Any individual or company that has a clear plan to support startups and conforms to the required standards can apply. Services include workspaces, consultations, training programs, networking, and financing services. The license is valid for one year and is renewable. The activity of the incubator or accelerator is suspended until the renewal conditions are met.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The business incubator and accelerator licensing service is provided to regulate the entrepreneurship sector in the Kingdom of Saudi Arabia, promote innovation, and support emerging companies"
+      },
+      {
+        "id": 2,
+        "requirement": "The service includes issuing and renewing licenses for projects that provide support to startups by providing work spaces"
+      },
+      {
+        "id": 3,
+        "requirement": "Requires submitting a feasibility study"
+      },
+      {
+        "id": 4,
+        "requirement": "Any individual or company that has a clear plan to support startups and matches the required standards can apply. Services include workspaces"
+      },
+      {
+        "id": 5,
+        "requirement": "And financing services. The license is valid for one year and is renewable. The activity of the incubator or accelerator is suspended until the renewal conditions are met. Fill out the form now."
+      },
+      {
+        "id": 6,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "Any individual or company that has a clear plan to support startups and...",
+        "description": "Any individual or company that has a clear plan to support startups and matches the required standards can apply. Services include workspaces",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The license issuance process usually takes 15 to 30 working days for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ]
+  },
+  {
+    "documentId": "service_22",
+    "slug": "licensing-electronic-payment-companies",
+    "name": "Licensing electronic payment companies",
+    "shortDescription": "The electronic payment companies licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the financial technology (FinTech) sector and ensure the provision of safe and effective payment services. The service aims to support innovation",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 60,
+    "order": 22,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/674f881815d2f_1733265432.png",
+      "name": "ترخيص شركات المدفوعات الإلكترونية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The electronic payment companies licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the financial technology (FinTech) sector and ensure the provision of safe and effective payment services. The service aims to support innovation in the field of financial technology and enhance confidence in digital financial systems in line with the Kingdom’s Vision 2030. The service includes issuing and renewing licenses for companies that provide electronic payment services, such as payment gateways, digital wallets, and mobile payment services. To obtain a license, a feasibility study, a technical business plan, proof of technical capabilities, and adherence to cybersecurity standards are required.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The electronic payment companies licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the financial technology (FinTech) sector and ensure the provision of safe and effective payment services. The service aims to support innovation in the field of financial technology and enhance confidence in digital financial systems in line with the Kingdom’s Vision 2030. The service includes issuing and renewing licenses for companies that provide electronic payment services, such as payment gateways, digital wallets, and mobile payment services. To obtain a license, a feasibility study, a technical business plan, proof of technical capabilities, and adherence to cybersecurity standards are required. Any financial technology company that meets the legal and technical requirements can apply. The license is valid for one year, renewable. It must adhere to cybersecurity standards approved by the competent authorities to ensure the protection of user data.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The electronic payment companies licensing service is provided by the competent authorities in the Kingdom of Saudi Arabia to regulate the financial technology (FinTech) sector and ensure the provision of safe and effective payment services."
+      },
+      {
+        "id": 2,
+        "requirement": "Requires submitting a feasibility study"
+      },
+      {
+        "id": 3,
+        "requirement": "Any financial technology company that meets the legal and technical requirements can apply. The license is valid for one year, renewable. It must adhere to cybersecurity standards approved by the competent authorities to ensure the protection of user data. Fill out the form now."
+      },
+      {
+        "id": 4,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "Any fintech company that meets the legal and technical requirements can...",
+        "description": "Any financial technology company that meets the legal and technical requirements can apply. The license is valid for one year, renewable. It must adhere to cybersecurity standards approved by the competent authorities to ensure the protection of user data. Fill out the form now.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The license issuance process usually takes 30 to 60 business days and includes document review and security tests. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ]
+  },
+  {
+    "documentId": "service_23",
+    "slug": "licensing---nurseries---children",
+    "name": "Licensing child nurseries",
+    "shortDescription": "The child nursery licensing service is provided to regulate the establishment and operation of nurseries that provide care and education for children in the Kingdom of Saudi Arabia. The service aims to ensure that nurseries adhere to educational and health standards and provide a healthy environment",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 20,
+    "finishPeriodMax": 30,
+    "order": 23,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6750971f92ab0_1733334815.png",
+      "name": "ترخيص حضانات الأطفال"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The child nursery licensing service is provided to regulate the establishment and operation of nurseries that provide care and education for children in the Kingdom of Saudi Arabia. The service aims to ensure that nurseries adhere to educational and health standards and provide a safe and appropriate environment for the growth and development of children, in line with the approved rules and regulations. This service is essential to support working families and promote children's early development.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The child nursery licensing service is provided to regulate the establishment and operation of nurseries that provide care and education for children in the Kingdom of Saudi Arabia. The service aims to ensure that nurseries adhere to educational and health standards and provide a safe and appropriate environment for the growth and development of children, in line with the approved rules and regulations. This service is essential to support working families and promote children's early development.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The child nursery licensing service is provided to regulate the establishment and operation of nurseries that provide care and education for children in the Kingdom of Saudi Arabia"
+      },
+      {
+        "id": 2,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Time period: 20 to 30 working days after submitting all required documents. Available for individuals. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#3B82F6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_24",
+    "slug": "permits-farms-livestock-poultry",
+    "name": "Permits for livestock and poultry farms",
+    "shortDescription": "A service provided by the competent authorities in the Kingdom of Saudi Arabia (such as the Ministry of Environment, Water and Agriculture) to regulate the establishment and operation of livestock and poultry farms. The service aims to ensure compliance with environmental and health standards, Taiz",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 45,
+    "order": 24,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/675098f8a8996_1733335288.png",
+      "name": "تصاريح مزارع المواشي والدواجن"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "A service provided by the competent authorities in the Kingdom of Saudi Arabia (such as the Ministry of Environment, Water and Agriculture) to regulate the establishment and operation of livestock and poultry farms. The service aims to ensure compliance with environmental and health standards, and to promote animal and poultry production in a sustainable and safe manner. This service is considered part of supporting food security and achieving the goals of the Kingdom’s Vision 2030 in developing the agricultural sector.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "A service provided by the competent authorities in the Kingdom of Saudi Arabia (such as the Ministry of Environment, Water and Agriculture) to regulate the establishment and operation of livestock and poultry farms. The service aims to ensure compliance with environmental and health standards, and to promote animal and poultry production in a sustainable and safe manner. This service is considered part of supporting food security and achieving the goals of the Kingdom’s Vision 2030 in developing the agricultural sector.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Duration of issuing the initial license: 30 to 45 working days, depending on completion of all requirements. Available for individualsAvailable for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ]
+  },
+  {
+    "documentId": "service_25",
+    "slug": "license-farms-hydroponics",
+    "name": "Hydroponic farm license",
+    "shortDescription": "A service provided by the Ministry of Environment, Water and Agriculture in the Kingdom of Saudi Arabia to regulate the establishment and operation of hydroponic farms, which are agricultural techniques that rely on growing plants without soil using nutrient water. aiming etc",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 45,
+    "order": 25,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/67509fbbced60_1733337019.png",
+      "name": "ترخيص مزارع الهيدروبونيك"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "A service provided by the Ministry of Environment, Water and Agriculture in the Kingdom of Saudi Arabia to regulate the establishment and operation of hydroponic farms, which are agricultural techniques that rely on growing plants without soil using nutrient water. The service aims to support agricultural innovation, improve productivity, and reduce water consumption in line with the Kingdom’s Vision 2030 to enhance environmental sustainability and food security.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "A service provided by the Ministry of Environment, Water and Agriculture in the Kingdom of Saudi Arabia to regulate the establishment and operation of hydroponic farms, which are agricultural techniques that rely on growing plants without soil using nutrient water. The service aims to support agricultural innovation, improve productivity, and reduce water consumption in line with the Kingdom’s Vision 2030 to enhance environmental sustainability and food security.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Duration of issuing the initial license: 30 to 45 working days. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#8B5CF6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_26",
+    "slug": "permit-laboratories-medical-research",
+    "name": "Medical research laboratories permit",
+    "shortDescription": "A service provided by the competent authorities in the Kingdom of Saudi Arabia (such as the Ministry of Health or the Food and Drug Authority) to regulate the establishment and operation of medical research laboratories. The service aims to ensure compliance with scientific and technical standards",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 60,
+    "order": 26,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6750a1ccac08c_1733337548.png",
+      "name": "تصريح مختبرات الأبحاث الطبية"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "A service provided by the competent authorities in the Kingdom of Saudi Arabia (such as the Ministry of Health or the Food and Drug Authority) to regulate the establishment and operation of medical research laboratories. The service aims to ensure compliance with scientific and health standards and promote research and development in the medical field. This service is necessary to support medical and technological innovation to achieve the goals of the Kingdom’s Vision 2030.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "A service provided by the competent authorities in the Kingdom of Saudi Arabia (such as the Ministry of Health or the Food and Drug Authority) to regulate the establishment and operation of medical research laboratories. The service aims to ensure compliance with scientific and health standards and promote research and development in the medical field. This service is necessary to support medical and technological innovation to achieve the goals of the Kingdom’s Vision 2030.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Initial license issuance period: 30 to 60 working days, based on fulfillment of all requirements. Available for establishments.",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ]
+  },
+  {
+    "documentId": "service_27",
+    "slug": "licensing-fish-farms",
+    "name": "Fish farm license",
+    "shortDescription": "A service provided by the Ministry of Environment, Water and Agriculture in the Kingdom of Saudi Arabia to regulate the establishment and operation of fish farms. The service aims to enhance fish farming as a vital sector that contributes to achieving food security and sustainability",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 30,
+    "finishPeriodMax": 60,
+    "order": 27,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6750a6c091040_1733338816.png",
+      "name": "ترخيص مزارع الأسماك"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "A service provided by the Ministry of Environment, Water and Agriculture in the Kingdom of Saudi Arabia to regulate the establishment and operation of fish farms. The service aims to enhance fish farming as a vital sector that contributes to achieving food security and environmental sustainability. This service provides investors with the opportunity to develop marine and inland fish farms using modern technologies and sustainable practices.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "A service provided by the Ministry of Environment, Water and Agriculture in the Kingdom of Saudi Arabia to regulate the establishment and operation of fish farms. The service aims to enhance fish farming as a vital sector that contributes to achieving food security and environmental sustainability. This service provides investors with the opportunity to develop marine and inland fish farms using modern technologies and sustainable practices.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "This service gives investors the opportunity to develop marine fish farms...",
+        "description": "This service provides investors with the opportunity to develop marine and inland fish farms using modern technologies and sustainable practices",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Duration of issuing the initial license: from 30 to 60 working days. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#3B82F6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_28",
+    "slug": "film-production-permits",
+    "name": "Film production permits",
+    "shortDescription": "Film production permits service is provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia. The service aims to organize the film production process within the Kingdom, ensuring compliance with regulations and laws",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 10,
+    "finishPeriodMax": 15,
+    "order": 28,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6750a8f614e5b_1733339382.png",
+      "name": "تصاريح إنتاج الأفلام"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "Film production permits service is provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia. The service aims to organize the film production process within the Kingdom, ensuring compliance with applicable regulations and laws. The permits include the production of cinematic, documentary, and advertising films, and contribute to enhancing the creation of creative content and developing the media production sector in line with the Kingdom’s Vision 2030.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "Film production permits service is provided by the General Authority for Audiovisual Media in the Kingdom of Saudi Arabia. The service aims to organize the film production process within the Kingdom, ensuring compliance with applicable regulations and laws. The permits include the production of cinematic, documentary, and advertising films, and contribute to enhancing the creation of creative content and developing the media production sector in line with the Kingdom’s Vision 2030.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "It contributes to enhancing the creative content industry and developing the digital production sector...",
+        "description": "It contributes to enhancing the creation of creative content and developing the media production sector in line with the Kingdom’s Vision 2030",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#F97316"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Duration of issuing the initial permit: 10 to 15 working days. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#8B5CF6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_29",
+    "slug": "offshore-prospecting-permit",
+    "name": "Offshore prospecting permit",
+    "shortDescription": "The offshore prospecting permit service is provided by the competent authorities in the Kingdom of Saudi Arabia, such as the Ministry of Energy and the Geological Survey, to regulate exploration activities for natural resources such as oil, gas, minerals, etc.",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 45,
+    "finishPeriodMax": 60,
+    "order": 29,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6750acfc88226_1733340412.png",
+      "name": "تصريح التنقيب البحري"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The marine exploration permit service is provided by the competent authorities in the Kingdom of Saudi Arabia, such as the Ministry of Energy and the Geological Survey, to regulate exploration activities for natural resources such as oil, gas, minerals, or others in marine areas. The service aims to ensure compliance with environmental and regulatory standards and promote the exploration of marine resources in a sustainable and safe manner.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The marine exploration permit service is provided by the competent authorities in the Kingdom of Saudi Arabia, such as the Ministry of Energy and the Geological Survey, to regulate exploration activities for natural resources such as oil, gas, minerals, or others in marine areas. The service aims to ensure compliance with environmental and regulatory standards and promote the exploration of marine resources in a sustainable and safe manner.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Duration of issuing the initial permit: 45 to 60 working days, based on fulfillment of all requirements. Available for establishments.",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#8B5CF6"
+      }
+    ]
+  },
+  {
+    "documentId": "service_30",
+    "slug": "mineral-prospecting-permit",
+    "name": "Mineral prospecting permit",
+    "shortDescription": "A service provided by the Ministry of Industry and Mineral Resources in the Kingdom of Saudi Arabia to regulate mineral exploration operations in the Kingdom. This service aims to support the exploration of mineral resources and stimulate investment in the mineral sector",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 60,
+    "finishPeriodMax": 90,
+    "order": 30,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6750b4ed5bf17_1733342445.png",
+      "name": "تصريح تنقيب المعادن"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "A service provided by the Ministry of Industry and Mineral Resources in the Kingdom of Saudi Arabia to regulate mineral exploration operations in the Kingdom. This service aims to support the exploration of mineral resources and stimulate investment in the mining sector, while ensuring compliance with environmental and regulatory regulations. This service is a major step to strengthen the mining sector as part of the Kingdom's Vision 2030.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "A service provided by the Ministry of Industry and Mineral Resources in the Kingdom of Saudi Arabia to regulate mineral exploration operations in the Kingdom. This service aims to support the exploration of mineral resources and stimulate investment in the mining sector, while ensuring compliance with environmental and regulatory regulations. This service is a major step to strengthen the mining sector as part of the Kingdom's Vision 2030.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: Duration of issuing the initial permit: from 60 to 90 working days. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ]
+  },
+  {
+    "documentId": "service_31",
+    "slug": "follow-up-of-licenses-for-major-establishments",
+    "name": "Follow up on licenses for major establishments",
+    "shortDescription": "The licensing follow-up service for large establishments is an integrated service that aims to provide comprehensive and customized solutions for establishments that have multiple branches in different regions. Through this service, Ahmed Bashmakh Business Services Group manages",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 7,
+    "finishPeriodMax": 10,
+    "order": 31,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/6768874f459d9_1734903631.jpg",
+      "name": "متابعة التراخيص للمنشآت الكبرى"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "The licensing follow-up service for large establishments is an integrated service that aims to provide comprehensive and customized solutions for establishments that have multiple branches in different regions. Through this service, Ahmed Bashmakh Business Services Group manages all licenses required for branches, starting from obtaining new licenses, through renewing existing licenses, until ensuring full compliance with all government regulations and laws. This service is ideal for large establishments that face challenges in managing their branch licenses due to the multiple activities and locations. Our specialized team is working on designing a central system to facilitate monitoring the status of licenses for each branch, ensuring business continuity and reducing risks resulting from delays or non-compliance with regulations. The service includes issuing commercial, engineering, health, environmental, and operational licenses, in addition to providing periodic reports that clarify the status of licenses for each branch and the recommendations necessary to ensure compliance. We also work to update licenses on a regular basis and follow up on any regulatory changes that may affect activities. By using modern technologies and electronic license management platforms, we provide the client with a comfortable and seamless experience that allows him to focus on developing his business, while we handle all the details. This service is not just a management of licenses, but rather a strategic partnership that aims to achieve the highest levels of operational efficiency and ensure the success of facilities in line with the Kingdom’s Vision 2030 to enhance the business environment.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "The licensing follow-up service for large establishments is an integrated service that aims to provide comprehensive and customized solutions for establishments that have multiple branches in different regions. Through this service, Ahmed Bashmakh Business Services Group manages all licenses required for branches, starting from obtaining new licenses, through renewing existing licenses, until ensuring full compliance with all government regulations and laws. This service is ideal for large establishments that face challenges in managing their branch licenses due to the multiple activities and locations. Our specialized team is working on designing a central system to facilitate monitoring the status of licenses for each branch, ensuring business continuity and reducing risks resulting from delays or non-compliance with regulations. The service includes issuing commercial, engineering, health, environmental, and operational licenses, in addition to providing periodic reports that clarify the status of licenses for each branch and the recommendations necessary to ensure compliance. We also work to update licenses on a regular basis and follow up on any regulatory changes that may affect activities. By using modern technologies and electronic platforms to manage licenses, we provide the customer with a comfortable and smooth experience",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "In addition to providing periodic reports that clarify the status of licenses for each branch and the necessary recommendations to ensure compliance"
+      },
+      {
+        "id": 2,
+        "requirement": "Submit renewal applications in a timely manner"
+      },
+      {
+        "id": 3,
+        "requirement": "-Provide periodic reports showing the status of licenses and the level of compliance for each branch"
+      },
+      {
+        "id": 4,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "We provide the client with a comfortable and smooth experience that allows him to focus on developing his business...",
+        "description": "We provide the client with a comfortable and seamless experience that allows him to focus on developing his business",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#10B981"
+      },
+      {
+        "id": 2,
+        "title": "An electronic platform is provided that allows the customer to monitor the status of licenses...",
+        "description": "An electronic platform is provided that allows the customer to monitor the status of licenses",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#3B82F6"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: will be discussedAvailable for individualsAvailable for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EF4444"
+      }
+    ]
+  },
+  {
+    "documentId": "service_32",
+    "slug": "integrated-licensing-management-of-projects",
+    "name": "Integrated licensing management for projects",
+    "shortDescription": "⁠⁠⁠⁠⁠⁠⁠With experience spanning more than three decades, Ahmed Bashmakh Business Services Group provides an integrated licensing management service for projects, which is a comprehensive and integrated service designed to meet the needs of local and international companies and investors.",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 7,
+    "finishPeriodMax": 10,
+    "order": 32,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/67688cb167cd6_1734905009.png",
+      "name": "إدارة التراخيص المتكاملة للمشاريع"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "⁠⁠⁠⁠⁠⁠⁠With more than three decades of experience, Ahmed Bashmakh Business Services Group provides integrated licensing management for projects, which is a comprehensive and integrated service designed to meet the needs of local and international companies and investors. This service aims to simplify all government procedures associated with project licensing, saving time and effort and allowing customers to focus on their primary goals. The service includes obtaining commercial, engineering, environmental, health, and specialized licenses in sectors such as energy, tourism, transportation, industry, and all types of licenses that are important to the project. Our specialized team works on all stages of licensing, starting with studying the project needs, submitting applications, and following them up with government agencies, all the way to obtaining final approvals. Our service is flexible and efficient, as we design customized solutions for each project based on its nature and size. We adhere to the highest legal and regulatory standards to ensure full compliance and avoid obstacles. The integrated licensing management service is not just a service, but rather a partnership with clients to ensure the success of their projects and achieve their goals in line with the Kingdom’s Vision 2030 in enhancing the business environment and attracting investments. We at Ahmed Bashmakh Business Services Group seek to be your success partners from idea to full operation.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "⁠⁠⁠⁠⁠⁠⁠With more than three decades of experience, Ahmed Bashmakh Business Services Group provides an integrated licensing management service for projects, which is a comprehensive and integrated service designed to meet the needs of local and international companies and investors. This service aims to simplify all government procedures associated with project licensing, saving time and effort and allowing customers to focus on their primary goals. The service includes obtaining commercial, engineering, environmental, health, and specialized licenses in sectors such as energy, tourism, transportation, industry, and all types of licenses that are important to the project. Our specialized team works on all stages of licensing, starting with studying the project needs, submitting applications, and following them up with government agencies, all the way to obtaining final approvals. Our service is flexible and efficient, as we design customized solutions for each project based on its nature and size. We adhere to the highest legal and regulatory standards to ensure full compliance and avoid obstacles. The integrated license management service is not just a service, but rather a partnership with clients to ensure the success of their projects and achieve their goals in line with the Kingdom’s Vision 2030 in enhancing...",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "Our specialized team works on all licensing stages"
+      },
+      {
+        "id": 2,
+        "requirement": "This ensures that applications are submitted correctly and speeds up approvals to reduce waiting times"
+      },
+      {
+        "id": 3,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The time varies according to the nature of the field of each project. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#F59E0B"
+      }
+    ]
+  },
+  {
+    "documentId": "service_33",
+    "slug": "self-evaluation-of-the-facility",
+    "name": "Self-evaluation of the facility",
+    "shortDescription": "Self-evaluation service: This service helps establishments measure the extent of their compliance with the decisions and regulations of the Ministry of Human Resources and Social Development and raise their compliance rate. The service depends on providing accurate and correct data before",
+    "button_label": "Request Service",
+    "currency": "SAR",
+    "startFromPrice": null,
+    "finishPeriodMin": 7,
+    "finishPeriodMax": 10,
+    "order": 33,
+    "icon": {
+      "url": "https://admin.bashammakh.sa/storage/services/images/67a8eea299b10_1739124386.png",
+      "name": "التقييم الذاتي للمنشاة"
+    },
+    "description": [
+      {
+        "id": 1,
+        "title": "Service description",
+        "description": "Self-evaluation service: This service helps establishments measure the extent of their compliance with the decisions and regulations of the Ministry of Human Resources and Social Development and raise their compliance rate. The service depends on providing accurate and correct data by the facility via the designated platform, as there are no right or wrong answers. The evaluation is done by filling out the required data and downloading the necessary files. Evaluation axes: The evaluation covers three main axes: Standards related to establishments: (4 standards) including: general provisions, recruitment rules, prevention of work risks, health and social services. General standards related to employees: (3 standards) including: leaves, wages, labor relations. Specific standards for employing certain categories: (2 standards) including: hiring non-Saudis, and general employment provisions. Evaluation stages: After completing the evaluation process, the application is sent through the platform to obtain On the result, which determines the facility’s compliance rate, in addition to a report of the problems required to be corrected, fines and violations - if any. The facility corrects the conditions based on the specified criteria, pays the violations, then uploads the new data and resubmits the request through the platform. The facility can request a field auditor’s visit to review the corrected data. Compliance certificates: Silver certificate: granted to establishments that achieve a compliance rate between 80% and 99%, and its validity is 6 months. Gold certificate: It is granted to establishments that achieve a 100% compliance rate, and is valid for one full year.",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_service_desc"
+        },
+        "icon_color_code": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Service details",
+        "description": "This service helps establishments measure their compliance with the decisions and regulations of the Ministry of Human Resources and Social Development and raise their compliance rate. The service depends on providing accurate and correct data by the facility via the designated platform, as there are no right or wrong answers. The evaluation is done by filling out the required data and downloading the necessary files. The evaluation covers three main axes: It is an electronic service provided by the Ministry of Human Resources and Social Development that helps establishments measure the extent of their compliance with regulations and laws and correct any violations before the field inspector visits. The basic service fee is 345 Saudi riyals, with the possibility of requesting a detailed report and extending the correction period for two months for an additional 690 Saudi riyals. Establishment standards (4 standards): general provisions, recruitment rules, risk prevention, and health and social services.\nEmployee standards (3 standards): leaves, wages, and labor relations.\nSpecial standards (2 standards): Employment of non-Saudis and general provisions in employment. The request is sent through the platform to analyze the results.\nThe facility obtains a report showing the compliance rate, violations, and fines (",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_details"
+        },
+        "icon_color_code": "#10B981"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 1,
+        "requirement": "The service depends on providing accurate and correct data by the facility via the designated platform"
+      },
+      {
+        "id": 2,
+        "requirement": "Silver Certification: Compliance rate between 80% and 99%"
+      },
+      {
+        "id": 3,
+        "requirement": "Gold Certification: 100% compliance rate"
+      },
+      {
+        "id": 4,
+        "requirement": "They determine for you the optimal government license for your activity"
+      }
+    ],
+    "benefits": [
+      {
+        "id": 1,
+        "title": "A field inspector visit can be requested to verify the validity of the data after...",
+        "description": "A field inspector visit can be requested to verify the accuracy of the data after correcting the violations and submitting them through the platform",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_1"
+        },
+        "icon_color_code": "#EC4899"
+      },
+      {
+        "id": 2,
+        "title": "She can request an extension of the correction period for two months for an additional fee...",
+        "description": "She can request an extension of the correction period for two months for an additional fee",
+        "icon": {
+          "url": "https://placehold.co/50",
+          "documentId": "icon_benefit_2"
+        },
+        "icon_color_code": "#8B5CF6"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Service details and time period",
+        "description": "Duration: The time varies according to the nature and field of each company. Available for establishments",
+        "icon": {
+          "name": "step_1",
+          "url": "https://placehold.co/50"
+        },
+        "icon_color_code": "#EC4899"
+      }
+    ]
+  }
+]

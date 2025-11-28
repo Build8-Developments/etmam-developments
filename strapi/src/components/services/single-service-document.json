@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_services_single_service_documents",
+  "info": {
+    "displayName": "single_service_document",
+    "description": "Required document for a service"
+  },
+  "options": {},
+  "attributes": {
+    "document": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

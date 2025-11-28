@@ -38,9 +38,7 @@
         }
       },
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "shortDescription": {
       "type": "text",
@@ -53,7 +51,7 @@
     },
     "startFromPrice": {
       "type": "decimal",
-      "required": true
+      "required": false
     },
     "currency": {
       "type": "string",
@@ -115,6 +113,16 @@
         }
       },
       "component": "services.single-service-step",
+      "repeatable": true
+    },
+    "benefits": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "services.single-service-benefit",
       "repeatable": true
     }
   }
