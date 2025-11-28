@@ -1,0 +1,236 @@
+[
+  {
+    "category": "وزارة التجارة",
+    "category_id": "6",
+    "order": 2,
+    "status": "created",
+    "documentId": "pu9ox96rrpj8z3rx1drqle21",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "وزارة الاستثمار",
+    "category_id": "7",
+    "order": 4,
+    "status": "created",
+    "documentId": "pbquus5si3nn7vbs0lgu0e1y",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "وزارة الصناعة والثروة المعدنية",
+    "category_id": "8",
+    "order": 1,
+    "status": "created",
+    "documentId": "e3zne0ewpwlqq5uwew69cnm2",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "المركز السعودي للأعمال",
+    "category_id": "26",
+    "order": 3,
+    "status": "created",
+    "documentId": "jadfxxemo7j5vxcn04f7h6t8",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الغرفة التجارية",
+    "category_id": "27",
+    "order": 11,
+    "status": "created",
+    "documentId": "neke7rzdr1fotnvysot0ulld",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصة قوى",
+    "category_id": "29",
+    "order": 9,
+    "status": "created",
+    "documentId": "os5l99x4nctbfryxckv26xpm",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصة مدد",
+    "category_id": "30",
+    "order": 10,
+    "status": "created",
+    "documentId": "fcy4zeum2m4xs3heme7gvrdg",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصة مقيم",
+    "category_id": "33",
+    "order": 12,
+    "status": "created",
+    "documentId": "gyq15s0birc3mdqvu3yowubn",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصة بلدي",
+    "category_id": "34",
+    "order": 18,
+    "status": "created",
+    "documentId": "l49db6y8jxofvr9u7s68u39g",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الدفاع المدني (بوابة سلامة)",
+    "category_id": "35",
+    "order": 19,
+    "status": "created",
+    "documentId": "rc0lhcml19i5et1n8ghmy4y6",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصة سبل",
+    "category_id": "36",
+    "order": 15,
+    "status": "created",
+    "documentId": "i20qrlxlq7s7wgicgu20rutq",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الهيئة السعودية للملكية الفكرية",
+    "category_id": "37",
+    "order": 5,
+    "status": "created",
+    "documentId": "fj1v5bzai7x00hi5p2goqffa",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الهيئه العامة للغذاء والدواء",
+    "category_id": "41",
+    "order": 21,
+    "status": "created",
+    "documentId": "ub8mn9fhqsfysf1h40h8wojb",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الهيئة السعودية للمهندسين",
+    "category_id": "44",
+    "order": 22,
+    "status": "created",
+    "documentId": "qlmq80ex65ie0r4vau5969fk",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الهيئة السعودية للمراجعين والمحاسبين",
+    "category_id": "45",
+    "order": 23,
+    "status": "created",
+    "documentId": "pvx00e0h9c4iarauqw2qix5m",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "بوابه ناجز",
+    "category_id": "54",
+    "order": 16,
+    "status": "created",
+    "documentId": "umfl0ds5syidsftdnhcetdff",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصة أجير",
+    "category_id": "57",
+    "order": 14,
+    "status": "created",
+    "documentId": "b5ghhbbtgjjj88pcubpntwff",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "وزارة الخارجية",
+    "category_id": "73",
+    "order": 24,
+    "status": "created",
+    "documentId": "v7arbo7p5n4k2eo0f7y43k3n",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصه سابر",
+    "category_id": "79",
+    "order": 20,
+    "status": "created",
+    "documentId": "ulcvx4b1mctoqvuu1x95ku6v",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الإقامة المميزة",
+    "category_id": "82",
+    "order": 6,
+    "status": "created",
+    "documentId": "tbh3y7sdvf1dqbnl5yp3fwhj",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الهيئة العامة للعقار",
+    "category_id": "89",
+    "order": 8,
+    "status": "created",
+    "documentId": "vx31t5wqs0oyau78trrg8fve",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الهيئة العامة لتنظيم الإعلام",
+    "category_id": "97",
+    "order": 7,
+    "status": "created",
+    "documentId": "t0fltqx23nx5fon3kksalogw",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "منصة أبشر - أعمال",
+    "category_id": "99",
+    "order": 13,
+    "status": "created",
+    "documentId": "dhfw7wcm23njw7pika2odn2o",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "المؤسسة العامة للتأمينات الإجتماعية - أعمال",
+    "category_id": "100",
+    "order": 17,
+    "status": "created",
+    "documentId": "cwg2kv6dpmkzxa8wnt71k8hm",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "وزارة البيئة والمياه والزراعة",
+    "category_id": "105",
+    "order": 25,
+    "status": "created",
+    "documentId": "fj82jg2wvqf22m88q09gqosh",
+    "hasEnglish": true,
+    "hasIcon": true
+  },
+  {
+    "category": "الهيئة العامة للطيران المدني",
+    "category_id": "113",
+    "order": 26,
+    "status": "created",
+    "documentId": "o4y8quc6x1xaugsln64i3rr9",
+    "hasEnglish": true,
+    "hasIcon": true
+  }
+]

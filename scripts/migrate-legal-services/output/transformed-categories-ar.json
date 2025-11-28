@@ -1,0 +1,184 @@
+[
+  {
+    "categoryId": "admin_category_82",
+    "name": "الإقامة المميزة",
+    "slug": "aliqama-almmyza",
+    "order": 82,
+    "servicesCount": 14
+  },
+  {
+    "categoryId": "admin_category_35",
+    "name": "الدفاع المدني (بوابة سلامة)",
+    "slug": "aldfaa-almdny-bwaba-slama",
+    "order": 35,
+    "servicesCount": 8
+  },
+  {
+    "categoryId": "admin_category_27",
+    "name": "الغرفة التجارية",
+    "slug": "alghrfa-altjarya",
+    "order": 27,
+    "servicesCount": 17
+  },
+  {
+    "categoryId": "admin_category_100",
+    "name": "المؤسسة العامة للتأمينات الإجتماعية - أعمال",
+    "slug": "almwssa-alaama-lltamynat-alijtmaaya-aamal",
+    "order": 100,
+    "servicesCount": 38
+  },
+  {
+    "categoryId": "admin_category_26",
+    "name": "المركز السعودي للأعمال",
+    "slug": "almrkz-alsawdy-llaamal",
+    "order": 26,
+    "servicesCount": 35
+  },
+  {
+    "categoryId": "admin_category_45",
+    "name": "الهيئة السعودية للمراجعين والمحاسبين",
+    "slug": "alhyya-alsawdya-llmrajayn-walmhasbyn",
+    "order": 45,
+    "servicesCount": 28
+  },
+  {
+    "categoryId": "admin_category_37",
+    "name": "الهيئة السعودية للملكية الفكرية",
+    "slug": "alhyya-alsawdya-llmlkya-alfkrya",
+    "order": 37,
+    "servicesCount": 23
+  },
+  {
+    "categoryId": "admin_category_44",
+    "name": "الهيئة السعودية للمهندسين",
+    "slug": "alhyya-alsawdya-llmhndsyn",
+    "order": 44,
+    "servicesCount": 12
+  },
+  {
+    "categoryId": "admin_category_97",
+    "name": "الهيئة العامة لتنظيم الإعلام",
+    "slug": "alhyya-alaama-ltnzym-alialam",
+    "order": 97,
+    "servicesCount": 29
+  },
+  {
+    "categoryId": "admin_category_113",
+    "name": "الهيئة العامة للطيران المدني",
+    "slug": "alhyya-alaama-lltyran-almdny",
+    "order": 113,
+    "servicesCount": 4
+  },
+  {
+    "categoryId": "admin_category_89",
+    "name": "الهيئة العامة للعقار",
+    "slug": "alhyya-alaama-llaqar",
+    "order": 89,
+    "servicesCount": 7
+  },
+  {
+    "categoryId": "admin_category_41",
+    "name": "الهيئه العامة للغذاء والدواء",
+    "slug": "alhyyh-alaama-llghdhaa-waldwaa",
+    "order": 41,
+    "servicesCount": 6
+  },
+  {
+    "categoryId": "admin_category_54",
+    "name": "بوابه ناجز",
+    "slug": "bwabh-najz",
+    "order": 54,
+    "servicesCount": 7
+  },
+  {
+    "categoryId": "admin_category_99",
+    "name": "منصة أبشر - أعمال",
+    "slug": "mnsa-abshr-aamal",
+    "order": 99,
+    "servicesCount": 20
+  },
+  {
+    "categoryId": "admin_category_57",
+    "name": "منصة أجير",
+    "slug": "mnsa-ajyr",
+    "order": 57,
+    "servicesCount": 12
+  },
+  {
+    "categoryId": "admin_category_34",
+    "name": "منصة بلدي",
+    "slug": "mnsa-bldy",
+    "order": 34,
+    "servicesCount": 15
+  },
+  {
+    "categoryId": "admin_category_36",
+    "name": "منصة سبل",
+    "slug": "mnsa-sbl",
+    "order": 36,
+    "servicesCount": 14
+  },
+  {
+    "categoryId": "admin_category_29",
+    "name": "منصة قوى",
+    "slug": "mnsa-qwa",
+    "order": 29,
+    "servicesCount": 27
+  },
+  {
+    "categoryId": "admin_category_30",
+    "name": "منصة مدد",
+    "slug": "mnsa-mdd",
+    "order": 30,
+    "servicesCount": 18
+  },
+  {
+    "categoryId": "admin_category_33",
+    "name": "منصة مقيم",
+    "slug": "mnsa-mqym",
+    "order": 33,
+    "servicesCount": 28
+  },
+  {
+    "categoryId": "admin_category_79",
+    "name": "منصه سابر",
+    "slug": "mnsh-sabr",
+    "order": 79,
+    "servicesCount": 14
+  },
+  {
+    "categoryId": "admin_category_7",
+    "name": "وزارة الاستثمار",
+    "slug": "wzara-alastthmar",
+    "order": 7,
+    "servicesCount": 26
+  },
+  {
+    "categoryId": "admin_category_105",
+    "name": "وزارة البيئة والمياه والزراعة",
+    "slug": "wzara-albyya-walmyah-walzraaa",
+    "order": 105,
+    "servicesCount": 7
+  },
+  {
+    "categoryId": "admin_category_6",
+    "name": "وزارة التجارة",
+    "slug": "wzara-altjara",
+    "order": 6,
+    "servicesCount": 10
+  },
+  {
+    "categoryId": "admin_category_73",
+    "name": "وزارة الخارجية",
+    "slug": "wzara-alkharjya",
+    "order": 73,
+    "servicesCount": 5
+  },
+  {
+    "categoryId": "admin_category_8",
+    "name": "وزارة الصناعة والثروة المعدنية",
+    "slug": "wzara-alsnaaa-walthrwa-almadnya",
+    "order": 8,
+    "servicesCount": 14
+  }
+]

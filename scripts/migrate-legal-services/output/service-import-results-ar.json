@@ -1,0 +1,2522 @@
+[
+  {
+    "service": "إقامة كفاءة استثنائية (الباحثين)",
+    "order": 1228,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "k9i9yoaty5e56dsb6g0e52w6"
+  },
+  {
+    "service": "إقامة كفاءة استثنائية (التنفيذيين)",
+    "order": 1229,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "cbepmcn4noavmc1j1e20wwp5"
+  },
+  {
+    "service": "إقامة كفاءة استثنائية (الكفاءات الصحية والعلمية)",
+    "order": 1230,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "kum5hm2leu45jvn10h9r1ogd"
+  },
+  {
+    "service": "إقامة الموهبة (المسار الأول)",
+    "order": 1231,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "nc3ektdzcbiqsnmxbt99zv6d"
+  },
+  {
+    "service": "إقامة الموهبة (المسار الثاني)",
+    "order": 1232,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "b17j97b5oe9ujche34r4b37q"
+  },
+  {
+    "service": "إقامة مستثمر أعمال (مشروط)",
+    "order": 1233,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "jinwj3j9vtyocccp4sy0fqdb"
+  },
+  {
+    "service": "إقامة رائد أعمال (الفئة الأولى)",
+    "order": 1234,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "a82bndq4ldcfo9uflm540ah6"
+  },
+  {
+    "service": "إقامة رائد أعمال (الفئة الثانية)",
+    "order": 1235,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "grocrj17qnzyy709anqo4vsn"
+  },
+  {
+    "service": "إقامة مالك عقار",
+    "order": 1236,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "iuo06by42i9qzptbwwgxc2k7"
+  },
+  {
+    "service": "إقامة مميزة محددة المدة",
+    "order": 1237,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "wenj6dklah3eijig9kzoiwtp"
+  },
+  {
+    "service": "إقامة مميزة غير محددة المدة",
+    "order": 1238,
+    "categoryOrder": 82,
+    "status": "created",
+    "documentId": "ganfzid915a9mclpfuzrodmr"
+  },
+  {
+    "service": "إصدار ترخيص سلامة",
+    "order": 308,
+    "categoryOrder": 35,
+    "status": "created",
+    "documentId": "xx1l3fs229w8jdt5fv3h67xi"
+  },
+  {
+    "service": "إنشاء حساب بوابة سلامة",
+    "order": 1034,
+    "categoryOrder": 35,
+    "status": "created",
+    "documentId": "dz6nd8vvolq1n0x4vjqa0han"
+  },
+  {
+    "service": "نقل ملكية ترخيص سلامة",
+    "order": 1812,
+    "categoryOrder": 35,
+    "status": "created",
+    "documentId": "ietbc3n0l9jv5jxgvq0vumm9"
+  },
+  {
+    "service": "إلغاء ترخيص سلامة",
+    "order": 1813,
+    "categoryOrder": 35,
+    "status": "created",
+    "documentId": "csrmt5dhwt6udxcsq1dcd3rx"
+  },
+  {
+    "service": "تجديد ترخيص سلامة",
+    "order": 1815,
+    "categoryOrder": 35,
+    "status": "created",
+    "documentId": "w5i7bysshtjnh98j8d2h0lgo"
+  },
+  {
+    "service": "تقديم طلب تصديق وثيقة",
+    "order": 930,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "gd3pk16j3ycknsvg2xifnq3l"
+  },
+  {
+    "service": "إنشاء حساب",
+    "order": 1027,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "ysgyyuotmpltsrbx5gcd5f7u"
+  },
+  {
+    "service": "خدمات التفاويض",
+    "order": 1128,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "hrusz6g76t9qk7d231mv7gu0"
+  },
+  {
+    "service": "تقديم طلب وزارة الخارجية",
+    "order": 1132,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "gtu67ickt18mnl8suzyu7i26"
+  },
+  {
+    "service": "إصدار عقد عمل لتأشيرة",
+    "order": 1133,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "y7m4u5jsdt0mvcn0wgiol5rn"
+  },
+  {
+    "service": "طلب تحديث بيانات المنشأة",
+    "order": 1165,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "wxnr81gjctifyt69fvpmxrah"
+  },
+  {
+    "service": "تجديد اشتراك الغرفة التجارية",
+    "order": 1186,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "ptt9jjf77pksw23h6m74kxag"
+  },
+  {
+    "service": "طباعة شهادة الاشتراك",
+    "order": 1194,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "vk5kf4vl0k81zdubamu4198y"
+  },
+  {
+    "service": "إنشاء خطاب تعريف بالراتب وتصديقه",
+    "order": 1208,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "cmb53g9dylevd08sn1jxm6l9"
+  },
+  {
+    "service": "خدمات المحفظة المالية",
+    "order": 1475,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "l1mk7u8cp8t2gj0ipoe6tbwn"
+  },
+  {
+    "service": "استعادة كلمة المرور",
+    "order": 1497,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "i9vtiicbs3ykjs76vg7iss8s"
+  },
+  {
+    "service": "طلب إضافة منشأة جديدة",
+    "order": 1794,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "nouqmdjt7xpd7ik5eh7r040u"
+  },
+  {
+    "service": "شطب منشأة",
+    "order": 1795,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "dkgfemxnzr42o96kbimqfxmg"
+  },
+  {
+    "service": "إنشاء طلب استقدام عائلي",
+    "order": 1797,
+    "categoryOrder": 27,
+    "status": "created",
+    "documentId": "dboefxhrpwtun61inppb14vt"
+  },
+  {
+    "service": "إصدار شهادة الزكاة والدخل - أعمال",
+    "order": 572,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "isjazrndd3li5fvvp6f5wqmc"
+  },
+  {
+    "service": "تحويل الرصيد الدائن بين فروع المنشأة - أعمال",
+    "order": 574,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "t8ucl57s98hxjsy3cjwt7vhv"
+  },
+  {
+    "service": "تعديل مدة الاشتراك لمشترك نشط - أعمال",
+    "order": 575,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "vj2rm3olqr07g8sykqbif7tn"
+  },
+  {
+    "service": "إدارة مُلاك المنشأة - أعمال",
+    "order": 578,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "n8qjw61ipsra3n9thsnpjlb3"
+  },
+  {
+    "service": "تعديل الكيان القانوني للمنشأة - أعمال",
+    "order": 579,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "e85v7nzl1onua7xzpiznlafc"
+  },
+  {
+    "service": "استبعاد مشترك - أعمال",
+    "order": 581,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "rokzl08s30b3bpknqwo8dn1k"
+  },
+  {
+    "service": "تعديل مدة اشتراك مشترك بأثر رجعي - أعمال",
+    "order": 582,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "vclm46xbj7odu6pxhmiiho1s"
+  },
+  {
+    "service": "فصل/ربط المنشآت - أعمال",
+    "order": 583,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "b4ak6mdeg86ftz2gnztnjr0r"
+  },
+  {
+    "service": "إنهاء نشاط منشأة - أعمال",
+    "order": 585,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "zgxppqxxvy1jcog50uvo10or"
+  },
+  {
+    "service": "إنشاء حساب - أعمال",
+    "order": 1031,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "mqpfmj7fsfrlso2l09wxwtcu"
+  },
+  {
+    "service": "إضافة / تعديل مدير حساب - أعمال",
+    "order": 1068,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "ffzsu58lzpho85x2y9xn24zp"
+  },
+  {
+    "service": "تسجيل مشترك",
+    "order": 1077,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "axl9jjnnfxutvo6e3fbbqk6k"
+  },
+  {
+    "service": "تعديل نوع المنشأة - أعمال",
+    "order": 1148,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "qqzeolmsaobuq1iqoakvwtu9"
+  },
+  {
+    "service": "تعديل بيانات مشترك - أعمال",
+    "order": 1166,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "ejgcswp0yo897s6h2lzl9hj6"
+  },
+  {
+    "service": "تحديث الأجور - أعمال",
+    "order": 1221,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "peuvedtjk9r7m9ddjyy180sv"
+  },
+  {
+    "service": "تغيير مهنة  - أعمال",
+    "order": 1366,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "rv8cgs7jpiuuvm39a59q3ozf"
+  },
+  {
+    "service": "مبادرة الإعفاء من غرامات التأخير والمخالفات (أعمال)",
+    "order": 1437,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "j5i6ps43l03rrrod2bubggdy"
+  },
+  {
+    "service": "نقل مشترك بين فروع المنشأة - أعمال",
+    "order": 1438,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "bulyd2jr1bmy7mx22emw5uww"
+  },
+  {
+    "service": "تقسيط مديونية منشأة  - أعمال",
+    "order": 1495,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "whun9rsu89seieqt7heyw659"
+  },
+  {
+    "service": "تغيير مدير حساب",
+    "order": 1517,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "l5cdkl97zu602c65kxwyzuk2"
+  },
+  {
+    "service": "تعديل بيانات الإتصال للمنشأة - أعمال",
+    "order": 1524,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "m50kmfypy4bps2gqsz6cadwp"
+  },
+  {
+    "service": "إدارة مشرفي المنشأة - أعمال",
+    "order": 1824,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "olgc7e5z9tz7x804vb8o1usu"
+  },
+  {
+    "service": "إصدار شهادة منشأة (التزام)",
+    "order": 1825,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "ks390199ra1oae4j7jwct3zu"
+  },
+  {
+    "service": "نقل جميع المشتركين - أعمال",
+    "order": 1863,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "rmmxdt5ws6a44y29dao8z74t"
+  },
+  {
+    "service": "إضافة مدة الإشتراك بأثر رجعي - أعمال",
+    "order": 1866,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "w8tumh19bv2k2gzslyyf374e"
+  },
+  {
+    "service": "الإبلاغ عن إصابة عمل - أعمال",
+    "order": 1867,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "i698zrqrdx7d0mxi1brns2sx"
+  },
+  {
+    "service": "إصدار شهادة السلامة والصحة المهنية -  أعمال",
+    "order": 1871,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "j9cn0h9b0943pxp97ukyq651"
+  },
+  {
+    "service": "تعطيل حساب مشرف المنشأة - أعمال",
+    "order": 1873,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "rq3szp6e4j3u810wdvxuapne"
+  },
+  {
+    "service": "طلب تعويض تكاليف العلاج - أعمال",
+    "order": 1874,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "vaz3e59e8bap6dp5hvou5myi"
+  },
+  {
+    "service": "الإبلاغ عن إصابة جماعية - أعمال",
+    "order": 1877,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "of27s2s8kiugy0b5pbmf9gzj"
+  },
+  {
+    "service": "تعديل بيانات الحساب البنكي للمنشأة - أعمال",
+    "order": 1878,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "yl0klw1rglpxitmvi1b9hl39"
+  },
+  {
+    "service": "تعديل بيانات العنوان البريدي للمنشأة - أعمال",
+    "order": 1879,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "o7qvqhb2jaxautu1cpyls806"
+  },
+  {
+    "service": "تعديل بيانات تعريف المنشأة - أعمال",
+    "order": 1880,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "idjo1n7fr59ckbn36k2zvo1n"
+  },
+  {
+    "service": "إكمال بيانات مشترك غير سعودي مسجل آلياً",
+    "order": 2255,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "ok993ljkjbyc2dbwtuifvl6k"
+  },
+  {
+    "service": "رفع شكوى / استفسار",
+    "order": 2435,
+    "categoryOrder": 100,
+    "status": "created",
+    "documentId": "wr1hvf6uncw0eq4isn1zbjp2"
+  },
+  {
+    "service": "قيد سجل تجاري لمؤسسة فردية",
+    "order": 264,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "yd6lpcymwcctvm2v9iph5nu6"
+  },
+  {
+    "service": "تأسيس شركة ذات مسؤولية محدودة",
+    "order": 280,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "zpkbkdon0jb38jot62bfugg2"
+  },
+  {
+    "service": "تعديل عقد التأسيس / نظام أساس",
+    "order": 281,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "wqr74trp127u8e19oa7ebwox"
+  },
+  {
+    "service": "توثيق التجارة الإلكترونية",
+    "order": 282,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "a82w84g6hl6437itdqrdvmmo"
+  },
+  {
+    "service": "إنشاء حساب",
+    "order": 1025,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "diguq2fnaf7wcexpiyylfrgt"
+  },
+  {
+    "service": "التأكيد السنوي لبيانات السجل التجاري لمؤسسة فردية",
+    "order": 1204,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "gnsgdqunmyi12teo4e942b77"
+  },
+  {
+    "service": "شطب سجل تجاري لمؤسسة فردية",
+    "order": 1610,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "u7tqwxotp8vfw09g0x3xjc63"
+  },
+  {
+    "service": "تأسيس شركة بموجب ترخيص استثماري",
+    "order": 1752,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "qq8sq0z92c6c73p2b2up6m3d"
+  },
+  {
+    "service": "التحول من مؤسسة فردية إلى شركة",
+    "order": 1753,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "vmec5oovc91nhvsbmr50ugqi"
+  },
+  {
+    "service": "تعديل بيانات السجل التجاري لمؤسسة فردية",
+    "order": 1754,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "iwqab6mapozkboawsorgnkxo"
+  },
+  {
+    "service": "نقل ملكية سجل تجاري لمؤسسة فردية",
+    "order": 1755,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "wyffniiwutzlvo6vzr2apywc"
+  },
+  {
+    "service": "حجز الاسم التجاري",
+    "order": 1758,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "rfyi8gbsh1o6bfaebzmq2q90"
+  },
+  {
+    "service": "مستخرج السجل التجاري/ الإفادة التجارية",
+    "order": 1759,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "oar43g2ga7zczcptgopa1kg1"
+  },
+  {
+    "service": "إضافة تفويض",
+    "order": 1764,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "f22pqpsxh7mweoiaex81gnzq"
+  },
+  {
+    "service": "تعديل بيانات السجل التجاري الفرعي لشركة",
+    "order": 1808,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "t79uy15f7ovaz2x2zy11iyqv"
+  },
+  {
+    "service": "إعادة تعيين السجل التجاري الرئيسي",
+    "order": 2429,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "faornkgvcjiz8a3j5eh59l0x"
+  },
+  {
+    "service": "تعديل بيانات السجل التجاري الرئيسي لشركة",
+    "order": 2437,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "j9l9vwxr839hff8x9ro9y3xi"
+  },
+  {
+    "service": "تحديث بيانات المستفيد للسجل التجاري",
+    "order": 2438,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "by4ovbe5pygqdsfs3g0s69vf"
+  },
+  {
+    "service": "تحديث بيانات السجل التجاري الرئيسي/ الفرعي لشركة",
+    "order": 2439,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "nhyjfbg0l0ev3blw5hd80d94"
+  },
+  {
+    "service": "تمديد حجز اسم تجاري",
+    "order": 2446,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "bg3cl51gro08255eqx8jm9j1"
+  },
+  {
+    "service": "إلغاء اسم تجاري محجوز",
+    "order": 2447,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "bcpvlt79wr9ok6aahla0wqp5"
+  },
+  {
+    "service": "التأكيد السنوي لبيانات السجل التجاري الرئيسي لشركة",
+    "order": 2450,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "r4d9rascuwbnysu8d80vn01k"
+  },
+  {
+    "service": "رفع تعليق السجل التجاري الرئيسي لشركة",
+    "order": 2451,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "zgi05hyezlcglo0x0nb37crp"
+  },
+  {
+    "service": "التأكيد السنوي لبيانات السجل التجاري الفرعي لشركة",
+    "order": 2454,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "ri5zagflofbfc8qlws631jco"
+  },
+  {
+    "service": "رفع تعليق السجل التجاري لمؤسسة فردية",
+    "order": 2455,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "nwx7oip7v00w1g8j2o5ir0ob"
+  },
+  {
+    "service": "رفع تعليق السجل التجاري الفرعي لشركة",
+    "order": 2457,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "i8bxgf65u7xo27z5n6dymszt"
+  },
+  {
+    "service": "التأكيد السنوي لبيانات السجل التجاري لفرع شركة أجنبية / خليجية",
+    "order": 2458,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "u7z6lry3asvyx73fxvkmngrx"
+  },
+  {
+    "service": "رفع تعليق السجل التجاري لفرع شركة أجنبية / خليجية",
+    "order": 2460,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "f7o2d2t8g5jwrqcb3i58cabg"
+  },
+  {
+    "service": "شطب السجل التجاري الفرعي لفرع شركة أجنبية / خليجية",
+    "order": 2462,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "cqgeld96rsbzun6iq1j47iik"
+  },
+  {
+    "service": "تعديل عقد التأسيس / نظام أساس (خفض رأس المال)",
+    "order": 2482,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "epmjhlazx3h3x9sb2giadi9o"
+  },
+  {
+    "service": "تحديث بيانات مالك السجل التجاري",
+    "order": 2485,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "kh49fircc1of9s1552uvitt2"
+  },
+  {
+    "service": "تحديث بيانات السجل التجاري لمؤسسة فردية",
+    "order": 2488,
+    "categoryOrder": 26,
+    "status": "created",
+    "documentId": "zxghtrsaor4ie8zpxnp0oxay"
+  },
+  {
+    "service": "العضو الأساسي الغير ممارس",
+    "order": 739,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "a5ugybr5k1ntwva0n4o0nvue"
+  },
+  {
+    "service": "العضوية المهنية",
+    "order": 740,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "cvt33si4vwbcm05e3ozzdgd1"
+  },
+  {
+    "service": "طلب التقدم لإختبار الشهادة المهنية في المحاسبة والمراجعة الحكومية",
+    "order": 742,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "cr5gf7e5fkncg5cznw06x4va"
+  },
+  {
+    "service": "طلب التقدم لإختبار الشهادة المهنية في المعايير الدولية للتقرير المالي",
+    "order": 743,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "dvpfafhudvcdgmnmgviil9tz"
+  },
+  {
+    "service": "نموذج تسجيل ترخيص لتقديم خدمات الزكاة والضرائب",
+    "order": 745,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "fp3sbh71oi43kr5628iehifb"
+  },
+  {
+    "service": "عضوية الإنتساب (التسجيل المهني)",
+    "order": 746,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "h3l8knpwkocj7bn03n3z646r"
+  },
+  {
+    "service": "معايير المحاسبة المعتمدة",
+    "order": 2050,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "dpym9r3xbe7gprtrusm8jcgn"
+  },
+  {
+    "service": "العضو الأساسي الممارس",
+    "order": 2052,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "g661wrl8y8idblqxi0uy8rf1"
+  },
+  {
+    "service": "برنامج البيانات السنوية",
+    "order": 2055,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "t0iovpl4o1rc593hrdjjrbgb"
+  },
+  {
+    "service": "برنامج التعليم المهني المستمر",
+    "order": 2057,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "mt4y3u8xdwwhi5gjjl6xz9w2"
+  },
+  {
+    "service": "برنامج التهيئة والتدريب للاستعداد لاختبار مادة المحاسبة ومادة المراجعة",
+    "order": 2058,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "mk4kqqiqsoa6ur7qnuiuz8ne"
+  },
+  {
+    "service": "تأجيل اختبار مواد الزمالة",
+    "order": 2060,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "n8l2925p8xzzidca5h26pgmt"
+  },
+  {
+    "service": "تأجيل الإختبارات المهنية",
+    "order": 2061,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "e8odxc9oawzxxwih700zj4dn"
+  },
+  {
+    "service": "طلب التسجيل للدورات",
+    "order": 2069,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "i4iwr5u8ezsi3ho2rnok43sf"
+  },
+  {
+    "service": "طلب التقدم لإختبار أخصائي ضريبة القيمة المضافة",
+    "order": 2070,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "ecrxrqbv8re6o2bcxvyummcz"
+  },
+  {
+    "service": "طلب التقدم لاختبار الزمالة",
+    "order": 2071,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "ukehw54ja4r1ws6xbodrilvi"
+  },
+  {
+    "service": "طلب التقدم لإختبار الشهادة المهنية في معايير المحاسبة للقطاع العام",
+    "order": 2072,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "aqtawpwihnkzg91ydvwm3eyh"
+  },
+  {
+    "service": "طلب التقدم لإختبار شهادة فاحص احتيال مالي",
+    "order": 2073,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "ab16411yv053rkwabt7h9uqq"
+  },
+  {
+    "service": "طلب التقدم لإختبار فني المحاسبة",
+    "order": 2074,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "mj8nmtbzds1kjqoehdpfszo1"
+  },
+  {
+    "service": "طلب إلغاء تسجيل في دورة",
+    "order": 2075,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "mx61k4lyiyxk28tooo2jcz2g"
+  },
+  {
+    "service": "طلب تأجيل دورة",
+    "order": 2076,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "pa967le7fqk1zoee16iz50a1"
+  },
+  {
+    "service": "طلب دورات خاصة للشركات والجهات الحكومية",
+    "order": 2078,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "y5p44s7ebqixacrwm85negfj"
+  },
+  {
+    "service": "طلب نقل دورة",
+    "order": 2080,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "hp4u2erk3kily9pxd33d1qt9"
+  },
+  {
+    "service": "عضوية الطالب",
+    "order": 2085,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "kqb4no0jc5kc0col2hnpokkv"
+  },
+  {
+    "service": "معايير المحاسبة المعتمدة - نسخة ورقية",
+    "order": 2087,
+    "categoryOrder": 45,
+    "status": "created",
+    "documentId": "h1zm1d38n88sb0hl85zqpahr"
+  },
+  {
+    "service": "تسجيل علامة تجارية",
+    "order": 474,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "hw0cnto9c8ggt5homqew9hzw"
+  },
+  {
+    "service": "نقل ملكية علامة تجارية",
+    "order": 475,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "s59r2hehvxgigdie1a6cz4ea"
+  },
+  {
+    "service": "شهادة إيداع لعلامة تجارية",
+    "order": 562,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "slj7v8ue82qgdi7o7l5llh27"
+  },
+  {
+    "service": "تجديد علامة تجارية",
+    "order": 1019,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "ndppbd0bj4kjuunqr8u18vxs"
+  },
+  {
+    "service": "تسجيل علامة صوتية",
+    "order": 1772,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "heaqqp248474ggxi8uhnbwlp"
+  },
+  {
+    "service": "تسجيل علامة جماعية",
+    "order": 1773,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "jhhuu8crp3yk8i2qix9t80gh"
+  },
+  {
+    "service": "تسجيل علامة الفحص أو المراقبة",
+    "order": 1774,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "w3q687fx9g1qa2m5lbhqeobk"
+  },
+  {
+    "service": "تسجيل علامة الهيئات ذات النفع العام والمؤسسات المهنية",
+    "order": 1775,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "kyayxvwzjdmco8u1wm4yigez"
+  },
+  {
+    "service": "تعديل عنوان مالك العلامة",
+    "order": 1776,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "zcs859wiu5cqmnt5g2snu6gp"
+  },
+  {
+    "service": "تعديل اسم مالك العلامة",
+    "order": 1777,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "jfd3udph4jzrh8zefhhny5nb"
+  },
+  {
+    "service": "طلب الترخيص باستخدام العلامة التجارية",
+    "order": 1778,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "s4l7bdaelgdg4p04degfxgjk"
+  },
+  {
+    "service": "شطب علامة تجارية",
+    "order": 1780,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "lo2ldc5ny4qegdcx4m0erwu8"
+  },
+  {
+    "service": "رهن علامة تجارية",
+    "order": 1781,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "gu2y97efir6qpdimivbewfxd"
+  },
+  {
+    "service": "إلغاء الترخيص باستخدام العلامة التجارية",
+    "order": 1782,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "jwbjad8f3ocgh2nvcak0hedw"
+  },
+  {
+    "service": "فك رهن علامة تجارية",
+    "order": 1783,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "lo7q1xcju1fghfc1c4wbrm39"
+  },
+  {
+    "service": "طلب صورة طبق الأصل من شهادة التسجيل",
+    "order": 1784,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "cbe541xpm3v0wocx8e2h26fv"
+  },
+  {
+    "service": "بحث عن علامة تجارية",
+    "order": 1787,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "joj55jwbfdjdtwr3kbx08a6g"
+  },
+  {
+    "service": "تعديل صورة العلامة التجارية",
+    "order": 1788,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "mpt8ns86v5mneqpuol6oy5mx"
+  },
+  {
+    "service": "قصر المنتجات",
+    "order": 1789,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "el4tp6wic13kgl50yg3e84fi"
+  },
+  {
+    "service": "تعديل بيانات العلامة (تغيير اسم وكيل)",
+    "order": 1790,
+    "categoryOrder": 37,
+    "status": "created",
+    "documentId": "p9vpmj679x7extxocofeptkz"
+  },
+  {
+    "service": "اعتماد مهني(مهندس-معماري-مهندس تقني) ​",
+    "order": 700,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "gmp8bz8s8rrr96pslb7370a8"
+  },
+  {
+    "service": "عضوية التخصصات المساندة للهندسة(أخصائي)",
+    "order": 701,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "c6j3zpmoc0l1qtf42wystvpb"
+  },
+  {
+    "service": "ا​لعضويات الفنية(فني - فني مساعد أول - فني مساعد)",
+    "order": 702,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "nzuu0hhkhkcmzto5p59dite5"
+  },
+  {
+    "service": "عضوية طالب",
+    "order": 703,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "cklda4xtu18rl6bypjczowqt"
+  },
+  {
+    "service": "عضوية مهتم",
+    "order": 2045,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "qlloxhsxvbww3iqjkez53gfa"
+  },
+  {
+    "service": "تجديد اعتماد مهني(مهندس-معماري-مهندس تقني)",
+    "order": 2046,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "x8i06w941f40k8nil1zttd1h"
+  },
+  {
+    "service": "تجديد ا​لعضويات الفنية(فني - فني مساعد أول - فني مساعد)",
+    "order": 2047,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "leqgghp05wxbre2mljolj3hq"
+  },
+  {
+    "service": "تجديد عضوية التخصصات المساندة للهندسة(أخصائي)",
+    "order": 2048,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "twxvthg15lnhaqvmh88m8hlm"
+  },
+  {
+    "service": "تجديد عضوية مهتم",
+    "order": 2049,
+    "categoryOrder": 44,
+    "status": "created",
+    "documentId": "t21nbbab12udfcb4v205t7qh"
+  },
+  {
+    "service": "خدمة التفاويض",
+    "order": 1663,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "ueazwhcaw3zncj2eg8qs115b"
+  },
+  {
+    "service": "ترخيص دار نشر إلكتروني",
+    "order": 1676,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "nuzqrymh2uw4lbazzl6mo33b"
+  },
+  {
+    "service": "ترخيص تقديم الأفراد للمحتوى الإعلاني عبر منصات التواصل الاجتماعي (موثوق)",
+    "order": 1686,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "bvtdqb8y3ww6m3zhsplp0e50"
+  },
+  {
+    "service": "ترخيص لتشغيل استديو \"إنتاج\"",
+    "order": 1690,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "vfer8r8b4tx1sngff7quz4mj"
+  },
+  {
+    "service": "ترخيص الطباعة",
+    "order": 1691,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "y8ra1ogkokkxr97qqihp9pvu"
+  },
+  {
+    "service": "إصدار ترخيص مكاتب الدعاية والاعلان الإعلامية المرئية والمسموعة ومكاتب التسويق ووكالات الدعاية",
+    "order": 1693,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "ldfe8nadgj63okit78w7hxan"
+  },
+  {
+    "service": "ترخيص نشاط نشر الكتب",
+    "order": 1695,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "q0qt0ncbsackv3jy9pj5knd1"
+  },
+  {
+    "service": "ترخيص نشر الصحف والمجلات",
+    "order": 1697,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "sta5hap9ybgxtlsstwts10nj"
+  },
+  {
+    "service": "ترخيص البيع بالجملة للكتب والمجلات",
+    "order": 1698,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "damt6kxrenkd6x43dfn4ch4x"
+  },
+  {
+    "service": "ترخيص الخدمات الصحفية",
+    "order": 1699,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "jqbbpg2bao5znxu3x7thsfqc"
+  },
+  {
+    "service": "ترخيص منصة توزيع محتوى مرئي ومسموع عبر بروتوكول الإنترنت",
+    "order": 1700,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "qmu1ci7n9bqakcgblg5ve5vg"
+  },
+  {
+    "service": "ترخيص محطة الربط العلوي بالأقمار الصناعية",
+    "order": 1701,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "dx10h0mm6jxrw0ra01e61eno"
+  },
+  {
+    "service": "ترخيص منصة توزيع عبر أجهزة الاستقبال الفضائي",
+    "order": 1702,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "rlm0fd66kzba4sye441ix3nx"
+  },
+  {
+    "service": "ترخيص البيع بالتجزئة للبرمجيات",
+    "order": 1716,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "n440m3ncxbih6rq56fivvfzg"
+  },
+  {
+    "service": "ترخيص أنشطة النسخ و التصوير",
+    "order": 1717,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "o9n2zvjhku03q6bqyaeq5gva"
+  },
+  {
+    "service": "ترخيص الدراسات والاستشارات الإعلامية",
+    "order": 1718,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "mat79i5x7cfqtrdiioe0449i"
+  },
+  {
+    "service": "ترخيص نشاط الصحافة الإلكترونية",
+    "order": 1719,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "b5wz8nifhkrdwu5p9ku9f8tc"
+  },
+  {
+    "service": "ترخيص نشاط التصوير الفوتوغرافي",
+    "order": 1722,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "tmlf0o09ihmz9hwo1qog5jo4"
+  },
+  {
+    "service": "ترخيص نشاط الرسم والخط",
+    "order": 1723,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "iq8500ikd33mwc5wfns656u8"
+  },
+  {
+    "service": "ترخيص البيع بالتجزئة للكتب المستعملة",
+    "order": 1724,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "ojvgy3o7fd61en0qbog6rihx"
+  },
+  {
+    "service": "ترخيص نشاط تصميم و برمجة البرمجيات الخاصة",
+    "order": 1725,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "hg6e7804r5v0k0m7gaeju49q"
+  },
+  {
+    "service": "ترخيص بيع وتأجير المحتوى الإعلامي المرئي والمسموع",
+    "order": 1726,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "ahxvz49imwm77qyc1rcxtldz"
+  },
+  {
+    "service": "البيع بالتجزئة لإجهزة استقبال المحتوى الإعلامي وملحقاتها",
+    "order": 1728,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "eiz322b2jgk7yyb6enabdpwy"
+  },
+  {
+    "service": "ترخيص محطة بث أرضية",
+    "order": 1729,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "iow0yhov5z6hmpvd9kci3lhm"
+  },
+  {
+    "service": "ترخيص إصدار مطبوعة",
+    "order": 1730,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "utia5w20st422orh91b6d9t4"
+  },
+  {
+    "service": "تجديد رخصة تقديم الأفراد للمحتوى الإعلاني عبر منصات التواصل الاجتماعي (موثوق)",
+    "order": 2484,
+    "categoryOrder": 97,
+    "status": "created",
+    "documentId": "yye7hpyx9nut1br55w867a9b"
+  },
+  {
+    "service": "تسجيل الطائرات بدون طيار (الدرون)",
+    "order": 2503,
+    "categoryOrder": 113,
+    "status": "created",
+    "documentId": "akynsrldu7rhd11s8x4q9nok"
+  },
+  {
+    "service": "رخصة فال للوساطة والتسويق للمنصات العقارية الإلكترونية",
+    "order": 1484,
+    "categoryOrder": 89,
+    "status": "created",
+    "documentId": "f66a8f2lsrc3lujufyg3gz69"
+  },
+  {
+    "service": "رخصة فال الوساطة والتسويق",
+    "order": 2181,
+    "categoryOrder": 89,
+    "status": "created",
+    "documentId": "yojtmy20phk1jwlu8e9ubfxq"
+  },
+  {
+    "service": "رخصة فال الإستشارات العقارية",
+    "order": 2182,
+    "categoryOrder": 89,
+    "status": "created",
+    "documentId": "qt6xgif1eeg1hspn28epxi7z"
+  },
+  {
+    "service": "رخصة فال للتحليلات العقارية",
+    "order": 2183,
+    "categoryOrder": 89,
+    "status": "created",
+    "documentId": "e5mjz15fbqdflxzgg49evjje"
+  },
+  {
+    "service": "إدراج منتجات التجميل",
+    "order": 2352,
+    "categoryOrder": 41,
+    "status": "created",
+    "documentId": "di36ai3r06q20o1xwhr6uuux"
+  },
+  {
+    "service": "تسجيل منتجات الغذاء",
+    "order": 2353,
+    "categoryOrder": 41,
+    "status": "created",
+    "documentId": "ypoh2s09p9zwewl7jpwcb54p"
+  },
+  {
+    "service": "فسح منتجات التجميل",
+    "order": 2354,
+    "categoryOrder": 41,
+    "status": "created",
+    "documentId": "vhafbrust421cezp9wc0ol9b"
+  },
+  {
+    "service": "إصدار وكالة فردية",
+    "order": 662,
+    "categoryOrder": 54,
+    "status": "created",
+    "documentId": "ckwzstv58hjvx61upvihri1c"
+  },
+  {
+    "service": "إصدار وكالة متعددة الأطراف",
+    "order": 669,
+    "categoryOrder": 54,
+    "status": "created",
+    "documentId": "p7q94dapr7i96tqpho87h6zc"
+  },
+  {
+    "service": "طلب تسجيل وكالة",
+    "order": 1367,
+    "categoryOrder": 54,
+    "status": "created",
+    "documentId": "n3xi1yd0ol1rhlk90otpeed7"
+  },
+  {
+    "service": "فسخ وكالة",
+    "order": 1369,
+    "categoryOrder": 54,
+    "status": "created",
+    "documentId": "tz80gbnxmuitwjvimt479bsp"
+  },
+  {
+    "service": "إصدار الإقامة - أعمال",
+    "order": 710,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "oqxwa81pn34fikuo15cgdpgs"
+  },
+  {
+    "service": "إصدار تأشيرة الخروج والعودة - أعمال",
+    "order": 711,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "qu84e14w1x7k7jzay6k9xjou"
+  },
+  {
+    "service": "إصدار تأشيرة الخروج النهائي - أعمال",
+    "order": 712,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "s2bhjq2bhqrpkxmo013cylnj"
+  },
+  {
+    "service": "إصدار تأشيرة خروج نهائي خلال فترة التجربة - أعمال",
+    "order": 713,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "kifmdk4d42qu6it5uvq8xu2h"
+  },
+  {
+    "service": "إلغاء تأشيرة الخروج والعودة - أعمال",
+    "order": 714,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "sd6kbbrnhzziu4t8a49mobuk"
+  },
+  {
+    "service": "إلغاء تأشيرة الخروج النهائي - أعمال",
+    "order": 715,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "znhwqen2hxhdaela35t6n2hz"
+  },
+  {
+    "service": "نقل الخدمات - أعمال",
+    "order": 716,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "rdayu6rpn375twcsll4r9dyt"
+  },
+  {
+    "service": "تعديل المهنة - أعمال",
+    "order": 717,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "rrxu5sxmsbmlhmvhvguevfus"
+  },
+  {
+    "service": "تحديث معلومات جواز سفر - أعمال",
+    "order": 1551,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "kr1mxn9k2tn0bz5wamdcmwif"
+  },
+  {
+    "service": "تجديد الإقامة (أعمال)",
+    "order": 1552,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "j8bsqek4ds0lxiopn7c65zgp"
+  },
+  {
+    "service": "طلب تقرير مقيم - أعمال",
+    "order": 1856,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "q945bgldet157xws8krxuhgl"
+  },
+  {
+    "service": "إنشاء تفويض - أعمال",
+    "order": 1857,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "mgqb6o069qfxhsi5ofdpw55k"
+  },
+  {
+    "service": "تعديل العنوان - أعمال",
+    "order": 1858,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "npll5ow08hazrmcijn08obj0"
+  },
+  {
+    "service": "قبول ورفض التفويض - أعمال",
+    "order": 1859,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "yvkfxq54b0fhrfb2o3h6l2li"
+  },
+  {
+    "service": "الإطلاع على التفاويض وإلغائها - أعمال",
+    "order": 1860,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "u6d1cux1ox8wld3sqmutx0hn"
+  },
+  {
+    "service": "طلب توصيل وثيقة بالبريد - أعمال",
+    "order": 1861,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "s44e4k3t70wb1etbtszbyy1n"
+  },
+  {
+    "service": "إسقاط المركبات - أعمال",
+    "order": 1862,
+    "categoryOrder": 99,
+    "status": "created",
+    "documentId": "fl8jm58ckeqb0rxvf1ygx66o"
+  },
+  {
+    "service": "تصاريح تعاقد أجير",
+    "order": 913,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "n1nh8st76198mwtaubxlsb87"
+  },
+  {
+    "service": "تصريح إعارة أجير",
+    "order": 914,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "e814u2qs0qtte86ew760c2oo"
+  },
+  {
+    "service": "تصريح إعارة أجير - المنشآت الفردية (1-5)",
+    "order": 915,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "hx378rslreikg4bfegzxwnoj"
+  },
+  {
+    "service": "تصريح إسناد السعوديين",
+    "order": 916,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "oaino0lhrx6dln89jimu4cz9"
+  },
+  {
+    "service": "تصريح مرافقين أجير - القطاع الصحي",
+    "order": 919,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "eir7hjhe46p378wbzf690yyu"
+  },
+  {
+    "service": "تصريح أهلية عمل للزائرين (العمل المؤقت للزائرين)",
+    "order": 923,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "sa2rooksbt0waa0d0x8blgfb"
+  },
+  {
+    "service": "إصدار عقد أجير (تعاقد أجير)",
+    "order": 1257,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "ds97i3f7gta28s288fnfep1k"
+  },
+  {
+    "service": "أجير مواسم السياحة",
+    "order": 2492,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "dxxiayxcgl5zhbf4yryhlzra"
+  },
+  {
+    "service": "أجير 555",
+    "order": 2494,
+    "categoryOrder": 57,
+    "status": "created",
+    "documentId": "kjuuroolrlbfoi96mrlk1lq0"
+  },
+  {
+    "service": "إصدار رخصة تجارية",
+    "order": 300,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "imhle6b725tzaacm404zxjzu"
+  },
+  {
+    "service": "تجديد رخصة تجارية",
+    "order": 301,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "z6bof99cjy08no5qi8j6u2uq"
+  },
+  {
+    "service": "إلغاء رخصة نشاط تجاري",
+    "order": 302,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "wwg2nzt3bvs1vbxhjnwn19bk"
+  },
+  {
+    "service": "نقل ملكية رخصة تجارية",
+    "order": 303,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "leq4fppdynkutti1wqoq7zdc"
+  },
+  {
+    "service": "تعديل رخصة نشاط تجاري",
+    "order": 304,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "m29dvsdy88s4nz2m2kts75vt"
+  },
+  {
+    "service": "خدمة طباعة رمز الاستجابة السريع",
+    "order": 305,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "fykx3wq8wzz0ev4x91dqmlve"
+  },
+  {
+    "service": "تصريح بالأنشطة التجارية 24 ساعة",
+    "order": 306,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "c8i3qrmhpcziynf96sk4x2ms"
+  },
+  {
+    "service": "تصريح تقديم منتجات التبغ",
+    "order": 307,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "qedi5l475degfkbpmih1wnnf"
+  },
+  {
+    "service": "إصدار رخصة إشغال رصيف",
+    "order": 1309,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "txuyzfdf7zvhbq1j8xjolpkt"
+  },
+  {
+    "service": "إصدار تقرير مساحي",
+    "order": 2365,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "a6iprjkuq6k0viw4tjv9d2r2"
+  },
+  {
+    "service": "إصدار رخصة تشغيلية للوحة دعائية أو إعلانية",
+    "order": 2366,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "a2o5r7lqb4jqgmlueoxwxrnd"
+  },
+  {
+    "service": "اصدار تصريح خدمة التوصيل المنزلي",
+    "order": 2493,
+    "categoryOrder": 34,
+    "status": "created",
+    "documentId": "upysfsp0ey6g7hgoctdum1lp"
+  },
+  {
+    "service": "تسجيل العنوان الوطني (أعمال)",
+    "order": 295,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "dgvv72mvxvyux4eve3n18bz3"
+  },
+  {
+    "service": "تعديل العنوان الوطني للمنشأة",
+    "order": 296,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "mgp0re79mpv84wnzdulrp8c5"
+  },
+  {
+    "service": "إنشاء حساب (أفراد)",
+    "order": 297,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "xxlvy1trthza9ywiwj7tw7km"
+  },
+  {
+    "service": "تسجيل العنوان الوطني (أفراد)",
+    "order": 298,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "g35xjzylgxktp35j23qii0va"
+  },
+  {
+    "service": "تعديل العنوان الوطني (أفراد)",
+    "order": 299,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "jpcvg7avcvkgz0kywy858w82"
+  },
+  {
+    "service": "إنشاء حساب (أعمال)",
+    "order": 1035,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "y249lwn8kbkdw9wfw63c8gop"
+  },
+  {
+    "service": "طباعة العنوان الوطني",
+    "order": 1426,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "qjlukcjdm65yxdd5ip6noz3p"
+  },
+  {
+    "service": "استعادة كلمة المرور",
+    "order": 1472,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "rfa8hivxnd78ny1xt6cu2duz"
+  },
+  {
+    "service": "رفع شكوى",
+    "order": 1474,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "h7z6qqy9vt4fkap47wgg18rh"
+  },
+  {
+    "service": "تعديل البيانات",
+    "order": 1829,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "yeo2wz7m4aq1j0mjro23ph52"
+  },
+  {
+    "service": "إصدار فاتورة اشتراك",
+    "order": 2351,
+    "categoryOrder": 36,
+    "status": "created",
+    "documentId": "qbf5lf16qwpb8ze280eqyydb"
+  },
+  {
+    "service": "إدارة وتوثيق العقود",
+    "order": 259,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "u98x59ohih2jhlvvgrxh4dhy"
+  },
+  {
+    "service": "إصدار التأشيرات الفورية",
+    "order": 260,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "p7uxjwcf7p7dvlvlgkemmmou"
+  },
+  {
+    "service": "نقل خدمة عامل",
+    "order": 262,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "ngqc80isiqk2nv8j461k6d9g"
+  },
+  {
+    "service": "إصدار رخصة عمل",
+    "order": 310,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "s47jgrhpe1o33nvoi5dnuh4i"
+  },
+  {
+    "service": "إصدار شهادة التوطين (السعودة)",
+    "order": 311,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "lzqdm2z8fi1bw5meeb06g6lb"
+  },
+  {
+    "service": "حجز موعد وزارة الموارد البشرية والتنمية الاجتماعية",
+    "order": 588,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "qmwcm9i1s0xyrs2uvh2on896"
+  },
+  {
+    "service": "تغيير مهنة عامل",
+    "order": 593,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "cfghyyam14ma0467wm7vo4y0"
+  },
+  {
+    "service": "إنشاء حساب مفوض",
+    "order": 1002,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "a737g3ev3be52loljqcrtu4i"
+  },
+  {
+    "service": "إنشاء حساب",
+    "order": 1029,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "nlx8th79k4ndrk0bcesew6ey"
+  },
+  {
+    "service": "إلغاء تأشيرة",
+    "order": 1075,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "k8f532rk0q8gsr6bc5mm9fnk"
+  },
+  {
+    "service": "انقطاع عن العمل",
+    "order": 1216,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "bn8yqn7l8y10d474ooxkxqh8"
+  },
+  {
+    "service": "استعادة كلمة المرور",
+    "order": 1255,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "ggj7np2waa8344th0in7ql8c"
+  },
+  {
+    "service": "الإفصاح عن التدريب",
+    "order": 1256,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "jyv7tmgskldywteynfsg0pxv"
+  },
+  {
+    "service": "تعديل بيانات ملف منشأة",
+    "order": 1281,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "wj5smw09zymvbsky75ichhv3"
+  },
+  {
+    "service": "إلغاء ملف منشأة",
+    "order": 1282,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "rf2y94rxvxdhdgb8icd449a7"
+  },
+  {
+    "service": "تغيير نشاط المنشأة",
+    "order": 1283,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "tw4omd36ba17c26becn638i2"
+  },
+  {
+    "service": "إدارة مواقع المنشأة",
+    "order": 1284,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "r15h23c5xulg45gpbpztckk4"
+  },
+  {
+    "service": "تعيين مواقع الموظفين",
+    "order": 1433,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "z4hgsoat2a9a2i77qxgzk3uh"
+  },
+  {
+    "service": "تجديد اشتراك",
+    "order": 1435,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "uj2qov3y4bf1li9xhsq4gn2s"
+  },
+  {
+    "service": "تعديل عقد عمل",
+    "order": 1490,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "e9hfc0zxxua3pe4l3fkkf331"
+  },
+  {
+    "service": "تجديد رخصة عمل",
+    "order": 1492,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "v658sxemj398m7bauq1qhlu4"
+  },
+  {
+    "service": "إنشاء لائحة تنظيم العمل النموذجية (لائحة العمل الموحد)",
+    "order": 1505,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "ksv02zdmwjb5cien6hg4yyza"
+  },
+  {
+    "service": "إنشاء لائحة تنظيم العمل المخصصة",
+    "order": 1506,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "pgsqbslkyyt3n1e2t6yjgxh5"
+  },
+  {
+    "service": "نقل خدمات تابع",
+    "order": 1509,
+    "categoryOrder": 29,
+    "status": "created",
+    "documentId": "rfjibkt7ck1ij2ghqbmurj33"
+  },
+  {
+    "service": "رفع ملف الرواتب (مدد الرواتب)",
+    "order": 283,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "fak7dqyb19vyb4yr0b4s66gd"
+  },
+  {
+    "service": "إضافة آيبان المنشأة (مدد رواتب)",
+    "order": 567,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "le8ufpr1b8vr3rjm6dpfy8ca"
+  },
+  {
+    "service": "إضافه آيبان الموظف (مدد الرواتب)",
+    "order": 568,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "pqyhjiav5pj3jdgjjgvj8h73"
+  },
+  {
+    "service": "إنشاء حساب",
+    "order": 1030,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "aigifrwprlecs7z30f1m3pmq"
+  },
+  {
+    "service": "تبرير مخالفات حماية الأجور",
+    "order": 1137,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "i0zl876pzb1gx4s6u1bex4wa"
+  },
+  {
+    "service": "تجديد اشتراك مدد (مدد الرواتب)",
+    "order": 1146,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "sn389qoxuuyj5184dhwe53fd"
+  },
+  {
+    "service": "تعديل الحساب",
+    "order": 1163,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "nw8rx92lii111403k1ccg2nt"
+  },
+  {
+    "service": "استعادة كلمة المرور",
+    "order": 1427,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "ijwlbfiqqtc2w2v70msr7z09"
+  },
+  {
+    "service": "طباعة تقرير مدد (مسير الرواتب)",
+    "order": 1428,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "f0hn5r62gtya00gr4se4qora"
+  },
+  {
+    "service": "رفع شكوى",
+    "order": 1473,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "qr3vhz35293r50e5xrl26s7l"
+  },
+  {
+    "service": "تعديل راتب موظف (مدد الرواتب)",
+    "order": 1499,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "l98vljjk3l4lqlsgzksyrs5m"
+  },
+  {
+    "service": "إنهاء خدمة موظف",
+    "order": 1500,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "hkrxxxgb8mbo1eddt9hs65tu"
+  },
+  {
+    "service": "طباعة مفردات المرتب",
+    "order": 1820,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "t6nsnu9shage61ye3gw1jthf"
+  },
+  {
+    "service": "طباعة شهادة الالتزام",
+    "order": 1821,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "zcpagdmm6of4m1a79f4km6r2"
+  },
+  {
+    "service": "تحديث بيانات الموظفين",
+    "order": 2260,
+    "categoryOrder": 30,
+    "status": "created",
+    "documentId": "s0frh00772md0tqictfb106j"
+  },
+  {
+    "service": "إصدار إقامة",
+    "order": 288,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "gyly1wxul9s0xkjp78q8tvje"
+  },
+  {
+    "service": "تجديد إقامة",
+    "order": 289,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "wuswtima51bs7lpy7n2ct8b9"
+  },
+  {
+    "service": "إصدار تأشيرة خروج وعودة",
+    "order": 290,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "uaof8o0muxq7rmivuhsvbv1b"
+  },
+  {
+    "service": "إدارة المستخدمين",
+    "order": 292,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "my6pcymllmly96jke2slin80"
+  },
+  {
+    "service": "نقل خدمات مقيم",
+    "order": 293,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "gc1fxr0ingao3rllpah84fzm"
+  },
+  {
+    "service": "تغيير المستخدم الرئيسي",
+    "order": 859,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "qeh9aytdbyd5dotuqjdw2uzd"
+  },
+  {
+    "service": "إنشاء حساب منصة مقيم",
+    "order": 1032,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "iiq855f2sw82v7b0jfnqqg0d"
+  },
+  {
+    "service": "خدمات الطباعة (طباعة إقامة)",
+    "order": 1081,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "vjl6iryj7kq6qms6xysqahir"
+  },
+  {
+    "service": "طباعة تقرير مقيم",
+    "order": 1094,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "tk00i07pb4s88t9lf9sn6aif"
+  },
+  {
+    "service": "إصدار تأشيرة خروج نهائي",
+    "order": 1145,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "lnzlsuhp7i7qt8p1mi3hsdia"
+  },
+  {
+    "service": "تعديل بيانات المستخدم",
+    "order": 1162,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "v0f2jpuasd5zy60lpr8uwfoo"
+  },
+  {
+    "service": "تجديد  اشتراك منصة مقيم",
+    "order": 1201,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "h9s3j5ll7pq9yn2iqc9ip1l1"
+  },
+  {
+    "service": "تحديث معلومات جواز",
+    "order": 1304,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "z069bcxfulufjpslxaj6tbm4"
+  },
+  {
+    "service": "استعادة كلمة المرور",
+    "order": 1498,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "lhpe5f5y79gxh8ff08x5mopj"
+  },
+  {
+    "service": "تمديد تأشيرة الخروج والعودة",
+    "order": 1799,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "mqunrdenkr7fwkaz79r5gz7m"
+  },
+  {
+    "service": "إلغاء تأشيرة خروج وعودة",
+    "order": 1803,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "pojno2k0lz53iisqngfddhss"
+  },
+  {
+    "service": "تعديل المهنة",
+    "order": 1804,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "oxkf8512agm4p39h4an2i1xb"
+  },
+  {
+    "service": "تعديل الاسم المترجم",
+    "order": 1816,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "gqaw2me3paoydwsg6q1semlf"
+  },
+  {
+    "service": "إلغاء تاشيرة خروج نهائي",
+    "order": 1894,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "qqyk27s5qp1zu7uws91zd7op"
+  },
+  {
+    "service": "تمديد تأشيرة زيارة",
+    "order": 1895,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "qgvdqz4kkcuxrobsmiv4ewkl"
+  },
+  {
+    "service": "طباعة تقرير زائر",
+    "order": 1896,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "o4p4f3ww7pofg2ztw1gbdf1v"
+  },
+  {
+    "service": "تأشيرة الخروج النهائي خلال فترة التجربة",
+    "order": 1898,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "ay3nuqtvusl8helnxo9a0st2"
+  },
+  {
+    "service": "التبليغ عن فقدان إقامة",
+    "order": 1939,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "pkhviy99g4u0rvc95ciyu33q"
+  },
+  {
+    "service": "إصدار بدل فاقد",
+    "order": 1940,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "fj1zvd4q9piyn011tzs6nnpl"
+  },
+  {
+    "service": "شحن نقاط مقيم",
+    "order": 2434,
+    "categoryOrder": 33,
+    "status": "created",
+    "documentId": "kkbe208clhdpz6bx5tf7lh3f"
+  },
+  {
+    "service": "إنشاء حساب",
+    "order": 1203,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "xebf4hn4jymlyt9ffpby4ffn"
+  },
+  {
+    "service": "تسجيل منتج (المستوردين)",
+    "order": 2279,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "dpwghvt1ppw5cvd5x0d7iu4t"
+  },
+  {
+    "service": "إصدار إقرار ذاتي مستورد (المستوردين)",
+    "order": 2280,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "i6zbm81jgrw4m1ngggb0uz44"
+  },
+  {
+    "service": "تسجيل شهادة مطابقة منتج (المستوردين)",
+    "order": 2281,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "vyyq4w2ny18mbnih6o7jhqej"
+  },
+  {
+    "service": "تسجيل شهادة مطابقة صادرة من الهيئة (المستوردين)",
+    "order": 2282,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "cxe6l0x7cszzllq9aedv3pif"
+  },
+  {
+    "service": "إصدار شهادة إرسالية (المستوردين)",
+    "order": 2283,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "bh323wh43hv0v9he44k9tzq0"
+  },
+  {
+    "service": "إصدار شهادة إرسالية (الجهات الحكومية)",
+    "order": 2284,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "ffv4tydtpl8i9v3u7ysvznff"
+  },
+  {
+    "service": "تسجيل منتج (المصانع المحلية)",
+    "order": 2285,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "ctoacrhzqjq8qwcoprochpk2"
+  },
+  {
+    "service": "إصدار شهادة الإقرار الذاتي المحلي (المصانع المحلية)",
+    "order": 2286,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "dc0xut813wr0m8j4whjpjmmt"
+  },
+  {
+    "service": "تسجيل شهادة مطابقة منتج (المصانع المحلية)",
+    "order": 2287,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "yvf160b2p5lml4sblxm3vxd9"
+  },
+  {
+    "service": "تسجيل شهادة مطابقة صادرة من الهيئة (المصانع المحلية)",
+    "order": 2288,
+    "categoryOrder": 79,
+    "status": "created",
+    "documentId": "caq40rrsz71x1t295e7wpzjq"
+  },
+  {
+    "service": "إصدار ترخيص استثماري خدمي",
+    "order": 331,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "o72sew3hg2mbjgajy99ynlzy"
+  },
+  {
+    "service": "إصدار ترخيص مكتب علمي وفني",
+    "order": 336,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "dsb1ab1tg1jn0t7au4nscxp5"
+  },
+  {
+    "service": "إصدار ترخيص استثماري عقاري",
+    "order": 338,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "xi8j3wakntmoxjjoicbla1zp"
+  },
+  {
+    "service": "إصدار ترخيص استثماري مؤقت لتنفيذ عقد حكومي / شبه حكومي واحد",
+    "order": 339,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "fjtxgq74siyprphur7i2f5la"
+  },
+  {
+    "service": "إصدار ترخيص تجاري بشريك سعودي",
+    "order": 340,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "pntq1qy4t9vpjlgaqp79e5wg"
+  },
+  {
+    "service": "إصدار ترخيص النقل العام البري بالحافلات داخل المدن",
+    "order": 342,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "knleoc4xg24qv5m03n8skj3s"
+  },
+  {
+    "service": "إصدار ترخيص نشاط وكلاء الاستقدام وتأجير خدمات العمالة المنزلية",
+    "order": 348,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "zxfcj41lsmkd8qk18s7k0jly"
+  },
+  {
+    "service": "إصدار ترخيص أنشطة المطبوعات والنشر",
+    "order": 350,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "he6ghepq5jk8v1bu6yc6cuv4"
+  },
+  {
+    "service": "إصدار ترخيص مهني بشريك سعودي",
+    "order": 351,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "r48vi0fcbo4j4y9q7snsowab"
+  },
+  {
+    "service": "إصدار ترخيص المقرات الإقليمية",
+    "order": 355,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "jeb9cs7eud3gz686bq9r358q"
+  },
+  {
+    "service": "التعديل على الحصص أو خروج أو دخول شركاء آخرين أو دمج الشركات.",
+    "order": 357,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "nl2kflsflkq57pzmardmwckx"
+  },
+  {
+    "service": "تعديل الملكية بإحلال الورثة",
+    "order": 359,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "zyazqw0qsfvg2wfaug0g27f4"
+  },
+  {
+    "service": "فتح فروع أو مركز تسويق",
+    "order": 360,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "zgnq5b62o04sscxb5i36ibk9"
+  },
+  {
+    "service": "إغلاق فروع أو مراكز تسويق",
+    "order": 361,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "lijvrk9z8oavusk09vgjt0ck"
+  },
+  {
+    "service": "تخفيض رأس المال",
+    "order": 363,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "hga1qegugadhvs9od73tdmhx"
+  },
+  {
+    "service": "زياده رأس المال",
+    "order": 364,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "qsvggxjey63i83qp681nlkre"
+  },
+  {
+    "service": "تحديث بيانات تواصل المنشأة",
+    "order": 376,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "se39zq0umai7yejvvo02gk3d"
+  },
+  {
+    "service": "تحديث البيانات الحكومية",
+    "order": 384,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "rkzgy0pq1rygf5x05aou1d26"
+  },
+  {
+    "service": "تعديل رخصة الاستثمار",
+    "order": 1063,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "ioh69vf7ei3492isfryy20ka"
+  },
+  {
+    "service": "تجديد  الترخيص الاستثماري",
+    "order": 1065,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "yl5aof7rn33uqt1r2nzx5n0a"
+  },
+  {
+    "service": "إصدار ترخيص استثماري تجاري أجنبي 100%",
+    "order": 1070,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "pwaehdda1m32cz0t8i4l4l4p"
+  },
+  {
+    "service": "إصدار التراخيص الأخرى في النقل البري",
+    "order": 1737,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "akcmgudvl1xd5o44ci7ugt9z"
+  },
+  {
+    "service": "إصدار شهادة مؤقتة للتقديم على عطاءات المشاريع الحكومية",
+    "order": 1740,
+    "categoryOrder": 7,
+    "status": "created",
+    "documentId": "ot42cm375wtpe7ultbwj03j0"
+  },
+  {
+    "service": "رخصة حفر بئر جديد",
+    "order": 2372,
+    "categoryOrder": 105,
+    "status": "created",
+    "documentId": "aag77hpqe91buhuxqqw3dtex"
+  },
+  {
+    "service": "إصدار رخصة تصدير مياه شرب معبأة",
+    "order": 2373,
+    "categoryOrder": 105,
+    "status": "created",
+    "documentId": "w1eyf5yb3fhm8agkbd6fvb0e"
+  },
+  {
+    "service": "إصدار رخص استخدام مصادر المياه الجوفية (الآبار)",
+    "order": 2374,
+    "categoryOrder": 105,
+    "status": "created",
+    "documentId": "yicbpxe2satqfngssls4n3jm"
+  },
+  {
+    "service": "طلب استيراد أسمدة ومخصبات زراعية",
+    "order": 2390,
+    "categoryOrder": 105,
+    "status": "created",
+    "documentId": "b3cw049sv43meex9w1ip9noq"
+  },
+  {
+    "service": "طلب تعديل قيد وكالة تجارية",
+    "order": 63,
+    "categoryOrder": 6,
+    "status": "created",
+    "documentId": "iasd07emb0xnberdn0o4t2vq"
+  },
+  {
+    "service": "طلب تجديد قيد وكالة تجارية",
+    "order": 65,
+    "categoryOrder": 6,
+    "status": "created",
+    "documentId": "mclggdud99ijomzvpgebl78q"
+  },
+  {
+    "service": "طلب تسجيل قيد وكالة تجارية",
+    "order": 66,
+    "categoryOrder": 6,
+    "status": "created",
+    "documentId": "sq8jaqx7y2w6hs1rq2jy00kp"
+  },
+  {
+    "service": "طلب شطب قيد وكالة تجارية من قبل الوكيل",
+    "order": 68,
+    "categoryOrder": 6,
+    "status": "created",
+    "documentId": "klzb561tc9wpivxa0nne7613"
+  },
+  {
+    "service": "تراخيص التخفيضات",
+    "order": 71,
+    "categoryOrder": 6,
+    "status": "created",
+    "documentId": "khev34c27qojdglc07ektvc3"
+  },
+  {
+    "service": "إصدار تراخيص الأحجار الكريمة والمعادن الثمينة",
+    "order": 80,
+    "categoryOrder": 6,
+    "status": "created",
+    "documentId": "vhcdzt1tl6u35u4f0vlrclbs"
+  },
+  {
+    "service": "قيد الإمتياز التجاري (تسجيل - تعديل - الغاء)",
+    "order": 86,
+    "categoryOrder": 6,
+    "status": "created",
+    "documentId": "jmn0y8uwx6qssrawbswqxrds"
+  },
+  {
+    "service": "التفويض الإلكتروني للتأشيرات",
+    "order": 1131,
+    "categoryOrder": 73,
+    "status": "created",
+    "documentId": "tsi44pg1vejjzt2eryejh04u"
+  },
+  {
+    "service": "طلب تصديق أبوستيل",
+    "order": 2502,
+    "categoryOrder": 73,
+    "status": "created",
+    "documentId": "p877pstmvyaw7s7gmo04306e"
+  },
+  {
+    "service": "إصدار الترخيص الصناعي",
+    "order": 69,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "qutx3c36wwxtfk5yqvj3331b"
+  },
+  {
+    "service": "طلب تأييد العمالة",
+    "order": 70,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "qw94oty4nwt42i25iehwo5r4"
+  },
+  {
+    "service": "تجديد الترخيص الصناعي",
+    "order": 89,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "nwkeahwtzrwnclh2qbbm3hjk"
+  },
+  {
+    "service": "نقل ملكية الترخيص الصناعي",
+    "order": 471,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "mvh0akt3rg9f1ngejc2fwk8j"
+  },
+  {
+    "service": "إصدار إعفاء جمركي للمواد الخام والآلات وقطع الغيار",
+    "order": 1122,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "oqn8asvld40cw4xry2nv4ei2"
+  },
+  {
+    "service": "إصدار شهادة المنشأ",
+    "order": 1123,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "fs22t4w2gmu9ct7s0fulzm83"
+  },
+  {
+    "service": "طلب الفسح الكيميائي",
+    "order": 1218,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "qsqml59gdk8pex69q1xreb31"
+  },
+  {
+    "service": "ترقية البنود الجمركية",
+    "order": 2362,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "zzuw3plz32r89fl7eqyvfkv2"
+  },
+  {
+    "service": "تقديم طلب رخصة الاستطلاع",
+    "order": 2392,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "vsgejtn5ed8rugys49h90kaj"
+  },
+  {
+    "service": "المسح الصناعي",
+    "order": 2428,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "jn4wq2zqfhzllmgogxcy8djz"
+  },
+  {
+    "service": "تعديل الترخيص الصناعي (التأسيس)",
+    "order": 2483,
+    "categoryOrder": 8,
+    "status": "created",
+    "documentId": "mc2l9amb6ntjel17no72i9yn"
+  }
+]
