@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { buildImageUrl } from "@/lib/api";
 import { useCreateContactSubmission } from "@/hooks/graphql";
 import { ContactForm } from "@/components/common/ContactForm";
 
@@ -97,18 +96,15 @@ export const ConsultationSection = ({
     <form
       onSubmit={handleSubmit}
       className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 relative z-[50]"
-      style={{ 
-        isolation: 'isolate',
-        touchAction: 'manipulation',
-        pointerEvents: 'auto'
+      style={{
+        isolation: "isolate",
+        touchAction: "manipulation",
+        pointerEvents: "auto",
       }}
     >
       {/* Row 1 */}
-      <div
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
-        
-      >
-        <div >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
             style={{ fontFamily: "var(--font-almarai)" }}
@@ -128,7 +124,7 @@ export const ConsultationSection = ({
             autoComplete="organization"
           />
         </div>
-        <div >
+        <div>
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
             style={{ fontFamily: "var(--font-almarai)" }}
@@ -152,7 +148,7 @@ export const ConsultationSection = ({
 
       {/* Row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <div >
+        <div>
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
             style={{ fontFamily: "var(--font-almarai)" }}
@@ -173,7 +169,7 @@ export const ConsultationSection = ({
             inputMode="tel"
           />
         </div>
-        <div >
+        <div>
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
             style={{ fontFamily: "var(--font-almarai)" }}
@@ -200,7 +196,7 @@ export const ConsultationSection = ({
 
       {/* Row 3 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <div >
+        <div>
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
             style={{ fontFamily: "var(--font-almarai)" }}
@@ -238,7 +234,7 @@ export const ConsultationSection = ({
             </option>
           </select>
         </div>
-        <div >
+        <div>
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
             style={{ fontFamily: "var(--font-almarai)" }}
@@ -268,7 +264,7 @@ export const ConsultationSection = ({
       {/* Row 4 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div></div>
-        <div >
+        <div>
           <label
             className="block text-sm font-semibold text-gray-700 mb-2"
             style={{ fontFamily: "var(--font-almarai)" }}
@@ -321,10 +317,7 @@ export const ConsultationSection = ({
       </div>
 
       {/* Row 5 - Note */}
-      <div
-        className="mb-6"
-        
-      >
+      <div className="mb-6">
         <label
           className="block text-sm font-semibold text-gray-700 mb-2"
           style={{ fontFamily: "var(--font-almarai)" }}
@@ -375,7 +368,10 @@ export const ConsultationSection = ({
               ? "opacity-50 cursor-not-allowed"
               : "hover:from-green-700 hover:to-green-800 active:scale-[0.98]"
           }`}
-          style={{ fontFamily: "var(--font-almarai)", touchAction: "manipulation" }}
+          style={{
+            fontFamily: "var(--font-almarai)",
+            touchAction: "manipulation",
+          }}
         >
           {isSubmitting ? (
             <>
@@ -506,7 +502,9 @@ export const ConsultationSection = ({
                 className="text-sm sm:text-base text-gray-700 font-semibold"
                 style={{ fontFamily: "var(--font-almarai)" }}
               >
-                {language === "ar" ? "رد سريع خلال 24 ساعة" : "Quick Response in 24h"}
+                {language === "ar"
+                  ? "رد سريع خلال 24 ساعة"
+                  : "Quick Response in 24h"}
               </span>
             </div>
             <div className="flex items-center gap-2">
@@ -523,15 +521,15 @@ export const ConsultationSection = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Contact Form */}
-          <div 
-            className="lg:order-2 lg:pr-8 relative z-20"
-          >
-            {formContent}
-          </div>
+          <div className="lg:order-2 lg:pr-8 relative z-20">{formContent}</div>
 
           {/* Text Content */}
           <div
-            className={`lg:order-1 flex flex-col items-center justify-center text-center ${language === "ar" ? "lg:text-right lg:items-end" : "lg:text-left lg:items-start"} lg:pl-8 rounded-2xl overflow-hidden relative bg-gradient-to-br from-green-600 to-green-500`}
+            className={`lg:order-1 flex flex-col items-center justify-center text-center ${
+              language === "ar"
+                ? "lg:text-right lg:items-end"
+                : "lg:text-left lg:items-start"
+            } lg:pl-8 rounded-2xl overflow-hidden relative bg-gradient-to-br from-green-600 to-green-500`}
             style={{ minHeight: "400px", padding: "2.5rem 2rem" }}
           >
             {/* Decorative Icon Centered */}
@@ -575,8 +573,3 @@ export const ConsultationSection = ({
     </section>
   );
 };
-
-
-
-
-

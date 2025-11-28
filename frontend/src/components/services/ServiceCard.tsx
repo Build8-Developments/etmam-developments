@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Service {
   id: string;
@@ -29,9 +30,11 @@ export const ServiceCard = ({
     // If icon is a URL (starts with http or /), render as image
     if (iconType.startsWith("http") || iconType.startsWith("/")) {
       return (
-        <img
+        <Image
           src={iconType}
           alt={service.title}
+          width={48}
+          height={48}
           className="w-12 h-12 object-contain"
         />
       );

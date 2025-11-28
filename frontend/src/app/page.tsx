@@ -179,7 +179,6 @@ export default async function Home() {
         <ConsultationSection
           title={homeData?.Consultation?.title}
           description={homeData?.Consultation?.description}
-          backgroundImage={homeData?.Consultation?.backgroundImage}
         />
       </AnimatedSection>
 
