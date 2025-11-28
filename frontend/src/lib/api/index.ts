@@ -4,13 +4,24 @@ import { Language } from "@/types";
  * API configuration
  */
 export const API_CONFIG = {
-  baseURL: process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337",
+  baseURL:
+    process.env.NEXT_PUBLIC_STRAPI_URL ||
+    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+    "http://localhost:1337",
   graphqlURL:
     process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL ||
-    `${process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337"}/graphql`,
+    `${
+      process.env.NEXT_PUBLIC_STRAPI_URL ||
+      process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+      "http://localhost:1337"
+    }/graphql`,
   uploadURL:
     process.env.NEXT_PUBLIC_STRAPI_UPLOAD_URL ||
-    `${process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337"}/uploads`,
+    `${
+      process.env.NEXT_PUBLIC_STRAPI_URL ||
+      process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+      "http://localhost:1337"
+    }/uploads`,
 } as const;
 
 /**
