@@ -24,6 +24,23 @@ function buildCreateMutation() {
 }
 
 /**
+ * Build GraphQL mutation for updating a legal sub-service (for adding localization)
+ */
+function buildUpdateMutation() {
+  return `
+    mutation UpdateLegalSubService($documentId: ID!, $data: LegalSubServiceInput!, $locale: I18NLocaleCode) {
+      updateLegalSubService(documentId: $documentId, data: $data, locale: $locale) {
+        documentId
+        name
+        slug
+        order
+        locale
+      }
+    }
+  `;
+}
+
+/**
  * Prepare sub-service data for GraphQL mutation
  */
 function prepareSubServiceData(service, categoryDocumentId) {
@@ -41,27 +58,32 @@ function prepareSubServiceData(service, categoryDocumentId) {
     publishedAt: new Date().toISOString(),
   };
 
-  // Add description component
+  // Add description component (with title, description, icon, icon_color_code)
   if (service.description?.length > 0) {
-    data.description = service.description;
+    data.description = service.description.map((desc) => ({
+      title: desc.title || null,
+      description: desc.description || null,
+      icon: desc.icon || null,
+      icon_color_code: desc.icon_color_code || null,
+    }));
   }
 
-  // Add documents component
+  // Add documents component (required documents array)
   if (service.documents?.length > 0) {
     data.documents = service.documents;
   }
 
-  // Add conditions component
+  // Add conditions component (service conditions array)
   if (service.conditions?.length > 0) {
     data.conditions = service.conditions;
   }
 
-  // Add requirements component if available
+  // Add requirements component if available (not commonly used)
   if (service.requirements?.length > 0) {
     data.requirements = service.requirements;
   }
 
-  // Add steps component if available
+  // Add steps component if available (not commonly used)
   if (service.steps?.length > 0) {
     data.steps = service.steps;
   }
@@ -97,7 +119,7 @@ async function executeMutation(mutation, variables, strapiUrl, apiToken) {
 }
 
 /**
- * Check if sub-service already exists
+ * Check if sub-service already exists in any locale
  */
 async function subServiceExists(order, locale, strapiUrl, apiToken) {
   const query = `
@@ -106,6 +128,7 @@ async function subServiceExists(order, locale, strapiUrl, apiToken) {
         documentId
         name
         order
+        locale
       }
     }
   `;
@@ -123,6 +146,13 @@ async function subServiceExists(order, locale, strapiUrl, apiToken) {
     console.error(`Error checking sub-service existence: ${error.message}`);
     return null;
   }
+}
+
+/**
+ * Get the base (Arabic) version of a service by order
+ */
+async function getBaseService(order, strapiUrl, apiToken) {
+  return await subServiceExists(order, "ar", strapiUrl, apiToken);
 }
 
 /**
@@ -146,7 +176,8 @@ async function importSubServices(
   const categoryMapping = JSON.parse(
     fs.readFileSync(categoryMappingFile, "utf8")
   );
-  const mutation = buildCreateMutation();
+  const createMutation = buildCreateMutation();
+  const updateMutation = buildUpdateMutation();
 
   let createdCount = 0;
   let skippedCount = 0;
@@ -173,29 +204,79 @@ async function importSubServices(
         );
       }
 
-      // Check if already exists
-      console.log(`  ↳ Checking if service exists...`);
-      const existing = await subServiceExists(
+      // Check if service exists in current locale
+      console.log(`  ↳ Checking if service exists in locale "${locale}"...`);
+      const existingInLocale = await subServiceExists(
         service.order,
         locale,
         strapiUrl,
         apiToken
       );
 
-      if (existing) {
-        console.log(`  ⊙ Already exists (documentId: ${existing.documentId})`);
+      if (existingInLocale) {
+        console.log(
+          `  ⊙ Already exists in ${locale} (documentId: ${existingInLocale.documentId})`
+        );
         skippedCount++;
         results.push({
           service: service.name,
           order: service.order,
           categoryOrder: service.categoryOrder,
           status: "skipped",
-          documentId: existing.documentId,
+          documentId: existingInLocale.documentId,
         });
         continue;
       }
 
-      // Create new sub-service
+      // For non-Arabic locales, check if base (Arabic) version exists
+      if (locale !== "ar") {
+        console.log(`  ↳ Looking for base Arabic version...`);
+        const baseService = await getBaseService(
+          service.order,
+          strapiUrl,
+          apiToken
+        );
+
+        if (baseService) {
+          // Add localization to existing service
+          console.log(
+            `  ↳ Adding ${locale} localization to existing service...`
+          );
+          const variables = {
+            documentId: baseService.documentId,
+            ...prepareSubServiceData(service, categoryDocumentId),
+            locale: locale,
+          };
+
+          const data = await executeMutation(
+            updateMutation,
+            variables,
+            strapiUrl,
+            apiToken
+          );
+          const updated = data.updateLegalSubService;
+
+          createdCount++;
+          console.log(
+            `  ✓ Localization added successfully (documentId: ${updated.documentId})`
+          );
+
+          results.push({
+            service: service.name,
+            order: service.order,
+            categoryOrder: service.categoryOrder,
+            status: "localized",
+            documentId: updated.documentId,
+          });
+          continue;
+        } else {
+          throw new Error(
+            `Base Arabic service not found for order ${service.order}. Arabic services must be imported first.`
+          );
+        }
+      }
+
+      // Create new sub-service (for Arabic locale)
       console.log(`  ↳ Creating new service...`);
       const variables = {
         ...prepareSubServiceData(service, categoryDocumentId),
@@ -203,7 +284,7 @@ async function importSubServices(
       };
 
       const data = await executeMutation(
-        mutation,
+        createMutation,
         variables,
         strapiUrl,
         apiToken

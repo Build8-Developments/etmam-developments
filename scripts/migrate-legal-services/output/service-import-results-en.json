@@ -1,2522 +1,2522 @@
 [
   {
-    "service": "إقامة كفاءة استثنائية (الباحثين)",
+    "service": "Establishing exceptional competence (researchers)",
     "order": 1228,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "agxzzg7n0gkctzzntqg973t4"
   },
   {
-    "service": "إقامة كفاءة استثنائية (التنفيذيين)",
+    "service": "Establish exceptional competence (executives)",
     "order": 1229,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "sp6by55wgb07zprqh9ygsc4b"
   },
   {
-    "service": "إقامة كفاءة استثنائية (الكفاءات الصحية والعلمية)",
+    "service": "Establishing exceptional competencies (health and scientific competencies)",
     "order": 1230,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "bhb8yekfnn6xx4ebxpjp37nl"
   },
   {
-    "service": "إقامة الموهبة (المسار الأول)",
+    "service": "Talent residency (first track)",
     "order": 1231,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "lcr7tpekc98z89ioqvqpeceb"
   },
   {
-    "service": "إقامة الموهبة (المسار الثاني)",
+    "service": "Talent Residency (Track Two)",
     "order": 1232,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "v586azjt6tr1ys6cyic90ehq"
   },
   {
-    "service": "إقامة مستثمر أعمال (مشروط)",
+    "service": "Business investor residency (conditional)",
     "order": 1233,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "uiuc9xb1hbhq5cs6jvty6qqj"
   },
   {
-    "service": "إقامة رائد أعمال (الفئة الأولى)",
+    "service": "Entrepreneur residency (first category)",
     "order": 1234,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "vonj7or63cq94p48rh98tebp"
   },
   {
-    "service": "إقامة رائد أعمال (الفئة الثانية)",
+    "service": "Entrepreneur Residency (Category 2)",
     "order": 1235,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "uki0sai97434pvev6ryzzifu"
   },
   {
-    "service": "إقامة مالك عقار",
+    "service": "Residence of a property owner",
     "order": 1236,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "iiojukxig1fzw4006hsjlps4"
   },
   {
-    "service": "إقامة مميزة محددة المدة",
+    "service": "A special fixed-term stay",
     "order": 1237,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "se6p73yfi88zmhy59j38zw20"
   },
   {
-    "service": "إقامة مميزة غير محددة المدة",
+    "service": "A privileged stay of unlimited duration",
     "order": 1238,
     "categoryOrder": 82,
-    "status": "created",
+    "status": "localized",
     "documentId": "jcwsp7vfldpozsb65ybqlvhd"
   },
   {
-    "service": "إصدار ترخيص سلامة",
+    "service": "Issuing a safety license",
     "order": 308,
     "categoryOrder": 35,
-    "status": "created",
+    "status": "localized",
     "documentId": "wmnvmqvewy9dj3g45020joog"
   },
   {
-    "service": "إنشاء حساب بوابة سلامة",
+    "service": "Create a safety portal account",
     "order": 1034,
     "categoryOrder": 35,
-    "status": "created",
+    "status": "localized",
     "documentId": "muk0p5er3ienh49fgjz5fcjm"
   },
   {
-    "service": "نقل ملكية ترخيص سلامة",
+    "service": "Transfer of ownership of a safety license",
     "order": 1812,
     "categoryOrder": 35,
-    "status": "created",
+    "status": "localized",
     "documentId": "t5k7qjvfkda0dxwbyra9x4kv"
   },
   {
-    "service": "إلغاء ترخيص سلامة",
+    "service": "Cancellation of safety license",
     "order": 1813,
     "categoryOrder": 35,
-    "status": "created",
+    "status": "localized",
     "documentId": "ugnh66c46earwmmytomrpkk8"
   },
   {
-    "service": "تجديد ترخيص سلامة",
+    "service": "Safety license renewal",
     "order": 1815,
     "categoryOrder": 35,
-    "status": "created",
+    "status": "localized",
     "documentId": "xa98q2rsr9eqltf52ybwljx8"
   },
   {
-    "service": "تقديم طلب تصديق وثيقة",
+    "service": "Submit a request to authenticate a document",
     "order": 930,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "pp4o6q5m9wsr3t7yo8rsz82j"
   },
   {
-    "service": "إنشاء حساب",
+    "service": "Create an account",
     "order": 1027,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "ztwxnv463eqjskm805ptstro"
   },
   {
-    "service": "خدمات التفاويض",
+    "service": "Negotiation services",
     "order": 1128,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "kvxua4lx3piggq2qggkbb4ml"
   },
   {
-    "service": "تقديم طلب وزارة الخارجية",
+    "service": "Submit a request to the Ministry of Foreign Affairs",
     "order": 1132,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "xbi161r0zw4hlmo0kpdzzjl9"
   },
   {
-    "service": "إصدار عقد عمل لتأشيرة",
+    "service": "Issuing an employment contract for a visa",
     "order": 1133,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "h87lbl65w2p9jmhv52x1whw9"
   },
   {
-    "service": "طلب تحديث بيانات المنشأة",
+    "service": "Request to update facility data",
     "order": 1165,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "a7it00lzg7xlq3ajogntnlmo"
   },
   {
-    "service": "تجديد اشتراك الغرفة التجارية",
+    "service": "Renewing the Chamber of Commerce subscription",
     "order": 1186,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "spd8mmmc60i5oqmlgqr5tfc1"
   },
   {
-    "service": "طباعة شهادة الاشتراك",
+    "service": "Print the subscription certificate",
     "order": 1194,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "yuvnm3y7949vjd1g9hpenar1"
   },
   {
-    "service": "إنشاء خطاب تعريف بالراتب وتصديقه",
+    "service": "Create and authenticate a salary introduction letter",
     "order": 1208,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "t5p61h8t15j2zj2xrkcda285"
   },
   {
-    "service": "خدمات المحفظة المالية",
+    "service": "Financial portfolio services",
     "order": 1475,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "b3fddet404ah04asu1msioix"
   },
   {
-    "service": "استعادة كلمة المرور",
+    "service": "Password recovery",
     "order": 1497,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "rm818o77gxddqv4r297inf6a"
   },
   {
-    "service": "طلب إضافة منشأة جديدة",
+    "service": "Request to add a new facility",
     "order": 1794,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "r51h4caquupnl2boe4ebcq7e"
   },
   {
-    "service": "شطب منشأة",
+    "service": "Delisting an establishment",
     "order": 1795,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "jz9t27hsm6o4m49b8f0ccayu"
   },
   {
-    "service": "إنشاء طلب استقدام عائلي",
+    "service": "Create a family recruitment request",
     "order": 1797,
     "categoryOrder": 27,
-    "status": "created",
+    "status": "localized",
     "documentId": "hoilf5qg18lmnlpju3cle9nh"
   },
   {
-    "service": "إصدار شهادة الزكاة والدخل - أعمال",
+    "service": "Issuing a zakat and income certificate - business",
     "order": 572,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "g3jvg62kujgbuysga7wxf7an"
   },
   {
-    "service": "تحويل الرصيد الدائن بين فروع المنشأة - أعمال",
+    "service": "Transferring the credit balance between the establishment’s branches - Business",
     "order": 574,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "j0oq87yjdqeozu6nip0v8erp"
   },
   {
-    "service": "تعديل مدة الاشتراك لمشترك نشط - أعمال",
+    "service": "Modifying the subscription period for an active subscriber - Business",
     "order": 575,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "r25moqz74cvbk7fzt55yupzf"
   },
   {
-    "service": "إدارة مُلاك المنشأة - أعمال",
+    "service": "Facility Owners Management - Business",
     "order": 578,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "gn6n1kedpr1j2apfegfe6efd"
   },
   {
-    "service": "تعديل الكيان القانوني للمنشأة - أعمال",
+    "service": "Amending the legal entity of the establishment - business",
     "order": 579,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "dvcqlrovjt5fj9e378x2i0b8"
   },
   {
-    "service": "استبعاد مشترك - أعمال",
+    "service": "Joint Exclusion - Business",
     "order": 581,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "met3mfgvt468k7muy9rirblc"
   },
   {
-    "service": "تعديل مدة اشتراك مشترك بأثر رجعي - أعمال",
+    "service": "Modifying a subscriber's subscription period retroactively - Business",
     "order": 582,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "e5ts6h02s2ksq7acoyykx44f"
   },
   {
-    "service": "فصل/ربط المنشآت - أعمال",
+    "service": "Separating/connecting facilities - works",
     "order": 583,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "lbpi28p51m78t86e07hxpqj9"
   },
   {
-    "service": "إنهاء نشاط منشأة - أعمال",
+    "service": "Termination of business activity",
     "order": 585,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "d2ark3xbkcp0brj3w46dpg6v"
   },
   {
-    "service": "إنشاء حساب - أعمال",
+    "service": "Create an account - Business",
     "order": 1031,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "u20nz3rpqtrqmqpzunimjzk6"
   },
   {
-    "service": "إضافة / تعديل مدير حساب - أعمال",
+    "service": "Add/Edit Account Manager - Business",
     "order": 1068,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "ykjddaj4ov100bcnya1r9th2"
   },
   {
-    "service": "تسجيل مشترك",
+    "service": "Joint registration",
     "order": 1077,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "einfzokbx1nvv0coxyxivqq5"
   },
   {
-    "service": "تعديل نوع المنشأة - أعمال",
+    "service": "Modify facility type - business",
     "order": 1148,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "nhjqor3wkyghwwfr9bzcfcd7"
   },
   {
-    "service": "تعديل بيانات مشترك - أعمال",
+    "service": "Modifying subscriber data - Business",
     "order": 1166,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "qw1cv4p17ev7ishd30szn7ih"
   },
   {
-    "service": "تحديث الأجور - أعمال",
+    "service": "Wages Update - Business",
     "order": 1221,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "bykq7dll56ao66v9nw0jvi4u"
   },
   {
-    "service": "تغيير مهنة  - أعمال",
+    "service": "Change career - business",
     "order": 1366,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "gnar8385s5mb85afurbfphfq"
   },
   {
-    "service": "مبادرة الإعفاء من غرامات التأخير والمخالفات (أعمال)",
+    "service": "Initiative for exemption from delay fines and violations (business)",
     "order": 1437,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "syyok44xqbloz2kz7arf3guq"
   },
   {
-    "service": "نقل مشترك بين فروع المنشأة - أعمال",
+    "service": "Joint transfer between branches of the establishment - business",
     "order": 1438,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "bn962gz2q6ilg2pwfl4pknvc"
   },
   {
-    "service": "تقسيط مديونية منشأة  - أعمال",
+    "service": "Installment of an establishment’s debt - Business",
     "order": 1495,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "lhu9ir03nnzzxzg0b1ex2w9f"
   },
   {
-    "service": "تغيير مدير حساب",
+    "service": "Change account manager",
     "order": 1517,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "qk3dkq6xpvuodmhc8x12zz23"
   },
   {
-    "service": "تعديل بيانات الإتصال للمنشأة - أعمال",
+    "service": "Modifying the establishment’s contact information - Business",
     "order": 1524,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "lntf5edk213urlna67ajaf3w"
   },
   {
-    "service": "إدارة مشرفي المنشأة - أعمال",
+    "service": "Facility Supervisors Management - Business",
     "order": 1824,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "jybp7mds1rxhkxo5lods6tji"
   },
   {
-    "service": "إصدار شهادة منشأة (التزام)",
+    "service": "Issuing an establishment certificate (commitment)",
     "order": 1825,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "b30xlgkdh2dclygwhmz8rk7i"
   },
   {
-    "service": "نقل جميع المشتركين - أعمال",
+    "service": "Transfer all subscribers - business",
     "order": 1863,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "uw0lcesy2r318gb1wyc6uszk"
   },
   {
-    "service": "إضافة مدة الإشتراك بأثر رجعي - أعمال",
+    "service": "Adding the subscription period retroactively - Business",
     "order": 1866,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "shw5vrybm5clsfl5q17h4ejm"
   },
   {
-    "service": "الإبلاغ عن إصابة عمل - أعمال",
+    "service": "Report a work injury - Business",
     "order": 1867,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "gx57amg1oy4wfw3oub2nwv78"
   },
   {
-    "service": "إصدار شهادة السلامة والصحة المهنية -  أعمال",
+    "service": "Issuing an occupational safety and health certificate - business",
     "order": 1871,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "v26713outnum0wljgxhumuz3"
   },
   {
-    "service": "تعطيل حساب مشرف المنشأة - أعمال",
+    "service": "Disabling the facility admin account - Business",
     "order": 1873,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "wn3946dvi90kqqm9n77ustrx"
   },
   {
-    "service": "طلب تعويض تكاليف العلاج - أعمال",
+    "service": "Request for compensation for treatment costs - Business",
     "order": 1874,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "n0bgedl408rsbbendqlronbe"
   },
   {
-    "service": "الإبلاغ عن إصابة جماعية - أعمال",
+    "service": "Mass Casualty Reporting - Business",
     "order": 1877,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "ce78rqkmrpqdp8ijbve5t8um"
   },
   {
-    "service": "تعديل بيانات الحساب البنكي للمنشأة - أعمال",
+    "service": "Amending the facility’s bank account data - Business",
     "order": 1878,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "yqotbeeua2g627cta3q7b6lf"
   },
   {
-    "service": "تعديل بيانات العنوان البريدي للمنشأة - أعمال",
+    "service": "Modifying the facility’s mailing address data - Business",
     "order": 1879,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "iaitm8fcoynpqqnqy778a64o"
   },
   {
-    "service": "تعديل بيانات تعريف المنشأة - أعمال",
+    "service": "Modifying facility identification data - Business",
     "order": 1880,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "xtr2wcng1e33rv6sen4364zt"
   },
   {
-    "service": "إكمال بيانات مشترك غير سعودي مسجل آلياً",
+    "service": "Complete the data of a registered non-Saudi subscriber automatically",
     "order": 2255,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "u3cg40ervmbdwtv6n4nazkb9"
   },
   {
-    "service": "رفع شكوى / استفسار",
+    "service": "File a complaint/inquiry",
     "order": 2435,
     "categoryOrder": 100,
-    "status": "created",
+    "status": "localized",
     "documentId": "elkhiyziz9ntmvuhxknbcdy6"
   },
   {
-    "service": "قيد سجل تجاري لمؤسسة فردية",
+    "service": "Registering a commercial registry for a sole proprietorship",
     "order": 264,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "x45u3ugjgtump8bow1tqqqnz"
   },
   {
-    "service": "تأسيس شركة ذات مسؤولية محدودة",
+    "service": "Establishing a limited liability company",
     "order": 280,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "tr0xrqse3o5cm3sact0wtvv5"
   },
   {
-    "service": "تعديل عقد التأسيس / نظام أساس",
+    "service": "Amending the Memorandum of Association/Baselaws",
     "order": 281,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "alqw8qdupct9l7uaaf212lbx"
   },
   {
-    "service": "توثيق التجارة الإلكترونية",
+    "service": "E-commerce documentation",
     "order": 282,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "gzko475kf5oba6xl82qepiuw"
   },
   {
-    "service": "إنشاء حساب",
+    "service": "Create an account",
     "order": 1025,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "gltll688gsnfo8145kphc74y"
   },
   {
-    "service": "التأكيد السنوي لبيانات السجل التجاري لمؤسسة فردية",
+    "service": "Annual confirmation of commercial registry data for an individual institution",
     "order": 1204,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "g00f3uqijqlh31jo7rgg79xa"
   },
   {
-    "service": "شطب سجل تجاري لمؤسسة فردية",
+    "service": "Cancellation of a commercial register for a sole proprietorship",
     "order": 1610,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "g3wgxk4zeee0vjv3gq9f6ps5"
   },
   {
-    "service": "تأسيس شركة بموجب ترخيص استثماري",
+    "service": "Establishing a company under an investment license",
     "order": 1752,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "z5ywriqvwftjex8z3cy0tkq6"
   },
   {
-    "service": "التحول من مؤسسة فردية إلى شركة",
+    "service": "Transformation from a sole proprietorship to a company",
     "order": 1753,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "x0wszs04yf5z6wzjk6jy821p"
   },
   {
-    "service": "تعديل بيانات السجل التجاري لمؤسسة فردية",
+    "service": "Amending the commercial registry data for an individual institution",
     "order": 1754,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "yrb5oza4km9xlknbacpe6osd"
   },
   {
-    "service": "نقل ملكية سجل تجاري لمؤسسة فردية",
+    "service": "Transferring ownership of a commercial register to a sole proprietorship",
     "order": 1755,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "yvh671aowlfv5hjhvhq1zfza"
   },
   {
-    "service": "حجز الاسم التجاري",
+    "service": "Trade name reservation",
     "order": 1758,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "vahz7pu4l21qnr3vkdza76bg"
   },
   {
-    "service": "مستخرج السجل التجاري/ الإفادة التجارية",
+    "service": "Commercial register extract/commercial statement",
     "order": 1759,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "vd8ai9do09nq32a9yl7gsgzf"
   },
   {
-    "service": "إضافة تفويض",
+    "service": "Add authorization",
     "order": 1764,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "kgspqjnu010r1yn9zaa3m6dg"
   },
   {
-    "service": "تعديل بيانات السجل التجاري الفرعي لشركة",
+    "service": "Amending the data of a company’s subsidiary commercial registry",
     "order": 1808,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "vprzacfcxff6dfnb5w8ueyd7"
   },
   {
-    "service": "إعادة تعيين السجل التجاري الرئيسي",
+    "service": "Reset the main commercial register",
     "order": 2429,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "aed9nf7aqojmy980w36vc8ui"
   },
   {
-    "service": "تعديل بيانات السجل التجاري الرئيسي لشركة",
+    "service": "Modifying the data of the main commercial registry of a company",
     "order": 2437,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "pffg72iscmnbaxth4ojqqjpf"
   },
   {
-    "service": "تحديث بيانات المستفيد للسجل التجاري",
+    "service": "Update beneficiary data for the commercial registry",
     "order": 2438,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "we4sqrafiqpzkz97lr11y7hl"
   },
   {
-    "service": "تحديث بيانات السجل التجاري الرئيسي/ الفرعي لشركة",
+    "service": "Updating the data of the main/sub-commercial registry of a company",
     "order": 2439,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "pysut2u427x5uttgui1lgdfq"
   },
   {
-    "service": "تمديد حجز اسم تجاري",
+    "service": "Extending the reservation of a trade name",
     "order": 2446,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "n3fbs5twyjlug4ug6kb6lr6e"
   },
   {
-    "service": "إلغاء اسم تجاري محجوز",
+    "service": "Cancellation of a reserved trade name",
     "order": 2447,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "v6yei7ad8g7q2aggvapw49i7"
   },
   {
-    "service": "التأكيد السنوي لبيانات السجل التجاري الرئيسي لشركة",
+    "service": "Annual confirmation of a company's main commercial registry data",
     "order": 2450,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "xwzijc7kungdej4v8pr3jgzt"
   },
   {
-    "service": "رفع تعليق السجل التجاري الرئيسي لشركة",
+    "service": "Lifting the suspension of the main commercial register of a company",
     "order": 2451,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "hi2b310lsfephoaw4m0piiz4"
   },
   {
-    "service": "التأكيد السنوي لبيانات السجل التجاري الفرعي لشركة",
+    "service": "Annual confirmation of a company’s subsidiary commercial registry data",
     "order": 2454,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "iyb8ddxlavn5u3fb142elcx4"
   },
   {
-    "service": "رفع تعليق السجل التجاري لمؤسسة فردية",
+    "service": "Lifting the suspension of the commercial registration of a sole proprietorship",
     "order": 2455,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "yuredg61uu3hicvqwe8q8lld"
   },
   {
-    "service": "رفع تعليق السجل التجاري الفرعي لشركة",
+    "service": "Lifting the suspension of the subsidiary commercial register of a company",
     "order": 2457,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "qbc97g9z8tlon9yaxt3slru1"
   },
   {
-    "service": "التأكيد السنوي لبيانات السجل التجاري لفرع شركة أجنبية / خليجية",
+    "service": "Annual confirmation of commercial registry data for a branch of a foreign/Gulf company",
     "order": 2458,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "oettyb2vrxvk1gpz2n1p5vc2"
   },
   {
-    "service": "رفع تعليق السجل التجاري لفرع شركة أجنبية / خليجية",
+    "service": "Lifting the suspension of the commercial register of a branch of a foreign/Gulf company",
     "order": 2460,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "n362zlg6l7bti22cmqo92j76"
   },
   {
-    "service": "شطب السجل التجاري الفرعي لفرع شركة أجنبية / خليجية",
+    "service": "Cancellation of the subsidiary commercial register of a branch of a foreign/Gulf company",
     "order": 2462,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "nymlttwpm4p66fd02oy07e2x"
   },
   {
-    "service": "تعديل عقد التأسيس / نظام أساس (خفض رأس المال)",
+    "service": "Amending the Memorandum of Association/Basic Law (Reducing Capital)",
     "order": 2482,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "c8mzgklqmxpiulm29grh2p6a"
   },
   {
-    "service": "تحديث بيانات مالك السجل التجاري",
+    "service": "Update the data of the commercial registry owner",
     "order": 2485,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "eftb0ksj83vqhmg7617joich"
   },
   {
-    "service": "تحديث بيانات السجل التجاري لمؤسسة فردية",
+    "service": "Updating the commercial registry data for an individual institution",
     "order": 2488,
     "categoryOrder": 26,
-    "status": "created",
+    "status": "localized",
     "documentId": "f4x3r1lauhe27a9pe6b3y66x"
   },
   {
-    "service": "العضو الأساسي الغير ممارس",
+    "service": "Non-practicing primary member",
     "order": 739,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "zyf2kz0sepiv6ccz2sda974j"
   },
   {
-    "service": "العضوية المهنية",
+    "service": "Professional membership",
     "order": 740,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "olkxtslyesyheayarz3308i4"
   },
   {
-    "service": "طلب التقدم لإختبار الشهادة المهنية في المحاسبة والمراجعة الحكومية",
+    "service": "Request to take the professional certification exam in government accounting and auditing",
     "order": 742,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "grcwfd3hkcely37mmqs4sj3e"
   },
   {
-    "service": "طلب التقدم لإختبار الشهادة المهنية في المعايير الدولية للتقرير المالي",
+    "service": "Request to take the professional certification exam in International Financial Reporting Standards",
     "order": 743,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "z4kqcoyxmfwop9h7xe581i8b"
   },
   {
-    "service": "نموذج تسجيل ترخيص لتقديم خدمات الزكاة والضرائب",
+    "service": "License registration form to provide zakat and tax services",
     "order": 745,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "y4ipw9hs9ei576i8x930yn5u"
   },
   {
-    "service": "عضوية الإنتساب (التسجيل المهني)",
+    "service": "Affiliate Membership (Professional Registration)",
     "order": 746,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "n39jtif35gztjx9mqn4ty0g6"
   },
   {
-    "service": "معايير المحاسبة المعتمدة",
+    "service": "Approved accounting standards",
     "order": 2050,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "tjou9j1rnbp3w42c38ar5pb7"
   },
   {
-    "service": "العضو الأساسي الممارس",
+    "service": "Primary practicing member",
     "order": 2052,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "a0xdjx9hnujtdsah6cz7we14"
   },
   {
-    "service": "برنامج البيانات السنوية",
+    "service": "Annual data program",
     "order": 2055,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "inu3qfkuckrh24nb621vbkt9"
   },
   {
-    "service": "برنامج التعليم المهني المستمر",
+    "service": "Continuing professional education programme",
     "order": 2057,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "u6v8j7bhi9a1grpzq7p17gut"
   },
   {
-    "service": "برنامج التهيئة والتدريب للاستعداد لاختبار مادة المحاسبة ومادة المراجعة",
+    "service": "Preparation and training program to prepare for the accounting and auditing tests",
     "order": 2058,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "abw6vfvfzhv3zj5bw6xkwp38"
   },
   {
-    "service": "تأجيل اختبار مواد الزمالة",
+    "service": "Postponing the fellowship exam",
     "order": 2060,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "mhewm0r3wufkublj6x0v32yv"
   },
   {
-    "service": "تأجيل الإختبارات المهنية",
+    "service": "Postponing professional exams",
     "order": 2061,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "o72uy0hl4cz4e7nf51flwq6t"
   },
   {
-    "service": "طلب التسجيل للدورات",
+    "service": "Request to register for courses",
     "order": 2069,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "pi3v9wta3s2n0uex7sm96a7k"
   },
   {
-    "service": "طلب التقدم لإختبار أخصائي ضريبة القيمة المضافة",
+    "service": "Request to apply for the value-added tax specialist exam",
     "order": 2070,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "f9dnwu376yj4v5whj4jh0270"
   },
   {
-    "service": "طلب التقدم لاختبار الزمالة",
+    "service": "Request to apply for the fellowship exam",
     "order": 2071,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "odgj87xi3axpbzdxrmvajdaw"
   },
   {
-    "service": "طلب التقدم لإختبار الشهادة المهنية في معايير المحاسبة للقطاع العام",
+    "service": "Request to take the professional certification exam in public sector accounting standards",
     "order": 2072,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "da1ls66u5xq4uetwjahyzavh"
   },
   {
-    "service": "طلب التقدم لإختبار شهادة فاحص احتيال مالي",
+    "service": "Request to take the financial fraud examiner certification exam",
     "order": 2073,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "uyoaeb3eayhal2f00umbdppx"
   },
   {
-    "service": "طلب التقدم لإختبار فني المحاسبة",
+    "service": "Request to apply for the accounting technician exam",
     "order": 2074,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "zufl4yxjsjfudtdsv478si79"
   },
   {
-    "service": "طلب إلغاء تسجيل في دورة",
+    "service": "Request to cancel registration in a course",
     "order": 2075,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "h1o70e7kkwsju66ng9etl5vb"
   },
   {
-    "service": "طلب تأجيل دورة",
+    "service": "Request to postpone a course",
     "order": 2076,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "nebyuslsov52m7pj7z0ycj3p"
   },
   {
-    "service": "طلب دورات خاصة للشركات والجهات الحكومية",
+    "service": "Request special courses for companies and government agencies",
     "order": 2078,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "tyeao0nfxp97h0b66dwchf3t"
   },
   {
-    "service": "طلب نقل دورة",
+    "service": "Request to transfer a course",
     "order": 2080,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "d8ppp0nuasvu7lrckbp2ksh8"
   },
   {
-    "service": "عضوية الطالب",
+    "service": "Student membership",
     "order": 2085,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "y5ru19s1jr1mj33drodhbmu8"
   },
   {
-    "service": "معايير المحاسبة المعتمدة - نسخة ورقية",
+    "service": "Approved accounting standards - hard copy",
     "order": 2087,
     "categoryOrder": 45,
-    "status": "created",
+    "status": "localized",
     "documentId": "fsiskf43kmt9wofkpfu9bkmr"
   },
   {
-    "service": "تسجيل علامة تجارية",
+    "service": "Trademark registration",
     "order": 474,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "sekraqn41rtfzt5t99hmjf9c"
   },
   {
-    "service": "نقل ملكية علامة تجارية",
+    "service": "Transfer of ownership of a trademark",
     "order": 475,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "ma0fljd8kh0io4uee75lnpg5"
   },
   {
-    "service": "شهادة إيداع لعلامة تجارية",
+    "service": "Certificate of filing for a trademark",
     "order": 562,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "if844qq08y3mt9rksycvo9hw"
   },
   {
-    "service": "تجديد علامة تجارية",
+    "service": "Brand renewal",
     "order": 1019,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "hfqom4mqh1ii7hk5cg27c0df"
   },
   {
-    "service": "تسجيل علامة صوتية",
+    "service": "Record an audio tag",
     "order": 1772,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "rn40qn3pp6h8ia5ys2uzgait"
   },
   {
-    "service": "تسجيل علامة جماعية",
+    "service": "Register a collective mark",
     "order": 1773,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "vtrr0dxaoni1k15p9tk8rwk9"
   },
   {
-    "service": "تسجيل علامة الفحص أو المراقبة",
+    "service": "Registration of inspection or monitoring mark",
     "order": 1774,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "b9jvpwl5cna2rjlhhhag326s"
   },
   {
-    "service": "تسجيل علامة الهيئات ذات النفع العام والمؤسسات المهنية",
+    "service": "Registering the trademark of public benefit bodies and professional institutions",
     "order": 1775,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "lq53bgjzvkmbyf459e5565il"
   },
   {
-    "service": "تعديل عنوان مالك العلامة",
+    "service": "Modify the address of the trademark owner",
     "order": 1776,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "gz1qh91zcj9fli1ciel3ebbb"
   },
   {
-    "service": "تعديل اسم مالك العلامة",
+    "service": "Modify the name of the trademark owner",
     "order": 1777,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "x0vctv4dj8dec1wfixhghu4k"
   },
   {
-    "service": "طلب الترخيص باستخدام العلامة التجارية",
+    "service": "Request a license to use the trademark",
     "order": 1778,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "dgn2vd1r7c6u6l3mh8sr3wem"
   },
   {
-    "service": "شطب علامة تجارية",
+    "service": "Cancellation of a trademark",
     "order": 1780,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "ufv7r3k0zwtlz0q5vsjbwm9o"
   },
   {
-    "service": "رهن علامة تجارية",
+    "service": "Brand mortgage",
     "order": 1781,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "qbc39joegzgmcp1915dpg4sx"
   },
   {
-    "service": "إلغاء الترخيص باستخدام العلامة التجارية",
+    "service": "Cancellation of the license to use the trademark",
     "order": 1782,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "qav68s7jq2xnkth7qn1snifp"
   },
   {
-    "service": "فك رهن علامة تجارية",
+    "service": "Release a trademark mortgage",
     "order": 1783,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "q9qpbk8ukl2i67ni4d4x7jzy"
   },
   {
-    "service": "طلب صورة طبق الأصل من شهادة التسجيل",
+    "service": "Request a true copy of the registration certificate",
     "order": 1784,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "e65ujjj20sso7g6drsxrivgc"
   },
   {
-    "service": "بحث عن علامة تجارية",
+    "service": "Search for a trademark",
     "order": 1787,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "b62zyor3ms6lf3e23bzpjoij"
   },
   {
-    "service": "تعديل صورة العلامة التجارية",
+    "service": "Modify the brand image",
     "order": 1788,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "yc8tt8impzykzq8rius1etms"
   },
   {
-    "service": "قصر المنتجات",
+    "service": "Palace products",
     "order": 1789,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "ivkjxvikyhndjyqal8af01xu"
   },
   {
-    "service": "تعديل بيانات العلامة (تغيير اسم وكيل)",
+    "service": "Modifying the trademark data (changing the name of an agent)",
     "order": 1790,
     "categoryOrder": 37,
-    "status": "created",
+    "status": "localized",
     "documentId": "xom6bafi6wcxoqldq0fsqlm7"
   },
   {
-    "service": "اعتماد مهني(مهندس-معماري-مهندس تقني) ​",
+    "service": "Professional accreditation (engineer-architect-technical engineer).",
     "order": 700,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "j00nvjrqdckwpbtlux1vvvst"
   },
   {
-    "service": "عضوية التخصصات المساندة للهندسة(أخصائي)",
+    "service": "Membership in engineering supporting disciplines (specialist)",
     "order": 701,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "a8x4sq3oqskcamag7e2ck9qr"
   },
   {
-    "service": "ا​لعضويات الفنية(فني - فني مساعد أول - فني مساعد)",
+    "service": "Technical Memberships (Technician - Senior Assistant Technician - Assistant Technician)",
     "order": 702,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "w2kxdyy6al2ej7s33iui1i13"
   },
   {
-    "service": "عضوية طالب",
+    "service": "Student membership",
     "order": 703,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "gpu5cxorpyhun3xb7ep9jy2n"
   },
   {
-    "service": "عضوية مهتم",
+    "service": "Interested in membership?",
     "order": 2045,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "jltefq2j260xdol99eagq0q6"
   },
   {
-    "service": "تجديد اعتماد مهني(مهندس-معماري-مهندس تقني)",
+    "service": "Renewal of professional accreditation (engineer - architect - technical engineer)",
     "order": 2046,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "mfnyh16tdmtiqr2z7srt6lat"
   },
   {
-    "service": "تجديد ا​لعضويات الفنية(فني - فني مساعد أول - فني مساعد)",
+    "service": "Renewal of technical memberships (technician - senior assistant technician - assistant technician)",
     "order": 2047,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "p2057jfkecixvnlxetgduz41"
   },
   {
-    "service": "تجديد عضوية التخصصات المساندة للهندسة(أخصائي)",
+    "service": "Renewal of membership in engineering supporting specialties (specialist)",
     "order": 2048,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "qkke8wxmud85zla7l88ksnv3"
   },
   {
-    "service": "تجديد عضوية مهتم",
+    "service": "Interested in renewing membership?",
     "order": 2049,
     "categoryOrder": 44,
-    "status": "created",
+    "status": "localized",
     "documentId": "cn2i89oqi2kiek0u4ynvhhqd"
   },
   {
-    "service": "خدمة التفاويض",
+    "service": "Negotiation service",
     "order": 1663,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "d1fhus6azwg1dmmw32c8qkg9"
   },
   {
-    "service": "ترخيص دار نشر إلكتروني",
+    "service": "Electronic publishing house license",
     "order": 1676,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "r2mfne39u7bc2x92c9vd8i6x"
   },
   {
-    "service": "ترخيص تقديم الأفراد للمحتوى الإعلاني عبر منصات التواصل الاجتماعي (موثوق)",
+    "service": "License for individuals to submit advertising content via social media platforms (trusted)",
     "order": 1686,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "rceiro2zl7fj0afvu1j0zifx"
   },
   {
-    "service": "ترخيص لتشغيل استديو \"إنتاج\"",
+    "service": "License to operate an “production” studio",
     "order": 1690,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "idxru9pics524nzlntwuvarn"
   },
   {
-    "service": "ترخيص الطباعة",
+    "service": "Printing license",
     "order": 1691,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "n103ol2auw7xbanep29gywxj"
   },
   {
-    "service": "إصدار ترخيص مكاتب الدعاية والاعلان الإعلامية المرئية والمسموعة ومكاتب التسويق ووكالات الدعاية",
+    "service": "Issuing a license for audio-visual media advertising offices, marketing offices, and advertising agencies",
     "order": 1693,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "kr5u9hqujcu6m6w03y9gitag"
   },
   {
-    "service": "ترخيص نشاط نشر الكتب",
+    "service": "Licensing book publishing activity",
     "order": 1695,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "beyatnbvkuitpe80g9ki0gu0"
   },
   {
-    "service": "ترخيص نشر الصحف والمجلات",
+    "service": "License to publish newspapers and magazines",
     "order": 1697,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "ttoge4o9sgidlfsr97vicvd9"
   },
   {
-    "service": "ترخيص البيع بالجملة للكتب والمجلات",
+    "service": "Wholesale license for books and magazines",
     "order": 1698,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "qvexuh7m6nl0fpj50nj0ga9i"
   },
   {
-    "service": "ترخيص الخدمات الصحفية",
+    "service": "Press services license",
     "order": 1699,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "hwblqtssfw74a0852w6yy6d1"
   },
   {
-    "service": "ترخيص منصة توزيع محتوى مرئي ومسموع عبر بروتوكول الإنترنت",
+    "service": "License for a platform for distributing visual and audio content via Internet Protocol",
     "order": 1700,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "ytw7ab2zmwhdyb6uu1105jr2"
   },
   {
-    "service": "ترخيص محطة الربط العلوي بالأقمار الصناعية",
+    "service": "Licensing of the satellite uplink station",
     "order": 1701,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "vi7np9zizq9qgsldf78xvfux"
   },
   {
-    "service": "ترخيص منصة توزيع عبر أجهزة الاستقبال الفضائي",
+    "service": "Licensing a distribution platform via satellite receivers",
     "order": 1702,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "bjzdla0y1o3ub6r8k8r1ax45"
   },
   {
-    "service": "ترخيص البيع بالتجزئة للبرمجيات",
+    "service": "Software retail license",
     "order": 1716,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "fdx8j6xrsnr8o8d5qof5kjig"
   },
   {
-    "service": "ترخيص أنشطة النسخ و التصوير",
+    "service": "Licensing copying and photocopying activities",
     "order": 1717,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "avjibh0qii76bbgsdo68fc6f"
   },
   {
-    "service": "ترخيص الدراسات والاستشارات الإعلامية",
+    "service": "Licensing media studies and consultations",
     "order": 1718,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "scqy7a13jv7lklbnmkjokmo7"
   },
   {
-    "service": "ترخيص نشاط الصحافة الإلكترونية",
+    "service": "Electronic press activity license",
     "order": 1719,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "t3oga28opcyyb2hmw4ud3tw1"
   },
   {
-    "service": "ترخيص نشاط التصوير الفوتوغرافي",
+    "service": "Photography activity license",
     "order": 1722,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "hr6oe4jyj0hf4rz0i8mxwa6n"
   },
   {
-    "service": "ترخيص نشاط الرسم والخط",
+    "service": "Drawing and calligraphy activity license",
     "order": 1723,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "hijehfomgz9a8ka7v1lt1tg8"
   },
   {
-    "service": "ترخيص البيع بالتجزئة للكتب المستعملة",
+    "service": "Retail license for used books",
     "order": 1724,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "ktjspj0k438jb9gjxzhvyl86"
   },
   {
-    "service": "ترخيص نشاط تصميم و برمجة البرمجيات الخاصة",
+    "service": "Licensing the activity of designing and programming private software",
     "order": 1725,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "jnprikc50yc6hw70uxqafs29"
   },
   {
-    "service": "ترخيص بيع وتأجير المحتوى الإعلامي المرئي والمسموع",
+    "service": "License to sell and rent audio-visual media content",
     "order": 1726,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "qt9x3kwd5cgjn8a32ghr1ez3"
   },
   {
-    "service": "البيع بالتجزئة لإجهزة استقبال المحتوى الإعلامي وملحقاتها",
+    "service": "Retail sale of media content receivers and accessories",
     "order": 1728,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "v44gcdlq6h0zuwllo27v7kns"
   },
   {
-    "service": "ترخيص محطة بث أرضية",
+    "service": "Terrestrial broadcast station license",
     "order": 1729,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "z7cx3dbl0sar9cjyvuhg8xe4"
   },
   {
-    "service": "ترخيص إصدار مطبوعة",
+    "service": "Publication license",
     "order": 1730,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "enbto5a88b1an94cg5p11yvj"
   },
   {
-    "service": "تجديد رخصة تقديم الأفراد للمحتوى الإعلاني عبر منصات التواصل الاجتماعي (موثوق)",
+    "service": "Renewing the license for individuals to provide advertising content via social media platforms (trusted)",
     "order": 2484,
     "categoryOrder": 97,
-    "status": "created",
+    "status": "localized",
     "documentId": "c7dwqywl5w92pcj5qtahgtfc"
   },
   {
-    "service": "تسجيل الطائرات بدون طيار (الدرون)",
+    "service": "Drone registration",
     "order": 2503,
     "categoryOrder": 113,
-    "status": "created",
+    "status": "localized",
     "documentId": "lufm2ow62obe57jlkly4c64c"
   },
   {
-    "service": "رخصة فال للوساطة والتسويق للمنصات العقارية الإلكترونية",
+    "service": "Val license for brokerage and marketing of electronic real estate platforms",
     "order": 1484,
     "categoryOrder": 89,
-    "status": "created",
+    "status": "localized",
     "documentId": "gihtv21199xn1uig9d8nucdo"
   },
   {
-    "service": "رخصة فال الوساطة والتسويق",
+    "service": "FAL Brokerage and Marketing License",
     "order": 2181,
     "categoryOrder": 89,
-    "status": "created",
+    "status": "localized",
     "documentId": "n8fs8ole1yxilo7oq7z1yid4"
   },
   {
-    "service": "رخصة فال الإستشارات العقارية",
+    "service": "Vale real estate consultancy license",
     "order": 2182,
     "categoryOrder": 89,
-    "status": "created",
+    "status": "localized",
     "documentId": "hk8519s1aojdkiiwyv4n673l"
   },
   {
-    "service": "رخصة فال للتحليلات العقارية",
+    "service": "Vale Real Estate Analytics License",
     "order": 2183,
     "categoryOrder": 89,
-    "status": "created",
+    "status": "localized",
     "documentId": "euyy356dt7a027fzs1on818z"
   },
   {
-    "service": "إدراج منتجات التجميل",
+    "service": "Insert beauty products",
     "order": 2352,
     "categoryOrder": 41,
-    "status": "created",
+    "status": "localized",
     "documentId": "uytc22rhza6hcvo3l1k2fc9z"
   },
   {
-    "service": "تسجيل منتجات الغذاء",
+    "service": "Registration of food products",
     "order": 2353,
     "categoryOrder": 41,
-    "status": "created",
+    "status": "localized",
     "documentId": "wn7m4myxttu6lhrxycfetap0"
   },
   {
-    "service": "فسح منتجات التجميل",
+    "service": "Clear beauty products",
     "order": 2354,
     "categoryOrder": 41,
-    "status": "created",
+    "status": "localized",
     "documentId": "fy0m6t6w39vq1u1623q4xw2c"
   },
   {
-    "service": "إصدار وكالة فردية",
+    "service": "Issuing an individual agency",
     "order": 662,
     "categoryOrder": 54,
-    "status": "created",
+    "status": "localized",
     "documentId": "f7lp5kupt06ehcn4aai1k9uv"
   },
   {
-    "service": "إصدار وكالة متعددة الأطراف",
+    "service": "Multilateral agency version",
     "order": 669,
     "categoryOrder": 54,
-    "status": "created",
+    "status": "localized",
     "documentId": "dkg71wq08k7716juye61wxtj"
   },
   {
-    "service": "طلب تسجيل وكالة",
+    "service": "Request to register an agency",
     "order": 1367,
     "categoryOrder": 54,
-    "status": "created",
+    "status": "localized",
     "documentId": "ok8l9gk39zv6q4nsfjkmedhc"
   },
   {
-    "service": "فسخ وكالة",
+    "service": "Termination of agency",
     "order": 1369,
     "categoryOrder": 54,
-    "status": "created",
+    "status": "localized",
     "documentId": "d0bptpp7dteyf09sw9r46f93"
   },
   {
-    "service": "إصدار الإقامة - أعمال",
+    "service": "Issuance of residence permit - business",
     "order": 710,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "tq5kow8gkhu3cvn78viu0zo2"
   },
   {
-    "service": "إصدار تأشيرة الخروج والعودة - أعمال",
+    "service": "Issuing an exit and re-entry visa - business",
     "order": 711,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "ydzdkmhdff4d7d9dym3bud98"
   },
   {
-    "service": "إصدار تأشيرة الخروج النهائي - أعمال",
+    "service": "Issuing a final exit visa - business",
     "order": 712,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "j6g2n1iuh3bofq1o094y8llv"
   },
   {
-    "service": "إصدار تأشيرة خروج نهائي خلال فترة التجربة - أعمال",
+    "service": "Issuing a final exit visa during the trial period - Business",
     "order": 713,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "a91ltg0v2y0fnlpvrvmfa9oj"
   },
   {
-    "service": "إلغاء تأشيرة الخروج والعودة - أعمال",
+    "service": "Exit and re-entry visa cancellation - Business",
     "order": 714,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "ub8njrau5h5zk0xk763xmili"
   },
   {
-    "service": "إلغاء تأشيرة الخروج النهائي - أعمال",
+    "service": "Cancellation of final exit visa - Business",
     "order": 715,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "ijukrrq4iyfzp2t1ia907cwc"
   },
   {
-    "service": "نقل الخدمات - أعمال",
+    "service": "Transport services - business",
     "order": 716,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "vjmrcs1y0rbmrspvjzcz1x5c"
   },
   {
-    "service": "تعديل المهنة - أعمال",
+    "service": "Profession modification - business",
     "order": 717,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "xjy7ved9a20tviu2lma9y24n"
   },
   {
-    "service": "تحديث معلومات جواز سفر - أعمال",
+    "service": "Updating passport information - business",
     "order": 1551,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "c4kgxt2fhswpsydntuji705j"
   },
   {
-    "service": "تجديد الإقامة (أعمال)",
+    "service": "Residency renewal (business)",
     "order": 1552,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "oyjrp0y9rvqtq5aqbfcozdiv"
   },
   {
-    "service": "طلب تقرير مقيم - أعمال",
+    "service": "Request a resident report - business",
     "order": 1856,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "omsk4vusjzjq7smqyghnz886"
   },
   {
-    "service": "إنشاء تفويض - أعمال",
+    "service": "Create authorization - works",
     "order": 1857,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "yfyvgyazoxws8bwi86k5dhgv"
   },
   {
-    "service": "تعديل العنوان - أعمال",
+    "service": "Edit Title - Business",
     "order": 1858,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "he7pmu8m6sz76r0ffs1mfmkd"
   },
   {
-    "service": "قبول ورفض التفويض - أعمال",
+    "service": "Accepting and rejecting authorization - works",
     "order": 1859,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "igtpe5pnbt37ay5dlfxu6l7v"
   },
   {
-    "service": "الإطلاع على التفاويض وإلغائها - أعمال",
+    "service": "Viewing and canceling authorizations - business",
     "order": 1860,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "ogaxqi2883dzitbca3jojann"
   },
   {
-    "service": "طلب توصيل وثيقة بالبريد - أعمال",
+    "service": "Request to deliver a document by mail - Business",
     "order": 1861,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "p68ecs8v31ml2ildz6y4yqwq"
   },
   {
-    "service": "إسقاط المركبات - أعمال",
+    "service": "Dropping Vehicles - Business",
     "order": 1862,
     "categoryOrder": 99,
-    "status": "created",
+    "status": "localized",
     "documentId": "zfzvzwk8bqhvwjefgriczxuu"
   },
   {
-    "service": "تصاريح تعاقد أجير",
+    "service": "Hiring contract permits",
     "order": 913,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "qa72u6654oatugccdl5ong32"
   },
   {
-    "service": "تصريح إعارة أجير",
+    "service": "Hired loan permit",
     "order": 914,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "el9c52ltzqustt6id15hin1i"
   },
   {
-    "service": "تصريح إعارة أجير - المنشآت الفردية (1-5)",
+    "service": "Hired loan permit - individual establishments (1-5)",
     "order": 915,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "rcu4bnt1gni92f5lz8y512w8"
   },
   {
-    "service": "تصريح إسناد السعوديين",
+    "service": "Saudi support permit",
     "order": 916,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "nl2lyoe3vvh0im25zuondyfk"
   },
   {
-    "service": "تصريح مرافقين أجير - القطاع الصحي",
+    "service": "Permit for hired companions - health sector",
     "order": 919,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "u3xu9xygnabp17xy3vzjvjh9"
   },
   {
-    "service": "تصريح أهلية عمل للزائرين (العمل المؤقت للزائرين)",
+    "service": "Work eligibility permit for visitors (temporary work for visitors)",
     "order": 923,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "w4oer07jjz0jxd98xrz1tc1o"
   },
   {
-    "service": "إصدار عقد أجير (تعاقد أجير)",
+    "service": "Issuing an employee contract (employee contract)",
     "order": 1257,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "dxbkpskbwrxj2fua17wbw8vi"
   },
   {
-    "service": "أجير مواسم السياحة",
+    "service": "Tourism season renter",
     "order": 2492,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "auv9q6rir0x1szctn0qyerxj"
   },
   {
-    "service": "أجير 555",
+    "service": "Ajir 555",
     "order": 2494,
     "categoryOrder": 57,
-    "status": "created",
+    "status": "localized",
     "documentId": "z016zl42nq89ybtdm7cvzxrx"
   },
   {
-    "service": "إصدار رخصة تجارية",
+    "service": "Issuing a commercial license",
     "order": 300,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "kd6igbmpavjyi27vtlz3femu"
   },
   {
-    "service": "تجديد رخصة تجارية",
+    "service": "Renewal of a commercial license",
     "order": 301,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "x1poc7p0le3o6qpfeo51r36b"
   },
   {
-    "service": "إلغاء رخصة نشاط تجاري",
+    "service": "Cancellation of a commercial activity license",
     "order": 302,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "cmvx708qnh8jgag9lhn77kfv"
   },
   {
-    "service": "نقل ملكية رخصة تجارية",
+    "service": "Transfer of ownership of a commercial license",
     "order": 303,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "wfedjh7qw119bxes3n80utgs"
   },
   {
-    "service": "تعديل رخصة نشاط تجاري",
+    "service": "Amending a commercial activity license",
     "order": 304,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "vw890dh5mi1j2zxft2z9ootq"
   },
   {
-    "service": "خدمة طباعة رمز الاستجابة السريع",
+    "service": "QR code printing service",
     "order": 305,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "kw6ldcsvg3xff708lyjl2g8w"
   },
   {
-    "service": "تصريح بالأنشطة التجارية 24 ساعة",
+    "service": "24-hour permit for commercial activities",
     "order": 306,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "pjtph3d8lwu7nwl053koudy8"
   },
   {
-    "service": "تصريح تقديم منتجات التبغ",
+    "service": "Permit to provide tobacco products",
     "order": 307,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "elcsxlk5fgblhwctfniifhkx"
   },
   {
-    "service": "إصدار رخصة إشغال رصيف",
+    "service": "Issuing a sidewalk occupancy license",
     "order": 1309,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "ds6hq73aqm3cu8v0zvetpyx5"
   },
   {
-    "service": "إصدار تقرير مساحي",
+    "service": "Issuing a survey report",
     "order": 2365,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "jiev0ztyd4v1vkb1ss4r0q96"
   },
   {
-    "service": "إصدار رخصة تشغيلية للوحة دعائية أو إعلانية",
+    "service": "Issuing an operating license for an advertising or billboard",
     "order": 2366,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "ejgix0ea4wwj8b850sjq0lqb"
   },
   {
-    "service": "اصدار تصريح خدمة التوصيل المنزلي",
+    "service": "Issuing a home delivery service permit",
     "order": 2493,
     "categoryOrder": 34,
-    "status": "created",
+    "status": "localized",
     "documentId": "qw5fovfmexte18ig00uyb185"
   },
   {
-    "service": "تسجيل العنوان الوطني (أعمال)",
+    "service": "National address registration (business)",
     "order": 295,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "qpqew2nvmbgd3btbenjjlnur"
   },
   {
-    "service": "تعديل العنوان الوطني للمنشأة",
+    "service": "Modifying the national address of the facility",
     "order": 296,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "auoy2t6d4mqvtpgmx2b3d2oj"
   },
   {
-    "service": "إنشاء حساب (أفراد)",
+    "service": "Create an account (individuals)",
     "order": 297,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "x9ctbi68jyw36wd1ebuu6fvc"
   },
   {
-    "service": "تسجيل العنوان الوطني (أفراد)",
+    "service": "National address registration (individuals)",
     "order": 298,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "lnmn0sgbgytue1pz9dvda28k"
   },
   {
-    "service": "تعديل العنوان الوطني (أفراد)",
+    "service": "Changing the national address (individuals)",
     "order": 299,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "rkpsibfwumxprulrkjxk9t11"
   },
   {
-    "service": "إنشاء حساب (أعمال)",
+    "service": "Create an account (business)",
     "order": 1035,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "o5uzgu8l3oxnwtqs2o9gx632"
   },
   {
-    "service": "طباعة العنوان الوطني",
+    "service": "Print the national address",
     "order": 1426,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "sh52poye7tq8d9r3rv2dyluc"
   },
   {
-    "service": "استعادة كلمة المرور",
+    "service": "Password recovery",
     "order": 1472,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "kua49swmekrk76bsfdnqugda"
   },
   {
-    "service": "رفع شكوى",
+    "service": "File a complaint",
     "order": 1474,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "u7xfw38kk3fai2zjaneiypsj"
   },
   {
-    "service": "تعديل البيانات",
+    "service": "Modify data",
     "order": 1829,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "a8n8ssczydxewmad6qew9wx6"
   },
   {
-    "service": "إصدار فاتورة اشتراك",
+    "service": "Issuing a subscription invoice",
     "order": 2351,
     "categoryOrder": 36,
-    "status": "created",
+    "status": "localized",
     "documentId": "sr6qd9dg6egkwlmu9z8p0pin"
   },
   {
-    "service": "إدارة وتوثيق العقود",
+    "service": "Contract management and documentation",
     "order": 259,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "bhepu92uore7qqan0m02dcjn"
   },
   {
-    "service": "إصدار التأشيرات الفورية",
+    "service": "Issuance of instant visas",
     "order": 260,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "xwslqmh1hd5o65jlj644d5yk"
   },
   {
-    "service": "نقل خدمة عامل",
+    "service": "Moving service agent",
     "order": 262,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "ep64uzg5nj7nn5e9kepuoyu9"
   },
   {
-    "service": "إصدار رخصة عمل",
+    "service": "Issuing a work permit",
     "order": 310,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "up4jpwqo20kgb7uuedfqmxlp"
   },
   {
-    "service": "إصدار شهادة التوطين (السعودة)",
+    "service": "Issuing a Saudization certificate",
     "order": 311,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "i983sm9ywausmlw2nameudzn"
   },
   {
-    "service": "حجز موعد وزارة الموارد البشرية والتنمية الاجتماعية",
+    "service": "Book an appointment for the Ministry of Human Resources and Social Development",
     "order": 588,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "m4mgi3lvyytw2o1onswh5lrq"
   },
   {
-    "service": "تغيير مهنة عامل",
+    "service": "Changing a worker's profession",
     "order": 593,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "da6dho6l8bv930mtivtro9sj"
   },
   {
-    "service": "إنشاء حساب مفوض",
+    "service": "Create a delegate account",
     "order": 1002,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "i4zp5d4uqegopmbrf1f6ysm0"
   },
   {
-    "service": "إنشاء حساب",
+    "service": "Create an account",
     "order": 1029,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "ibxdxk10zbws2k857z8wa40w"
   },
   {
-    "service": "إلغاء تأشيرة",
+    "service": "Visa cancellation",
     "order": 1075,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "i68yxli6nrnuaa8atrasgls8"
   },
   {
-    "service": "انقطاع عن العمل",
+    "service": "Interruption from work",
     "order": 1216,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "ro2jck73pcf38yo9eiqs3v4v"
   },
   {
-    "service": "استعادة كلمة المرور",
+    "service": "Password recovery",
     "order": 1255,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "w4c7qvwtkff4blfasqu3e75t"
   },
   {
-    "service": "الإفصاح عن التدريب",
+    "service": "Disclosure of training",
     "order": 1256,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "xqkinacftsqehcdhk7icemkn"
   },
   {
-    "service": "تعديل بيانات ملف منشأة",
+    "service": "Modify facility file data",
     "order": 1281,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "iph2zwikwj0n18q75k0gornq"
   },
   {
-    "service": "إلغاء ملف منشأة",
+    "service": "Uninstall an established file",
     "order": 1282,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "v6urm2cc8tikmbypfp917o8e"
   },
   {
-    "service": "تغيير نشاط المنشأة",
+    "service": "Changing the facility's activity",
     "order": 1283,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "bqmgniyowxzx32sr6lmk34u9"
   },
   {
-    "service": "إدارة مواقع المنشأة",
+    "service": "Managing facility sites",
     "order": 1284,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "end7n1ihfc2ux8hurp49czva"
   },
   {
-    "service": "تعيين مواقع الموظفين",
+    "service": "Assigning employee locations",
     "order": 1433,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "d1fqdof7ejgoi23wzqxmo2s4"
   },
   {
-    "service": "تجديد اشتراك",
+    "service": "Subscription renewal",
     "order": 1435,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "h2dtkxhwtj76zlqr91sgfzda"
   },
   {
-    "service": "تعديل عقد عمل",
+    "service": "Amending an employment contract",
     "order": 1490,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "whnf6uwvojkrxbjguzg46ech"
   },
   {
-    "service": "تجديد رخصة عمل",
+    "service": "Renewal of a work permit",
     "order": 1492,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "cfakea5jp2tsrfc6mp19czc6"
   },
   {
-    "service": "إنشاء لائحة تنظيم العمل النموذجية (لائحة العمل الموحد)",
+    "service": "Creating a model work organization regulation (unified work regulation)",
     "order": 1505,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "est5kjgdkb9ukigogcime6ha"
   },
   {
-    "service": "إنشاء لائحة تنظيم العمل المخصصة",
+    "service": "Create a custom work breakdown list",
     "order": 1506,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "w9sn71174q73a4ps2gdma160"
   },
   {
-    "service": "نقل خدمات تابع",
+    "service": "Moving services affiliated with",
     "order": 1509,
     "categoryOrder": 29,
-    "status": "created",
+    "status": "localized",
     "documentId": "zrhd96oq58unqnc3ud2y0jl3"
   },
   {
-    "service": "رفع ملف الرواتب (مدد الرواتب)",
+    "service": "Uploading the salary file (salary periods)",
     "order": 283,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "m9h23b3bm93oghn0e1qymn1y"
   },
   {
-    "service": "إضافة آيبان المنشأة (مدد رواتب)",
+    "service": "Adding the establishment’s IBAN (salary periods)",
     "order": 567,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "vqo2tj4hs01c0kjq2u52kpnf"
   },
   {
-    "service": "إضافه آيبان الموظف (مدد الرواتب)",
+    "service": "Adding the employee IBAN (salary periods)",
     "order": 568,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "ww5i02ojmsmsf9o3px3cyyva"
   },
   {
-    "service": "إنشاء حساب",
+    "service": "Create an account",
     "order": 1030,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "x0dwxuevp5txwhsxg5n7a03a"
   },
   {
-    "service": "تبرير مخالفات حماية الأجور",
+    "service": "Justifying wage protection violations",
     "order": 1137,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "zbuqgv6jeffbk0phlgs0gil2"
   },
   {
-    "service": "تجديد اشتراك مدد (مدد الرواتب)",
+    "service": "Renewing Madad subscription (salary extensions)",
     "order": 1146,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "gl7mhulrg9whi5h82gzdmo1r"
   },
   {
-    "service": "تعديل الحساب",
+    "service": "Edit account",
     "order": 1163,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "ye7986yv97l8ortca5nfx8mq"
   },
   {
-    "service": "استعادة كلمة المرور",
+    "service": "Password recovery",
     "order": 1427,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "uhdh8lxrgxkbv7kvbe1u2jks"
   },
   {
-    "service": "طباعة تقرير مدد (مسير الرواتب)",
+    "service": "Printing a Madad report (salaries history)",
     "order": 1428,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "hkct0mhddfxt8s54fb9cj0j4"
   },
   {
-    "service": "رفع شكوى",
+    "service": "File a complaint",
     "order": 1473,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "n3lbyqp3lkaf6gy9a9pzydny"
   },
   {
-    "service": "تعديل راتب موظف (مدد الرواتب)",
+    "service": "Modifying an employee’s salary (salary extensions)",
     "order": 1499,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "dmb1w5nvy1u8na0fbx4qt809"
   },
   {
-    "service": "إنهاء خدمة موظف",
+    "service": "Termination of an employee's service",
     "order": 1500,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "hoyc3lpz39gty8rffgv2odg7"
   },
   {
-    "service": "طباعة مفردات المرتب",
+    "service": "Print salary items",
     "order": 1820,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "d3vfsn5alufy95lkxe068fj9"
   },
   {
-    "service": "طباعة شهادة الالتزام",
+    "service": "Print the compliance certificate",
     "order": 1821,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "g4t0nesfhnu48ey3x0asvwtz"
   },
   {
-    "service": "تحديث بيانات الموظفين",
+    "service": "Updating employee data",
     "order": 2260,
     "categoryOrder": 30,
-    "status": "created",
+    "status": "localized",
     "documentId": "ck3s73jd5rxctwh5qr4nxdxw"
   },
   {
-    "service": "إصدار إقامة",
+    "service": "Issuing a residence permit",
     "order": 288,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "du7w6v3ulhngnbom01jpnl6s"
   },
   {
-    "service": "تجديد إقامة",
+    "service": "Residence renewal",
     "order": 289,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "ifnuv588addqjta53w47j951"
   },
   {
-    "service": "إصدار تأشيرة خروج وعودة",
+    "service": "Issuing an exit and re-entry visa",
     "order": 290,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "gnckvklwhvii4fdu0it121rx"
   },
   {
-    "service": "إدارة المستخدمين",
+    "service": "User management",
     "order": 292,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "yw7ui0ozfuue26gxa8umnox1"
   },
   {
-    "service": "نقل خدمات مقيم",
+    "service": "Resident transportation services",
     "order": 293,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "tdpcx3rzdgunyrr9pknvgrgw"
   },
   {
-    "service": "تغيير المستخدم الرئيسي",
+    "service": "Change the main user",
     "order": 859,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "q8ddw3glz7hdvtquhpetniay"
   },
   {
-    "service": "إنشاء حساب منصة مقيم",
+    "service": "Create a Muqeem platform account",
     "order": 1032,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "zykssvblsl3vczturm8x7x6m"
   },
   {
-    "service": "خدمات الطباعة (طباعة إقامة)",
+    "service": "Printing services (residence printing)",
     "order": 1081,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "lozn5n97gzp7p3xds1j2aa1f"
   },
   {
-    "service": "طباعة تقرير مقيم",
+    "service": "Print an assessor report",
     "order": 1094,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "bb88uzd5zf9ottoqbao9qxfx"
   },
   {
-    "service": "إصدار تأشيرة خروج نهائي",
+    "service": "Issuing a final exit visa",
     "order": 1145,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "p9azv6prhgfqc7ej8twwykr6"
   },
   {
-    "service": "تعديل بيانات المستخدم",
+    "service": "Modify user data",
     "order": 1162,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "p4xuzfe7nmmobdu7hs4klv18"
   },
   {
-    "service": "تجديد  اشتراك منصة مقيم",
+    "service": "Renewing the Muqeem platform subscription",
     "order": 1201,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "gdwg79vlcfzpv5vooewgnz2p"
   },
   {
-    "service": "تحديث معلومات جواز",
+    "service": "Update passport information",
     "order": 1304,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "mfs3kixlvoxf9jrk19dd7yrv"
   },
   {
-    "service": "استعادة كلمة المرور",
+    "service": "Password recovery",
     "order": 1498,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "c8yiapwlriiij5hhohoelf7g"
   },
   {
-    "service": "تمديد تأشيرة الخروج والعودة",
+    "service": "Extension of exit and re-entry visa",
     "order": 1799,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "oy3sxjotffvb8vi4l559ai9e"
   },
   {
-    "service": "إلغاء تأشيرة خروج وعودة",
+    "service": "Cancellation of exit and re-entry visa",
     "order": 1803,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "yqy3696dcao9j1o3g4kogbdu"
   },
   {
-    "service": "تعديل المهنة",
+    "service": "Profession modification",
     "order": 1804,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "ca9m5hbt5u2wghtfdaoqe1fa"
   },
   {
-    "service": "تعديل الاسم المترجم",
+    "service": "Edit the translated name",
     "order": 1816,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "su8hcgsxbmii4hzb70a0fkho"
   },
   {
-    "service": "إلغاء تاشيرة خروج نهائي",
+    "service": "Cancellation of final exit visa",
     "order": 1894,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "tw4lm3aw7q0h6mfeo94gszi2"
   },
   {
-    "service": "تمديد تأشيرة زيارة",
+    "service": "Visit visa extension",
     "order": 1895,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "mhtkizf0lj3f5o3n0a737v2r"
   },
   {
-    "service": "طباعة تقرير زائر",
+    "service": "Print a visitor report",
     "order": 1896,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "geyf6rs2vfn1w6n4nmlo97sg"
   },
   {
-    "service": "تأشيرة الخروج النهائي خلال فترة التجربة",
+    "service": "Final exit visa during the trial period",
     "order": 1898,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "mnu5ckoznzsp0rvadt91uzre"
   },
   {
-    "service": "التبليغ عن فقدان إقامة",
+    "service": "Reporting a loss of residence",
     "order": 1939,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "j73younxytvotun5k3nifkcs"
   },
   {
-    "service": "إصدار بدل فاقد",
+    "service": "Issuing a replacement for a lost one",
     "order": 1940,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "v3qra1z7fpzu0zs3d2znqezi"
   },
   {
-    "service": "شحن نقاط مقيم",
+    "service": "Recharge Muqeem points",
     "order": 2434,
     "categoryOrder": 33,
-    "status": "created",
+    "status": "localized",
     "documentId": "ae8yqrgvqizskcsfgnp9tngs"
   },
   {
-    "service": "إنشاء حساب",
+    "service": "Create an account",
     "order": 1203,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "lax6on2ndc1r6365diwlam5n"
   },
   {
-    "service": "تسجيل منتج (المستوردين)",
+    "service": "Product Registration (Importers)",
     "order": 2279,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "zlafb6afhehzchybhma6v4sc"
   },
   {
-    "service": "إصدار إقرار ذاتي مستورد (المستوردين)",
+    "service": "Issuing an importer self-declaration (importers)",
     "order": 2280,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "rgj077viqb8l0zr51nki3kq2"
   },
   {
-    "service": "تسجيل شهادة مطابقة منتج (المستوردين)",
+    "service": "Registration of a product conformity certificate (importers)",
     "order": 2281,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "znj1ol4y42sz6qnepvj0w0g0"
   },
   {
-    "service": "تسجيل شهادة مطابقة صادرة من الهيئة (المستوردين)",
+    "service": "Registration of a certificate of conformity issued by the Authority (importers)",
     "order": 2282,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "pk2ieohvssxhl3djdc68hvpj"
   },
   {
-    "service": "إصدار شهادة إرسالية (المستوردين)",
+    "service": "Issuing a consignment certificate (importers)",
     "order": 2283,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "rvodb52bozijxaohuqfnzsow"
   },
   {
-    "service": "إصدار شهادة إرسالية (الجهات الحكومية)",
+    "service": "Issuing a consignment certificate (government agencies)",
     "order": 2284,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "ii73vuevdcq5usvfi90alzk7"
   },
   {
-    "service": "تسجيل منتج (المصانع المحلية)",
+    "service": "Product registration (local factories)",
     "order": 2285,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "hus4cgblae7nwnjeurneyu51"
   },
   {
-    "service": "إصدار شهادة الإقرار الذاتي المحلي (المصانع المحلية)",
+    "service": "Issuing a local self-certification certificate (local factories)",
     "order": 2286,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "cpochvj68dqpm100e5mz1raq"
   },
   {
-    "service": "تسجيل شهادة مطابقة منتج (المصانع المحلية)",
+    "service": "Registration of a product conformity certificate (local factories)",
     "order": 2287,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "l6oa59ese4ec4vr55wn0f3up"
   },
   {
-    "service": "تسجيل شهادة مطابقة صادرة من الهيئة (المصانع المحلية)",
+    "service": "Registration of a certificate of conformity issued by the Authority (local factories)",
     "order": 2288,
     "categoryOrder": 79,
-    "status": "created",
+    "status": "localized",
     "documentId": "r40ji8tyi6s3up36uapkx0om"
   },
   {
-    "service": "إصدار ترخيص استثماري خدمي",
+    "service": "Issuing a service investment license",
     "order": 331,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "l45n5dqfir7ihval1sxzosx9"
   },
   {
-    "service": "إصدار ترخيص مكتب علمي وفني",
+    "service": "Issuing a scientific and technical office license",
     "order": 336,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "ffsv0a3smpyopvn29whu5e11"
   },
   {
-    "service": "إصدار ترخيص استثماري عقاري",
+    "service": "Issuing a real estate investment license",
     "order": 338,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "p8jz9lwxhgis0dzccbzublpa"
   },
   {
-    "service": "إصدار ترخيص استثماري مؤقت لتنفيذ عقد حكومي / شبه حكومي واحد",
+    "service": "Issuing a temporary investment license to implement one government/semi-government contract",
     "order": 339,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "jx4wp2c78xbzs87y4cezar4t"
   },
   {
-    "service": "إصدار ترخيص تجاري بشريك سعودي",
+    "service": "Issuing a commercial license with a Saudi partner",
     "order": 340,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "qi2x0oqa5evfmmnnceccrvyw"
   },
   {
-    "service": "إصدار ترخيص النقل العام البري بالحافلات داخل المدن",
+    "service": "Issuing a license for public land transportation by buses within cities",
     "order": 342,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "y5mh2ms3y2tm14oiq6jg09u6"
   },
   {
-    "service": "إصدار ترخيص نشاط وكلاء الاستقدام وتأجير خدمات العمالة المنزلية",
+    "service": "Issuing a license for the activity of recruitment agents and renting domestic labor services",
     "order": 348,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "ei42t0f82okycao86unbz6i2"
   },
   {
-    "service": "إصدار ترخيص أنشطة المطبوعات والنشر",
+    "service": "Issuing a license for printing and publishing activities",
     "order": 350,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "mvzu64fwlgdu61zntfczqvg3"
   },
   {
-    "service": "إصدار ترخيص مهني بشريك سعودي",
+    "service": "Issuing a professional license for a Saudi partner",
     "order": 351,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "ax0rousixxcunndzx0ej63wo"
   },
   {
-    "service": "إصدار ترخيص المقرات الإقليمية",
+    "service": "Issuing a license for regional headquarters",
     "order": 355,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "mdlpta04to006z6r6nci5nws"
   },
   {
-    "service": "التعديل على الحصص أو خروج أو دخول شركاء آخرين أو دمج الشركات.",
+    "service": "Amending shares, exit or entry of other partners, or merging companies.",
     "order": 357,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "cvqdyww73sh4u3hpznm47a6m"
   },
   {
-    "service": "تعديل الملكية بإحلال الورثة",
+    "service": "Amending ownership by replacing heirs",
     "order": 359,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "pn5m3wex9iusrqswupjjbdzn"
   },
   {
-    "service": "فتح فروع أو مركز تسويق",
+    "service": "Opening branches or a marketing center",
     "order": 360,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "gkbkbky4e1bkuy3motyfqim1"
   },
   {
-    "service": "إغلاق فروع أو مراكز تسويق",
+    "service": "Closing branches or marketing centers",
     "order": 361,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "t531zy0douocige9bd9zsgd1"
   },
   {
-    "service": "تخفيض رأس المال",
+    "service": "Capital reduction",
     "order": 363,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "z5u85vjcc3q53xtqrtv2wroe"
   },
   {
-    "service": "زياده رأس المال",
+    "service": "Increase capital",
     "order": 364,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "z0yu6rr3rzkydwdds6buwqlf"
   },
   {
-    "service": "تحديث بيانات تواصل المنشأة",
+    "service": "Updating the establishment’s contact information",
     "order": 376,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "c6qi89uu2i0mktmxqrukaxc8"
   },
   {
-    "service": "تحديث البيانات الحكومية",
+    "service": "Updating government data",
     "order": 384,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "h676cjbe7fhebiqqlihfqb1t"
   },
   {
-    "service": "تعديل رخصة الاستثمار",
+    "service": "Amending the investment license",
     "order": 1063,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "j6ej94kg6uipaheqj7fnz6r3"
   },
   {
-    "service": "تجديد  الترخيص الاستثماري",
+    "service": "Renewal of investment license",
     "order": 1065,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "dzef9h0mwouspp34i8nlavyy"
   },
   {
-    "service": "إصدار ترخيص استثماري تجاري أجنبي 100%",
+    "service": "Issuing a 100% foreign commercial investment license",
     "order": 1070,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "d43d5x45fbo7kxejc1a45mst"
   },
   {
-    "service": "إصدار التراخيص الأخرى في النقل البري",
+    "service": "Issuing other licenses in land transport",
     "order": 1737,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "no7s0hn9c7l2hi8gpgwagwco"
   },
   {
-    "service": "إصدار شهادة مؤقتة للتقديم على عطاءات المشاريع الحكومية",
+    "service": "Issuing a temporary certificate for submitting to bids for government projects",
     "order": 1740,
     "categoryOrder": 7,
-    "status": "created",
+    "status": "localized",
     "documentId": "hd2rqqk90r9rxxxkpfbv9kym"
   },
   {
-    "service": "رخصة حفر بئر جديد",
+    "service": "License to drill a new well",
     "order": 2372,
     "categoryOrder": 105,
-    "status": "created",
+    "status": "localized",
     "documentId": "ueehrdgnghxfs6mjtzx4w5d1"
   },
   {
-    "service": "إصدار رخصة تصدير مياه شرب معبأة",
+    "service": "Issuing a license to export bottled drinking water",
     "order": 2373,
     "categoryOrder": 105,
-    "status": "created",
+    "status": "localized",
     "documentId": "lu81osg3tvmax07b1iavsfvp"
   },
   {
-    "service": "إصدار رخص استخدام مصادر المياه الجوفية (الآبار)",
+    "service": "Issuing licenses to use groundwater sources (wells)",
     "order": 2374,
     "categoryOrder": 105,
-    "status": "created",
+    "status": "localized",
     "documentId": "dcm8gqx6gj48j1h2jnz4s7rp"
   },
   {
-    "service": "طلب استيراد أسمدة ومخصبات زراعية",
+    "service": "Request to import fertilizers and agricultural fertilizers",
     "order": 2390,
     "categoryOrder": 105,
-    "status": "created",
+    "status": "localized",
     "documentId": "lr9vb4l9igxtcwusc3qyotdz"
   },
   {
-    "service": "طلب تعديل قيد وكالة تجارية",
+    "service": "Request to amend a commercial agency registration",
     "order": 63,
     "categoryOrder": 6,
-    "status": "created",
+    "status": "localized",
     "documentId": "ztuq4rxrvt6n7kojvejurg25"
   },
   {
-    "service": "طلب تجديد قيد وكالة تجارية",
+    "service": "Request to renew commercial agency registration",
     "order": 65,
     "categoryOrder": 6,
-    "status": "created",
+    "status": "localized",
     "documentId": "sj9wu9bqjud5qxos8qmpbqsf"
   },
   {
-    "service": "طلب تسجيل قيد وكالة تجارية",
+    "service": "Request to register a commercial agency",
     "order": 66,
     "categoryOrder": 6,
-    "status": "created",
+    "status": "localized",
     "documentId": "sk155y9zriy8qem8xucsx4wl"
   },
   {
-    "service": "طلب شطب قيد وكالة تجارية من قبل الوكيل",
+    "service": "Request to cancel a commercial agency registration by the agent",
     "order": 68,
     "categoryOrder": 6,
-    "status": "created",
+    "status": "localized",
     "documentId": "dq3unt206rj70ct8dlvxh5r5"
   },
   {
-    "service": "تراخيص التخفيضات",
+    "service": "Discount licenses",
     "order": 71,
     "categoryOrder": 6,
-    "status": "created",
+    "status": "localized",
     "documentId": "cp3yagwvtzhk905wtyk8ug3w"
   },
   {
-    "service": "إصدار تراخيص الأحجار الكريمة والمعادن الثمينة",
+    "service": "Issuing licenses for gemstones and precious metals",
     "order": 80,
     "categoryOrder": 6,
-    "status": "created",
+    "status": "localized",
     "documentId": "ml7ze0lvle1h1nj0m5d4adwn"
   },
   {
-    "service": "قيد الإمتياز التجاري (تسجيل - تعديل - الغاء)",
+    "service": "Commercial franchise registration (registration - amendment - cancellation)",
     "order": 86,
     "categoryOrder": 6,
-    "status": "created",
+    "status": "localized",
     "documentId": "ml02osg3mo209ziqhpxp96q2"
   },
   {
-    "service": "التفويض الإلكتروني للتأشيرات",
+    "service": "Electronic authorization for visas",
     "order": 1131,
     "categoryOrder": 73,
-    "status": "created",
+    "status": "localized",
     "documentId": "tumt5cdsrvnf4yjaqx1ntuhd"
   },
   {
-    "service": "طلب تصديق أبوستيل",
+    "service": "Apostille certification request",
     "order": 2502,
     "categoryOrder": 73,
-    "status": "created",
+    "status": "localized",
     "documentId": "q1mts7kmt9e46mrfhz6o3t90"
   },
   {
-    "service": "إصدار الترخيص الصناعي",
+    "service": "Issuing an industrial license",
     "order": 69,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "ty398bjj7pzorwrp03yslrtu"
   },
   {
-    "service": "طلب تأييد العمالة",
+    "service": "Request for employment support",
     "order": 70,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "qrkqiu67yrutqw8kkyiocm3t"
   },
   {
-    "service": "تجديد الترخيص الصناعي",
+    "service": "Renewal of industrial license",
     "order": 89,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "kymzscuffl3efa418qsuxgqt"
   },
   {
-    "service": "نقل ملكية الترخيص الصناعي",
+    "service": "Transfer of ownership of the industrial license",
     "order": 471,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "t8jynb6htn8pbiuhphswvsm3"
   },
   {
-    "service": "إصدار إعفاء جمركي للمواد الخام والآلات وقطع الغيار",
+    "service": "Issuing customs exemption for raw materials, machinery and spare parts",
     "order": 1122,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "ytae17hmu90hs2ne92rtfmg9"
   },
   {
-    "service": "إصدار شهادة المنشأ",
+    "service": "Issuing a certificate of origin",
     "order": 1123,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "jrymk37o8ty7t4fzic5vvzs8"
   },
   {
-    "service": "طلب الفسح الكيميائي",
+    "service": "Chemical clearance request",
     "order": 1218,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "iejnm667351wfcb2mp6mfrnc"
   },
   {
-    "service": "ترقية البنود الجمركية",
+    "service": "Upgrade customs items",
     "order": 2362,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "pqlpvucr0kcfbrkj69hn40wm"
   },
   {
-    "service": "تقديم طلب رخصة الاستطلاع",
+    "service": "Submit an application for a reconnaissance license",
     "order": 2392,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "gnz0ualy9xvxoz5dgwtoiiqr"
   },
   {
-    "service": "المسح الصناعي",
+    "service": "Industrial survey",
     "order": 2428,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "bnxcee3hhh5s5ld0rrfuktrs"
   },
   {
-    "service": "تعديل الترخيص الصناعي (التأسيس)",
+    "service": "Amending the industrial license (incorporation)",
     "order": 2483,
     "categoryOrder": 8,
-    "status": "created",
+    "status": "localized",
     "documentId": "a2skutko810ksow1ococ6n8a"
   }
 ]

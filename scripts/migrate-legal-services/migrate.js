@@ -29,20 +29,24 @@ async function migrate() {
 
   const OUTPUT_DIR = path.join(__dirname, "output");
 
-  // Input files for categories (with descriptions and icons)
+  // Input files - Updated to use Legal Services1 folder
   const AR_CATEGORIES_FILE = path.join(
     __dirname,
-    "../../Services-Data/Legal Services/Categories/administration_categories_with_services_count_ar.json"
+    "../../Services-Data/Legal Services1/Categories/administration_categories_with_services_count.json"
   );
   const EN_CATEGORIES_FILE = path.join(
     __dirname,
-    "../../Services-Data/Legal Services/Categories/administration_categories_with_services_count_en.json"
+    "../../Services-Data/Legal Services1/Categories/administration_categories_with_services_count_en.json"
   );
 
-  // Input files for services (for transforming sub-services)
-  const AR_INPUT_FILE = path.join(
+  // Input files for services (full service data with details)
+  const AR_SERVICES_FILE = path.join(
     __dirname,
-    "../../Services-Data/Legal Services/Services/administration_categories_with_full_services_ar.json"
+    "../../Services-Data/Legal Services1/Services/administration_categories_with_full_services_ar.json"
+  );
+  const EN_SERVICES_FILE = path.join(
+    __dirname,
+    "../../Services-Data/Legal Services1/Services/administration_categories_with_full_services_en.json"
   );
 
   try {
@@ -55,18 +59,32 @@ async function migrate() {
     console.log("│ Step 1: Transform Arabic Data                          │");
     console.log("└─────────────────────────────────────────────────────────┘");
 
-    const arTransform = transform(AR_INPUT_FILE, OUTPUT_DIR);
+    const arTransform = transform(AR_SERVICES_FILE, OUTPUT_DIR);
     console.log(`✓ Arabic transformation complete`);
     console.log(`  Categories: ${arTransform.categoriesCount}`);
     console.log(`  Services: ${arTransform.servicesCount}`);
 
     // ═══════════════════════════════════════════════════════════
-    // Step 2: Import Categories (AR + EN with descriptions and icons)
+    // Step 2: Transform English Data
     // ═══════════════════════════════════════════════════════════
     console.log(
       "\n┌─────────────────────────────────────────────────────────┐"
     );
-    console.log("│ Step 2: Import Categories (AR + EN)                    │");
+    console.log("│ Step 2: Transform English Data                         │");
+    console.log("└─────────────────────────────────────────────────────────┘");
+
+    const enTransform = transform(EN_SERVICES_FILE, OUTPUT_DIR);
+    console.log(`✓ English transformation complete`);
+    console.log(`  Categories: ${enTransform.categoriesCount}`);
+    console.log(`  Services: ${enTransform.servicesCount}`);
+
+    // ═══════════════════════════════════════════════════════════
+    // Step 3: Import Categories (AR + EN with descriptions and icons)
+    // ═══════════════════════════════════════════════════════════
+    console.log(
+      "\n┌─────────────────────────────────────────────────────────┐"
+    );
+    console.log("│ Step 3: Import Categories (AR + EN)                    │");
     console.log("└─────────────────────────────────────────────────────────┘");
 
     const categories = await importCategoriesWithLocalizations(
@@ -82,12 +100,12 @@ async function migrate() {
     console.log(`  Failed: ${categories.failedCount}`);
 
     // ═══════════════════════════════════════════════════════════
-    // Step 3: Import Arabic Sub-Services
+    // Step 4: Import Arabic Sub-Services
     // ═══════════════════════════════════════════════════════════
     console.log(
       "\n┌─────────────────────────────────────────────────────────┐"
     );
-    console.log("│ Step 3: Import Arabic Sub-Services                     │");
+    console.log("│ Step 4: Import Arabic Sub-Services                     │");
     console.log("└─────────────────────────────────────────────────────────┘");
 
     const arServices = await importSubServices(
@@ -102,6 +120,28 @@ async function migrate() {
     console.log(`  Created: ${arServices.createdCount}`);
     console.log(`  Skipped: ${arServices.skippedCount}`);
     console.log(`  Failed: ${arServices.failedCount}`);
+
+    // ═══════════════════════════════════════════════════════════
+    // Step 5: Import English Sub-Services
+    // ═══════════════════════════════════════════════════════════
+    console.log(
+      "\n┌─────────────────────────────────────────────────────────┐"
+    );
+    console.log("│ Step 5: Import English Sub-Services                    │");
+    console.log("└─────────────────────────────────────────────────────────┘");
+
+    const enServices = await importSubServices(
+      enTransform.servicesPath,
+      categories.mappingFile,
+      "en",
+      STRAPI_URL,
+      API_TOKEN,
+      OUTPUT_DIR
+    );
+    console.log(`✓ English sub-services imported`);
+    console.log(`  Created: ${enServices.createdCount}`);
+    console.log(`  Skipped: ${enServices.skippedCount}`);
+    console.log(`  Failed: ${enServices.failedCount}`);
 
     // ═══════════════════════════════════════════════════════════
     // Final Summary
@@ -127,15 +167,16 @@ async function migrate() {
       `Services (AR):    ${arServices.createdCount} created, ${arServices.skippedCount} skipped, ${arServices.failedCount} failed`
     );
     console.log(
+      `Services (EN):    ${enServices.createdCount} created, ${enServices.skippedCount} skipped, ${enServices.failedCount} failed`
+    );
+    console.log(
       "─────────────────────────────────────────────────────────────"
     );
 
     console.log("\n📝 Next Steps:");
     console.log("  1. ✅ Categories imported with AR + EN localizations");
     console.log("  2. ✅ Descriptions and icons attached");
-    console.log(
-      "  3. ⏳ Add English translations for sub-services via Strapi admin"
-    );
+    console.log("  3. ✅ Sub-services imported in both AR and EN");
     console.log(
       "  4. ✅ Test routes: /legalservices/{categoryOrder}/{serviceOrder}"
     );

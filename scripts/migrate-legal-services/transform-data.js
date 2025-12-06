@@ -84,13 +84,23 @@ function extractCategoryOrder(categoryId) {
  */
 function deduplicateServices(services) {
   const seen = new Set();
-  return services.filter((service) => {
+  const original = services.length;
+  const unique = services.filter((service) => {
     if (seen.has(service.serviceId)) {
       return false;
     }
     seen.add(service.serviceId);
     return true;
   });
+
+  const duplicatesCount = original - unique.length;
+  if (duplicatesCount > 0) {
+    console.log(
+      `  ⚠️  Found and removed ${duplicatesCount} duplicate service(s)`
+    );
+  }
+
+  return unique;
 }
 
 /**
@@ -100,10 +110,8 @@ function transformCategories(data, locale) {
   const categories = data.map((category, index) => ({
     categoryId: category.categoryId,
     name: category.categoryName,
-    slug: generateSlug(category.categoryName),
-    order: category.category_id
-      ? parseInt(category.category_id, 10)
-      : extractCategoryOrder(category.categoryId),
+    slug: category.categorySlug || generateSlug(category.categoryName),
+    order: extractCategoryOrder(category.categoryId),
     servicesCount: category.servicesCount,
     // Description can be added if available in data
     // icon will be uploaded separately
@@ -120,12 +128,25 @@ function transformCategories(data, locale) {
  */
 function transformSubServices(data, locale) {
   let allServices = [];
+  let totalDuplicates = 0;
 
-  data.forEach((category) => {
+  data.forEach((category, index) => {
     const categoryOrder = extractCategoryOrder(category.categoryId);
+    const originalCount = category.services.length;
 
     // Deduplicate services within this category
+    console.log(
+      `\n📦 Processing category ${index + 1}/${data.length}: ${
+        category.categoryName
+      }`
+    );
+    console.log(`  Original services count: ${originalCount}`);
+
     const uniqueServices = deduplicateServices(category.services);
+    const categoryDuplicates = originalCount - uniqueServices.length;
+    totalDuplicates += categoryDuplicates;
+
+    console.log(`  Unique services count: ${uniqueServices.length}`);
 
     const transformedServices = uniqueServices.map((service) => {
       const details = service.serviceDetails || {};
@@ -133,20 +154,26 @@ function transformSubServices(data, locale) {
       return {
         // Original IDs for reference
         originalServiceId: service.serviceId,
+        originalDocumentId: service.documentId,
         originalCategoryId: category.categoryId,
         categoryOrder: categoryOrder,
 
         // Basic info
         name: service.name,
-        slug: generateSlug(service.name),
+        slug: service.slug || generateSlug(service.name),
         shortDescription: truncate(service.shortDescription || "", 200),
         order: parseInt(service.serviceId, 10), // Use serviceId as order
 
         // Pricing & duration
-        startFromPrice: details.serviceFee || 0,
+        startFromPrice: parseFloat(details.serviceFee) || 0,
         currency: details.currency || "SAR",
-        finishPeriodMin: details.durationDays || 1,
-        finishPeriodMax: details.durationMax || details.durationDays || 1,
+        finishPeriodMin: parseInt(details.durationDays) || 1,
+        finishPeriodMax:
+          parseInt(details.durationMax || details.durationDays) || 1,
+
+        // Ministry info
+        ministryInfo: details.ministryInfo || null,
+        ministryIcon: details.ministryIcon || null,
 
         // Button label (can be customized)
         button_label: locale === "ar" ? "احصل على الخدمة" : "Get Service",
@@ -157,24 +184,26 @@ function transformSubServices(data, locale) {
               {
                 title: locale === "ar" ? "وصف الخدمة" : "Service Description",
                 description: details.serviceDescription,
+                icon: null,
+                icon_color_code: null,
               },
             ]
           : [],
 
-        // Documents component
+        // Documents component (required documents)
         documents: (details.requiredDocuments || []).map((doc) => ({
           document: doc,
         })),
 
-        // Conditions component
+        // Conditions component (service conditions)
         conditions: (details.serviceConditions || []).map((cond) => ({
           condition: cond,
         })),
 
-        // Requirements component (if steps or other requirements exist)
+        // Requirements component (not used in current data)
         requirements: [],
 
-        // Steps component (can be populated if data available)
+        // Steps component (not used in current data)
         steps: [],
       };
     });
@@ -182,9 +211,10 @@ function transformSubServices(data, locale) {
     allServices = allServices.concat(transformedServices);
   });
 
-  console.log(
-    `Transformed ${allServices.length} sub-services for locale: ${locale}`
-  );
+  console.log(`\n✅ Transformation complete!`);
+  console.log(`   Total services after deduplication: ${allServices.length}`);
+  console.log(`   Total duplicates removed: ${totalDuplicates}`);
+
   return allServices;
 }
 

@@ -1,0 +1,370 @@
+{
+  "total_categories": 26,
+  "total_services": 438,
+  "categories": [
+    {
+      "documentId": "admin_category_100",
+      "slug": "المؤسسة-العامة-للتأمينات-الإجتماعية-أعمال",
+      "order": 17,
+      "name": "General Organization for Social Insurance - Business",
+      "description": "Explore 35 services provided by the General Organization for Social Insurance - Business. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/96ee53e5-f0f7-4a19-af29-177405c7e403.png",
+        "name": "GOSI - Business"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/100",
+      "category_id": "100",
+      "services_count": 38
+    },
+    {
+      "documentId": "admin_category_26",
+      "slug": "المركز-السعودي-للأعمال",
+      "order": 3,
+      "name": "Saudi Business Center",
+      "description": "Explore 32 services provided by the Saudi Business Center. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/e0cf44f8-70b9-47a0-a2f7-fd28c1e0df55.png",
+        "name": "Saudi Business Center"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/26",
+      "category_id": "26",
+      "services_count": 35
+    },
+    {
+      "documentId": "admin_category_97",
+      "slug": "الهيئة-العامة-لتنظيم-الإعلام",
+      "order": 7,
+      "name": "General Authority for Media Regulation",
+      "description": "Explore 26 services provided by the General Authority for Media Regulation. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/0396e4ad-b32e-4c75-84f9-fcc3256720f5.png",
+        "name": "GENERAL AUTHORTY OF MEDIA REGULATION"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/97",
+      "category_id": "97",
+      "services_count": 29
+    },
+    {
+      "documentId": "admin_category_33",
+      "slug": "منصة-مقيم",
+      "order": 12,
+      "name": "Muqeem platform",
+      "description": "Explore 25 services provided by the Muqeem platform. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/289279f2-3041-40fb-b4f0-f94f9f4636de.png",
+        "name": "Muqeem Platform"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/33",
+      "category_id": "33",
+      "services_count": 28
+    },
+    {
+      "documentId": "admin_category_45",
+      "slug": "الهيئة-السعودية-للمراجعين-والمحاسبين",
+      "order": 23,
+      "name": "Saudi Authority for Auditors and Accountants",
+      "description": "Explore 25 services provided by the Saudi Authority for Auditors and Accountants. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/d403f3fb-afcf-4d49-868a-0156db749dcd.png",
+        "name": " Saudi Organization for Chartered and Professional Accountants (SOCPA)"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/45",
+      "category_id": "45",
+      "services_count": 28
+    },
+    {
+      "documentId": "admin_category_29",
+      "slug": "منصة-قوى",
+      "order": 9,
+      "name": "Qiwa platform",
+      "description": "Explore 24 services provided by the Qiwa platform. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/524d1b6f-0f74-4b62-9e09-a3ff46addead.jpg",
+        "name": "Qiwa Platform"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/29",
+      "category_id": "29",
+      "services_count": 27
+    },
+    {
+      "documentId": "admin_category_7",
+      "slug": "وزارة-الاستثمار",
+      "order": 4,
+      "name": "Ministry of Investment",
+      "description": "Explore 23 services provided by the Ministry of Investment. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/cd315f7d-5bdc-419c-b5fa-a13d2ad9a770.png",
+        "name": "Ministry of Investment"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/7",
+      "category_id": "7",
+      "services_count": 26
+    },
+    {
+      "documentId": "admin_category_37",
+      "slug": "الهيئة-السعودية-للملكية-الفكرية",
+      "order": 5,
+      "name": "Saudi Authority for Intellectual Property",
+      "description": "Explore 20 services provided by the Saudi Authority for Intellectual Property. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/ae7a4cd1-b7e4-4822-9030-9893dea1f8d8.png",
+        "name": "SAIP"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/37",
+      "category_id": "37",
+      "services_count": 23
+    },
+    {
+      "documentId": "admin_category_99",
+      "slug": "منصة-أبشر-أعمال",
+      "order": 13,
+      "name": "Absher platform - business",
+      "description": "Explore 17 services provided by the Absher platform - Business. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/6873892f-0f4f-4b5c-8f9b-bd18be78c17c.jpg",
+        "name": "Absher - Business"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/99",
+      "category_id": "99",
+      "services_count": 20
+    },
+    {
+      "documentId": "admin_category_30",
+      "slug": "منصة-مدد",
+      "order": 10,
+      "name": "Madad platform",
+      "description": "Explore 15 services provided by the Madad platform. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/2bca2526-3fa8-4570-a047-0bea3ad589a0.png",
+        "name": "Mudad Platform"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/30",
+      "category_id": "30",
+      "services_count": 18
+    },
+    {
+      "documentId": "admin_category_27",
+      "slug": "الغرفة-التجارية",
+      "order": 11,
+      "name": "chamber of commerce",
+      "description": "Explore 14 services provided by the Chamber of Commerce. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/efa77b9a-2bc7-45b1-91b7-515e5daabf17.png",
+        "name": "Chamber of Commerce"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/27",
+      "category_id": "27",
+      "services_count": 17
+    },
+    {
+      "documentId": "admin_category_34",
+      "slug": "منصة-بلدي",
+      "order": 18,
+      "name": "My platform",
+      "description": "Explore 12 services provided by the Baladi platform. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/37992a1f-baa3-4087-8780-2a3fc7232dfb.jpg",
+        "name": "Balady Platform"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/34",
+      "category_id": "34",
+      "services_count": 15
+    },
+    {
+      "documentId": "admin_category_8",
+      "slug": "وزارة-الصناعة-والثروة-المعدنية",
+      "order": 1,
+      "name": "Ministry of Industry and Mineral Resources",
+      "description": "Explore 11 services provided by the Ministry of Industry and Mineral Resources. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/618e884a-4c34-4331-a26b-89524a19ad5c.png",
+        "name": "Ministry of Industry and Mineral Resources"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/8",
+      "category_id": "8",
+      "services_count": 14
+    },
+    {
+      "documentId": "admin_category_82",
+      "slug": "الإقامة-المميزة",
+      "order": 6,
+      "name": "Premium accommodation",
+      "description": "Explore 11 services offered by premium accommodation. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/160179ca-e3d7-4165-849d-d5cb5649c938.png",
+        "name": "Premium Residency"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/82",
+      "category_id": "82",
+      "services_count": 14
+    },
+    {
+      "documentId": "admin_category_36",
+      "slug": "منصة-سبل",
+      "order": 15,
+      "name": "Subul platform",
+      "description": "Explore 11 services provided by the Subul platform. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/0ad4814f-1bd8-4fd5-86e1-bfe3b1f1ff28.png",
+        "name": "SPL"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/36",
+      "category_id": "36",
+      "services_count": 14
+    },
+    {
+      "documentId": "admin_category_79",
+      "slug": "منصه-سابر",
+      "order": 20,
+      "name": "Saber platform",
+      "description": "Explore 11 services provided by the Saber platform. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/1986cd27-d4ee-4593-92c0-cfd399d1e897.jpg",
+        "name": "Saber Platform"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/79",
+      "category_id": "79",
+      "services_count": 14
+    },
+    {
+      "documentId": "admin_category_57",
+      "slug": "منصة-أجير",
+      "order": 14,
+      "name": "Ajeer platform",
+      "description": "Explore 9 services provided by the Ajeer platform. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/e94bf8f7-27a1-4e1b-bb2a-42988ac348d6.png",
+        "name": "Ajeer"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/57",
+      "category_id": "57",
+      "services_count": 12
+    },
+    {
+      "documentId": "admin_category_44",
+      "slug": "الهيئة-السعودية-للمهندسين",
+      "order": 22,
+      "name": "Saudi Council of Engineers",
+      "description": "Explore 9 services provided by the Saudi Council of Engineers. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/8bccb381-307f-4951-87d0-d5bd22945cd8.jpg",
+        "name": "Saudi Council of Engineers"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/44",
+      "category_id": "44",
+      "services_count": 12
+    },
+    {
+      "documentId": "admin_category_6",
+      "slug": "وزارة-التجارة",
+      "order": 2,
+      "name": "Ministry of Commerce",
+      "description": "Explore 7 services provided by the Ministry of Commerce. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/e4cc6418-154f-47fe-9917-9bb0c21f4730.png",
+        "name": "Ministry of Commerce"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/6",
+      "category_id": "6",
+      "services_count": 10
+    },
+    {
+      "documentId": "admin_category_35",
+      "slug": "الدفاع-المدني-بوابة-سلامة",
+      "order": 19,
+      "name": "Civil Defense (Salama Gate)",
+      "description": "Explore 5 services provided by Civil Defense (Salama Portal). We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/9f0562d0-d81f-48e2-8f4e-584d706ff1ad.jpg",
+        "name": "salama"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/35",
+      "category_id": "35",
+      "services_count": 8
+    },
+    {
+      "documentId": "admin_category_89",
+      "slug": "الهيئة-العامة-للعقار",
+      "order": 8,
+      "name": "General Authority for Real Estate",
+      "description": "Explore 4 services provided by the General Real Estate Authority. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/1a3230f1-8894-4ce2-8bfc-318093dd62bb.png",
+        "name": "Real Estate General Authority"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/89",
+      "category_id": "89",
+      "services_count": 7
+    },
+    {
+      "documentId": "admin_category_54",
+      "slug": "بوابه-ناجز",
+      "order": 16,
+      "name": "Nagz Gate",
+      "description": "Explore 4 services provided by Najez Gateway. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/06931431-0ed0-454e-88c3-39941044f5cc.png",
+        "name": "Najiz "
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/54",
+      "category_id": "54",
+      "services_count": 7
+    },
+    {
+      "documentId": "admin_category_105",
+      "slug": "وزارة-البيئة-والمياه-والزراعة",
+      "order": 25,
+      "name": "Ministry of Environment, Water and Agriculture",
+      "description": "Explore 4 services provided by the Ministry of Environment, Water and Agriculture. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/0e2630cb-5d58-4de5-a9bc-228693b7edb1.png",
+        "name": "Ministry of Environment Water and Agriculture"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/105",
+      "category_id": "105",
+      "services_count": 7
+    },
+    {
+      "documentId": "admin_category_41",
+      "slug": "الهيئه-العامة-للغذاء-والدواء",
+      "order": 21,
+      "name": "Food and Drug General Authority",
+      "description": "Explore 3 services provided by the Food and Drug Authority. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/a77c6980-f42b-4bf8-927a-6e04305d84e2.jpg",
+        "name": "Saudi Food and Drug Authority"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/41",
+      "category_id": "41",
+      "services_count": 6
+    },
+    {
+      "documentId": "admin_category_73",
+      "slug": "وزارة-الخارجية",
+      "order": 24,
+      "name": "Ministry of Foreign Affairs",
+      "description": "Explore 2 services provided by the Ministry of Foreign Affairs. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/915d05c5-3dd1-4383-b223-4120916e3b2c.png",
+        "name": "ministry of foreign affairs "
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/73",
+      "category_id": "73",
+      "services_count": 5
+    },
+    {
+      "documentId": "admin_category_113",
+      "slug": "الهيئة-العامة-للطيران-المدني",
+      "order": 26,
+      "name": "General Authority of Civil Aviation",
+      "description": "Explore 1 service provided by the General Civil Aviation Authority. We provide comprehensive support for all your business needs with this consultancy.",
+      "icon": {
+        "url": "https://abg-system.com/Files/67e5bddd-4657-4bd4-aa7c-9614fc441588.jpg",
+        "name": "General Authority of Civil Aviation (GACA)"
+      },
+      "link": "https://bashammakh.sa/ar/administration-service/113",
+      "category_id": "113",
+      "services_count": 4
+    }
+  ]
+}
