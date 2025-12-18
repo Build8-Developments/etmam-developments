@@ -9,6 +9,7 @@ import {
   ConsultationSection,
 } from "@/components";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { CardsGridSkeleton } from "@/components/common/Skeletons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
@@ -22,7 +23,7 @@ export default function ConsultingServicesPage() {
   const locale = routeParams.locale as string;
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const { data: consultingServices } = useConsultingServices();
+  const { data: consultingServices, loading } = useConsultingServices();
 
   // Transform GraphQL data to Service type and filter by search
   // Falls back to mock data if GraphQL data is not available
@@ -263,18 +264,48 @@ export default function ConsultingServicesPage() {
 
       {/* Services Grid */}
       <AnimatedSection animation="fadeInUp" delay={100}>
-        <ServicesGrid
-          services={transformedServices}
-          baseHref={`/${locale}/consulting`}
-          title={
-            language === "ar" ? "خدماتنا الاستشارية" : "Our Consulting Services"
-          }
-          description={
-            language === "ar"
-              ? "اختر الخدمة الاستشارية المناسبة واحصل على الدعم المتخصص الذي تحتاجه"
-              : "Choose the appropriate consulting service and get the specialized support you need"
-          }
-        />
+        {loading ? (
+          <section className="py-16 lg:py-24">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2
+                  className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4"
+                  style={{ fontFamily: "var(--font-almarai)" }}
+                >
+                  {language === "ar"
+                    ? "خدماتنا الاستشارية"
+                    : "Our Consulting Services"}
+                </h2>
+                <p
+                  className="text-lg text-gray-600 max-w-3xl mx-auto"
+                  style={{ fontFamily: "var(--font-almarai)" }}
+                >
+                  {language === "ar"
+                    ? "اختر الخدمة الاستشارية المناسبة واحصل على الدعم المتخصص الذي تحتاجه"
+                    : "Choose the appropriate consulting service and get the specialized support you need"}
+                </p>
+              </div>
+              <div style={{ maxWidth: "1147px", margin: "0 auto" }}>
+                <CardsGridSkeleton count={6} columns={3} showImage={false} />
+              </div>
+            </div>
+          </section>
+        ) : (
+          <ServicesGrid
+            services={transformedServices}
+            baseHref={`/${locale}/consulting`}
+            title={
+              language === "ar"
+                ? "خدماتنا الاستشارية"
+                : "Our Consulting Services"
+            }
+            description={
+              language === "ar"
+                ? "اختر الخدمة الاستشارية المناسبة واحصل على الدعم المتخصص الذي تحتاجه"
+                : "Choose the appropriate consulting service and get the specialized support you need"
+            }
+          />
+        )}
       </AnimatedSection>
 
       {/* Consultation Section */}

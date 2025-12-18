@@ -17,6 +17,7 @@ import {
 } from "@/hooks/graphql/useGraphQL";
 import { useMemo } from "react";
 import { consultingServices as mockConsultingServices } from "@/mockData/services";
+import ConsultingServiceLoading from "./loading";
 
 export default function ConsultingServiceDetailPage() {
   const { language } = useLanguage();
@@ -26,7 +27,8 @@ export default function ConsultingServiceDetailPage() {
   const serviceId = routeParams.serviceId as string;
 
   // First, get all services to find the documentId by order (which is shared across locales)
-  const { data: allServices } = useConsultingServices();
+  const { data: allServices, loading: loadingServices } =
+    useConsultingServices();
 
   // Find the service by order (serviceId in URL is the order number)
   const serviceByOrder = useMemo(() => {
@@ -36,9 +38,11 @@ export default function ConsultingServiceDetailPage() {
   }, [allServices, serviceId]);
 
   // Get service details using documentId
-  const { data: serviceData } = useConsultingServiceDetail(
-    serviceByOrder?.documentId || ""
-  );
+  const { data: serviceData, loading: loadingDetail } =
+    useConsultingServiceDetail(serviceByOrder?.documentId || "");
+
+  // Combined loading state
+  const isLoading = loadingServices || (serviceByOrder && loadingDetail);
 
   // Transform GraphQL data or use mock data as fallback
   const transformedService = useMemo(() => {
@@ -108,7 +112,12 @@ export default function ConsultingServiceDetailPage() {
     };
   }, [serviceData, serviceByOrder, serviceId, language]);
 
-  // Only show error if service not found in either GraphQL or mock data
+  // Show loading skeleton while data is being fetched
+  if (isLoading) {
+    return <ConsultingServiceLoading />;
+  }
+
+  // Only show error if service not found in either GraphQL or mock data (after loading completes)
   if (!transformedService) {
     return (
       <div className="min-h-screen bg-white">

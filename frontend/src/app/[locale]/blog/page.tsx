@@ -8,6 +8,7 @@ import {
   ConsultationSection,
 } from "@/components";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { BlogCardSkeleton } from "@/components/common/Skeletons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -29,8 +30,9 @@ export default function BlogPage() {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   // Get GraphQL data
-  const { data: blogPostsData } = useBlogPostsNew();
-  const { data: featuredPostsData } = useFeaturedBlogPosts();
+  const { data: blogPostsData, loading: loadingBlogPosts } = useBlogPostsNew();
+  const { data: featuredPostsData, loading: loadingFeaturedPosts } =
+    useFeaturedBlogPosts();
 
   // Transform GraphQL data to mock format or use mock data
   const blogPostsToUse = useMemo(() => {
@@ -268,7 +270,12 @@ export default function BlogPage() {
               <div className="lg:col-span-3 order-2 lg:order-1">
                 {/* Blog Posts Grid */}
                 <div className="space-y-8">
-                  {filteredPosts.length > 0 ? (
+                  {loadingBlogPosts ? (
+                    // Show skeleton while loading blog posts
+                    Array.from({ length: 3 }).map((_, index) => (
+                      <BlogCardSkeleton key={index} />
+                    ))
+                  ) : filteredPosts.length > 0 ? (
                     filteredPosts.map((post: any) => (
                       <article
                         key={post.id}

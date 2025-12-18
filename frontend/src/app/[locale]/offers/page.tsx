@@ -10,6 +10,7 @@ import {
   PartnersSection,
 } from "@/components";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { CardsGridSkeleton } from "@/components/common/Skeletons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildImageUrl } from "@/lib/api";
 import { useOffersPage, useOfferDetails } from "@/hooks/graphql";
@@ -21,8 +22,9 @@ export default function OffersPage() {
   const { language } = useLanguage();
   const routeParams = useParams();
   const locale = routeParams.locale as string;
-  const { data: offersPageData } = useOffersPage();
-  const { data: offerDetails } = useOfferDetails();
+  const { data: offersPageData, loading: loadingOffersPage } = useOffersPage();
+  const { data: offerDetails, loading: loadingOfferDetails } =
+    useOfferDetails();
   const content = offersPageContent;
 
   // Helper function to get string value from Strapi i18n field
@@ -252,89 +254,93 @@ export default function OffersPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allOffers.map((offer: any, index: number) => {
-                // Get offer slug for detail page link - prioritize slug from offer details or mock data
-                const offerSlug =
-                  offer.slug ||
-                  (offer.documentId ? `offer-${offer.documentId}` : null) ||
-                  (offer.id ? `offer-${offer.id}` : null) ||
-                  `offer-${index + 1}`;
+            {loadingOfferDetails ? (
+              <CardsGridSkeleton count={6} columns={3} showImage={true} />
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {allOffers.map((offer: any, index: number) => {
+                  // Get offer slug for detail page link - prioritize slug from offer details or mock data
+                  const offerSlug =
+                    offer.slug ||
+                    (offer.documentId ? `offer-${offer.documentId}` : null) ||
+                    (offer.id ? `offer-${offer.id}` : null) ||
+                    `offer-${index + 1}`;
 
-                return (
-                  <Link
-                    key={offer.id || offer.documentId || index}
-                    href={`/${locale}/offers/${offerSlug}`}
-                    className="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow mx-auto w-full block"
-                    style={{
-                      height: "592px",
-                      maxWidth: "569px",
-                    }}
-                  >
-                    {/* Background Image */}
-                    <div
-                      className="absolute inset-0 bg-cover bg-center"
+                  return (
+                    <Link
+                      key={offer.id || offer.documentId || index}
+                      href={`/${locale}/offers/${offerSlug}`}
+                      className="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow mx-auto w-full block"
                       style={{
-                        backgroundImage: `url(${
-                          offer.image?.url
-                            ? buildImageUrl(offer.image.url)
-                            : offer.backgroundImage
-                        })`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        height: "592px",
+                        maxWidth: "569px",
                       }}
-                    />
-
-                    {/* Overlay */}
-                    <div
-                      className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/40"
-                      data-decorative="true"
-                    ></div>
-
-                    {/* Content */}
-                    <div className="relative z-10 h-full flex flex-col justify-end">
-                      {/* Bottom Section */}
+                    >
+                      {/* Background Image */}
                       <div
-                        className="bg-white p-4 absolute bottom-0 left-0 right-0"
+                        className="absolute inset-0 bg-cover bg-center"
                         style={{
-                          height: "128px",
-                          width: "569px",
-                          borderBottomRightRadius: "20px",
-                          borderBottomLeftRadius: "20px",
-                          borderWidth: "1px",
-                          borderColor: "#e5e7eb",
-                          opacity: 1,
+                          backgroundImage: `url(${
+                            offer.image?.url
+                              ? buildImageUrl(offer.image.url)
+                              : offer.backgroundImage
+                          })`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
                         }}
-                      >
-                        <h4
-                          className="text-base font-bold text-gray-800 mb-2 leading-tight"
-                          style={{ fontFamily: "var(--font-almarai)" }}
-                        >
-                          {getLocalizedValue(offer.title)}
-                        </h4>
-                        <p
-                          className="text-sm text-gray-600"
-                          style={{ fontFamily: "var(--font-almarai)" }}
-                        >
-                          {getLocalizedValue(offer.subtitle) ||
-                            (offer.offerText &&
-                            typeof offer.offerText === "object"
-                              ? offer.offerText[language]
-                              : offer.offerText)}
-                        </p>
+                      />
 
-                        {/* Warranty Badge for Luxury Type */}
-                        {offer.type === "luxury" && offer.warranty && (
-                          <div className="inline-block bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold mt-2">
-                            {offer.warranty[language]}
-                          </div>
-                        )}
+                      {/* Overlay */}
+                      <div
+                        className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/40"
+                        data-decorative="true"
+                      ></div>
+
+                      {/* Content */}
+                      <div className="relative z-10 h-full flex flex-col justify-end">
+                        {/* Bottom Section */}
+                        <div
+                          className="bg-white p-4 absolute bottom-0 left-0 right-0"
+                          style={{
+                            height: "128px",
+                            width: "569px",
+                            borderBottomRightRadius: "20px",
+                            borderBottomLeftRadius: "20px",
+                            borderWidth: "1px",
+                            borderColor: "#e5e7eb",
+                            opacity: 1,
+                          }}
+                        >
+                          <h4
+                            className="text-base font-bold text-gray-800 mb-2 leading-tight"
+                            style={{ fontFamily: "var(--font-almarai)" }}
+                          >
+                            {getLocalizedValue(offer.title)}
+                          </h4>
+                          <p
+                            className="text-sm text-gray-600"
+                            style={{ fontFamily: "var(--font-almarai)" }}
+                          >
+                            {getLocalizedValue(offer.subtitle) ||
+                              (offer.offerText &&
+                              typeof offer.offerText === "object"
+                                ? offer.offerText[language]
+                                : offer.offerText)}
+                          </p>
+
+                          {/* Warranty Badge for Luxury Type */}
+                          {offer.type === "luxury" && offer.warranty && (
+                            <div className="inline-block bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold mt-2">
+                              {offer.warranty[language]}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </section>
       </AnimatedSection>

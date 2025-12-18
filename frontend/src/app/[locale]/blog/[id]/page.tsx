@@ -17,6 +17,7 @@ import {
 } from "@/hooks/graphql/useGraphQL";
 import { GET_BLOG_POST_COMMENTS } from "@/lib/graphql/queries/content/blog";
 import { APP_CONFIG } from "@/constants/config";
+import BlogDetailLoading from "./loading";
 
 export default function BlogDetailPage({
   params,
@@ -292,13 +293,7 @@ export default function BlogDetailPage({
   }, [allBlogPosts, language, getStrapiImageUrl]);
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <div className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[500px] bg-gray-200 animate-pulse" />
-        <Footer />
-      </div>
-    );
+    return <BlogDetailLoading />;
   }
 
   if (!currentPost) {

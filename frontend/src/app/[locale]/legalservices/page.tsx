@@ -9,6 +9,7 @@ import {
   ConsultationSection,
 } from "@/components";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { CardsGridSkeleton } from "@/components/common/Skeletons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLegalServiceCategories } from "@/hooks/graphql/useGraphQL";
 import { useState, useMemo } from "react";
@@ -33,7 +34,8 @@ export default function LegalServicesPage() {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   // Fetch legal service categories from Strapi
-  const { data: legalData } = useLegalServiceCategories();
+  const { data: legalData, loading: loadingCategories } =
+    useLegalServiceCategories();
 
   // Transform GraphQL categories to companies format and apply search filter
   const companies = useMemo(() => {
@@ -288,10 +290,26 @@ export default function LegalServicesPage() {
       </AnimatedSection>
 
       {/* Companies Client Component (with Search & Filtering) */}
-      <LegalServicesClient
-        companies={companies}
-        baseHref={`/${locale}/legalservices`}
-      />
+      {loadingCategories ? (
+        <section className="py-16 lg:py-24 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2
+                className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                style={{ fontFamily: "var(--font-almarai)" }}
+              >
+                {language === "ar" ? "الجهات الحكومية" : "Government Entities"}
+              </h2>
+            </div>
+            <CardsGridSkeleton count={6} columns={3} showImage={true} />
+          </div>
+        </section>
+      ) : (
+        <LegalServicesClient
+          companies={companies}
+          baseHref={`/${locale}/legalservices`}
+        />
+      )}
 
       {/* FAQ Section */}
       <AnimatedSection animation="slideInUp" delay={150}>

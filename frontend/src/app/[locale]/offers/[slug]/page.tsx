@@ -11,6 +11,7 @@ import { offerDetails } from "@/mockData/offers/offerDetails";
 import Link from "next/link";
 import Image from "next/image";
 import { useMemo } from "react";
+import OfferDetailLoading from "./loading";
 
 export default function OfferDetailPage({
   params,
@@ -21,7 +22,7 @@ export default function OfferDetailPage({
   const routeParams = useParams();
   const locale = routeParams.locale as string;
   const { slug } = use(params);
-  const { data: strapiOfferData } = useOfferDetailBySlug(slug);
+  const { data: strapiOfferData, loading } = useOfferDetailBySlug(slug);
 
   // Find mock offer by slug
   const mockOfferData = useMemo(() => {
@@ -144,6 +145,11 @@ export default function OfferDetailPage({
     }
     return "";
   };
+
+  // Show loading skeleton while data is being fetched
+  if (loading) {
+    return <OfferDetailLoading />;
+  }
 
   if (!offerData) {
     return (

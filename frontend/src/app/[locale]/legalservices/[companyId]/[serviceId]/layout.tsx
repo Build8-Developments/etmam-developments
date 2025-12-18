@@ -57,8 +57,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Default fallback metadata
   const defaultTitles: Record<Locale, string> = {
-    ar: "خدمة حكومية - إتمام",
-    en: "Government Service - Etmam",
+    ar: "خدمة حكومية",
+    en: "Government Service",
   };
 
   const defaultDescriptions: Record<Locale, string> = {

@@ -15,8 +15,8 @@ export async function generateMetadata({
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etmam.com";
 
   const titles: Record<Locale, string> = {
-    ar: "الخدمات الاستشارية - إتمام",
-    en: "Consulting Services - Etmam",
+    ar: "الخدمات الاستشارية",
+    en: "Consulting Services",
   };
 
   const descriptions: Record<Locale, string> = {

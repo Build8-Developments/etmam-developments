@@ -7,6 +7,7 @@ import {
   ServicesGrid,
   ConsultationSection,
 } from "@/components";
+import { CardsGridSkeleton } from "@/components/common/Skeletons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useParams } from "next/navigation";
 import Link from "next/link";
@@ -23,8 +24,10 @@ export default function CompanyServicesPage() {
   const companyId = params.companyId as string;
 
   // Get GraphQL data
-  const { data: legalCategories } = useLegalServiceCategories();
-  const { data: legalSubservices } = useLegalServiceSubservices();
+  const { data: legalCategories, loading: loadingCategories } =
+    useLegalServiceCategories();
+  const { data: legalSubservices, loading: loadingSubservices } =
+    useLegalServiceSubservices();
 
   // Find category by slug (companyId)
   const categoryData = useMemo(() => {
@@ -1174,6 +1177,51 @@ export default function CompanyServicesPage() {
       services: mockCompany.services,
     };
   }, [categoryData, categorySubservices, companyId, language]);
+
+  const isLoading = loadingCategories || loadingSubservices;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <div className="relative overflow-hidden">
+          <div
+            className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
+            style={{
+              background:
+                "linear-gradient(86.9deg, rgba(27, 128, 54, 0.47) -14.86%, rgba(2, 6, 3, 0.47) 94%)",
+              backdropFilter: "blur(4px)",
+            }}
+          >
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: "url(/bgabout.png)",
+                backgroundSize: "cover",
+                backgroundPosition: "center center",
+                backgroundRepeat: "no-repeat",
+                backgroundAttachment: "fixed",
+              }}
+            />
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="text-center text-white">
+                <div className="animate-pulse">
+                  <div className="h-12 bg-white/20 rounded-lg max-w-2xl mx-auto mb-6"></div>
+                  <div className="h-6 bg-white/10 rounded-lg max-w-3xl mx-auto"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <CardsGridSkeleton count={6} columns={3} showImage={false} />
+          </div>
+        </section>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!company) {
     return (

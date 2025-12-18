@@ -16,6 +16,7 @@ import {
   useLegalServiceSubservices,
   useLegalServiceSubserviceDetail,
 } from "@/hooks/graphql/useGraphQL";
+import LegalServiceDetailLoading from "./loading";
 
 export default function ServiceDetailPage() {
   const { language } = useLanguage();
@@ -26,7 +27,8 @@ export default function ServiceDetailPage() {
   const serviceId = params.serviceId as string;
 
   // Get all subservices to find the one by slug
-  const { data: allSubservices } = useLegalServiceSubservices();
+  const { data: allSubservices, loading: loadingSubservices } =
+    useLegalServiceSubservices();
 
   // Find the subservice by slug
   const serviceBySlug = useMemo(() => {
@@ -35,9 +37,11 @@ export default function ServiceDetailPage() {
   }, [allSubservices, serviceId]);
 
   // Get service details using documentId
-  const { data: serviceData } = useLegalServiceSubserviceDetail(
-    serviceBySlug?.documentId || ""
-  );
+  const { data: serviceData, loading: loadingDetail } =
+    useLegalServiceSubserviceDetail(serviceBySlug?.documentId || "");
+
+  // Combined loading state
+  const isLoading = loadingSubservices || (serviceBySlug && loadingDetail);
 
   // Transform GraphQL data or use mock data as fallback
   const transformedService = useMemo(() => {
@@ -305,6 +309,11 @@ export default function ServiceDetailPage() {
   }, [serviceData, serviceBySlug, companyId, serviceId, language]);
 
   const service = transformedService;
+
+  // Show loading skeleton while data is being fetched
+  if (isLoading) {
+    return <LegalServiceDetailLoading />;
+  }
 
   if (!service) {
     return (
