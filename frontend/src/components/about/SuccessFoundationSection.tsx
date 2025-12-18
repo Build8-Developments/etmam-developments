@@ -112,11 +112,7 @@ export default function SuccessFoundationSection({
             dir={language === "ar" ? "rtl" : "ltr"}
           >
             {/* Vision Title with Green Background */}
-            <div
-              className={`mb-4 ${
-                language === "ar" ? "text-right" : "text-left"
-              }`}
-            >
+            <div className="mb-4 text-start">
               <h3
                 className="text-white px-4 py-2 rounded inline-block"
                 style={{
@@ -134,9 +130,7 @@ export default function SuccessFoundationSection({
 
             {/* Vision Subtitle */}
             <h4
-              className={`text-black mb-6 ${
-                language === "ar" ? "text-right" : "text-left"
-              }`}
+              className="text-black mb-6 text-start"
               style={{
                 fontFamily: "var(--font-almarai)",
                 fontWeight: 700,
@@ -153,9 +147,7 @@ export default function SuccessFoundationSection({
 
             {/* Vision Description */}
             <p
-              className={`text-black leading-[38px] ${
-                language === "ar" ? "text-right" : "text-left"
-              }`}
+              className="text-black leading-[38px] text-start"
               style={{
                 fontFamily: "var(--font-almarai)",
                 fontWeight: 400,
@@ -186,11 +178,7 @@ export default function SuccessFoundationSection({
             dir={language === "ar" ? "rtl" : "ltr"}
           >
             {/* Mission Title with Green Background */}
-            <div
-              className={`mb-4 ${
-                language === "ar" ? "text-right" : "text-left"
-              }`}
-            >
+            <div className="mb-4 text-start">
               <h3
                 className="text-white px-4 py-2 rounded inline-block"
                 style={{
@@ -208,9 +196,7 @@ export default function SuccessFoundationSection({
 
             {/* Mission Subtitle */}
             <h4
-              className={`text-black mb-6 ${
-                language === "ar" ? "text-right" : "text-left"
-              }`}
+              className="text-black mb-6 text-start"
               style={{
                 fontFamily: "var(--font-almarai)",
                 fontWeight: 700,
@@ -227,9 +213,7 @@ export default function SuccessFoundationSection({
 
             {/* Mission Description */}
             <p
-              className={`text-black leading-[38px] ${
-                language === "ar" ? "text-right" : "text-left"
-              }`}
+              className="text-black leading-[38px] text-start"
               style={{
                 fontFamily: "var(--font-almarai)",
                 fontWeight: 400,

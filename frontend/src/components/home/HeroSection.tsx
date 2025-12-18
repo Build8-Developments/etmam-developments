@@ -61,9 +61,7 @@ export default function HeroSection({
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column - Content */}
           <div
-            className={`order-2 lg:order-1 text-white space-y-4 md:space-y-6 ${
-              isRTL ? "text-right lg:text-right" : "text-left lg:text-left"
-            } animate-fade-in`}
+            className="order-2 lg:order-1 text-white space-y-4 md:space-y-6 text-start animate-fade-in"
           >
             <h1
               className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight transition-slow"

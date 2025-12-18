@@ -126,13 +126,9 @@ export default function StatisticsSection({
                   key={index}
                   className={`relative flex flex-col justify-center items-center text-center px-1 sm:px-2 md:px-4 transition-smooth hover-scale animate-fade-in-up ${
                     index < displayStats.length - 1
-                      ? isRTL
-                        ? index % 2 === 1
-                          ? "border-l border-l-white/30"
-                          : "sm:border-l sm:border-l-white/30"
-                        : index % 2 === 1
-                        ? "border-r border-r-white/30"
-                        : "sm:border-r sm:border-r-white/30"
+                      ? index % 2 === 1
+                        ? "border-e border-e-white/30"
+                        : "sm:border-e sm:border-e-white/30"
                       : ""
                   } stagger-${index + 1}`}
                   style={{ animationDelay: `${index * 0.1}s` }}

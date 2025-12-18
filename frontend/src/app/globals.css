@@ -609,6 +609,37 @@ body {
   direction: rtl;
 }
 
+/* RTL-aware text alignment */
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+/* RTL-aware flexbox */
+[dir="rtl"] .rtl\:rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* RTL-aware hover translations */
+[dir="rtl"] .rtl\:hover\:-translate-x-1:hover {
+  transform: translateX(-0.25rem);
+}
+
+[dir="ltr"] .ltr\:hover\:translate-x-1:hover {
+  transform: translateX(0.25rem);
+}
+
+[dir="rtl"] .rtl\:hover\:-translate-x-2:hover {
+  transform: translateX(-0.5rem);
+}
+
+[dir="ltr"] .ltr\:hover\:translate-x-2:hover {
+  transform: translateX(0.5rem);
+}
+
 /* =========================================
    POINTER-EVENTS FIX FOR DECORATIVE OVERLAYS
    =========================================

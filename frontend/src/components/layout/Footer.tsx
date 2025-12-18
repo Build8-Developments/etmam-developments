@@ -240,7 +240,7 @@ const Footer = ({
                       className="object-contain brightness-0 invert w-[120px] h-[84px] sm:w-[140px] sm:h-[98px] md:w-[160px] md:h-[112px] lg:w-[180px] lg:h-[126px]"
                     />
                   )}
-                  <div className="text-center lg:text-right">
+                  <div className="text-center lg:text-start">
                     <h4
                       className="text-white font-bold text-lg sm:text-xl md:text-xl mb-2"
                       style={{ fontFamily: "var(--font-almarai)" }}
@@ -271,7 +271,7 @@ const Footer = ({
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
                     <div
-                      className="text-white text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-right"
+                      className="text-white text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-start"
                       style={{
                         fontFamily: "var(--font-almarai)",
                       }}
@@ -314,9 +314,9 @@ const Footer = ({
               <div className="space-y-4">
                 <a
                   href={`mailto:${contactInfo?.email || "Etmamm@gmail.com"}`}
-                  className="flex items-center text-white/90 hover:text-white transition-all duration-300 group hover:translate-x-1"
+                  className="flex items-center text-white/90 hover:text-white transition-all duration-300 group rtl:hover:-translate-x-1 ltr:hover:translate-x-1"
                 >
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 group-hover:bg-white/25 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center me-4 group-hover:bg-white/25 group-hover:scale-110 transition-all duration-300 shadow-lg">
                     <svg
                       className="w-5 h-5"
                       fill="currentColor"
@@ -335,9 +335,9 @@ const Footer = ({
                 </a>
                 <a
                   href={`tel:${contactInfo?.phone_number || "(00) 0000-0000"}`}
-                  className="flex items-center text-white/90 hover:text-white transition-all duration-300 group hover:translate-x-1"
+                  className="flex items-center text-white/90 hover:text-white transition-all duration-300 group rtl:hover:-translate-x-1 ltr:hover:translate-x-1"
                 >
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 group-hover:bg-white/25 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center me-4 group-hover:bg-white/25 group-hover:scale-110 transition-all duration-300 shadow-lg">
                     <svg
                       className="w-5 h-5"
                       fill="currentColor"
@@ -360,9 +360,9 @@ const Footer = ({
                   }`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-white/90 hover:text-white transition-all duration-300 group hover:translate-x-1"
+                  className="flex items-center text-white/90 hover:text-white transition-all duration-300 group rtl:hover:-translate-x-1 ltr:hover:translate-x-1"
                 >
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 group-hover:bg-green-400/30 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center me-4 group-hover:bg-green-400/30 group-hover:scale-110 transition-all duration-300 shadow-lg">
                     <svg
                       className="w-5 h-5"
                       fill="currentColor"
@@ -418,7 +418,7 @@ const Footer = ({
                     <Link
                       key={index}
                       href={service.href || `/${locale}/consulting`}
-                      className="group flex items-center gap-2 text-white/90 text-sm sm:text-base md:text-lg hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1.5 hover:bg-white/5 -mx-2 px-2 rounded-lg"
+                      className="group flex items-center gap-2 text-white/90 text-sm sm:text-base md:text-lg hover:text-white rtl:hover:-translate-x-2 ltr:hover:translate-x-2 transition-all duration-300 cursor-pointer py-1.5 hover:bg-white/5 -mx-2 px-2 rounded-lg"
                       style={{ fontFamily: "var(--font-almarai)" }}
                     >
                       <span className="w-1.5 h-1.5 bg-white/60 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300" />
@@ -466,7 +466,7 @@ const Footer = ({
                     <Link
                       key={index}
                       href={service.href || `/${locale}/legalservices`}
-                      className="group flex items-center gap-2 text-white/90 text-sm sm:text-base md:text-lg hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1.5 hover:bg-white/5 -mx-2 px-2 rounded-lg"
+                      className="group flex items-center gap-2 text-white/90 text-sm sm:text-base md:text-lg hover:text-white rtl:hover:-translate-x-2 ltr:hover:translate-x-2 transition-all duration-300 cursor-pointer py-1.5 hover:bg-white/5 -mx-2 px-2 rounded-lg"
                       style={{ fontFamily: "var(--font-almarai)" }}
                     >
                       <span className="w-1.5 h-1.5 bg-white/60 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300" />
@@ -514,7 +514,7 @@ const Footer = ({
                     <Link
                       key={index}
                       href={link.href}
-                      className="group flex items-center gap-2 text-white/90 text-sm sm:text-base md:text-lg hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer py-1.5 hover:bg-white/5 -mx-2 px-2 rounded-lg"
+                      className="group flex items-center gap-2 text-white/90 text-sm sm:text-base md:text-lg hover:text-white rtl:hover:-translate-x-2 ltr:hover:translate-x-2 transition-all duration-300 cursor-pointer py-1.5 hover:bg-white/5 -mx-2 px-2 rounded-lg"
                       style={{ fontFamily: "var(--font-almarai)" }}
                     >
                       <span className="w-1.5 h-1.5 bg-white/60 rounded-full group-hover:bg-white group-hover:scale-150 transition-all duration-300" />

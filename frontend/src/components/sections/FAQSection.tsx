@@ -11,12 +11,13 @@ interface FAQItem {
 
 interface FAQSectionProps {
   title?: string;
+  subtitle?: string;
   faqs?: FAQItem[];
 }
 
-export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
+export const FAQSection = ({ title, subtitle, faqs }: FAQSectionProps) => {
   const { language } = useLanguage();
-  const [openItems, setOpenItems] = useState<number[]>([]);
+  const [openItems, setOpenItems] = useState<number[]>([0]); // First item open by default
 
   const toggleItem = (index: number) => {
     setOpenItems(prev => 
@@ -30,51 +31,27 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
   const defaultFaqData = [
     {
       question: { ar: "كم يستغرق إنجاز الخدمة؟", en: "How long does it take to complete the service?" },
-      answer: { ar: "عادة من 3 إلى 5 أيام عمل، وقد يختلف الوقت حسب اكتمال المستندات", en: "Usually 3 to 5 business days, and the time may vary depending on the completion of documents" }
+      answer: { ar: "عادة من 3 إلى 5 أيام عمل، وقد يختلف الوقت حسب اكتمال المستندات والإجراءات المطلوبة.", en: "Usually 3 to 5 business days, and the time may vary depending on the completion of documents and required procedures." }
     },
     {
       question: { ar: "هل أحتاج الحضور شخصياً؟", en: "Do I need to attend in person?" },
-      answer: { ar: "لا، يمكن إنجاز جميع الإجراءات عن بُعد دون الحاجة للحضور شخصياً", en: "No, all procedures can be completed remotely without the need to attend in person" }
+      answer: { ar: "لا، يمكن إنجاز جميع الإجراءات عن بُعد دون الحاجة للحضور شخصياً. نحن نتولى كل شيء نيابة عنك.", en: "No, all procedures can be completed remotely without the need to attend in person. We handle everything on your behalf." }
     },
     {
       question: { ar: "هل يشمل السعر جميع الرسوم الحكومية؟", en: "Does the price include all government fees?" },
-      answer: { ar: "نعم، السعر يشمل جميع الرسوم الحكومية والضرائب المطلوبة", en: "Yes, the price includes all government fees and required taxes" }
+      answer: { ar: "نعم، السعر يشمل جميع الرسوم الحكومية والضرائب المطلوبة. لا توجد رسوم مخفية.", en: "Yes, the price includes all government fees and required taxes. There are no hidden fees." }
     },
     {
       question: { ar: "هل يمكن تعديل البيانات بعد إتمام الخدمة؟", en: "Can data be modified after the service is completed?" },
-      answer: { ar: "نعم، يمكن تعديل بعض البيانات حسب طبيعة التعديل المطلوب", en: "Yes, some data can be modified depending on the nature of the required modification" }
+      answer: { ar: "نعم، يمكن تعديل بعض البيانات حسب طبيعة التعديل المطلوب. تواصل معنا لمعرفة التفاصيل.", en: "Yes, some data can be modified depending on the nature of the required modification. Contact us for details." }
     },
     {
       question: { ar: "كيف يمكنني متابعة طلبي؟", en: "How can I track my order?" },
-      answer: { ar: "يمكنك متابعة طلبك من خلال رقم الطلب المرسل إليك عبر الرسائل النصية", en: "You can track your order through the order number sent to you via text messages" }
-    },
-    {
-      question: { ar: "ما هي المستندات المطلوبة؟", en: "What documents are required?" },
-      answer: { ar: "تختلف المستندات حسب نوع الخدمة، وسيتم إعلامك بالتفصيل عند الطلب", en: "Documents vary according to the type of service, and you will be informed in detail upon request" }
-    },
-    {
-      question: { ar: "هل تقدمون خدمة العملاء على مدار الساعة؟", en: "Do you provide 24/7 customer service?" },
-      answer: { ar: "نعم، فريق خدمة العملاء متاح على مدار الساعة للإجابة على استفساراتكم", en: "Yes, our customer service team is available 24/7 to answer your inquiries" }
+      answer: { ar: "يمكنك متابعة طلبك من خلال رقم الطلب المرسل إليك عبر الرسائل النصية أو البريد الإلكتروني.", en: "You can track your order through the order number sent to you via text messages or email." }
     },
     {
       question: { ar: "ما هي طرق الدفع المتاحة؟", en: "What payment methods are available?" },
-      answer: { ar: "نقبل جميع طرق الدفع الإلكترونية والتحويلات البنكية", en: "We accept all electronic payment methods and bank transfers" }
-    },
-    {
-      question: { ar: "هل يمكن الحصول على استرداد في حالة الإلغاء؟", en: "Can I get a refund in case of cancellation?" },
-      answer: { ar: "نعم، يمكن الحصول على استرداد كامل في حالة الإلغاء قبل بدء الخدمة", en: "Yes, you can get a full refund in case of cancellation before the service starts" }
-    },
-    {
-      question: { ar: "هل تقدمون خدمات في جميع أنحاء المملكة؟", en: "Do you provide services throughout the Kingdom?" },
-      answer: { ar: "نعم، نقدم خدماتنا في جميع مناطق المملكة العربية السعودية", en: "Yes, we provide our services in all regions of Saudi Arabia" }
-    },
-    {
-      question: { ar: "ما هي مدة الضمان على الخدمات؟", en: "What is the warranty period for services?" },
-      answer: { ar: "نقدم ضمان لمدة سنة واحدة على جميع خدماتنا مع إمكانية التمديد", en: "We provide a one-year warranty on all our services with the possibility of extension" }
-    },
-    {
-      question: { ar: "كيف يمكنني التواصل معكم؟", en: "How can I contact you?" },
-      answer: { ar: "يمكنكم التواصل معنا عبر الهاتف، البريد الإلكتروني، أو زيارة مقرنا", en: "You can contact us via phone, email, or by visiting our headquarters" }
+      answer: { ar: "نقبل جميع طرق الدفع الإلكترونية، البطاقات الائتمانية، والتحويلات البنكية.", en: "We accept all electronic payment methods, credit cards, and bank transfers." }
     }
   ];
 
@@ -96,193 +73,193 @@ export const FAQSection = ({ title, faqs }: FAQSectionProps) => {
     ? faqs.map(faq => {
         const question = getLocalizedValue(faq.question);
         const answer = getLocalizedValue(faq.answer);
-        return {
-          question,
-          answer
-        };
+        return { question, answer };
       })
     : defaultFaqData;
 
-
   return (
     <section 
-      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50"
-      style={{ 
-        position: 'relative',
-        touchAction: 'manipulation'
-      }}
+      className="py-16 sm:py-20 lg:py-28 relative overflow-hidden"
+      dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
-      <div 
-        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ 
-          position: 'relative'
-        }}
-      >
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-green-50/30" />
+      
+      {/* Decorative Elements */}
+      <div className="absolute top-0 start-0 w-72 h-72 bg-green-100/40 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 end-0 w-96 h-96 bg-green-100/30 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full mb-6">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span 
+              className="text-sm font-semibold text-green-700"
+              style={{ fontFamily: 'var(--font-almarai)' }}
+            >
+              {language === 'ar' ? 'إجابات سريعة' : 'Quick Answers'}
+            </span>
+          </div>
+          
           <h2 
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6" 
-            style={{ fontFamily: 'var(--font-almarai)', color: '#026838' }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-gray-900 via-green-800 to-gray-900 bg-clip-text text-transparent" 
+            style={{ fontFamily: 'var(--font-almarai)' }}
           >
             {title || (language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions')}
           </h2>
+          
+          <p 
+            className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto"
+            style={{ fontFamily: 'var(--font-almarai)' }}
+          >
+            {subtitle || (language === 'ar' 
+              ? 'نجيب على أكثر الأسئلة شيوعاً لمساعدتك في اتخاذ القرار الصحيح' 
+              : 'We answer the most common questions to help you make the right decision')}
+          </p>
         </div>
 
         {/* FAQ Items */}
-        <div 
-          className="space-y-3 sm:space-y-4 lg:space-y-6"
-          style={{ 
-            position: 'relative'
-          }}
-        >
-          {faqData.map((item, index) => (
-            <div 
-              key={index} 
-              className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-smooth"
-              style={{ 
-                touchAction: 'manipulation',
-                position: 'relative',
-                isolation: 'isolate'
-              }}
-            >
-              {/* Mobile/Tablet Layout - Single Column */}
+        <div className="space-y-4 sm:space-y-5">
+          {faqData.map((item, index) => {
+            const isOpen = openItems.includes(index);
+            
+            return (
               <div 
-                className="block lg:hidden"
-                style={{ 
-                  position: 'relative'
-                }}
+                key={index}
+                className={`
+                  group relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden
+                  transition-all duration-500 ease-out
+                  ${isOpen 
+                    ? 'shadow-xl shadow-green-500/10 ring-2 ring-green-500/20' 
+                    : 'shadow-md hover:shadow-lg hover:shadow-green-500/5'
+                  }
+                `}
               >
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleItem(index);
-                  }}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                  }}
-                  className="w-full flex items-center justify-between gap-3 sm:gap-4 group text-left min-h-[44px]"
-                  style={{ 
-                    direction: language === 'ar' ? 'rtl' : 'ltr',
-                    touchAction: 'manipulation',
-                    WebkitTapHighlightColor: 'rgba(34, 197, 94, 0.2)',
-                    cursor: 'pointer',
-                    WebkitUserSelect: 'none',
-                    userSelect: 'none'
-                  }}
-                >
-                  <span 
-                    className="flex-1 text-base sm:text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
-                  >
-                    {item.question[language]}
-                  </span>
-                  <div className={`flex-shrink-0 ${language === 'ar' ? 'mr-auto' : 'ml-auto'}`}>
-                    {openItems.includes(index) ? (
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-full flex items-center justify-center transition-smooth">
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                        </svg>
-                      </div>
-                    ) : (
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-smooth" suppressHydrationWarning>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                </button>
-                
-                {/* Answer - Mobile/Tablet */}
-                {openItems.includes(index) && (
-                  <div 
-                    className={`mt-4 pt-4 border-t border-gray-200 animate-fade-in-up`}
-                    style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
-                  >
-                    <p 
-                      className="text-sm sm:text-base text-gray-600 leading-relaxed"
-                      style={{ fontFamily: 'var(--font-almarai)' }}
-                    >
-                      {item.answer[language]}
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* Desktop Layout - Two Columns */}
-              <div 
-                className="hidden lg:flex items-start gap-6 lg:gap-8"
-                style={{ 
-                  position: 'relative'
-                }}
-              >
-                {/* Question Side */}
+                {/* Gradient Border Effect */}
                 <div 
-                  className="flex-1 min-w-0"
+                  className={`
+                    absolute inset-0 bg-gradient-to-r from-green-500 via-green-400 to-green-600 opacity-0 
+                    transition-opacity duration-300
+                    ${isOpen ? 'opacity-100' : 'group-hover:opacity-50'}
+                  `}
+                  style={{ padding: '2px', borderRadius: 'inherit' }}
                 >
+                  <div className="w-full h-full bg-white rounded-[inherit]" />
+                </div>
+                
+                {/* Content */}
+                <div className="relative">
                   <button
                     type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      toggleItem(index);
-                    }}
-                    className={`w-full flex items-center justify-between group transition-smooth min-h-[44px] ${
-                      language === 'ar' ? 'text-right' : 'text-left'
-                    }`}
-                    style={{ 
-                      direction: language === 'ar' ? 'rtl' : 'ltr',
-                      touchAction: 'manipulation',
-                      cursor: 'pointer',
-                      WebkitUserSelect: 'none',
-                      userSelect: 'none'
-                    }}
+                    onClick={() => toggleItem(index)}
+                    className="w-full p-5 sm:p-6 lg:p-8 flex items-center gap-4 sm:gap-6 text-start"
+                    aria-expanded={isOpen}
                   >
+                    {/* Number Badge */}
+                    <div 
+                      className={`
+                        flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl
+                        flex items-center justify-center font-bold text-lg sm:text-xl
+                        transition-all duration-300
+                        ${isOpen 
+                          ? 'bg-gradient-to-br from-green-500 to-green-600 text-white shadow-lg shadow-green-500/30' 
+                          : 'bg-gray-100 text-gray-500 group-hover:bg-green-100 group-hover:text-green-600'
+                        }
+                      `}
+                      style={{ fontFamily: 'var(--font-almarai)' }}
+                    >
+                      {(index + 1).toString().padStart(2, '0')}
+                    </div>
+                    
+                    {/* Question */}
                     <span 
-                      className="flex-1 text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors"
+                      className={`
+                        flex-1 text-base sm:text-lg lg:text-xl font-semibold
+                        transition-colors duration-300
+                        ${isOpen ? 'text-green-700' : 'text-gray-800 group-hover:text-green-600'}
+                      `}
                       style={{ fontFamily: 'var(--font-almarai)' }}
                     >
                       {item.question[language]}
                     </span>
-                    <div className={`flex-shrink-0 ${language === 'ar' ? 'ml-4' : 'mr-4'}`}>
-                      {openItems.includes(index) ? (
-                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center transition-smooth hover-scale">
-                          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                          </svg>
-                        </div>
-                      ) : (
-                        <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-smooth hover-scale">
-                          <svg className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                          </svg>
-                        </div>
-                      )}
+                    
+                    {/* Toggle Icon */}
+                    <div 
+                      className={`
+                        flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full
+                        flex items-center justify-center
+                        transition-all duration-500
+                        ${isOpen 
+                          ? 'bg-green-500 text-white rotate-180' 
+                          : 'bg-gray-100 text-gray-500 group-hover:bg-green-100 group-hover:text-green-600'
+                        }
+                      `}
+                    >
+                      <svg 
+                        className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-500" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M19 9l-7 7-7-7" 
+                        />
+                      </svg>
                     </div>
                   </button>
-                </div>
-                
-                {/* Answer Side */}
-                <div className="flex-1 min-w-0">
-                  {openItems.includes(index) && (
-                    <div className="animate-fade-in-up">
-                      <p 
-                        className={`text-gray-600 leading-relaxed text-base ${
-                          language === 'ar' ? 'text-right' : 'text-left'
-                        }`}
-                        style={{ fontFamily: 'var(--font-almarai)' }}
-                      >
-                        {item.answer[language]}
-                      </p>
+                  
+                  {/* Answer */}
+                  <div 
+                    className={`
+                      overflow-hidden transition-all duration-500 ease-out
+                      ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+                    `}
+                  >
+                    <div className="px-5 sm:px-6 lg:px-8 pb-5 sm:pb-6 lg:pb-8 ps-[4.5rem] sm:ps-[5.5rem] lg:ps-[6.5rem]">
+                      <div className="relative">
+                        {/* Decorative Line */}
+                        <div className="absolute start-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-500 to-green-300 rounded-full -ms-6 sm:-ms-8" />
+                        
+                        <p 
+                          className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed"
+                          style={{ fontFamily: 'var(--font-almarai)', lineHeight: '1.8' }}
+                        >
+                          {item.answer[language]}
+                        </p>
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-12 sm:mt-16 text-center">
+          <p 
+            className="text-gray-600 mb-4"
+            style={{ fontFamily: 'var(--font-almarai)' }}
+          >
+            {language === 'ar' ? 'لم تجد إجابة لسؤالك؟' : "Didn't find an answer to your question?"}
+          </p>
+          <a 
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 hover:-translate-y-1 transition-all duration-300"
+            style={{ fontFamily: 'var(--font-almarai)' }}
+          >
+            <span>{language === 'ar' ? 'تواصل معنا' : 'Contact Us'}</span>
+            <svg className="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
