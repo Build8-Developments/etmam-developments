@@ -1,4 +1,3 @@
-import { ServiceDetailSkeleton } from "@/components/common/Skeletons";
 import { Header, Footer } from "@/components";
 
 export default function ConsultingServiceLoading() {

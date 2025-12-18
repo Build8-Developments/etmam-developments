@@ -1,7 +1,5 @@
 import {
-  HeroSkeleton,
   SectionSkeleton,
-  CardSkeleton,
   SearchBarSkeleton,
   PartnersSkeleton,
 } from "@/components/common/Skeletons";

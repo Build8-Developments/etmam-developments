@@ -1,4 +1,4 @@
-import { HeroSkeleton, SectionSkeleton } from "@/components/common/Skeletons";
+import { SectionSkeleton } from "@/components/common/Skeletons";
 import { Header, Footer } from "@/components";
 
 export default function PrivacyPolicyLoading() {
