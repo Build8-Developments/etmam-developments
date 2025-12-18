@@ -8,6 +8,7 @@ import { HeaderProps } from "@/types";
 import { Button } from "../common";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function Header({
   logo,
@@ -16,27 +17,38 @@ export default function Header({
 }: HeaderProps) {
   const { language, setLanguage } = useLanguage();
   const { isOpen, toggle, close } = useMobileMenu();
+  const routeParams = useParams();
+  const locale = routeParams.locale as string;
 
   // Build navigation items from translations
   const defaultNavItems = [
-    { label: getTranslation("navigation", "home", language), href: "/" },
-    { label: getTranslation("navigation", "about", language), href: "/about" },
+    {
+      label: getTranslation("navigation", "home", language),
+      href: `/${locale}`,
+    },
+    {
+      label: getTranslation("navigation", "about", language),
+      href: `/${locale}/about`,
+    },
     {
       label: getTranslation("navigation", "legal", language),
-      href: "/legalservices",
+      href: `/${locale}/legalservices`,
     },
     {
       label: getTranslation("navigation", "consulting", language),
-      href: "/consulting",
+      href: `/${locale}/consulting`,
     },
     {
       label: getTranslation("navigation", "offers", language),
-      href: "/offers",
+      href: `/${locale}/offers`,
     },
-    { label: getTranslation("navigation", "blog", language), href: "/blog" },
+    {
+      label: getTranslation("navigation", "blog", language),
+      href: `/${locale}/blog`,
+    },
     {
       label: getTranslation("navigation", "packages", language),
-      href: "/packages",
+      href: `/${locale}/packages`,
     },
   ];
 
@@ -46,6 +58,11 @@ export default function Header({
       typeof item.label === "string"
         ? item.label
         : item.label?.[language] ?? "",
+    // Ensure hrefs from props also have locale prefix
+    href:
+      navigationItems && item.href && !item.href.startsWith(`/${locale}`)
+        ? `/${locale}${item.href}`
+        : item.href,
   }));
   const contactLabel =
     (typeof contactButton?.label === "string"
@@ -54,9 +71,11 @@ export default function Header({
     getTranslation("navigation", "contact", language);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 ${Z_INDEX_CLASSES.HEADER} animate-slide-down`}>
+    <header
+      className={`fixed top-0 left-0 right-0 ${Z_INDEX_CLASSES.HEADER} animate-slide-down`}
+    >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
+        <div
           className="flex items-center justify-between transition-all duration-300 hover:shadow-lg"
           style={{
             minHeight: "70px",
@@ -70,7 +89,7 @@ export default function Header({
         >
           {/* Logo */}
           <Link
-            href="/"
+            href={`/${locale}`}
             className="flex items-center transition-transform hover:scale-105 duration-300"
           >
             {logo ? (
@@ -108,7 +127,9 @@ export default function Header({
                   paddingBottom: 0,
                 }}
               >
-                <span style={{paddingTop: '14px', display: 'inline-block'}}>{item.label}</span>
+                <span style={{ paddingTop: "14px", display: "inline-block" }}>
+                  {item.label}
+                </span>
                 <span className="absolute left-0 right-0 bottom-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300 m-0 p-0"></span>
               </Link>
             ))}
@@ -171,7 +192,7 @@ export default function Header({
             {/* Contact Button - يظهر فقط على الشاشات الكبيرة */}
             <Button
               label={contactLabel}
-              href={contactButton?.href || "/contact"}
+              href={`/${locale}${contactButton?.href || "/contact"}`}
               style={
                 language === "ar"
                   ? {
@@ -249,7 +270,9 @@ export default function Header({
             isOpen
               ? "opacity-100 pointer-events-auto translate-y-0"
               : "opacity-0 pointer-events-none -translate-y-4"
-          } lg:hidden transition-all duration-300 ease-out relative ${Z_INDEX_CLASSES.MOBILE_MENU}`}
+          } lg:hidden transition-all duration-300 ease-out relative ${
+            Z_INDEX_CLASSES.MOBILE_MENU
+          }`}
         >
           <div className="mt-3 mx-4 rounded-3xl bg-white shadow-2xl ring-1 ring-black/10 overflow-hidden backdrop-blur-sm">
             {/* Menu Header */}
@@ -305,7 +328,10 @@ export default function Header({
                   style={{ fontFamily: "var(--font-almarai)" }}
                 >
                   {/* Animated background */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" data-decorative="true"></span>
+                  <span
+                    className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                    data-decorative="true"
+                  ></span>
 
                   {/* Globe Icon */}
                   <svg

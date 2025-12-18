@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation, IMAGE_PATHS } from "@/constants";
 import { buildImageUrl } from "@/lib/api";
@@ -15,12 +16,14 @@ const CTASection: React.FC<CTASectionProps> = ({
   backgroundImage,
 }) => {
   const { language, isRTL } = useLanguage();
+  const routeParams = useParams();
+  const locale = routeParams.locale as string;
 
   // Use props first, then default
   const displayTitle = title || getTranslation("cta", "title", language);
   const displayButtonText =
     buttonText || getTranslation("cta", "buttonText", language);
-  const displayButtonLink = buttonLink || "/contact";
+  const displayButtonLink = buttonLink || `/${locale}/contact`;
   const displayBackgroundImage = backgroundImage;
 
   return (

@@ -16,10 +16,12 @@ interface LegalCompany {
 
 interface LegalServicesClientProps {
   companies: LegalCompany[];
+  baseHref?: string;
 }
 
 export default function LegalServicesClient({
   companies,
+  baseHref = "/legalservices",
 }: LegalServicesClientProps) {
   const { language } = useLanguage();
 
@@ -37,7 +39,7 @@ export default function LegalServicesClient({
                   delay={index * 0.1}
                 >
                   <Link
-                    href={`/legalservices/${company.id}`}
+                    href={`${baseHref}/${company.id}`}
                     className="block h-full"
                   >
                     <div
