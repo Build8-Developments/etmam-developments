@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Locale, locales, defaultLocale } from "@/i18n/config";
+import { Locale, defaultLocale } from "@/i18n/config";
 import { fetchWithLocale } from "@/lib/graphql/utils/fetchGraphQL";
 import { GET_BLOG_POST_BY_SLUG } from "@/lib/graphql/queries/content/blog";
 import { APP_CONFIG } from "@/constants/config";

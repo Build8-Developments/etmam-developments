@@ -38,8 +38,7 @@ export default function BlogDetailPage({
   const { id } = use(params);
 
   const { data: blogPostData, loading: loadingPost } = useBlogPostBySlug(id);
-  const { documentId: defaultLocaleDocumentId, locale: blogPostLocale } =
-    useBlogPostDefaultLocale(id);
+  const { documentId: defaultLocaleDocumentId } = useBlogPostDefaultLocale(id);
   const { data: allBlogPosts, loading: loadingAllPosts } = useBlogPostsNew();
   const { createComment, loading: submittingComment } = useCreateBlogComment();
 

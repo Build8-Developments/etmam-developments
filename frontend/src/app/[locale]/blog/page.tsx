@@ -31,8 +31,7 @@ export default function BlogPage() {
 
   // Get GraphQL data
   const { data: blogPostsData, loading: loadingBlogPosts } = useBlogPostsNew();
-  const { data: featuredPostsData, loading: loadingFeaturedPosts } =
-    useFeaturedBlogPosts();
+  const { data: featuredPostsData } = useFeaturedBlogPosts();
 
   // Transform GraphQL data to mock format or use mock data
   const blogPostsToUse = useMemo(() => {
