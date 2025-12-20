@@ -125,7 +125,7 @@ export default async function DebugHomePage({ searchParams }: PageProps) {
               >
                 Arabic (ar)
               </Link>
-              <a
+              <Link
                 href="/debug/home?locale=en"
                 className={`px-4 py-2 rounded-md text-sm font-medium ${
                   locale === "en"
