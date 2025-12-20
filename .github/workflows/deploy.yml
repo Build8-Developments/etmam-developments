@@ -18,6 +18,7 @@ on:
 
 env:
   NODE_VERSION: "20.x"
+  DEPLOY_PATH: "/var/www/etmam"
 
 jobs:
   deploy-frontend:
@@ -27,365 +28,90 @@ jobs:
     if: github.event_name == 'push' || github.event.inputs.deploy_target == 'all' || github.event.inputs.deploy_target == 'frontend'
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Deploy Frontend to Server
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: "npm"
-          cache-dependency-path: frontend/package-lock.json
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            echo "🚀 Starting frontend deployment..."
 
-      - name: Install dependencies
-        working-directory: frontend
-        run: npm ci
+            cd ${{ env.DEPLOY_PATH }}
 
-      - name: Debug - Check secrets (masked)
-        run: |
-          echo "Checking if secrets are available..."
-          echo "FRONTEND_NEXT_PUBLIC_APP_URL (var): ${{ vars.FRONTEND_NEXT_PUBLIC_APP_URL }}"
-          echo "FRONTEND_NEXT_PUBLIC_APP_URL (secret) length: ${#FRONTEND_NEXT_PUBLIC_APP_URL}"
-          echo "SSH_HOST (secret) length: ${#SSH_HOST}"
-        env:
-          FRONTEND_NEXT_PUBLIC_APP_URL: ${{ secrets.FRONTEND_NEXT_PUBLIC_APP_URL }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
+            # Pull latest changes
+            echo "📥 Pulling latest changes..."
+            git pull origin main
 
-      - name: Create production .env file
-        working-directory: frontend
-        run: |
-          cat > .env.production << EOF
-          # Production Environment Variables
-          NEXT_PUBLIC_APP_URL=${{ vars.FRONTEND_NEXT_PUBLIC_APP_URL }}
-          NEXT_PUBLIC_SITE_URL=${{ vars.FRONTEND_NEXT_PUBLIC_APP_URL }}
+            # Install dependencies and build
+            echo "📦 Installing dependencies..."
+            cd frontend
+            npm ci
 
-          # Strapi URLs (Client-side)
-          NEXT_PUBLIC_STRAPI_API_URL=${{ vars.FRONTEND_NEXT_PUBLIC_STRAPI_API_URL }}
-          NEXT_PUBLIC_STRAPI_GRAPHQL_URL=${{ vars.FRONTEND_NEXT_PUBLIC_STRAPI_API_URL }}/graphql
+            echo "🔨 Building Next.js..."
+            npm run build
 
-          # Strapi URLs (Server-side)
-          STRAPI_API_URL=${{ vars.STRAPI_API_URL }}
-          STRAPI_GRAPHQL_URL=${{ vars.STRAPI_GRAPHQL_URL }}
+            # Restart PM2 process
+            echo "🔄 Restarting frontend..."
+            pm2 restart etmam-frontend
 
-          # API Tokens
-          NEXT_PUBLIC_STRAPI_API_TOKEN=${{ vars.FRONTEND_NEXT_PUBLIC_STRAPI_API_TOKEN }}
-          STRAPI_API_TOKEN=${{ vars.STRAPI_API_TOKEN }}
-
-          # Revalidation
-          REVALIDATION_SECRET=${{ vars.FRONTEND_REVALIDATION_SECRET }}
-
-          # Feature Flags
-          NEXT_PUBLIC_ENABLE_ANALYTICS=true
-          NEXT_PUBLIC_ENABLE_PWA=true
-          NEXT_PUBLIC_ENABLE_DARK_MODE=false
-          NEXT_PUBLIC_ENABLE_NOTIFICATIONS=true
-          EOF
-
-      - name: Build Next.js application
-        working-directory: frontend
-        run: npm run build
-
-      - name: Install sshpass
-        run: sudo apt-get update && sudo apt-get install -y sshpass
-
-      - name: Deploy to production server
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-        run: |
-          # Create backup directory name with timestamp
-          BACKUP_DIR="/var/www/backups/frontend-$(date +%Y%m%d-%H%M%S)"
-
-          # Create deployment script
-          cat > deploy-frontend.sh << 'SCRIPT'
-          #!/bin/bash
-          set -e
-
-          echo "🚀 Starting frontend deployment..."
-
-          # Create backups directory if it doesn't exist
-          mkdir -p /var/www/backups
-
-          # Backup current deployment
-          if [ -d "/var/www/etmam-frontend/.next" ]; then
-            echo "📦 Creating backup..."
-            BACKUP_DIR="/var/www/backups/frontend-$(date +%Y%m%d-%H%M%S)"
-            mkdir -p "$BACKUP_DIR"
-            cp -r /var/www/etmam-frontend/.next "$BACKUP_DIR/" 2>/dev/null || true
-            cp /var/www/etmam-frontend/.env.production "$BACKUP_DIR/" 2>/dev/null || true
-            echo "✅ Backup created at: $BACKUP_DIR"
-          fi
-
-          # Navigate to deployment directory
-          cd /var/www/etmam-frontend
-
-          # Stop PM2 process gracefully
-          echo "⏸️  Stopping PM2 process..."
-          pm2 stop etmam-frontend || true
-
-          # Clean old build
-          echo "🧹 Cleaning old build..."
-          rm -rf .next
-
-          echo "✅ Deployment preparation complete"
-          SCRIPT
-
-          chmod +x deploy-frontend.sh
-
-          # Execute deployment preparation on server
-          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22} ${SSH_USER}@${SSH_HOST} 'bash -s' < deploy-frontend.sh
-
-          # Sync built files to server
-          echo "📤 Syncing files to server..."
-
-          # Sync .next folder
-          sshpass -p "$SSH_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22}" \
-            --delete \
-            frontend/.next/ ${SSH_USER}@${SSH_HOST}:/var/www/etmam-frontend/.next/
-
-          # Sync public folder
-          sshpass -p "$SSH_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22}" \
-            --delete \
-            frontend/public/ ${SSH_USER}@${SSH_HOST}:/var/www/etmam-frontend/public/
-
-          # Sync source files
-          sshpass -p "$SSH_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22}" \
-            --delete \
-            frontend/src/ ${SSH_USER}@${SSH_HOST}:/var/www/etmam-frontend/src/
-
-          # Sync configuration files
-          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -P ${SSH_PORT:-22} \
-            frontend/package.json \
-            frontend/package-lock.json \
-            frontend/next.config.ts \
-            frontend/tsconfig.json \
-            frontend/postcss.config.mjs \
-            frontend/eslint.config.mjs \
-            frontend/ecosystem.config.js \
-            ${SSH_USER}@${SSH_HOST}:/var/www/etmam-frontend/
-
-          # Sync .env.production
-          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -P ${SSH_PORT:-22} \
-            frontend/.env.production \
-            ${SSH_USER}@${SSH_HOST}:/var/www/etmam-frontend/.env.production
-
-          # Create post-deployment script
-          cat > post-deploy-frontend.sh << 'SCRIPT'
-          #!/bin/bash
-          set -e
-
-          cd /var/www/etmam-frontend
-
-          # Install production dependencies
-          echo "📦 Installing production dependencies..."
-          npm ci --production --ignore-scripts
-
-          # Start PM2 process
-          echo "▶️  Starting PM2 process..."
-          pm2 start ecosystem.config.js || pm2 restart etmam-frontend
-
-          # Save PM2 configuration
-          pm2 save
-
-          # Show PM2 status
-          echo "📊 PM2 Status:"
-          pm2 list
-
-          echo "✅ Frontend deployment complete!"
-          SCRIPT
-
-          chmod +x post-deploy-frontend.sh
-
-          # Execute post-deployment on server
-          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22} ${SSH_USER}@${SSH_HOST} 'bash -s' < post-deploy-frontend.sh
-
-          echo "🎉 Frontend deployed successfully!"
+            echo "✅ Frontend deployment complete!"
 
   deploy-strapi:
     name: Deploy Strapi
     runs-on: ubuntu-latest
     environment: prod
-    if: github.event_name == 'push' || github.event.inputs.deploy_target == 'all' || github.event.inputs.deploy_target == 'strapi'
+    needs: deploy-frontend
+    if: |
+      always() && 
+      (github.event_name == 'push' || github.event.inputs.deploy_target == 'all' || github.event.inputs.deploy_target == 'strapi') &&
+      (needs.deploy-frontend.result == 'success' || needs.deploy-frontend.result == 'skipped')
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Deploy Strapi to Server
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: "npm"
-          cache-dependency-path: strapi/package-lock.json
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            echo "🚀 Starting Strapi deployment..."
 
-      - name: Install dependencies
-        working-directory: strapi
-        run: npm ci
+            cd ${{ env.DEPLOY_PATH }}
 
-      - name: Build Strapi
-        working-directory: strapi
-        run: npm run build
+            # Pull latest changes (skip if frontend already pulled)
+            echo "📥 Pulling latest changes..."
+            git pull origin main
 
-      - name: Install sshpass
-        run: sudo apt-get update && sudo apt-get install -y sshpass
+            cd strapi
 
-      - name: Deploy to production server
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-        run: |
-          # Create deployment script
-          cat > deploy-strapi.sh << 'SCRIPT'
-          #!/bin/bash
-          set -e
+            # Preserve database and uploads by excluding them from any clean operations
+            echo "💾 Database and uploads will be preserved..."
 
-          echo "🚀 Starting Strapi deployment..."
+            # Install dependencies
+            echo "📦 Installing dependencies..."
+            npm ci
 
-          # Create backups directory if it doesn't exist
-          mkdir -p /var/www/backups
+            # Rebuild native modules (better-sqlite3)
+            echo "🔨 Rebuilding native modules..."
+            npm rebuild better-sqlite3
 
-          # Backup current deployment AND database
-          if [ -d "/var/www/strapi/dist" ]; then
-            echo "📦 Creating backup..."
-            BACKUP_DIR="/var/www/backups/strapi-$(date +%Y%m%d-%H%M%S)"
-            mkdir -p "$BACKUP_DIR"
-            cp -r /var/www/strapi/dist "$BACKUP_DIR/" 2>/dev/null || true
-            cp -r /var/www/strapi/config "$BACKUP_DIR/" 2>/dev/null || true
-            
-            # Backup database file
-            if [ -f "/var/www/strapi/.tmp/data.db" ]; then
-              mkdir -p "$BACKUP_DIR/.tmp"
-              cp /var/www/strapi/.tmp/data.db "$BACKUP_DIR/.tmp/" 2>/dev/null || true
-              echo "✅ Database backed up"
-            fi
-            
-            echo "✅ Backup created at: $BACKUP_DIR"
-          fi
+            # Build Strapi
+            echo "🔨 Building Strapi..."
+            npm run build
 
-          # Backup database to temporary location (preserve during deployment)
-          echo "💾 Preserving database..."
-          if [ -f "/var/www/strapi/.tmp/data.db" ]; then
-            cp /var/www/strapi/.tmp/data.db /tmp/strapi-data.db.backup
-            echo "✅ Database preserved to /tmp/strapi-data.db.backup"
-          fi
+            # Restart PM2 process
+            echo "🔄 Restarting Strapi..."
+            pm2 restart strapi
 
-          # Navigate to deployment directory
-          cd /var/www/strapi
-
-          # Stop PM2 process gracefully
-          echo "⏸️  Stopping PM2 process..."
-          pm2 stop strapi || true
-
-          # Clean old build (preserve uploads and database)
-          echo "🧹 Cleaning old build..."
-          rm -rf dist
-          rm -rf .strapi
-
-          echo "✅ Deployment preparation complete"
-          SCRIPT
-
-          chmod +x deploy-strapi.sh
-
-          # Execute deployment preparation on server
-          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22} ${SSH_USER}@${SSH_HOST} 'bash -s' < deploy-strapi.sh
-
-          # Sync built files to server
-          echo "📤 Syncing files to server..."
-
-          # Sync dist folder
-          sshpass -p "$SSH_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22}" \
-            --delete \
-            strapi/dist/ ${SSH_USER}@${SSH_HOST}:/var/www/strapi/dist/
-
-          # Sync source files
-          sshpass -p "$SSH_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22}" \
-            --delete \
-            strapi/src/ ${SSH_USER}@${SSH_HOST}:/var/www/strapi/src/
-
-          # Sync config files
-          sshpass -p "$SSH_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22}" \
-            --delete \
-            strapi/config/ ${SSH_USER}@${SSH_HOST}:/var/www/strapi/config/
-
-          # Sync database migrations (preserve actual database)
-          sshpass -p "$SSH_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22}" \
-            strapi/database/migrations/ ${SSH_USER}@${SSH_HOST}:/var/www/strapi/database/migrations/
-
-          # Sync package files
-          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -P ${SSH_PORT:-22} \
-            strapi/package.json \
-            strapi/package-lock.json \
-            strapi/tsconfig.json \
-            strapi/ecosystem.config.js \
-            ${SSH_USER}@${SSH_HOST}:/var/www/strapi/
-
-          # Create post-deployment script
-          cat > post-deploy-strapi.sh << 'SCRIPT'
-          #!/bin/bash
-          set -e
-
-          cd /var/www/strapi
-
-          # Stop PM2 process before updating dependencies
-          echo "⏸️  Stopping Strapi process..."
-          pm2 stop strapi 2>/dev/null || echo "Strapi not running"
-
-          # Clean up node_modules to avoid ENOTEMPTY errors
-          echo "🧹 Cleaning node_modules..."
-          rm -rf node_modules
-
-          # Install production dependencies
-          echo "📦 Installing production dependencies..."
-          npm ci --production
-
-          # Rebuild native modules (better-sqlite3)
-          echo "🔨 Rebuilding native modules..."
-          npm rebuild better-sqlite3
-
-          # Restore database from backup
-          echo "🔄 Restoring database..."
-          if [ -f "/tmp/strapi-data.db.backup" ]; then
-            mkdir -p .tmp
-            cp /tmp/strapi-data.db.backup .tmp/data.db
-            echo "✅ Database restored from backup"
-            rm /tmp/strapi-data.db.backup
-          else
-            echo "⚠️  No database backup found, starting with fresh database"
-          fi
-
-          # Ensure proper permissions
-          echo "🔒 Setting permissions..."
-          chown -R www-data:www-data public/uploads 2>/dev/null || true
-          chown -R www-data:www-data .tmp 2>/dev/null || true
-          chmod 644 .tmp/data.db 2>/dev/null || true
-
-          # Restart PM2 process
-          echo "▶️  Restarting Strapi..."
-          pm2 restart strapi || pm2 start ecosystem.config.js
-
-          # Save PM2 configuration
-          pm2 save
-
-          # Show PM2 status
-          echo "📊 PM2 Status:"
-          pm2 list
-
-          echo "✅ Strapi deployment complete!"
-          SCRIPT
-
-          chmod +x post-deploy-strapi.sh
-
-          # Execute post-deployment on server
-          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no -p ${SSH_PORT:-22} ${SSH_USER}@${SSH_HOST} 'bash -s' < post-deploy-strapi.sh
-
-          echo "🎉 Strapi deployed successfully!"
+            echo "✅ Strapi deployment complete!"
 
   notify:
-    name: Deployment Notification
+    name: Deployment Status
     runs-on: ubuntu-latest
     needs: [deploy-frontend, deploy-strapi]
     if: always()
@@ -397,11 +123,12 @@ jobs:
           echo "Frontend: ${{ needs.deploy-frontend.result }}"
           echo "Strapi: ${{ needs.deploy-strapi.result }}"
 
-          if [ "${{ needs.deploy-frontend.result }}" == "success" ] && [ "${{ needs.deploy-strapi.result }}" == "success" ]; then
-            echo "✅ All deployments successful!"
-          elif [ "${{ needs.deploy-frontend.result }}" == "skipped" ] || [ "${{ needs.deploy-strapi.result }}" == "skipped" ]; then
-            echo "⏭️ Some deployments were skipped"
-          else
-            echo "❌ Some deployments failed!"
-            exit 1
+          if [ "${{ needs.deploy-frontend.result }}" == "success" ] || [ "${{ needs.deploy-frontend.result }}" == "skipped" ]; then
+            if [ "${{ needs.deploy-strapi.result }}" == "success" ] || [ "${{ needs.deploy-strapi.result }}" == "skipped" ]; then
+              echo "✅ Deployment successful!"
+              exit 0
+            fi
           fi
+
+          echo "❌ Deployment failed!"
+          exit 1

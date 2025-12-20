@@ -3,9 +3,11 @@ import { Locale, defaultLocale } from "@/i18n/config";
 import { fetchWithLocale } from "@/lib/graphql/utils/fetchGraphQL";
 import { GET_BLOG_POST_BY_SLUG } from "@/lib/graphql/queries/content/blog";
 import { APP_CONFIG } from "@/constants/config";
+import { ArticleSchema, BreadcrumbSchema } from "@/lib/structured-data";
 
 type Props = {
   params: Promise<{ id: string; locale: string }>;
+  children: React.ReactNode;
 };
 
 async function getBlogPost(slug: string, locale: string) {
@@ -94,10 +96,53 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPostLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+export default async function BlogPostLayout({ children, params }: Props) {
+  const { id, locale } = await params;
+  const validLocale = (locale as Locale) || defaultLocale;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etmam.com";
+
+  // Fetch blog post data for structured data
+  const post = await getBlogPost(id, validLocale);
+
+  const imageUrl = post?.banner?.url
+    ? post.banner.url.startsWith("http")
+      ? post.banner.url
+      : `${APP_CONFIG.apiUrl}${post.banner.url}`
+    : `${baseUrl}/images/blog/default-og.jpg`;
+
+  return (
+    <>
+      {post && (
+        <>
+          <ArticleSchema
+            title={post.title || ""}
+            description={post.summary || ""}
+            url={`${baseUrl}/${validLocale}/blog/${id}`}
+            image={imageUrl}
+            datePublished={post.publishedAt || new Date().toISOString()}
+            dateModified={post.updatedAt}
+            authorName={post.blog_author?.name}
+            locale={validLocale}
+          />
+          <BreadcrumbSchema
+            items={[
+              {
+                name: validLocale === "ar" ? "الرئيسية" : "Home",
+                url: `${baseUrl}/${validLocale}`,
+              },
+              {
+                name: validLocale === "ar" ? "المدونة" : "Blog",
+                url: `${baseUrl}/${validLocale}/blog`,
+              },
+              {
+                name: post.title || "",
+                url: `${baseUrl}/${validLocale}/blog/${id}`,
+              },
+            ]}
+          />
+        </>
+      )}
+      {children}
+    </>
+  );
 }

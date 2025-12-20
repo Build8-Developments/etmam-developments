@@ -14,6 +14,11 @@ import {
   getCanonicalUrl,
 } from "@/i18n/config";
 import { notFound } from "next/navigation";
+import {
+  OrganizationSchema,
+  WebSiteSchema,
+  LocalBusinessSchema,
+} from "@/lib/structured-data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -157,6 +162,10 @@ export default async function LocaleLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         {isStaging && <meta name="robots" content="noindex,nofollow" />}
+        {/* Structured Data for SEO */}
+        <OrganizationSchema locale={validLocale} />
+        <WebSiteSchema locale={validLocale} />
+        <LocalBusinessSchema locale={validLocale} />
       </head>
       <body
         suppressHydrationWarning

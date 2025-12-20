@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "etmam-frontend",
-      cwd: "/var/www/etmam-frontend",
+      cwd: "/var/www/etmam/frontend",
       script: "node_modules/next/dist/bin/next",
       args: "start",
       instances: 1,

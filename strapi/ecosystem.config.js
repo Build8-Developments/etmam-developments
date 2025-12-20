@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "strapi",
-      cwd: "/var/www/strapi",
+      cwd: "/var/www/etmam/strapi",
       script: "npm",
       args: "start",
       instances: 1,

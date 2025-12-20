@@ -6,9 +6,11 @@ import {
   GET_LEGAL_SERVICE_SUBSERVICE_DETAILS_BY_DOCUMENTID,
 } from "@/lib/graphql/queries/content/services/legal";
 import { APP_CONFIG } from "@/constants/config";
+import { ServiceSchema, BreadcrumbSchema } from "@/lib/structured-data";
 
 type Props = {
   params: Promise<{ companyId: string; serviceId: string; locale: string }>;
+  children: React.ReactNode;
 };
 
 async function getLegalService(serviceId: string, locale: string) {
@@ -127,10 +129,60 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function LegalServiceDetailLayout({
+export default async function LegalServiceDetailLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+  params,
+}: Props) {
+  const { companyId, serviceId, locale } = await params;
+  const validLocale = (locale as Locale) || defaultLocale;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etmam.com";
+
+  // Fetch service data for structured data
+  const service = await getLegalService(serviceId, validLocale);
+
+  const imageUrl = service?.icon?.url
+    ? service.icon.url.startsWith("http")
+      ? service.icon.url
+      : `${APP_CONFIG.apiUrl}${service.icon.url}`
+    : undefined;
+
+  return (
+    <>
+      {service && (
+        <>
+          <ServiceSchema
+            name={service.name || ""}
+            description={service.shortDescription || ""}
+            url={`${baseUrl}/${validLocale}/legalservices/${companyId}/${serviceId}`}
+            image={imageUrl}
+            price={service.startFromPrice}
+            currency={service.currency || "SAR"}
+            locale={validLocale}
+          />
+          <BreadcrumbSchema
+            items={[
+              {
+                name: validLocale === "ar" ? "الرئيسية" : "Home",
+                url: `${baseUrl}/${validLocale}`,
+              },
+              {
+                name:
+                  validLocale === "ar" ? "الخدمات القانونية" : "Legal Services",
+                url: `${baseUrl}/${validLocale}/legalservices`,
+              },
+              {
+                name: service.legal_service_category?.name || companyId,
+                url: `${baseUrl}/${validLocale}/legalservices/${companyId}`,
+              },
+              {
+                name: service.name || "",
+                url: `${baseUrl}/${validLocale}/legalservices/${companyId}/${serviceId}`,
+              },
+            ]}
+          />
+        </>
+      )}
+      {children}
+    </>
+  );
 }

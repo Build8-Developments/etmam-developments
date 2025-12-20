@@ -6,7 +6,7 @@
 set -e
 
 # Configuration
-SERVER_IP="72.60.135.197"
+SERVER_IP="104.248.136.250"
 SERVER_USER="root"
 LOCAL_UPLOADS_PATH="./strapi/public/uploads"
 REMOTE_UPLOADS_PATH="/var/www/strapi/public/uploads"

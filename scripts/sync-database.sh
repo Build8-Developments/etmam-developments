@@ -6,10 +6,10 @@
 set -e
 
 # Configuration
-SERVER_IP="72.60.135.197"
+SERVER_IP="104.248.136.250"
 SERVER_USER="root"
 LOCAL_DB_PATH="./strapi/.tmp/data.db"
-REMOTE_DB_PATH="/var/www/strapi/.tmp/data.db"
+REMOTE_DB_PATH="/var/www/etmam/strapi/.tmp/data.db"
 
 echo "======================================"
 echo "🗄️  Strapi Database Sync"

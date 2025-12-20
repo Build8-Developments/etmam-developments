@@ -6,9 +6,11 @@ import {
   GET_SHORT_CONSULTING_SERVICES,
 } from "@/lib/graphql/queries/content/services/consulting";
 import { APP_CONFIG } from "@/constants/config";
+import { ServiceSchema, BreadcrumbSchema } from "@/lib/structured-data";
 
 type Props = {
   params: Promise<{ serviceId: string; locale: string }>;
+  children: React.ReactNode;
 };
 
 async function getConsultingService(serviceId: string, locale: string) {
@@ -121,10 +123,56 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ConsultingServiceLayout({
+export default async function ConsultingServiceLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+  params,
+}: Props) {
+  const { serviceId, locale } = await params;
+  const validLocale = (locale as Locale) || defaultLocale;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etmam.com";
+
+  // Fetch service data for structured data
+  const service = await getConsultingService(serviceId, validLocale);
+
+  const imageUrl = service?.icon?.url
+    ? service.icon.url.startsWith("http")
+      ? service.icon.url
+      : `${APP_CONFIG.apiUrl}${service.icon.url}`
+    : undefined;
+
+  return (
+    <>
+      {service && (
+        <>
+          <ServiceSchema
+            name={service.name || ""}
+            description={service.shortDescription || ""}
+            url={`${baseUrl}/${validLocale}/consulting/${serviceId}`}
+            image={imageUrl}
+            locale={validLocale}
+          />
+          <BreadcrumbSchema
+            items={[
+              {
+                name: validLocale === "ar" ? "الرئيسية" : "Home",
+                url: `${baseUrl}/${validLocale}`,
+              },
+              {
+                name:
+                  validLocale === "ar"
+                    ? "الخدمات الاستشارية"
+                    : "Consulting Services",
+                url: `${baseUrl}/${validLocale}/consulting`,
+              },
+              {
+                name: service.name || "",
+                url: `${baseUrl}/${validLocale}/consulting/${serviceId}`,
+              },
+            ]}
+          />
+        </>
+      )}
+      {children}
+    </>
+  );
 }
