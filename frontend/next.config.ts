@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "etmam-admin.build8.dev",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
         hostname: "img.icons8.com",
         pathname: "/**",
       },
