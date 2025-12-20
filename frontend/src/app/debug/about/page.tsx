@@ -1,6 +1,7 @@
 import { fetchWithLocale } from "@/lib/graphql";
 import { CopyButton } from "./CopyButton";
 import { GET_ABOUT_PAGE } from "@/lib/graphql/queries/pages/about";
+import Link from "next/link";
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600; // Revalidate every 1 hour (3600 seconds)
@@ -115,7 +116,7 @@ export default async function DebugAboutPage({ searchParams }: PageProps) {
               <strong>Current Locale:</strong> {locale}
             </div>
             <div className="flex gap-2">
-              <a
+              <Link
                 href="/debug/about?locale=ar"
                 className={`px-4 py-2 rounded-md text-sm font-medium ${
                   locale === "ar"
@@ -124,8 +125,8 @@ export default async function DebugAboutPage({ searchParams }: PageProps) {
                 }`}
               >
                 Arabic (ar)
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/debug/about?locale=en"
                 className={`px-4 py-2 rounded-md text-sm font-medium ${
                   locale === "en"
@@ -134,7 +135,7 @@ export default async function DebugAboutPage({ searchParams }: PageProps) {
                 }`}
               >
                 English (en)
-              </a>
+              </Link>
             </div>
           </div>
           <div className="mt-4 text-xs text-gray-500">
