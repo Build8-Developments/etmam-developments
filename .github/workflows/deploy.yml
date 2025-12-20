@@ -41,9 +41,10 @@ jobs:
 
             cd ${{ env.DEPLOY_PATH }}
 
-            # Pull latest changes
-            echo "📥 Pulling latest changes..."
-            git pull origin main
+            # Reset any local changes and pull latest
+            echo "📥 Resetting and pulling latest changes..."
+            git fetch origin main
+            git reset --hard origin/main
 
             # Install dependencies and build
             echo "📦 Installing dependencies..."
@@ -83,9 +84,10 @@ jobs:
 
             cd ${{ env.DEPLOY_PATH }}
 
-            # Pull latest changes (skip if frontend already pulled)
-            echo "📥 Pulling latest changes..."
-            git pull origin main
+            # Reset any local changes and pull latest (skip if frontend already did)
+            echo "📥 Resetting and pulling latest changes..."
+            git fetch origin main
+            git reset --hard origin/main
 
             cd strapi
 
