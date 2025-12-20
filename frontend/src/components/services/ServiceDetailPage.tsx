@@ -345,23 +345,23 @@ const ServiceDetailPage = ({
 
               {/* Requirements */}
               <div 
-                className="absolute right-0 top-0 bg-white h-full flex flex-col justify-center pr-4 sm:pr-8 pl-4 sm:pl-16 w-full sm:w-1/2"
+                className="absolute end-0 top-0 bg-white h-full flex flex-col justify-center pe-4 sm:pe-8 ps-4 sm:ps-16 w-full sm:w-1/2"
                 style={{
                   minHeight: '300px'
                 }}
               >
                 <h2 
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 text-right"
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 text-start"
                   style={{ fontFamily: 'var(--font-almarai)', color: '#026838' }}
                 >
                   {language === 'ar' ? 'المتطلبات والشروط' : 'Requirements & Conditions'}
                 </h2>
-                <ul className="space-y-4 sm:space-y-6">
+                <ul className="space-y-4 sm:space-y-6" dir={language === 'ar' ? 'rtl' : 'ltr'}>
                   {service.requirements.map((requirement, index) => (
-                    <li key={index} className="flex items-start gap-3 sm:gap-4 text-right">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 sm:mt-3 flex-shrink-0"></div>
+                    <li key={index} className="flex items-start gap-3 sm:gap-4">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 sm:mt-3 flex-shrink-0 order-first"></div>
                       <span 
-                        className="text-sm sm:text-base text-gray-700 font-medium text-right leading-relaxed"
+                        className="text-sm sm:text-base text-gray-700 font-medium leading-relaxed"
                         style={{ 
                           fontFamily: 'var(--font-almarai)',
                           lineHeight: '1.6'

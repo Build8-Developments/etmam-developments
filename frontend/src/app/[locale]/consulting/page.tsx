@@ -202,11 +202,7 @@ export default function ConsultingServicesPage() {
                       onChange={(e) => setSearchTerm(e.target.value)}
                       onFocus={() => setIsSearchFocused(true)}
                       onBlur={() => setIsSearchFocused(false)}
-                      className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-300 ${
-                        language === "ar"
-                          ? "pr-12 pl-4 text-right"
-                          : "pl-12 pr-4 text-left"
-                      } ${
+                      className={`w-full py-4 text-lg bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-300 ps-12 pe-4 text-start ${
                         isSearchFocused ? "bg-white/20 border-white/40" : ""
                       }`}
                       style={{
@@ -219,9 +215,7 @@ export default function ConsultingServicesPage() {
                     {searchTerm && (
                       <button
                         onClick={() => setSearchTerm("")}
-                        className={`absolute inset-y-0 flex items-center text-white/70 hover:text-white transition-colors ${
-                          language === "ar" ? "left-0 pl-4" : "right-0 pr-4"
-                        }`}
+                        className="absolute inset-y-0 end-0 pe-4 flex items-center text-white/70 hover:text-white transition-colors"
                         style={{ pointerEvents: "auto" }}
                       >
                         <svg

@@ -525,11 +525,7 @@ export const ConsultationSection = ({
 
           {/* Text Content */}
           <div
-            className={`lg:order-1 flex flex-col items-center justify-center text-center ${
-              language === "ar"
-                ? "lg:text-right lg:items-end"
-                : "lg:text-left lg:items-start"
-            } lg:pl-8 rounded-2xl overflow-hidden relative bg-gradient-to-br from-green-600 to-green-500`}
+            className="lg:order-1 flex flex-col items-center justify-center text-center lg:text-start lg:items-start lg:ps-8 rounded-2xl overflow-hidden relative bg-gradient-to-br from-green-600 to-green-500"
             style={{ minHeight: "400px", padding: "2.5rem 2rem" }}
           >
             {/* Decorative Icon Centered */}

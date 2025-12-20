@@ -297,7 +297,7 @@ export default function Header({
                 >
                   <span className="flex-1">{item.label}</span>
                   <svg
-                    className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors"
+                    className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors rtl:rotate-180"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

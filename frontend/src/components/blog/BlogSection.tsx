@@ -151,7 +151,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
                       height: "103px",
                       backgroundColor: "rgba(144, 192, 84, 1)",
                       marginTop: "-100px",
-                      marginLeft: "-25px",
+                      marginInlineStart: "-25px",
                     }}
                   >
                     {/* Day Number - No Background */}

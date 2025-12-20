@@ -70,9 +70,7 @@ const CTASection: React.FC<CTASectionProps> = ({
             >
               {/* Text Content */}
               <div
-                className={`text-white mb-6 sm:mb-8 lg:mb-10 ${
-                  isRTL ? "text-right" : "text-left"
-                }`}
+                className="text-white mb-6 sm:mb-8 lg:mb-10 text-start"
                 style={{
                   width: "100%",
                   fontFamily: "var(--font-almarai)",
@@ -107,15 +105,13 @@ const CTASection: React.FC<CTASectionProps> = ({
               >
                 {displayButtonText}
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  className="w-4 h-4 sm:w-5 sm:h-5 rtl:rotate-180"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   style={{
-                    transform: isRTL ? "scaleX(-1)" : "none",
                     color: "rgba(17, 97, 58, 1)",
-                    marginLeft: isRTL ? "0" : "8px",
-                    marginRight: isRTL ? "8px" : "0",
+                    marginInlineStart: "8px",
                   }}
                 >
                   <path
