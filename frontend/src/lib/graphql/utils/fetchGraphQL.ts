@@ -65,11 +65,11 @@ export async function fetchGraphQL<T = any>(
   const {
     query,
     variables = {},
-    fetchPolicy = "cache-first",
+    fetchPolicy = "network-only",
     endpoint = process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL ||
       "http://localhost:1337/graphql",
     token = process.env.STRAPI_API_TOKEN,
-    revalidate,
+    revalidate = 0,
     tags,
   } = options;
 
