@@ -17,7 +17,7 @@ export const servicesMockData: ServiceItem[] = [
     title: "استخراج التراخيص",
     description: "نقدم خدمات استخراج جميع أنواع التراخيص التجارية والصناعية",
     icon: {
-      url: "https://img.icons8.com/?size=100&id=1349&format=png&color=000000",
+      url: "/icons/license.svg",
       alternativeText: "أيقونة التراخيص",
     },
     href: "/services/license-extraction",

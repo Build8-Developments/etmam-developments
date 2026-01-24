@@ -76,10 +76,38 @@ export default function ServicesSection({
       return null;
     }
 
-    // Use buildImageUrl for Strapi URLs
-    const imageSrc = iconPath.startsWith("http")
-      ? iconPath
-      : buildImageUrl(iconPath);
+    // Determine the correct image source
+    let imageSrc: string;
+    
+    if (iconPath.startsWith("http")) {
+      // External URL - use as is
+      imageSrc = iconPath;
+    } else if (iconPath.startsWith("/icons/") || iconPath.startsWith("/images/")) {
+      // Local public folder - use as is (Next.js serves from public)
+      imageSrc = iconPath;
+    } else if (iconPath.startsWith("/uploads/")) {
+      // Strapi upload - use buildImageUrl
+      imageSrc = buildImageUrl(iconPath);
+    } else {
+      // Default fallback
+      imageSrc = iconPath;
+    }
+
+    // Use regular img tag for SVG files, Next.js Image for others
+    const isSvg = imageSrc.endsWith('.svg');
+    
+    if (isSvg) {
+      return (
+        <img
+          src={imageSrc}
+          alt={service.icon?.name || service.title || "Service icon"}
+          width={26}
+          height={26}
+          className="w-[26px] h-[26px]"
+          style={{ filter: 'invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(95%) contrast(101%)' }}
+        />
+      );
+    }
 
     return (
       <Image
