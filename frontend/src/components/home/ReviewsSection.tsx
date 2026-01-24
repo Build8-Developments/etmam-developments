@@ -4,6 +4,11 @@ import React from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation, IMAGE_PATHS } from "@/constants";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface Review {
   id: string | number;
@@ -114,109 +119,212 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
   const displayReviews = reviews && reviews.length > 0 ? reviews : defaultReviews;
 
   return (
-    <section className="py-16 bg-white" dir={isRTL ? "rtl" : "ltr"}>
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white" dir={isRTL ? "rtl" : "ltr"}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2
-            className="mb-6"
+            className="text-4xl md:text-5xl font-bold text-green-700 mb-4"
             style={{
               fontFamily: "var(--font-almarai)",
-              fontWeight: "700",
-              fontSize: "clamp(28px, 4vw, 42px)",
-              lineHeight: "clamp(36px, 5vw, 56px)",
-              color: "#026838",
             }}
           >
             {title || defaultTitle}
           </h2>
           <p
-            className="text-gray-600 max-w-2xl mx-auto"
+            className="text-gray-600 text-lg max-w-2xl mx-auto"
             style={{
               fontFamily: "var(--font-almarai)",
-              fontWeight: "400",
-              fontSize: "clamp(16px, 2.5vw, 18px)",
-              lineHeight: "clamp(24px, 3.5vw, 28px)",
             }}
           >
             {subtitle || defaultSubtitle}
           </p>
         </div>
 
-        {/* Reviews */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayReviews.map((review: Review, index: number) => (
-            <div
-              key={review.id || index}
-              className="bg-gray-50 rounded-xl p-6 transition-smooth shadow-md hover:shadow-xl border border-gray-200 transform"
-              style={{
-                animationDelay: `${index * 0.1}s`,
-              }}
-            >
-              {/* Stars */}
-              <div className="flex items-center mb-4 gap-1">
-                {Array.from({ length: 5 }, (_, i) => (
-                  <svg
-                    key={i}
-                    className={`w-5 h-5 transition-slow hover-scale ${
-                      i < review.rating ? "text-amber-400" : "text-gray-300"
-                    }`}
-                    fill={i < review.rating ? "#f59e0b" : "#d1d5db"}
-                    viewBox="0 0 20 20"
-                    style={{ animationDelay: `${i * 0.05}s` }}
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+        {/* Reviews Slider */}
+        <div className="max-w-7xl mx-auto relative px-12 md:px-16">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={32}
+            slidesPerView={1}
+            loop={true}
+            navigation={{
+              nextEl: ".swiper-button-next-custom",
+              prevEl: ".swiper-button-prev-custom",
+            }}
+            pagination={{
+              clickable: true,
+              el: ".swiper-pagination-custom",
+            }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 32,
+              },
+            }}
+            className="pb-16"
+          >
+            {displayReviews.map((review: Review, index: number) => (
+              <SwiperSlide key={review.id || index}>
+                <div
+                  className="bg-white rounded-2xl p-8 transition-all duration-300 shadow-lg hover:shadow-2xl border-2 border-gray-100 hover:border-green-500 h-full"
+                >
+                  {/* Stars */}
+                  <div className="flex items-center justify-center mb-6 gap-1">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <svg
+                        key={i}
+                        className={`w-6 h-6 ${
+                          i < review.rating ? "text-amber-400" : "text-gray-300"
+                        }`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
 
-              {/* Comment */}
-              <p
-                className="text-gray-700 mb-6"
-                style={{
-                  fontFamily: "var(--font-almarai)",
-                  fontWeight: "400",
-                  fontSize: "15px",
-                  lineHeight: "24px",
-                }}
-              >
-                {review.comment}
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden mr-3 flex-shrink-0">
-                  <Image
-                    src={review.avatar || IMAGE_PATHS.people.main}
-                    alt={review.name}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4
-                    className="text-gray-900 font-semibold text-sm"
-                    style={{
-                      fontFamily: "var(--font-almarai)",
-                    }}
-                  >
-                    {review.name}
-                  </h4>
+                  {/* Comment */}
                   <p
-                    className="text-gray-500 text-xs"
+                    className="text-gray-700 text-base leading-relaxed mb-8 text-center min-h-[100px]"
                     style={{
                       fontFamily: "var(--font-almarai)",
                     }}
                   >
-                    {review.position}
+                    {review.comment}
                   </p>
+
+                  {/* Divider */}
+                  <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-6"></div>
+
+                  {/* Author */}
+                  <div className="flex items-center justify-center gap-4">
+                    <div className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-green-100">
+                      <Image
+                        src={review.avatar || IMAGE_PATHS.people.main}
+                        alt={review.name}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h4
+                        className="text-gray-900 font-bold text-base mb-1"
+                        style={{
+                          fontFamily: "var(--font-almarai)",
+                        }}
+                      >
+                        {review.name}
+                      </h4>
+                      <p
+                        className="text-gray-500 text-sm"
+                        style={{
+                          fontFamily: "var(--font-almarai)",
+                        }}
+                      >
+                        {review.position}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Custom Navigation Buttons */}
+          <button
+            className={`swiper-button-prev-custom absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-xl border-2 border-gray-200 hover:border-green-500 hover:bg-green-50 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+              isRTL ? "right-0" : "left-0"
+            }`}
+            aria-label="Previous"
+          >
+            <svg
+              className="w-6 h-6 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d={isRTL ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"}
+              />
+            </svg>
+          </button>
+          <button
+            className={`swiper-button-next-custom absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-xl border-2 border-gray-200 hover:border-green-500 hover:bg-green-50 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+              isRTL ? "left-0" : "right-0"
+            }`}
+            aria-label="Next"
+          >
+            <svg
+              className="w-6 h-6 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d={isRTL ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"}
+              />
+            </svg>
+          </button>
+
+          {/* Custom Pagination */}
+          <div className="swiper-pagination-custom flex justify-center gap-2 mt-8"></div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .swiper-pagination-custom .swiper-pagination-bullet {
+          width: 12px;
+          height: 12px;
+          background: #d1d5db;
+          opacity: 1;
+          transition: all 0.3s;
+          cursor: pointer;
+        }
+        .swiper-pagination-custom .swiper-pagination-bullet-active {
+          background: #16a34a;
+          width: 32px;
+          border-radius: 6px;
+        }
+        .swiper-button-prev-custom,
+        .swiper-button-next-custom {
+          cursor: pointer;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+        }
+        @media (max-width: 768px) {
+          .swiper-button-prev-custom,
+          .swiper-button-next-custom {
+            width: 40px;
+            height: 40px;
+          }
+          .swiper-button-prev-custom svg,
+          .swiper-button-next-custom svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      `}</style>
     </section>
   );
 };

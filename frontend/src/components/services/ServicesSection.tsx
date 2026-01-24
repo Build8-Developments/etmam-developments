@@ -121,7 +121,7 @@ export default function ServicesSection({
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0a5c3c] via-[#0d7045] to-[#0a5c3c] relative overflow-hidden">
+    <section className="py-10 md:py-20 bg-gradient-to-br from-[#0a5c3c] via-[#0d7045] to-[#0a5c3c] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -132,15 +132,15 @@ export default function ServicesSection({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2
-            className="text-white text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg"
+            className="text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-6 drop-shadow-lg px-2"
             style={{ fontFamily: "var(--font-almarai)" }}
           >
             {title || defaultTitle}
           </h2>
           <p
-            className="text-white/95 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+            className="text-white/95 text-sm md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4"
             style={{ fontFamily: "var(--font-almarai)" }}
           >
             {description || defaultDescription}
@@ -148,7 +148,7 @@ export default function ServicesSection({
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-16">
           {displayServices.map((service: ServiceCard, index: number) => (
             <div
               key={service.id || index}
@@ -156,16 +156,16 @@ export default function ServicesSection({
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div
-                className={`rounded-2xl p-8 text-center transition-all duration-300 h-full ${
+                className={`rounded-xl md:rounded-2xl p-5 md:p-8 text-center transition-all duration-300 h-full ${
                   service.isActive
                     ? "bg-white/15 backdrop-blur-sm text-white border-2 border-white/30 shadow-2xl"
                     : "bg-white text-gray-800 shadow-xl hover:shadow-2xl border border-gray-100 hover:-translate-y-2"
                 }`}
               >
                 {/* Icon Container */}
-                <div className="flex items-center justify-center mb-6">
+                <div className="flex items-center justify-center mb-3 md:mb-6">
                   <div
-                    className={`w-20 h-20 flex items-center justify-center rounded-2xl transition-all duration-300 ${
+                    className={`w-14 h-14 md:w-20 md:h-20 flex items-center justify-center rounded-xl md:rounded-2xl transition-all duration-300 ${
                       service.isActive 
                         ? "bg-white/20 group-hover:bg-white/30" 
                         : "bg-gradient-to-br from-green-50 to-green-100 group-hover:from-green-100 group-hover:to-green-200 group-hover:scale-110"
@@ -177,7 +177,7 @@ export default function ServicesSection({
 
                 {/* Title */}
                 <h3
-                  className="font-bold mb-4 text-xl transition-colors"
+                  className="font-bold mb-2 md:mb-4 text-base md:text-xl transition-colors"
                   style={{ fontFamily: "var(--font-almarai)" }}
                 >
                   {service.title}
@@ -185,7 +185,7 @@ export default function ServicesSection({
 
                 {/* Description */}
                 <p
-                  className={`leading-relaxed text-base transition-colors ${
+                  className={`leading-relaxed text-xs md:text-base transition-colors ${
                     service.isActive ? "text-white/95" : "text-gray-600 group-hover:text-gray-700"
                   }`}
                   style={{ fontFamily: "var(--font-almarai)" }}
@@ -201,7 +201,7 @@ export default function ServicesSection({
         <div className="text-center">
           <Link
             href={displayCTA.href}
-            className="inline-flex items-center gap-2 bg-white text-green-700 font-bold rounded-full px-10 py-4 hover:bg-green-50 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-1"
+            className="inline-flex items-center gap-2 bg-white text-green-700 font-bold rounded-full px-6 md:px-10 py-3 md:py-4 hover:bg-green-50 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-1 text-sm md:text-base"
             style={{
               fontFamily: "var(--font-almarai)",
               textDecoration: "none",
@@ -209,7 +209,7 @@ export default function ServicesSection({
           >
             {displayCTA.label}
             <svg 
-              className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${language === 'ar' ? 'rotate-180' : ''}`}
+              className={`w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1 ${language === 'ar' ? 'rotate-180' : ''}`}
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"

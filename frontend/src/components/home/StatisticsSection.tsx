@@ -59,115 +59,69 @@ export default function StatisticsSection({
   const displayStats = stats || defaultStats;
 
   return (
-    <section
-      className="relative overflow-hidden"
-      style={{ height: "clamp(500px, 600px, 700px)" }}
-    >
-      {/* Background Image - Upper 2/3 */}
-      <div
-        className="absolute inset-0 z-0"
-        data-decorative="true"
-        style={{ height: "clamp(300px, 400px, 500px)" }}
-      >
+    <section className="relative py-20 overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
         <Image
           src={backgroundImage ? buildImageUrl(backgroundImage.url) : "/bg.jpg"}
           alt={backgroundImage?.alternativeText || "Statistics Background"}
           fill
           className="object-cover"
         />
-        {/* Green overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-green-600/30 to-green-800/50 pointer-events-none" data-decorative="true"></div>
+        {/* Dark overlay for better contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/60 to-gray-900/70"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-between px-2 sm:px-4 md:px-6 lg:px-8">
-        {/* Main Title - Centered in upper 2/3 */}
-        <div className="flex-1 flex items-center justify-center px-2 sm:px-4">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Title */}
+        <div className="text-center mb-16">
           <h2
-            className="text-white font-bold leading-tight text-center"
+            className="text-white font-bold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto"
             style={{
               fontFamily: "var(--font-almarai)",
-              fontWeight: 700,
-              fontSize: "clamp(20px, 3.5vw, 48px)",
-              lineHeight: "clamp(28px, 4.5vw, 64px)",
-              letterSpacing: 0,
-              textAlign: "center",
-              textShadow: "0 4px 8px rgba(0,0,0,0.6)",
-              maxWidth: "clamp(300px, 90vw, 800px)",
-              padding: "0 8px",
+              textShadow: "0 2px 10px rgba(0,0,0,0.3)",
             }}
           >
             {title || defaultTitle}
           </h2>
         </div>
 
-        {/* Statistics Box - Positioned to overlap both background and white sections */}
-        <div
-          className="flex justify-center px-2 sm:px-4"
-          style={{
-            marginTop: "0px",
-            paddingBottom: "clamp(60px, 120px, 160px)",
-          }}
-        >
-          <div
-            className="rounded-[20px] sm:rounded-[30px] overflow-hidden"
-            style={{
-              width: "min(100%, 1064px)",
-              height: "clamp(120px, 160px, 200px)",
-              background: "linear-gradient(90deg, #aad83a 0%, #026838 100%)",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
-              border: "1px solid rgba(255,255,255,0.2)",
-            }}
-          >
-            {/* Statistics Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 h-full gap-1 sm:gap-0">
-              {displayStats.map((stat, index) => (
+        {/* Statistics Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {displayStats.map((stat, index) => (
+            <div
+              key={index}
+              className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {/* Gradient Background on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="relative z-10 text-center">
+                {/* Number */}
                 <div
-                  key={index}
-                  className={`relative flex flex-col justify-center items-center text-center px-1 sm:px-2 md:px-4 transition-smooth hover-scale animate-fade-in-up ${
-                    index < displayStats.length - 1
-                      ? index % 2 === 1
-                        ? "border-e border-e-white/30"
-                        : "sm:border-e sm:border-e-white/30"
-                      : ""
-                  } stagger-${index + 1}`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="text-white font-bold text-4xl md:text-5xl lg:text-6xl mb-3"
+                  style={{
+                    fontFamily: "Cairo",
+                    textShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                  }}
                 >
-                  {/* Number */}
-                  <div
-                    className="text-white font-bold mb-1 sm:mb-2 animate-pulse-slow"
-                    style={{
-                      fontFamily: "Cairo",
-                      fontWeight: 600,
-                      fontSize: "clamp(20px, 3.5vw, 60px)",
-                      lineHeight: "100%",
-                      letterSpacing: 0,
-                      textShadow: "0 2px 4px rgba(0,0,0,0.5)",
-                    }}
-                  >
-                    {stat.number}
-                  </div>
-
-                  {/* Label */}
-                  <div
-                    className="text-white font-bold text-center"
-                    style={{
-                      fontFamily: "Almarai",
-                      fontWeight: 700,
-                      fontSize: "clamp(10px, 1.5vw, 18px)",
-                      lineHeight: "140%",
-                      letterSpacing: 0,
-                      textShadow: "0 1px 2px rgba(0,0,0,0.5)",
-                      maxWidth: "clamp(120px, 90%, 200px)",
-                      padding: "0 4px",
-                    }}
-                  >
-                    {stat.label}
-                  </div>
+                  {stat.number}
                 </div>
-              ))}
+
+                {/* Label */}
+                <div
+                  className="text-white/90 font-semibold text-sm md:text-base leading-relaxed"
+                  style={{
+                    fontFamily: "var(--font-almarai)",
+                  }}
+                >
+                  {stat.label}
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
