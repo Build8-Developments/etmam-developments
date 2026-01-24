@@ -231,35 +231,24 @@ export const ServiceCard = ({
     <Link href={href} className="block h-full">
       <div
         className="
-        group relative bg-white rounded-2xl h-full flex flex-col overflow-hidden
-        transition-all duration-500 ease-out
-        shadow-[0_4px_20px_rgba(0,0,0,0.08)]
-        hover:shadow-[0_20px_60px_rgba(27,128,54,0.15)]
-        transform hover:-translate-y-3
-        border border-gray-100
-        before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#1B8036]/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500 before:pointer-events-none
-        hover:before:opacity-100
+        group relative bg-white rounded-2xl h-full flex flex-col
+        transition-all duration-300
+        shadow-lg hover:shadow-2xl
+        transform hover:-translate-y-2
+        border-2 border-gray-100 hover:border-green-500
       "
       >
-        {/* Gradient Header */}
-        <div className="relative bg-gradient-to-br from-[#1B8036] via-[#1a7532] to-[#145c28] p-8 overflow-hidden">
-          {/* Animated Background Patterns */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12 group-hover:scale-150 transition-transform duration-700" />
-
+        {/* Header with Icon */}
+        <div className="relative bg-gradient-to-br from-green-600 to-green-700 p-6 rounded-t-2xl">
           {/* Service Icon */}
-          <div className="relative z-10 flex items-center justify-center">
+          <div className="flex items-center justify-center">
             <div
               className="
-              w-16 h-16 bg-white rounded-2xl flex items-center justify-center
-              shadow-[0_8px_30px_rgba(0,0,0,0.12)]
-              transform group-hover:scale-110 group-hover:rotate-3
-              transition-all duration-500
+              w-16 h-16 bg-white rounded-xl flex items-center justify-center
+              shadow-lg transform group-hover:scale-110 transition-all duration-300
             "
             >
-              <div className="group-hover:scale-110 transition-transform duration-500">
-                {getIconComponent(service.icon)}
-              </div>
+              {getIconComponent(service.icon)}
             </div>
           </div>
         </div>
@@ -268,12 +257,7 @@ export const ServiceCard = ({
         <div className="p-6 flex-1 flex flex-col">
           {/* Service Title */}
           <h3
-            className="
-            text-xl font-bold text-gray-900 mb-3 text-center
-            group-hover:text-[#1B8036] 
-            transition-colors duration-300
-            leading-tight
-          "
+            className="text-xl font-bold text-gray-900 mb-3 text-center leading-tight"
             style={{ fontFamily: "var(--font-almarai)" }}
           >
             {service.title}
@@ -281,11 +265,7 @@ export const ServiceCard = ({
 
           {/* Service Description */}
           <p
-            className="
-            text-gray-600 text-sm leading-relaxed mb-4 flex-1 text-center
-            group-hover:text-gray-700
-            transition-colors duration-300
-          "
+            className="text-gray-600 text-sm leading-relaxed mb-6 flex-1 text-center"
             style={{ fontFamily: "var(--font-almarai)" }}
           >
             {service.description}
@@ -293,19 +273,10 @@ export const ServiceCard = ({
 
           {/* Service Details */}
           {showDetails && (
-            <div className="space-y-3 mb-6 px-4">
-              <div
-                className="
-                flex items-center justify-center gap-3 text-sm
-                px-4 py-2.5 rounded-xl
-                bg-gradient-to-r from-green-50 to-emerald-50
-                border border-green-100
-                group-hover:border-green-200
-                transition-all duration-300
-              "
-              >
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center justify-center gap-2 text-sm px-4 py-2 rounded-lg bg-green-50">
                 <svg
-                  className="w-5 h-5 text-[#1B8036] group-hover:scale-110 transition-transform duration-300"
+                  className="w-5 h-5 text-green-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -324,18 +295,9 @@ export const ServiceCard = ({
                   {service.price}
                 </span>
               </div>
-              <div
-                className="
-                flex items-center justify-center gap-3 text-sm
-                px-4 py-2.5 rounded-xl
-                bg-gradient-to-r from-blue-50 to-cyan-50
-                border border-blue-100
-                group-hover:border-blue-200
-                transition-all duration-300
-              "
-              >
+              <div className="flex items-center justify-center gap-2 text-sm px-4 py-2 rounded-lg bg-blue-50">
                 <svg
-                  className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform duration-300"
+                  className="w-5 h-5 text-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -358,39 +320,19 @@ export const ServiceCard = ({
           )}
 
           {/* CTA Button */}
-          <div className="pt-4 border-t border-gray-100">
-            <div
-              className="
-              flex items-center justify-center gap-2
-              w-full py-3 px-6 rounded-xl
-              bg-gradient-to-r from-[#1B8036] to-[#145c28]
-              text-white font-bold
-              group-hover:shadow-lg group-hover:shadow-[#1B8036]/50
-              transform group-hover:scale-[1.02]
-              transition-all duration-300
-            "
-            >
-              <span
-                className="text-sm"
-                style={{ fontFamily: "var(--font-almarai)" }}
-              >
-                {language === "ar" ? "عرض التفاصيل" : "View Details"}
-              </span>
-              <svg
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d={language === "ar" ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"}
-                />
-              </svg>
-            </div>
-          </div>
+          <button
+            className="
+            w-full py-3 px-6 rounded-lg
+            bg-green-600 hover:bg-green-700
+            text-white font-bold text-sm
+            transform group-hover:scale-105
+            transition-all duration-300
+            shadow-md hover:shadow-lg
+          "
+            style={{ fontFamily: "var(--font-almarai)" }}
+          >
+            {language === "ar" ? "عرض التفاصيل" : "View Details"}
+          </button>
         </div>
       </div>
     </Link>
