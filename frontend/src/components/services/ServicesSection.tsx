@@ -101,9 +101,9 @@ export default function ServicesSection({
         <img
           src={imageSrc}
           alt={service.icon?.name || service.title || "Service icon"}
-          width={26}
-          height={26}
-          className="w-[26px] h-[26px]"
+          width={40}
+          height={40}
+          className="w-[40px] h-[40px]"
           style={{ filter: 'invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(95%) contrast(101%)' }}
         />
       );
@@ -113,26 +113,34 @@ export default function ServicesSection({
       <Image
         src={imageSrc}
         alt={service.icon?.name || service.title || "Service icon"}
-        width={26}
-        height={26}
-        className="w-[26px] h-[26px]"
+        width={40}
+        height={40}
+        className="w-[40px] h-[40px]"
       />
     );
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-green-600 to-green-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-br from-[#0a5c3c] via-[#0d7045] to-[#0a5c3c] relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2
-            className="text-white text-3xl md:text-4xl font-bold mb-4"
+            className="text-white text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg"
             style={{ fontFamily: "var(--font-almarai)" }}
           >
             {title || defaultTitle}
           </h2>
           <p
-            className="text-white/90 text-lg max-w-3xl mx-auto"
+            className="text-white/95 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             style={{ fontFamily: "var(--font-almarai)" }}
           >
             {description || defaultDescription}
@@ -140,43 +148,51 @@ export default function ServicesSection({
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {displayServices.map((service: ServiceCard, index: number) => (
             <div
               key={service.id || index}
-              className={`rounded-xl p-6 text-center transition-smooth hover-lift hover-glow animate-scale-in ${
-                service.isActive
-                  ? "bg-white/20 text-white border-2 border-white/40 animate-glow-pulse"
-                  : "bg-white text-gray-800 shadow-lg hover:shadow-xl border border-gray-100"
-              } transform`}
+              className="group relative"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Icon */}
-              <div className="flex items-center justify-center mb-4">
-                <div
-                  className={`w-14 h-14 flex items-center justify-center rounded-full transition-smooth bg-green-50`}
-                >
-                  <div>{getIconComponent(service)}</div>
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3
-                className="font-bold mb-3 text-lg transition-slow"
-                style={{ fontFamily: "var(--font-almarai)" }}
-              >
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className={`leading-relaxed text-sm transition-slow ${
-                  service.isActive ? "text-white/90" : "text-gray-600"
+              <div
+                className={`rounded-2xl p-8 text-center transition-all duration-300 h-full ${
+                  service.isActive
+                    ? "bg-white/15 backdrop-blur-sm text-white border-2 border-white/30 shadow-2xl"
+                    : "bg-white text-gray-800 shadow-xl hover:shadow-2xl border border-gray-100 hover:-translate-y-2"
                 }`}
-                style={{ fontFamily: "var(--font-almarai)" }}
               >
-                {service.description}
-              </p>
+                {/* Icon Container */}
+                <div className="flex items-center justify-center mb-6">
+                  <div
+                    className={`w-20 h-20 flex items-center justify-center rounded-2xl transition-all duration-300 ${
+                      service.isActive 
+                        ? "bg-white/20 group-hover:bg-white/30" 
+                        : "bg-gradient-to-br from-green-50 to-green-100 group-hover:from-green-100 group-hover:to-green-200 group-hover:scale-110"
+                    }`}
+                  >
+                    <div className="text-green-600">{getIconComponent(service)}</div>
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="font-bold mb-4 text-xl transition-colors"
+                  style={{ fontFamily: "var(--font-almarai)" }}
+                >
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className={`leading-relaxed text-base transition-colors ${
+                    service.isActive ? "text-white/95" : "text-gray-600 group-hover:text-gray-700"
+                  }`}
+                  style={{ fontFamily: "var(--font-almarai)" }}
+                >
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -185,13 +201,21 @@ export default function ServicesSection({
         <div className="text-center">
           <Link
             href={displayCTA.href}
-            className="inline-block bg-white text-green-600 font-semibold rounded-xl px-8 py-3 hover:bg-gray-50 transition-smooth hover-lift shadow-lg hover:shadow-xl transform"
+            className="inline-flex items-center gap-2 bg-white text-green-700 font-bold rounded-full px-10 py-4 hover:bg-green-50 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-1"
             style={{
               fontFamily: "var(--font-almarai)",
               textDecoration: "none",
             }}
           >
             {displayCTA.label}
+            <svg 
+              className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${language === 'ar' ? 'rotate-180' : ''}`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
       </div>

@@ -1,6 +1,10 @@
 export interface PackageFeature {
   ar: string;
   en: string;
+  subFeatures?: {
+    ar: string;
+    en: string;
+  }[];
 }
 
 export interface Package {
@@ -57,15 +61,27 @@ export const packages: Package[] = [
     features: [
       {
         ar: 'تأسيس شركة',
-        en: 'Company Formation'
+        en: 'Company Formation',
+        subFeatures: [
+          { ar: 'إعداد العقد التأسيسي', en: 'Preparation of Articles of Association' },
+          { ar: 'حجز الاسم التجاري', en: 'Commercial Name Reservation' }
+        ]
       },
       {
         ar: 'استخراج السجل التجاري',
-        en: 'Commercial Registration'
+        en: 'Commercial Registration',
+        subFeatures: [
+          { ar: 'تقديم الطلب', en: 'Application Submission' },
+          { ar: 'متابعة الإجراءات', en: 'Follow-up Procedures' }
+        ]
       },
       {
         ar: 'استخراج الرخص المطلوبة',
-        en: 'Required Licenses'
+        en: 'Required Licenses',
+        subFeatures: [
+          { ar: 'رخصة البلدية', en: 'Municipal License' },
+          { ar: 'الرخص الفنية', en: 'Technical Licenses' }
+        ]
       },
       {
         ar: 'دعم فني لمدة شهر',
@@ -90,11 +106,19 @@ export const packages: Package[] = [
       },
       {
         ar: 'استشارات قانونية',
-        en: 'Legal Consultations'
+        en: 'Legal Consultations',
+        subFeatures: [
+          { ar: 'استشارات العقود', en: 'Contract Consultations' },
+          { ar: 'استشارات الأنظمة', en: 'Regulatory Consultations' }
+        ]
       },
       {
         ar: 'إدارة المحاسبة',
-        en: 'Accounting Management'
+        en: 'Accounting Management',
+        subFeatures: [
+          { ar: 'إعداد القوائم المالية', en: 'Financial Statements Preparation' },
+          { ar: 'التقارير الضريبية', en: 'Tax Reports' }
+        ]
       },
       {
         ar: 'دعم فني لمدة 3 أشهر',
@@ -102,7 +126,11 @@ export const packages: Package[] = [
       },
       {
         ar: 'خدمات تسويقية',
-        en: 'Marketing Services'
+        en: 'Marketing Services',
+        subFeatures: [
+          { ar: 'إدارة وسائل التواصل', en: 'Social Media Management' },
+          { ar: 'تصميم الهوية البصرية', en: 'Visual Identity Design' }
+        ]
       }
     ],
     popular: true
@@ -123,11 +151,20 @@ export const packages: Package[] = [
       },
       {
         ar: 'استشارات إدارية شاملة',
-        en: 'Comprehensive Administrative Consultations'
+        en: 'Comprehensive Administrative Consultations',
+        subFeatures: [
+          { ar: 'التخطيط الاستراتيجي', en: 'Strategic Planning' },
+          { ar: 'تطوير الأعمال', en: 'Business Development' }
+        ]
       },
       {
         ar: 'إدارة الموارد البشرية',
-        en: 'Human Resources Management'
+        en: 'Human Resources Management',
+        subFeatures: [
+          { ar: 'التوظيف والاستقطاب', en: 'Recruitment' },
+          { ar: 'إدارة الرواتب', en: 'Payroll Management' },
+          { ar: 'التأمينات الاجتماعية', en: 'Social Insurance' }
+        ]
       },
       {
         ar: 'دعم فني لمدة سنة',
@@ -135,7 +172,11 @@ export const packages: Package[] = [
       },
       {
         ar: 'خدمات تسويقية متقدمة',
-        en: 'Advanced Marketing Services'
+        en: 'Advanced Marketing Services',
+        subFeatures: [
+          { ar: 'حملات إعلانية', en: 'Advertising Campaigns' },
+          { ar: 'تحليل السوق', en: 'Market Analysis' }
+        ]
       },
       {
         ar: 'متابعة دورية',

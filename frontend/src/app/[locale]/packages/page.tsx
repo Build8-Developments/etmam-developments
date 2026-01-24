@@ -217,12 +217,28 @@ export default function PackagesPage() {
 
       {/* Packages Section */}
       <AnimatedSection animation="fadeInUp" delay={100}>
-        <section className="py-16 lg:py-24">
+        <section className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <h2
+                className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+                style={{ fontFamily: "var(--font-almarai)" }}
+              >
+                {content.packages.sectionTitle?.[language] || (language === "ar" ? "اختر الباقة المناسبة لك" : "Choose Your Perfect Package")}
+              </h2>
+              <p
+                className="text-lg text-gray-600 max-w-2xl mx-auto"
+                style={{ fontFamily: "var(--font-almarai)" }}
+              >
+                {content.packages.sectionDescription?.[language] || (language === "ar" ? "باقات متنوعة تناسب جميع احتياجاتك" : "Various packages to suit all your needs")}
+              </p>
+            </div>
+
             {loadingPackages ? (
               <CardsGridSkeleton count={3} columns={3} showImage={false} />
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {(packagesPageData?.packages &&
                 packagesPageData.packages.length > 0
                   ? packagesPageData.packages
@@ -242,87 +258,138 @@ export default function PackagesPage() {
                       ? pkg.price[language]
                       : String(pkg.price || "");
                   const packageFeatures =
-                    pkg.feature?.map((f: any) =>
-                      getLocalizedValue(f.feature)
-                    ) ||
-                    pkg.features?.map((f: any) =>
-                      typeof f === "string" ? f : getLocalizedValue(f)
-                    ) ||
+                    pkg.feature?.map((f: any) => ({
+                      text: getLocalizedValue(f.feature),
+                      subFeatures: f.subFeatures?.map((sf: any) => getLocalizedValue(sf)) || []
+                    })) ||
+                    pkg.features?.map((f: any) => {
+                      if (typeof f === "string") {
+                        return { text: f, subFeatures: [] };
+                      }
+                      return {
+                        text: typeof f === "object" && (f.ar || f.en) ? (language === "ar" ? f.ar : f.en) : getLocalizedValue(f),
+                        subFeatures: f.subFeatures?.map((sf: any) => language === "ar" ? sf.ar : sf.en) || []
+                      };
+                    }) ||
                     [];
                   const isPopular = pkg.featured || pkg.popular || false;
 
                   return (
                     <div
                       key={pkg.id || index}
-                      className={`relative bg-white rounded-2xl shadow-lg p-8 ${
+                      className={`group relative bg-white rounded-3xl transition-all duration-300 hover:-translate-y-2 ${
                         isPopular
-                          ? "ring-2 ring-green-500 transform scale-105"
-                          : ""
+                          ? "shadow-2xl border-2 border-green-500"
+                          : "shadow-xl hover:shadow-2xl border-2 border-gray-100"
                       }`}
+                      style={{ 
+                        animationDelay: `${index * 0.1}s`,
+                      }}
                     >
+                      {/* Popular Badge */}
                       {isPopular && (
-                        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                          <span
-                            className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold"
+                        <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
+                          <div
+                            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg"
                             style={{ fontFamily: "var(--font-almarai)" }}
                           >
                             {content.packages.popularBadge[language]}
-                          </span>
+                          </div>
                         </div>
                       )}
 
-                      <div className="text-center mb-8">
-                        <h3
-                          className="text-2xl font-bold text-gray-900 mb-4"
-                          style={{ fontFamily: "var(--font-almarai)" }}
-                        >
-                          {packageTitle}
-                        </h3>
-                        <div
-                          className="text-4xl font-bold text-green-600"
-                          style={{ fontFamily: "var(--font-almarai)" }}
-                        >
-                          {packagePrice}
+                      {/* Card Content */}
+                      <div className="p-8 lg:p-10 flex flex-col h-full">
+                        {/* Header */}
+                        <div className="text-center mb-8 pt-2">
+                          <h3
+                            className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6"
+                            style={{ fontFamily: "var(--font-almarai)" }}
+                          >
+                            {packageTitle}
+                          </h3>
+                          <div className="flex items-center justify-center gap-2">
+                            <span
+                              className={`text-5xl lg:text-6xl font-bold ${
+                                isPopular ? "text-green-600" : "text-gray-900"
+                              }`}
+                              style={{ fontFamily: "var(--font-almarai)" }}
+                            >
+                              {packagePrice}
+                            </span>
+                          </div>
                         </div>
+
+                        {/* Divider */}
+                        <div className={`h-1 w-20 mx-auto mb-8 rounded-full ${
+                          isPopular ? "bg-gradient-to-r from-green-400 to-green-600" : "bg-gray-200"
+                        }`}></div>
+
+                        {/* Features List */}
+                        <ul className="space-y-4 mb-10 flex-grow">
+                          {packageFeatures.map(
+                            (feature: any, featureIndex: number) => (
+                              <li key={featureIndex} className="space-y-2">
+                                <div className="flex items-start gap-3">
+                                  <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 ${
+                                    isPopular ? "bg-green-100" : "bg-gray-100"
+                                  }`}>
+                                    <svg
+                                      className={`w-4 h-4 ${
+                                        isPopular ? "text-green-600" : "text-green-500"
+                                      }`}
+                                      fill="currentColor"
+                                      viewBox="0 0 20 20"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span
+                                    className="text-gray-900 text-base leading-relaxed font-semibold"
+                                    style={{ fontFamily: "var(--font-almarai)" }}
+                                  >
+                                    {feature.text}
+                                  </span>
+                                </div>
+                                
+                                {/* Sub-features */}
+                                {feature.subFeatures && feature.subFeatures.length > 0 && (
+                                  <ul className={`${language === 'ar' ? 'mr-9' : 'ml-9'} space-y-2 mt-2`}>
+                                    {feature.subFeatures.map((subFeature: string, subIndex: number) => (
+                                      <li key={subIndex} className="flex items-start gap-2">
+                                        <span className="text-green-500 mt-1">•</span>
+                                        <span
+                                          className="text-gray-600 text-sm leading-relaxed"
+                                          style={{ fontFamily: "var(--font-almarai)" }}
+                                        >
+                                          {subFeature}
+                                        </span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </li>
+                            )
+                          )}
+                        </ul>
+
+                        {/* CTA Button */}
+                        <Link
+                          href={`/${locale}/contact`}
+                          className={`block w-full text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 ${
+                            isPopular
+                              ? "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl"
+                              : "bg-gray-900 hover:bg-gray-800 text-white shadow-md hover:shadow-lg"
+                          }`}
+                          style={{ fontFamily: "var(--font-almarai)" }}
+                        >
+                          {content.packages.chooseButton[language]}
+                        </Link>
                       </div>
-
-                      <ul className="space-y-4 mb-8">
-                        {packageFeatures.map(
-                          (feature: string, featureIndex: number) => (
-                            <li key={featureIndex} className="flex items-start">
-                              <svg
-                                className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              <span
-                                className="text-gray-600"
-                                style={{ fontFamily: "var(--font-almarai)" }}
-                              >
-                                {feature}
-                              </span>
-                            </li>
-                          )
-                        )}
-                      </ul>
-
-                      <Link
-                        href={`/${locale}/contact`}
-                        className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
-                          isPopular
-                            ? "bg-green-500 hover:bg-green-600 text-white"
-                            : "bg-gray-100 hover:bg-gray-200 text-gray-800"
-                        }`}
-                        style={{ fontFamily: "var(--font-almarai)" }}
-                      >
-                        {content.packages.chooseButton[language]}
-                      </Link>
                     </div>
                   );
                 })}
