@@ -82,8 +82,9 @@ export default async function Home({ params }: HomePageProps) {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section with Strapi data */}
-      <HeroSection
+      <main id="main-content">
+        {/* Hero Section with Strapi data */}
+        <HeroSection
         title={homeData?.Hero?.title}
         subtitle={homeData?.Hero?.subtitle}
         description={homeData?.Hero?.description}
@@ -202,6 +203,7 @@ export default async function Home({ params }: HomePageProps) {
       <AnimatedSection animation="fadeIn" delay={150}>
         <PartnersSection partners={homeData?.PartnersLogos?.partners} />
       </AnimatedSection>
+      </main>
 
       <Footer />
     </div>

@@ -71,9 +71,19 @@ export default function Header({
     getTranslation("navigation", "contact", language);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 ${Z_INDEX_CLASSES.HEADER} animate-slide-down`}
-    >
+    <>
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:bg-green-600 focus:text-white focus:rounded-lg focus:shadow-lg"
+        style={{ fontFamily: 'var(--font-almarai)' }}
+      >
+        {language === 'ar' ? 'تخطي إلى المحتوى الرئيسي' : 'Skip to main content'}
+      </a>
+      
+      <header
+        className={`fixed top-0 left-0 right-0 ${Z_INDEX_CLASSES.HEADER} animate-slide-down`}
+      >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="flex items-center justify-between transition-all duration-300 hover:shadow-lg"
@@ -376,5 +386,6 @@ export default function Header({
         </div>
       </div>
     </header>
+    </>
   );
 }

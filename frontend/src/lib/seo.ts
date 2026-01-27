@@ -6,9 +6,13 @@ interface SEOConfig {
   description: string;
   keywords?: readonly string[];
   image?: string;
-  path?: string; // Changed from url to path for clarity
+  path?: string;
   type?: "website" | "article";
   locale?: Locale;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etmam.com";
@@ -27,6 +31,10 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     path = "/",
     type = "website",
     locale = "ar",
+    publishedTime,
+    modifiedTime,
+    author,
+    section,
   } = config;
 
   const keywordsArray = Array.from(keywords);
@@ -40,11 +48,11 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
       ? "منصة إتمام للخدمات التجارية والإدارية - تأسيس الشركات وإدارة الأعمال"
       : "Etmam platform for commercial and administrative services - company formation and business management");
 
-  // Generate proper locale-based alternates
   const alternates = generateAlternateUrls(path, baseUrl);
-  const canonicalUrl = getCanonicalUrl(locale, path, baseUrl);
+  const canonical = getCanonicalUrl(locale, path, baseUrl);
+  const fullImage = image.startsWith("http") ? image : `${baseUrl}${image}`;
 
-  return {
+  const metadata: Metadata = {
     title: fullTitle,
     description: fullDescription,
     keywords: [
@@ -58,7 +66,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
       "company formation",
       ...keywordsArray,
     ],
-    authors: [{ name: "إتمام - Etmam" }],
+    authors: author ? [{ name: author }] : [{ name: "إتمام - Etmam" }],
     creator: "إتمام - Etmam",
     publisher: "إتمام - Etmam",
     formatDetection: {
@@ -68,17 +76,17 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     },
     metadataBase: new URL(baseUrl),
     alternates: {
-      canonical: canonicalUrl,
+      canonical,
       languages: alternates,
     },
     openGraph: {
       title: fullTitle,
       description: fullDescription,
-      url: canonicalUrl,
+      url: canonical,
       siteName: locale === "ar" ? "إتمام" : "Etmam",
       images: [
         {
-          url: image.startsWith("http") ? image : `${baseUrl}${image}`,
+          url: fullImage,
           width: 1200,
           height: 630,
           alt: fullTitle,
@@ -91,7 +99,9 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
       card: "summary_large_image",
       title: fullTitle,
       description: fullDescription,
-      images: [image.startsWith("http") ? image : `${baseUrl}${image}`],
+      images: [fullImage],
+      creator: "@etmam",
+      site: "@etmam",
     },
     robots: {
       index: true,
@@ -106,8 +116,25 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     },
     verification: {
       google: process.env.GOOGLE_SITE_VERIFICATION,
+      yandex: process.env.YANDEX_VERIFICATION,
+      // @ts-ignore - bing is not in the type definition yet
+      bing: process.env.BING_VERIFICATION,
     },
   };
+
+  // Add article-specific metadata
+  if (type === "article" && publishedTime) {
+    metadata.openGraph = {
+      ...metadata.openGraph,
+      type: "article",
+      publishedTime,
+      modifiedTime: modifiedTime || publishedTime,
+      authors: author ? [author] : undefined,
+      section: section || "General",
+    };
+  }
+
+  return metadata;
 }
 
 /**

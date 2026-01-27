@@ -35,12 +35,19 @@ const almarai = Rubik({
   subsets: ["latin", "arabic"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 });
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["300", "400", "600", "700"],
+  display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
+  adjustFontFallback: true,
 });
 
 const rubik = Rubik({
@@ -48,6 +55,9 @@ const rubik = Rubik({
   subsets: ["latin", "arabic"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 });
 
 // Generate static params for all supported locales
@@ -161,6 +171,15 @@ export default async function LocaleLayout({
         />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Preconnect for external resources */}
+        <link rel="preconnect" href="https://etmam-admin.alkelany.com" />
+        <link rel="dns-prefetch" href="https://etmam-admin.alkelany.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Theme color for mobile browsers */}
+        <meta name="theme-color" content="#026838" />
+        
         {isStaging && <meta name="robots" content="noindex,nofollow" />}
         {/* Structured Data for SEO */}
         <OrganizationSchema locale={validLocale} />
