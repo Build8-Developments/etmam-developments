@@ -54,14 +54,20 @@ export function Breadcrumb() {
       <BreadcrumbSchema items={breadcrumbItems} />
       
       <nav aria-label="Breadcrumb" className="py-4">
-        <ol className="flex items-center gap-2 text-sm flex-wrap" itemScope itemType="https://schema.org/BreadcrumbList">
+        <ol 
+          className="flex items-baseline gap-2 text-sm flex-wrap" 
+          itemScope 
+          itemType="https://schema.org/BreadcrumbList"
+          style={{ alignItems: 'baseline' }}
+        >
           {breadcrumbItems.map((item, index) => (
             <li
               key={item.url}
               itemProp="itemListElement"
               itemScope
               itemType="https://schema.org/ListItem"
-              className="flex items-center gap-2"
+              className="inline-flex items-baseline gap-2"
+              style={{ alignItems: 'baseline' }}
             >
               {index < breadcrumbItems.length - 1 ? (
                 <>
@@ -69,9 +75,12 @@ export function Breadcrumb() {
                     href={item.url}
                     itemProp="item"
                     className="text-white/90 hover:text-white transition-colors"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
+                    style={{ 
+                      fontFamily: 'var(--font-almarai)',
+                      display: 'inline',
+                    }}
                   >
-                    <span itemProp="name">{item.name}</span>
+                    <span itemProp="name" style={{ display: 'inline' }}>{item.name}</span>
                   </Link>
                   <meta itemProp="position" content={String(index + 1)} />
                   <svg
@@ -80,6 +89,7 @@ export function Breadcrumb() {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
+                    style={{ display: 'inline-block', verticalAlign: 'baseline', marginTop: '2px' }}
                   >
                     <path
                       strokeLinecap="round"
@@ -94,7 +104,10 @@ export function Breadcrumb() {
                   <span 
                     itemProp="name" 
                     className="text-white font-medium"
-                    style={{ fontFamily: 'var(--font-almarai)' }}
+                    style={{ 
+                      fontFamily: 'var(--font-almarai)',
+                      display: 'inline',
+                    }}
                   >
                     {item.name}
                   </span>
