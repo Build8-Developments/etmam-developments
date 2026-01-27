@@ -225,13 +225,13 @@ export default function PackagesPage() {
                 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
                 style={{ fontFamily: "var(--font-almarai)" }}
               >
-                {content.packages.sectionTitle?.[language] || (language === "ar" ? "اختر الباقة المناسبة لك" : "Choose Your Perfect Package")}
+                {language === "ar" ? "اختر الباقة المناسبة لك" : "Choose Your Perfect Package"}
               </h2>
               <p
                 className="text-lg text-gray-600 max-w-2xl mx-auto"
                 style={{ fontFamily: "var(--font-almarai)" }}
               >
-                {content.packages.sectionDescription?.[language] || (language === "ar" ? "باقات متنوعة تناسب جميع احتياجاتك" : "Various packages to suit all your needs")}
+                {language === "ar" ? "باقات متنوعة تناسب جميع احتياجاتك" : "Various packages to suit all your needs"}
               </p>
             </div>
 

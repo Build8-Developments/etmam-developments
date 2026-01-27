@@ -7,6 +7,7 @@ import {
   FAQSection,
   PartnersSection,
   ErrorBoundary,
+  Breadcrumb,
 } from "@/components";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { buildImageUrl } from "@/lib/api";
@@ -51,8 +52,9 @@ export default async function AboutPage({ params }: AboutPageProps) {
       <div className="min-h-screen bg-white">
         <Header />
 
-        {/* Custom Hero Section */}
-        <AnimatedSection animation="fadeIn" delay={0}>
+        <main id="main-content">
+          {/* Custom Hero Section */}
+          <AnimatedSection animation="fadeIn" delay={0}>
           <div className="relative overflow-hidden">
             <div
               className="relative py-20 lg:py-32 pt-28 md:pt-32 min-h-[400px]"
@@ -84,6 +86,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
                 className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
                 style={{ pointerEvents: "auto" }}
               >
+                {/* Breadcrumb Navigation - Inside Hero */}
+                <div className="mb-6">
+                  <Breadcrumb />
+                </div>
+                
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   {/* Left Side - Content */}
                   <div className="text-white">
@@ -307,6 +314,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <AnimatedSection animation="fadeIn" delay={150}>
           <PartnersSection partners={aboutData?.PartnersLogos?.partners} />
         </AnimatedSection>
+        </main>
 
         <Footer />
       </div>
