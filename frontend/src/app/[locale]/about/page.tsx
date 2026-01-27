@@ -53,11 +53,6 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <Header />
 
         <main id="main-content">
-          {/* Breadcrumb Navigation */}
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-            <Breadcrumb />
-          </div>
-
           {/* Custom Hero Section */}
           <AnimatedSection animation="fadeIn" delay={0}>
           <div className="relative overflow-hidden">
@@ -91,6 +86,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
                 className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
                 style={{ pointerEvents: "auto" }}
               >
+                {/* Breadcrumb Navigation - Inside Hero */}
+                <div className="mb-6">
+                  <Breadcrumb />
+                </div>
+                
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   {/* Left Side - Content */}
                   <div className="text-white">

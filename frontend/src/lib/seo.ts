@@ -117,8 +117,6 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     verification: {
       google: process.env.GOOGLE_SITE_VERIFICATION,
       yandex: process.env.YANDEX_VERIFICATION,
-      // @ts-ignore - bing is not in the type definition yet
-      bing: process.env.BING_VERIFICATION,
     },
   };
 

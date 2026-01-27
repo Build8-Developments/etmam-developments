@@ -30,10 +30,13 @@ export function Breadcrumb() {
   // Build breadcrumb trail
   let currentPath = `/${locale}`;
   for (let i = 1; i < pathSegments.length; i++) {
-    currentPath += `/${pathSegments[i]}`;
+    const segment = pathSegments[i];
+    if (!segment) continue; // Skip empty segments
+    
+    currentPath += `/${segment}`;
     
     // Map segment to readable name
-    const segmentName = getSegmentName(pathSegments[i], language);
+    const segmentName = getSegmentName(segment, language);
     
     breadcrumbItems.push({
       name: segmentName,
@@ -65,14 +68,14 @@ export function Breadcrumb() {
                   <Link
                     href={item.url}
                     itemProp="item"
-                    className="text-gray-600 hover:text-green-600 transition-colors"
+                    className="text-white/90 hover:text-white transition-colors"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
                     <span itemProp="name">{item.name}</span>
                   </Link>
                   <meta itemProp="position" content={String(index + 1)} />
                   <svg
-                    className="w-4 h-4 text-gray-400"
+                    className="w-4 h-4 text-white/70"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -90,7 +93,7 @@ export function Breadcrumb() {
                 <>
                   <span 
                     itemProp="name" 
-                    className="text-green-600 font-medium"
+                    className="text-white font-medium"
                     style={{ fontFamily: 'var(--font-almarai)' }}
                   >
                     {item.name}
