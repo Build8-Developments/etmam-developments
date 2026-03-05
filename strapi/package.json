@@ -15,6 +15,7 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
+    "@strapi/core": "^5.38.0",
     "@strapi/plugin-cloud": "5.25.0",
     "@strapi/plugin-graphql": "^5.28.0",
     "@strapi/plugin-users-permissions": "5.25.0",

@@ -5,6 +5,7 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -22,8 +23,10 @@
   --color-green-200: #99d8b5;
   --color-green-300: #73c999;
   --color-green-400: #4cbb7d;
-  --color-green-500: #026838; /* Main brand green */
-  --color-green-600: #025530; /* Darker brand green */
+  --color-green-500: #026838;
+  /* Main brand green */
+  --color-green-600: #025530;
+  /* Darker brand green */
   --color-green-700: #014228;
   --color-green-800: #012f20;
   --color-green-900: #011c18;
@@ -34,7 +37,8 @@
   --color-lime-200: #ddf4a4;
   --color-lime-300: #d0f082;
   --color-lime-400: #c3ec60;
-  --color-lime-500: #aad83a; /* Accent color */
+  --color-lime-500: #aad83a;
+  /* Accent color */
   --color-lime-600: #8fb830;
   --color-lime-700: #749826;
   --color-lime-800: #59781c;
@@ -122,10 +126,12 @@ select:focus {
     opacity: 1;
     filter: blur(0px);
   }
+
   50% {
     opacity: 0.6;
     filter: blur(2px);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -133,11 +139,13 @@ select:focus {
 }
 
 @keyframes buttonPulse {
+
   0%,
   100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
   }
+
   50% {
     transform: scale(1.05);
     box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
@@ -148,12 +156,7 @@ body.language-transitioning {
   overflow-x: hidden;
 }
 
-body.language-transitioning
-  > *:not(.animate-fade-in-up):not(.animate-fade-in):not(
-    .animate-fade-in-left
-  ):not(.animate-fade-in-right):not(.animate-scale-in):not(
-    .animate-slide-in-up
-  ) {
+body.language-transitioning>*:not(.animate-fade-in-up):not(.animate-fade-in):not(.animate-fade-in-left):not(.animate-fade-in-right):not(.animate-scale-in):not(.animate-slide-in-up) {
   animation: languageFade 0.4s ease-in-out;
 }
 
@@ -192,15 +195,9 @@ body {
   pointer-events: none !important;
 }
 
-/* But allow their visible children to be interactive */
-.opacity-0 form,
-.opacity-0 button,
-.opacity-0 a,
-.opacity-0 input,
-.opacity-0 textarea,
-.opacity-0 select {
-  pointer-events: auto !important;
-}
+/* NOTE: Do NOT re-enable pointer-events on children of .opacity-0.
+   This was causing invisible elements (e.g. hidden mobile menu) to still
+   capture clicks via their child buttons/links at offset positions. */
 
 /* Toast Animations */
 @keyframes slide-in {
@@ -208,6 +205,7 @@ body {
     opacity: 0;
     transform: translateY(-100%) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -218,6 +216,7 @@ body {
   from {
     width: 100%;
   }
+
   to {
     width: 0%;
   }
@@ -237,6 +236,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -247,6 +247,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -257,6 +258,7 @@ body {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -268,6 +270,7 @@ body {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -279,6 +282,7 @@ body {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -290,6 +294,7 @@ body {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -301,6 +306,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -406,10 +412,12 @@ body {
 
 /* Gradient Animations */
 @keyframes gradient-shift {
+
   0%,
   100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -422,11 +430,13 @@ body {
 
 /* Pulse Animation */
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.05);
@@ -442,28 +452,29 @@ body {
   0% {
     background-position: -1000px 0;
   }
+
   100% {
     background-position: 1000px 0;
   }
 }
 
 .animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
   background-size: 1000px 100%;
   animation: shimmer 2s infinite;
 }
 
 /* Float Animation */
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -478,6 +489,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -489,10 +501,12 @@ body {
 
 /* Bounce Subtle */
 @keyframes bounce-subtle {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
@@ -504,10 +518,12 @@ body {
 
 /* Glow Pulse */
 @keyframes glow-pulse {
+
   0%,
   100% {
     box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
   }
+
   50% {
     box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.6);
   }
@@ -546,18 +562,23 @@ body {
 .stagger-1 {
   animation-delay: 0.05s;
 }
+
 .stagger-2 {
   animation-delay: 0.1s;
 }
+
 .stagger-3 {
   animation-delay: 0.15s;
 }
+
 .stagger-4 {
   animation-delay: 0.2s;
 }
+
 .stagger-5 {
   animation-delay: 0.25s;
 }
+
 .stagger-6 {
   animation-delay: 0.3s;
 }
@@ -572,6 +593,7 @@ body {
   from {
     filter: blur(10px);
   }
+
   to {
     filter: blur(0);
   }
@@ -582,6 +604,7 @@ body {
   from {
     clip-path: inset(0 100% 0 0);
   }
+
   to {
     clip-path: inset(0);
   }
@@ -659,26 +682,10 @@ body {
   pointer-events: none !important;
 }
 
-/* ⚠️ CRITICAL: Ensure ALL interactive elements are ALWAYS clickable */
-button,
-a,
-input,
-textarea,
-select,
-[role="button"],
-[role="link"],
-[type="submit"],
-[type="button"],
-[type="text"],
-[type="email"],
-[type="tel"],
-[type="search"],
-form,
-.clickable,
-[onclick],
-[href] {
-  pointer-events: auto !important;
-}
+/* Interactive elements should be clickable by default.
+   Do NOT use pointer-events: auto !important here — it overrides
+   intentional pointer-events: none (e.g. hidden mobile menu items)
+   and causes clicks to register on invisible elements at wrong positions. */
 
 /* Special handling for input fields */
 input,
@@ -693,17 +700,15 @@ form {
   z-index: 50;
   isolation: isolate;
   touch-action: manipulation;
-  pointer-events: auto !important;
 }
 
-/* Ensure form inputs are always interactive */
+/* Ensure form inputs are interactive */
 form input,
 form textarea,
 form select,
 form button,
 form label {
-  pointer-events: auto !important;
-  touch-action: manipulation !important;
+  touch-action: manipulation;
 }
 
 /* WhatsApp Float Button Styles */
@@ -728,13 +733,16 @@ form label {
     opacity: 0;
     transform: scale(0.3) translateY(20px);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.05) translateY(-5px);
   }
+
   70% {
     transform: scale(0.9) translateY(0);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -787,10 +795,12 @@ form label {
     transform: scale(1);
     opacity: 0.7;
   }
+
   70% {
     transform: scale(1.2);
     opacity: 0.3;
   }
+
   100% {
     transform: scale(1.4);
     opacity: 0;
@@ -862,10 +872,12 @@ form label {
 }
 
 @keyframes whatsappBadgePulse {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -978,12 +990,10 @@ form label {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;

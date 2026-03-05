@@ -165,8 +165,8 @@ export const FAQSection = ({ title, subtitle, faqs }: FAQSectionProps) => {
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-green-50/30" />
 
         {/* Decorative Elements */}
-        <div className="absolute top-0 start-0 w-72 h-72 bg-green-100/40 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 end-0 w-96 h-96 bg-green-100/30 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        <div className="absolute top-0 start-0 w-72 h-72 bg-green-100/40 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" data-decorative="true" />
+        <div className="absolute bottom-0 end-0 w-96 h-96 bg-green-100/30 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" data-decorative="true" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}

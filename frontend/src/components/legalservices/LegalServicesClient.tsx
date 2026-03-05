@@ -68,9 +68,9 @@ export default function LegalServicesClient({
                       {/* Logo Header with Enhanced Gradient */}
                       <div className="relative bg-gradient-to-br from-[#1B8036] via-[#1a7532] to-[#145c28] p-10 text-white overflow-hidden">
                         {/* Animated Background Patterns */}
-                        <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-700" />
-                        <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16 group-hover:scale-150 transition-transform duration-700" />
-                        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:scale-[2] transition-transform duration-700" />
+                        <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-700 pointer-events-none" data-decorative="true" />
+                        <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16 group-hover:scale-150 transition-transform duration-700 pointer-events-none" data-decorative="true" />
+                        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:scale-[2] transition-transform duration-700 pointer-events-none" data-decorative="true" />
 
                         {/* Logo Container */}
                         <div className="relative z-10 flex items-center justify-center h-28">
