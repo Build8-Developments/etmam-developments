@@ -185,7 +185,7 @@ async function checkServiceExists(slug, locale, strapiUrl, apiToken) {
       query,
       { slug, locale },
       strapiUrl,
-      apiToken
+      apiToken,
     );
     const services = result.consultingServices || [];
     return Array.isArray(services) && services.length > 0 ? services[0] : null;
@@ -261,7 +261,7 @@ function generateSlug(text) {
 function prepareServiceData(service, iconId = null) {
   const data = {
     name: service.name,
-    slug: generateSlug(service.name), // Generate ASCII-safe slug from name
+    slug: service.slug, // Use provided slug (should be English slug)
     shortDescription: service.shortDescription,
     button_label: service.button_label,
     currency: service.currency,
@@ -305,19 +305,33 @@ async function importServices(
   mediaMapFile,
   strapiUrl,
   apiToken,
-  locale
+  locale,
 ) {
   console.log(`\nImporting consulting services for locale: ${locale}`);
   console.log("=".repeat(60));
 
   // Read files
   const transformedServices = JSON.parse(
-    fs.readFileSync(transformedServicesFile, "utf-8")
+    fs.readFileSync(transformedServicesFile, "utf-8"),
   );
   const originalServices = JSON.parse(
-    fs.readFileSync(originalServicesFile, "utf-8")
+    fs.readFileSync(originalServicesFile, "utf-8"),
   );
   const urlToMediaIdMap = JSON.parse(fs.readFileSync(mediaMapFile, "utf-8"));
+
+  // Read English services for slug consistency
+  const enServicesPath = path.join(
+    path.dirname(originalServicesFile),
+    "consulting_services_en.json",
+  );
+  let enServices = [];
+  try {
+    enServices = JSON.parse(fs.readFileSync(enServicesPath, "utf-8"));
+  } catch (error) {
+    console.warn(
+      `Warning: Could not read English services file at ${enServicesPath}. Slugs might not match.`,
+    );
+  }
 
   const results = {
     created: [],
@@ -333,7 +347,7 @@ async function importServices(
     console.log(
       `\n[${i + 1}/${transformedServices.length}] Processing: ${
         transformedService.name
-      }`
+      }`,
     );
 
     try {
@@ -345,7 +359,7 @@ async function importServices(
           originalService.icon.url,
           originalService.icon.name,
           strapiUrl,
-          apiToken
+          apiToken,
         );
         if (iconId) {
           console.log(`    ✓ Icon uploaded (ID: ${iconId})`);
@@ -356,8 +370,13 @@ async function importServices(
       const serviceWithMedia = mapMediaIds(
         transformedService,
         urlToMediaIdMap,
-        originalService
+        originalService,
       );
+
+      // Force use of English slug if available
+      if (enServices[i] && enServices[i].slug) {
+        serviceWithMedia.slug = enServices[i].slug;
+      }
 
       // Prepare data with icon
       const data = prepareServiceData(serviceWithMedia, iconId);
@@ -368,12 +387,12 @@ async function importServices(
         data.slug,
         locale,
         strapiUrl,
-        apiToken
+        apiToken,
       );
 
       if (existingService) {
         console.log(
-          `  ↳ Service exists (documentId: ${existingService.documentId}), updating...`
+          `  ↳ Service exists (documentId: ${existingService.documentId}), updating...`,
         );
 
         const updateMutation = buildUpdateMutation();
@@ -381,7 +400,7 @@ async function importServices(
           updateMutation,
           { documentId: existingService.documentId, data, locale },
           strapiUrl,
-          apiToken
+          apiToken,
         );
 
         results.updated.push({
@@ -390,7 +409,7 @@ async function importServices(
         });
 
         console.log(
-          `  ✓ Updated successfully (documentId: ${result.updateConsultingService.documentId})`
+          `  ✓ Updated successfully (documentId: ${result.updateConsultingService.documentId})`,
         );
       } else {
         console.log(`  ↳ Creating new service...`);
@@ -400,7 +419,7 @@ async function importServices(
           createMutation,
           { data, locale },
           strapiUrl,
-          apiToken
+          apiToken,
         );
 
         results.created.push({
@@ -409,7 +428,7 @@ async function importServices(
         });
 
         console.log(
-          `  ✓ Created successfully (documentId: ${result.createConsultingService.documentId})`
+          `  ✓ Created successfully (documentId: ${result.createConsultingService.documentId})`,
         );
       }
 
@@ -428,7 +447,7 @@ async function importServices(
   // Save results
   const resultsPath = path.join(
     path.dirname(transformedServicesFile),
-    `import-results-${locale}.json`
+    `import-results-${locale}.json`,
   );
   fs.writeFileSync(resultsPath, JSON.stringify(results, null, 2));
 
@@ -442,7 +461,7 @@ async function importServices(
 
   if (results.failed.length > 0) {
     console.log(
-      "\n⚠️  Some imports failed. Check the results file for details."
+      "\n⚠️  Some imports failed. Check the results file for details.",
     );
   }
 
@@ -455,10 +474,10 @@ if (require.main === module) {
 
   if (args.length < 5) {
     console.error(
-      "Usage: node import-services.js <transformed-file> <original-file> <media-map-file> <strapi-url> <api-token> <locale>"
+      "Usage: node import-services.js <transformed-file> <original-file> <media-map-file> <strapi-url> <api-token> <locale>",
     );
     console.error(
-      "Example: node import-services.js ./output/transformed-services.json ../../Services-Data/Consulting/consulting_services_ar.json ./output/url-to-media-id-map.json http://localhost:1337 your-token ar"
+      "Example: node import-services.js ./output/transformed-services.json ../../Services-Data/Consulting/consulting_services_ar.json ./output/url-to-media-id-map.json http://localhost:1337 your-token ar",
     );
     process.exit(1);
   }
@@ -492,7 +511,7 @@ if (require.main === module) {
     mediaMapFile,
     strapiUrl,
     apiToken,
-    locale
+    locale,
   )
     .then(() => {
       console.log("\n🎉 Import process completed!");

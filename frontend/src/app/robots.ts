@@ -1,4 +1,4 @@
-import type { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
 
 /**
  * Env-aware robots configuration.
@@ -14,31 +14,31 @@ import type { MetadataRoute } from 'next';
  */
 export default function robots(): MetadataRoute.Robots {
   const isStaging =
-    process.env.DEPLOY_ENV === 'staging' ||
-    process.env.NEXT_PUBLIC_DEPLOY_ENV === 'staging' ||
-    process.env.VERCEL_ENV === 'preview';
+    process.env.DEPLOY_ENV === "staging" ||
+    process.env.NEXT_PUBLIC_DEPLOY_ENV === "staging" ||
+    process.env.VERCEL_ENV === "preview";
 
   if (isStaging) {
     return {
       rules: [
         {
-          userAgent: '*',
-          disallow: '/',
+          userAgent: "*",
+          disallow: "/",
         },
       ],
       sitemap: [],
     };
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etmam.com";
 
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
       },
     ],
-    sitemap: [`${siteUrl.replace(/\/$/, '')}/sitemap.xml`],
+    sitemap: [`${siteUrl.replace(/\/$/, "")}/sitemap.xml`],
   };
 }
