@@ -44,7 +44,7 @@ export default function LegalServicesPage() {
     if (legalData && legalData.length > 0) {
       // Use Strapi data
       companiesList = legalData.map((category: any) => ({
-        id: category.slug || category.documentId,
+        id: category.documentId,
         name: category.name || "",
         description: category.description || "",
         logo: category.icon?.url
@@ -132,8 +132,8 @@ export default function LegalServicesPage() {
         searchTerms.every(
           (term) =>
             company.name.toLowerCase().includes(term) ||
-            company.description.toLowerCase().includes(term)
-        )
+            company.description.toLowerCase().includes(term),
+        ),
       );
     }
 

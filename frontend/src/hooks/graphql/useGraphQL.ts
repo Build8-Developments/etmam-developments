@@ -30,6 +30,8 @@ import {
 } from "@/lib/graphql/queries/content/services/consulting";
 import {
   GET_LEGAL_SERVICE_CATEGORIES,
+  GET_LEGAL_SERVICE_CATEGORY_BY_DOCUMENTID,
+  GET_LEGAL_SUBSERVICES_BY_CATEGORY,
   GET_LEGAL_SERVICE_CATEGORY_SUBSERVICES,
   GET_LEGAL_SERVICE_SUBSERVICE_DETAILS_BY_DOCUMENTID,
 } from "@/lib/graphql/queries/content/services/legal";
@@ -452,7 +454,7 @@ export const useConsultingServiceDetail = (documentId: string) => {
       variables: { documentId, locale: language },
       errorPolicy: "all",
       skip: !documentId,
-    }
+    },
   );
 
   return {
@@ -477,6 +479,39 @@ export const useLegalServiceCategories = () => {
   };
 };
 
+export const useLegalServiceCategoryByDocumentId = (documentId: string) => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(
+    GET_LEGAL_SERVICE_CATEGORY_BY_DOCUMENTID,
+    {
+      variables: { documentId, locale: language },
+      errorPolicy: "all",
+      skip: !documentId,
+    },
+  );
+
+  return {
+    data: (data as any)?.legalServiceCategory,
+    loading,
+    error,
+  };
+};
+
+export const useLegalSubservicesByCategory = (categoryDocumentId: string) => {
+  const { language } = useLanguage();
+  const { data, loading, error } = useQuery(GET_LEGAL_SUBSERVICES_BY_CATEGORY, {
+    variables: { categoryDocumentId, locale: language },
+    errorPolicy: "all",
+    skip: !categoryDocumentId,
+  });
+
+  return {
+    data: (data as any)?.legalSubServices || [],
+    loading,
+    error,
+  };
+};
+
 export const useLegalServiceSubservices = () => {
   const { language } = useLanguage();
   const { data, loading, error } = useQuery(
@@ -484,7 +519,7 @@ export const useLegalServiceSubservices = () => {
     {
       variables: { locale: language },
       errorPolicy: "all",
-    }
+    },
   );
 
   return {
@@ -502,7 +537,7 @@ export const useLegalServiceSubserviceDetail = (documentId: string) => {
       variables: { documentId, locale: language },
       errorPolicy: "all",
       skip: !documentId,
-    }
+    },
   );
 
   return {
@@ -538,7 +573,7 @@ export const useCreateBlogComment = () => {
           ? "تم إرسال تعليقك بنجاح! سيتم مراجعته قبل النشر."
           : "Your comment has been submitted successfully! It will be reviewed before publishing.",
         "success",
-        5000
+        5000,
       );
     },
     onError: (error: any) => {
@@ -550,7 +585,7 @@ export const useCreateBlogComment = () => {
             ? "تم تجاوز الحد المسموح. يرجى المحاولة لاحقاً."
             : "Rate limit exceeded. Please try again later.",
           "warning",
-          5000
+          5000,
         );
       } else if (errorMessage.includes("Duplicate")) {
         showToast(
@@ -558,7 +593,7 @@ export const useCreateBlogComment = () => {
             ? "تم إرسال هذا التعليق من قبل. يرجى الانتظار قليلاً."
             : "This comment was already submitted. Please wait a moment.",
           "warning",
-          5000
+          5000,
         );
       } else if (errorMessage.includes("not found")) {
         showToast(
@@ -566,7 +601,7 @@ export const useCreateBlogComment = () => {
             ? "حدث خطأ في الربط مع المقال. يرجى تحديث الصفحة والمحاولة مرة أخرى."
             : "An error occurred linking to the post. Please refresh the page and try again.",
           "error",
-          6000
+          6000,
         );
       } else {
         showToast(
@@ -574,7 +609,7 @@ export const useCreateBlogComment = () => {
             ? "حدث خطأ أثناء إرسال التعليق. يرجى المحاولة مرة أخرى."
             : "An error occurred while submitting your comment. Please try again.",
           "error",
-          6000
+          6000,
         );
       }
     },
@@ -724,7 +759,7 @@ export const useCreateContactSubmission = () => {
           ? "تم إرسال استشارتك بنجاح! سنتواصل معك قريباً."
           : "Your consultation has been submitted successfully! We will contact you soon.",
         "success",
-        5000
+        5000,
       );
     },
     onError: (error: any) => {
@@ -741,7 +776,7 @@ export const useCreateContactSubmission = () => {
             ? "لا يمكن الاتصال بالخادم. يرجى التأكد من تشغيل Strapi والمحاولة مرة أخرى."
             : "Cannot connect to server. Please ensure Strapi is running and try again.",
           "error",
-          6000
+          6000,
         );
       } else {
         showToast(
@@ -749,7 +784,7 @@ export const useCreateContactSubmission = () => {
             ? "حدث خطأ أثناء إرسال الاستشارة. يرجى المحاولة مرة أخرى."
             : "An error occurred while submitting your consultation. Please try again.",
           "error",
-          6000
+          6000,
         );
       }
     },

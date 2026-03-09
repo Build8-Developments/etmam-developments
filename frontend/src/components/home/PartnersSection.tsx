@@ -77,7 +77,7 @@ const PartnersSection = ({ partners }: PartnersSectionProps) => {
           {duplicatedPartners.map((partner, index) => (
             <div
               key={`${partner.name}-${index}`}
-              className="flex-shrink-0 flex items-center justify-center bg-white rounded-lg p-6 hover:bg-gray-50 transition-all duration-300"
+              className="shrink-0 flex items-center justify-center bg-white rounded-lg p-6 hover:bg-gray-50 transition-all duration-300"
               style={{
                 width: "160px",
                 height: "100px",
@@ -90,7 +90,6 @@ const PartnersSection = ({ partners }: PartnersSectionProps) => {
                 height={80}
                 className="object-contain max-w-full max-h-full"
                 priority={index < partnersData.length}
-                quality={95}
               />
             </div>
           ))}

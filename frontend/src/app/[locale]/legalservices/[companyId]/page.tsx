@@ -13,8 +13,8 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useMemo } from "react";
 import {
-  useLegalServiceCategories,
-  useLegalServiceSubservices,
+  useLegalServiceCategoryByDocumentId,
+  useLegalSubservicesByCategory,
 } from "@/hooks/graphql/useGraphQL";
 
 export default function CompanyServicesPage() {
@@ -23,52 +23,12 @@ export default function CompanyServicesPage() {
   const locale = params.locale as string;
   const companyId = params.companyId as string;
 
-  // Get GraphQL data
-  const { data: legalCategories, loading: loadingCategories } =
-    useLegalServiceCategories();
-  const { data: legalSubservices, loading: loadingSubservices } =
-    useLegalServiceSubservices();
-
-  // Find category by slug (companyId)
-  const categoryData = useMemo(() => {
-    if (!legalCategories || legalCategories.length === 0) {
-      console.log("No legal categories loaded");
-      return null;
-    }
-    const found = legalCategories.find((cat: any) => cat.slug === companyId);
-    console.log("Category lookup:", {
-      companyId,
-      found: !!found,
-      foundSlug: found?.slug,
-      foundName: found?.name,
-      totalCategories: legalCategories.length,
-      allSlugs: legalCategories.map((c: any) => c.slug),
-    });
-    return found;
-  }, [legalCategories, companyId]);
-
-  // Filter subservices by category
-  const categorySubservices = useMemo(() => {
-    if (!legalSubservices || legalSubservices.length === 0) {
-      console.log("No legal subservices loaded");
-      return [];
-    }
-    const filtered = legalSubservices.filter(
-      (sub: any) => sub.legal_service_category?.slug === companyId
-    );
-    console.log("Subservices filter:", {
-      companyId,
-      totalSubservices: legalSubservices.length,
-      filtered: filtered.length,
-      sampleCategory: legalSubservices[0]?.legal_service_category?.slug,
-      allCategorySlugs: [
-        ...new Set(
-          legalSubservices.map((s: any) => s.legal_service_category?.slug)
-        ),
-      ],
-    });
-    return filtered;
-  }, [legalSubservices, companyId]);
+  // Get category directly by documentId
+  const { data: categoryData, loading: loadingCategory } =
+    useLegalServiceCategoryByDocumentId(companyId);
+  // Get subservices filtered by category
+  const { data: categorySubservices, loading: loadingSubservices } =
+    useLegalSubservicesByCategory(companyId);
 
   // Transform GraphQL data or use mock data
   const company = useMemo(() => {
@@ -92,7 +52,7 @@ export default function CompanyServicesPage() {
               }`;
 
         return {
-          id: sub.slug || sub.documentId,
+          id: sub.documentId,
           title: sub.name || "",
           description: sub.shortDescription || "",
           price: priceText,
@@ -120,7 +80,7 @@ export default function CompanyServicesPage() {
     // If GraphQL data is not ready or incomplete, fall back to mock data
     console.log(
       "Using mock data fallback for legal services - companyId:",
-      companyId
+      companyId,
     );
 
     // Fall back to mock data
@@ -1178,7 +1138,7 @@ export default function CompanyServicesPage() {
     };
   }, [categoryData, categorySubservices, companyId, language]);
 
-  const isLoading = loadingCategories || loadingSubservices;
+  const isLoading = loadingCategory || loadingSubservices;
 
   if (isLoading) {
     return (

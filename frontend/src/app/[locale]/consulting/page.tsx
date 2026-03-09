@@ -58,8 +58,8 @@ export default function ConsultingServicesPage() {
               service.title.toLowerCase().includes(term) ||
               service.description.toLowerCase().includes(term) ||
               service.price.toLowerCase().includes(term) ||
-              service.duration.toLowerCase().includes(term)
-          )
+              service.duration.toLowerCase().includes(term),
+          ),
         );
       }
 
@@ -79,7 +79,7 @@ export default function ConsultingServicesPage() {
           : `Starting from ${service.startFromPrice} ${service.currency}`;
 
       return {
-        id: String(service.order), // Use order as ID for routing
+        id: service.documentId, // Use documentId for routing
         title: service.name || "",
         description: service.shortDescription || "",
         price: priceText,
@@ -103,8 +103,8 @@ export default function ConsultingServicesPage() {
             service.title.toLowerCase().includes(term) ||
             service.description.toLowerCase().includes(term) ||
             service.price.toLowerCase().includes(term) ||
-            service.duration.toLowerCase().includes(term)
-        )
+            service.duration.toLowerCase().includes(term),
+        ),
       );
     }
 

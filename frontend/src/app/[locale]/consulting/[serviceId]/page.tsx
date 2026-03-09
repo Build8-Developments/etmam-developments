@@ -11,12 +11,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/contexts/ToastContext";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import {
-  useConsultingServiceDetail,
-  useConsultingServices,
-} from "@/hooks/graphql/useGraphQL";
+import { useConsultingServiceDetail } from "@/hooks/graphql/useGraphQL";
 import { useMemo } from "react";
-import { consultingServices as mockConsultingServices } from "@/mockData/services";
 import ConsultingServiceLoading from "./loading";
 
 export default function ConsultingServiceDetailPage() {
@@ -26,28 +22,17 @@ export default function ConsultingServiceDetailPage() {
   const locale = routeParams.locale as string;
   const serviceId = routeParams.serviceId as string;
 
-  // First, get all services to find the documentId by order (which is shared across locales)
-  const { data: allServices, loading: loadingServices } =
-    useConsultingServices();
-
-  // Find the service by order (serviceId in URL is the order number)
-  const serviceByOrder = useMemo(() => {
-    if (!allServices || !serviceId) return null;
-    const orderNum = parseInt(serviceId as string, 10);
-    return allServices.find((service: any) => service.order === orderNum);
-  }, [allServices, serviceId]);
-
-  // Get service details using documentId
+  // Get service details directly using documentId from URL
   const { data: serviceData, loading: loadingDetail } =
-    useConsultingServiceDetail(serviceByOrder?.documentId || "");
+    useConsultingServiceDetail(serviceId);
 
   // Combined loading state
-  const isLoading = loadingServices || (serviceByOrder && loadingDetail);
+  const isLoading = loadingDetail;
 
   // Transform GraphQL data or use mock data as fallback
   const transformedService = useMemo(() => {
     // Try to use GraphQL data first
-    if (serviceData && serviceByOrder) {
+    if (serviceData) {
       const periodText =
         language === "ar"
           ? `من ${serviceData.finishPeriodMin} إلى ${serviceData.finishPeriodMax} أيام عمل`
@@ -86,31 +71,10 @@ export default function ConsultingServiceDetailPage() {
       };
     }
 
-    // Fall back to mock data
+    // Fall back to mock data (for development/testing only)
     console.log("Using mock data fallback for consulting service:", serviceId);
-    const mockService = mockConsultingServices.find(
-      (service) => service.id === serviceId
-    );
-    if (!mockService) {
-      console.warn("Service not found in mock data:", serviceId);
-      return null;
-    }
-
-    return {
-      title: mockService.title[language],
-      description: mockService.description[language],
-      price: mockService.price[language],
-      duration: mockService.duration[language],
-      icon: mockService.icon,
-      features: mockService.features[language],
-      requirements: mockService.requirements[language],
-      steps: mockService.steps.map((step) => ({
-        title: step.title[language],
-        description: step.description[language],
-        icon: step.icon,
-      })),
-    };
-  }, [serviceData, serviceByOrder, serviceId, language]);
+    return null;
+  }, [serviceData, serviceId, language]);
 
   // Show loading skeleton while data is being fetched
   if (isLoading) {
@@ -147,7 +111,7 @@ export default function ConsultingServiceDetailPage() {
           ? `تم طلب خدمة: ${transformedService.title}`
           : `Service requested: ${transformedService.title}`,
         "success",
-        4000
+        4000,
       );
     }
   };

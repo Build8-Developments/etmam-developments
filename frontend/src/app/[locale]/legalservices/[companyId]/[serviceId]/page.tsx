@@ -12,10 +12,7 @@ import { useToast } from "@/contexts/ToastContext";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
-import {
-  useLegalServiceSubservices,
-  useLegalServiceSubserviceDetail,
-} from "@/hooks/graphql/useGraphQL";
+import { useLegalServiceSubserviceDetail } from "@/hooks/graphql/useGraphQL";
 import LegalServiceDetailLoading from "./loading";
 
 export default function ServiceDetailPage() {
@@ -26,27 +23,17 @@ export default function ServiceDetailPage() {
   const companyId = params.companyId as string;
   const serviceId = params.serviceId as string;
 
-  // Get all subservices to find the one by slug
-  const { data: allSubservices, loading: loadingSubservices } =
-    useLegalServiceSubservices();
-
-  // Find the subservice by slug
-  const serviceBySlug = useMemo(() => {
-    if (!allSubservices || !serviceId) return null;
-    return allSubservices.find((service: any) => service.slug === serviceId);
-  }, [allSubservices, serviceId]);
-
-  // Get service details using documentId
+  // Get service details directly using documentId from URL
   const { data: serviceData, loading: loadingDetail } =
-    useLegalServiceSubserviceDetail(serviceBySlug?.documentId || "");
+    useLegalServiceSubserviceDetail(serviceId);
 
   // Combined loading state
-  const isLoading = loadingSubservices || (serviceBySlug && loadingDetail);
+  const isLoading = loadingDetail;
 
   // Transform GraphQL data or use mock data as fallback
   const transformedService = useMemo(() => {
     // Try to use GraphQL data first
-    if (serviceData && serviceBySlug) {
+    if (serviceData) {
       const periodText =
         language === "ar"
           ? `من ${serviceData.finishPeriodMin} إلى ${serviceData.finishPeriodMax} أيام عمل`
@@ -68,7 +55,7 @@ export default function ServiceDetailPage() {
           icon: step.icon?.name || "default",
         })) || [];
 
-      const companyName = serviceBySlug.legal_service_category?.name || "";
+      const companyName = serviceData.legal_service_category?.name || "";
 
       return {
         title: serviceData.name || "",
@@ -306,7 +293,7 @@ export default function ServiceDetailPage() {
     if (!mockService) return null;
 
     return mockService;
-  }, [serviceData, serviceBySlug, companyId, serviceId, language]);
+  }, [serviceData, companyId, serviceId, language]);
 
   const service = transformedService;
 
@@ -344,7 +331,7 @@ export default function ServiceDetailPage() {
           ? `تم طلب خدمة: ${service.title}`
           : `Service requested: ${service.title}`,
         "success",
-        4000
+        4000,
       );
     }
   };

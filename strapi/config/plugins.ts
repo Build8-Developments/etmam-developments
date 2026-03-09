@@ -2,9 +2,9 @@ export default ({ env }) => ({
   graphql: {
     enabled: true,
     config: {
-      endpoint: '/graphql',
+      endpoint: "/graphql",
       shadowCRUD: true,
-      playgroundAlways: env.bool('GRAPHQL_PLAYGROUND', true),
+      landingPage: env("NODE_ENV") !== "production",
       depthLimit: 10,
       amountLimit: 100,
       apolloServer: {
@@ -15,8 +15,8 @@ export default ({ env }) => ({
   i18n: {
     enabled: true,
     config: {
-      locales: ['en', 'ar'],
-      defaultLocale: 'ar',
+      locales: ["en", "ar"],
+      defaultLocale: "ar",
     },
   },
 });
